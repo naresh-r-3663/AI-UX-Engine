@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Article Feed</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+    * { box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #f0f0f2; margin: 0; }
+  </style>
+</head>
+<body class="min-h-screen py-6 px-4 sm:px-6 lg:px-10">
+
+  <div id="feed" class="flex flex-col gap-3 sm:gap-4 w-full max-w-[976px] mx-auto"></div>
+
+  <script>
+    /* ─── SVG icons ───────────────────────────────────────────── */
+    const ICON = {
+      check: `<svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                <path d="M1.5 4L3 5.5L6.5 2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>`,
+      cal:   `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#696c74" stroke-width="1.5">
+                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                <path d="M16 2v4M8 2v4M3 10h18"/>
+              </svg>`,
+      eye:   `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#696c74" stroke-width="1.5">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>`,
+    };
+
+    /* ─── category → pill colors ──────────────────────────────── */
+    const CAT = {
+      'Product':      { bg: '#f0ebfa', color: '#6633cc' },
+      'Engineering':  { bg: '#e7edfe', color: '#0d4ef2' },
+      'Culture':      { bg: '#e3fcee', color: '#078841' },
+      'Architecture': { bg: '#fef1e7', color: '#c25a0a' },
+    };
+
+    /* ─── article data ─────────────────────────────────────────── */
+    const ARTICLES = [
+      {
+        initials:  'SC',
+        avatarBg:  '#cc33cc',
+        avatarFg:  '#fff',
+        author:    'Sarah Chen',
+        category:  'Product',
+        date:      'Feb 20, 2026',
+        readTime:  '7 min read',
+        views:     '12.4K',
+        title:     'Why Your SaaS Metrics Dashboard is Lying to You',
+        excerpt:   "Vanity metrics feel good but lead to bad decisions. Here's how to build a dashboard that actually drives growth.",
+        image:     'https://www.figma.com/api/mcp/asset/aada4aa3-dc8e-4b06-85d9-9116adaf52f4',
+      },
+      {
+        initials:  'AR',
+        avatarBg:  '#0dccf2',
+        avatarFg:  '#055261',
+        author:    'Alex Romeo',
+        category:  'Engineering',
+        date:      'Feb 20, 2026',
+        readTime:  '9 min read',
+        views:     '8.1K',
+        title:     'Scaling to 10M Users: Lessons from the Trenches',
+        excerpt:   "We went from 50K to 10M users in 18 months. Here's every mistake we made and what we learned from each one.",
+        image:     'https://www.figma.com/api/mcp/asset/76a1585d-28ae-4a4e-81dd-4b46c25ba8f6',
+      },
+      {
+        initials:  'JS',
+        avatarBg:  '#26d944',
+        avatarFg:  '#0f571b',
+        author:    'Jordan Smith',
+        category:  'Culture',
+        date:      'Feb 20, 2026',
+        readTime:  '5 min read',
+        views:     '6.7K',
+        title:     'Async-First Culture: Building Remote Teams That Actually Work',
+        excerpt:   "Remote work only succeeds when communication is intentional. Here's the async-first framework we use to stay aligned across timezones.",
+        image:     'https://www.figma.com/api/mcp/asset/a6fe6418-e5ae-4313-a62b-8da7c9cd49e2',
+      },
+      {
+        initials:  'TJ',
+        avatarBg:  '#f2cc0d',
+        avatarFg:  '#615205',
+        author:    'Taylor Johnson',
+        category:  'Architecture',
+        date:      'Feb 20, 2026',
+        readTime:  '11 min read',
+        views:     '15.2K',
+        title:     'Micro-Frontend Architecture: Worth the Complexity?',
+        excerpt:   "We split our monolith into micro-frontends and survived. Here's what we'd do differently and whether it was actually worth it.",
+        image:     'https://www.figma.com/api/mcp/asset/b4499c47-4ab8-49d2-86dc-fbec6ada1c69',
+      },
+    ];
+
+    /* ─── card template ────────────────────────────────────────── */
+    function Card(a) {
+      const cat = CAT[a.category] || CAT['Product'];
+      return `
+<article class="bg-white border border-[#e5e5e7] rounded-2xl overflow-hidden">
+
+  <!-- ① Mobile thumbnail (full-width, hidden on sm+) -->
+  <div class="sm:hidden h-48 overflow-hidden">
+    <img src="${a.image}" alt="${a.title}" class="w-full h-full object-cover" loading="lazy" />
+  </div>
+
+  <!-- ② Card body -->
+  <div class="p-4 sm:p-6 flex flex-col gap-3">
+
+    <!-- Author row -->
+    <div class="flex items-center gap-2 flex-wrap">
+      <div class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-[10px] font-medium tracking-[0.12px]"
+           style="background:${a.avatarBg};color:${a.avatarFg}">${a.initials}</div>
+      <span class="text-[13px] font-medium text-[#696c74] tracking-[-0.08px]">${a.author}</span>
+      <div class="w-3.5 h-3.5 rounded-full bg-[#0d4ef2] flex items-center justify-center shrink-0">${ICON.check}</div>
+      <span class="bg-[#fef1e7] text-[#c25a0a] text-[11px] font-medium px-2 py-[1px] rounded-full leading-[17px]">Top Writer</span>
+    </div>
+
+    <!-- Content row: text + desktop thumbnail -->
+    <div class="flex gap-4 sm:gap-5 items-start">
+
+      <!-- Text block -->
+      <div class="flex-1 min-w-0 flex flex-col gap-2 sm:gap-2.5">
+
+        <h2 class="text-[15px] sm:text-[18px] font-semibold text-[#020c27] leading-[21px] sm:leading-[25px] tracking-tight line-clamp-2">
+          ${a.title}
+        </h2>
+
+        <p class="text-[13px] sm:text-[14px] font-normal text-[#26282b] leading-[20px] sm:leading-[22.75px] tracking-[-0.15px] line-clamp-2">
+          ${a.excerpt}
+        </p>
+
+        <!-- Meta: category · date · read time · views -->
+        <div class="flex flex-wrap items-center gap-x-2 gap-y-1.5 pt-0.5">
+          <span class="text-[11px] font-medium px-2.5 py-[1px] rounded-full leading-[17px]"
+                style="background:${cat.bg};color:${cat.color}">${a.category}</span>
+          <span class="flex items-center gap-1 text-[#696c74] text-[12px]">${ICON.cal}${a.date}</span>
+          <span class="text-[#d1d5dc] text-[12px] leading-none select-none">·</span>
+          <span class="text-[#696c74] text-[12px]">${a.readTime}</span>
+          <span class="flex items-center gap-1 text-[#696c74] text-[12px]">${ICON.eye}${a.views}</span>
+        </div>
+
+        <!-- CTA -->
+        <div class="pt-1">
+          <button class="bg-[#0d4ef2] hover:bg-[#0b44d4] active:bg-[#0939b0] transition-colors text-white text-[14px] font-normal leading-[18px] px-4 h-10 rounded-lg">
+            Read Article
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Desktop thumbnail (hidden on mobile) -->
+      <div class="hidden sm:block shrink-0 w-[200px] lg:w-[218px] h-[140px] lg:h-[156px] rounded-[14px] overflow-hidden bg-[#f3f4f6]">
+        <img src="${a.image}" alt="${a.title}" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+    </div>
+  </div>
+
+</article>`;
+    }
+
+    document.getElementById('feed').innerHTML = ARTICLES.map(Card).join('');
+  </script>
+</body>
+</html>
