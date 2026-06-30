@@ -1,0 +1,121 @@
+{
+  "schema": "knowledge/forms/form-intents/v1",
+  "updatedAt": "2026-03-12T00:00:00.000Z",
+  "intents": [
+    {
+      "match": ["car booking", "car rental", "rental car", "book a car"],
+      "fields": [
+        "comp.input.text.base",
+        "comp.input.text.base",
+        "comp.input.date.base",
+        "comp.input.date.base",
+        "comp.input.dropdown.base",
+        "comp.input.textarea.base",
+        "comp.input.checkbox.base",
+        "comp.button.primary"
+      ],
+      "labels": ["Pickup location", "Dropoff location", "Pickup date", "Dropoff date", "Car type", "Notes", "Agree to terms", "Book now"],
+      "icons": ["Icon/Environment", "Icon/Environment", "Icon/Clock", "Icon/Clock", "Icon/Dropdown", "Icon/Text-document", "Icon/Tick-small", "Icon/Tag-tick"]
+    },
+    {
+      "match": ["asset request", "hardware request", "equipment request"],
+      "fields": [
+        "comp.input.text.base",
+        "comp.input.dropdown.base",
+        "comp.input.date.base",
+        "comp.input.textarea.base",
+        "comp.input.checkbox.base",
+        "comp.button.primary"
+      ],
+      "labels": ["Requester name", "Asset type", "Needed by date", "Justification", "Manager approval", "Submit request"],
+      "icons": ["Icon/Users", "Icon/File", "Icon/Clock", "Icon/Text-document", "Icon/Security-tick", "Icon/Tag-tick"]
+    },
+    {
+      "match": ["leave request", "time off", "vacation request"],
+      "fields": [
+        "comp.input.text.base",
+        "comp.input.date.base",
+        "comp.input.date.base",
+        "comp.input.textarea.base",
+        "comp.input.checkbox.base",
+        "comp.button.primary"
+      ],
+      "labels": ["Employee name", "Start date", "End date", "Reason", "Notify manager", "Submit"],
+      "icons": ["Icon/Users", "Icon/Clock", "Icon/Clock", "Icon/Text-document", "Icon/Alert-bell", "Icon/Tag-tick"]
+    },
+    {
+      "match": ["travel request", "business travel"],
+      "fields": [
+        "comp.input.text.base",
+        "comp.input.text.base",
+        "comp.input.date.base",
+        "comp.input.date.base",
+        "comp.input.dropdown.base",
+        "comp.input.textarea.base",
+        "comp.button.primary"
+      ],
+      "labels": ["From city", "To city", "Departure date", "Return date", "Class", "Purpose", "Submit"],
+      "icons": ["Icon/Environment", "Icon/Environment", "Icon/Clock", "Icon/Clock", "Icon/Dropdown", "Icon/Text-document", "Icon/Tag-tick"]
+    },
+    {
+      "match": ["support ticket", "helpdesk", "issue report"],
+      "fields": [
+        "comp.input.text.base",
+        "comp.input.dropdown.base",
+        "comp.input.textarea.base",
+        "comp.input.checkbox.base",
+        "comp.button.primary"
+      ],
+      "labels": ["Subject", "Category", "Description", "Urgent", "Submit ticket"],
+      "icons": ["Icon/Support", "Icon/Dropdown", "Icon/Text-document", "Icon/Alert-bell", "Icon/Tag-tick"]
+    },
+    {
+      "match": ["student registration", "student enrollment", "register student"],
+      "fields": [
+        "comp.input.text.base",
+        "comp.input.email.base",
+        "comp.input.phone.base",
+        "comp.input.date.base",
+        "comp.input.dropdown.base",
+        "comp.input.textarea.base",
+        "comp.input.checkbox.base",
+        "comp.button.primary"
+      ],
+      "labels": ["Name", "Email", "Phone", "Date of birth", "Course", "Address", "Agree to terms", "Register"],
+      "icons": ["Icon/Users", "Icon/Email", "Icon/Mobile", "Icon/Clock", "Icon/Dropdown", "Icon/Environment", "Icon/Tick-small", "Icon/Tag-tick"]
+    },
+    {
+      "match": ["login", "sign in"],
+      "fields": [
+        "comp.input.email.base",
+        "comp.input.password.base",
+        "comp.input.checkbox.base",
+        "comp.button.primary"
+      ],
+      "labels": ["Email", "Password", "Remember me", "Sign in"],
+      "icons": ["Icon/Email", "Icon/Lock-on", "Icon/Tick-small", "Icon/Tag-tick"]
+    },
+    {
+      "match": ["book ordering", "book order", "order books", "book purchase"],
+      "fields": [
+        "comp.input.text.base",
+        "comp.input.text.base",
+        "comp.input.dropdown.base",
+        "comp.input.text.base",
+        "comp.input.textarea.base",
+        "comp.button.primary"
+      ],
+      "labels": ["Book name", "Author", "Category", "Quantity", "Notes", "Submit order"],
+      "icons": ["Icon/Input-text", "Icon/Input-text", "Icon/Dropdown", "Icon/Input-text", "Icon/Text-document", "Icon/Tag-tick"]
+    }
+  ],
+  "fallback": {
+    "fields": [
+      "comp.input.text.base",
+      "comp.input.text.base",
+      "comp.button.primary"
+    ],
+    "labels": ["Field 1", "Field 2", "Submit"],
+    "icons": ["Icon/Input-text", "Icon/Input-text", "Icon/Tag-tick"]
+  }
+}

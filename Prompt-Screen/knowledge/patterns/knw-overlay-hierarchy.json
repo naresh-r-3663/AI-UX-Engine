@@ -1,0 +1,9 @@
+{
+  "pt.popup.dropdown": {
+    "parent": "pt.modal.popup"
+  },
+
+  "pt.toast.success": {
+    "parent": "page"
+  }
+}

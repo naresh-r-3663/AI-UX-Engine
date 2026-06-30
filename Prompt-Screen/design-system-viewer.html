@@ -1,0 +1,978 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design System Viewer</title>
+    <style>
+      :root {
+        --bg: #f4f7fb;
+        --bg-alt: #ffffff;
+        --ink: #18222f;
+        --muted: #5a6878;
+        --line: #d8e0ea;
+        --brand: #0f766e;
+        --chip: #e8f5f3;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", "Avenir Next", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 10% 10%, #e8f5f3 0%, transparent 30%),
+          radial-gradient(circle at 90% 5%, #dfe9ff 0%, transparent 35%),
+          var(--bg);
+      }
+
+      .wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+
+      h1,
+      h2 {
+        margin: 0 0 12px;
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .hero {
+        background: linear-gradient(120deg, #0f766e, #0369a1);
+        color: #fff;
+        border-radius: 14px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      .hero-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .readme-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        background: rgba(255, 255, 255, 0.18);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 13px;
+        padding: 8px 14px;
+      }
+
+      .readme-btn:hover {
+        background: rgba(255, 255, 255, 0.27);
+      }
+
+      .hero-tab-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        background: rgba(255, 255, 255, 0.18);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 13px;
+        padding: 8px 14px;
+        cursor: pointer;
+      }
+
+      .hero-tab-btn:hover {
+        background: rgba(255, 255, 255, 0.27);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+        margin: 14px 0 22px;
+      }
+
+      .card {
+        background: var(--bg-alt);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 14px;
+      }
+
+      .metric {
+        font-size: 30px;
+        font-weight: 700;
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .chip {
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        background: var(--chip);
+        color: #0b4d49;
+        border: 1px solid #cae7e3;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: 9px 8px;
+        border-bottom: 1px solid var(--line);
+        vertical-align: top;
+      }
+
+      th {
+        color: #0f3a63;
+        background: #f7faff;
+      }
+
+      .section {
+        margin-bottom: 18px;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      .ok {
+        color: var(--brand);
+        font-weight: 600;
+      }
+
+      .err {
+        color: #b91c1c;
+        font-weight: 600;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+
+      .tab-btn {
+        border: 1px solid var(--line);
+        background: #fff;
+        color: var(--ink);
+        border-radius: 999px;
+        padding: 8px 14px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .tab-btn.active {
+        background: #0f766e;
+        color: #fff;
+        border-color: #0f766e;
+      }
+
+      .tab-panel {
+        display: none;
+      }
+
+      .tab-panel.active {
+        display: block;
+      }
+
+      .score-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .score-card {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 10px;
+        background: #f9fcff;
+      }
+
+      .score-value {
+        font-size: 26px;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="hero">
+        <div class="hero-head">
+          <h1>Design System Viewer</h1>
+          <div class="hero-actions">
+            <button class="hero-tab-btn" id="heroAccuracyBtn" type="button">Accuracy</button>
+            <a class="readme-btn" href="readme-visuals.html" target="_blank" rel="noopener noreferrer">Read Me</a>
+          </div>
+        </div>
+        <p>Live preview from knowledge JSON files</p>
+      </div>
+
+      <div id="status" class="card section">Loading...</div>
+
+      <div class="grid" id="summary"></div>
+
+      <div class="tabs">
+        <button class="tab-btn active" id="tabComponentBtn" type="button">Component</button>
+        <button class="tab-btn" id="tabIconBtn" type="button">Icons</button>
+        <button class="tab-btn" id="tabRuleBtn" type="button">Design Rule Engine</button>
+        <button class="tab-btn" id="tabFontBtn" type="button">Font Styles</button>
+        <button class="tab-btn" id="tabAccuracyBtn" type="button">Accuracy</button>
+      </div>
+
+      <section id="tabComponent" class="tab-panel active">
+        <div class="card section">
+          <h2>Token Categories</h2>
+          <table id="tokenTable"></table>
+        </div>
+
+        <div class="card section">
+          <h2 id="componentsGroupTitle">Components (0)</h2>
+          <p class="muted">Grouped component sets and patterns from your design system.</p>
+        </div>
+
+        <div class="card section">
+          <h2>Disallowed Components</h2>
+          <p class="muted" style="margin-bottom: 8px">
+            Components outside allowed prefixes (`comp.*`). Group components (`gr.comp.*`) are tracked separately. `Icon/*` is excluded from this check.
+          </p>
+          <table id="disallowedComponentTable"></table>
+        </div>
+
+        <div class="card section">
+          <h2>Button</h2>
+          <p class="muted" style="margin-bottom: 8px">Button component sets and their variant properties.</p>
+          <table id="componentButtonTable"></table>
+        </div>
+
+        <div class="card section">
+          <h2>Duo Button</h2>
+          <p class="muted" style="margin-bottom: 8px">Duo button component sets and their variant properties.</p>
+          <table id="componentDuoTable"></table>
+        </div>
+
+        <div class="card section">
+          <h2>Input</h2>
+          <p class="muted" style="margin-bottom: 8px">Input component sets and their variant properties.</p>
+          <table id="componentInputTable"></table>
+        </div>
+
+        <div class="card section">
+          <h2>Group Component</h2>
+          <p class="muted" style="margin-bottom: 8px">Grouped components under `gr.comp.*` (from `knowledge/components/knw-group-component.json`).</p>
+          <table id="componentGroupTable"></table>
+        </div>
+
+        <div class="card section">
+          <h2>Sub-Patterns</h2>
+          <p class="muted" style="margin-bottom: 8px">Components under `sub.pt.*`.</p>
+          <table id="componentSubPatternTable"></table>
+        </div>
+
+        <div class="card section">
+          <h2>Page Patterns</h2>
+          <p class="muted" style="margin-bottom: 8px">Components under `page.ptn.*` or `page.*`.</p>
+          <table id="componentPagePatternTable"></table>
+        </div>
+
+        <div class="card section">
+          <h2>UX Patterns</h2>
+          <p class="muted" style="margin-bottom: 8px">Components under `pt.*`.</p>
+          <p class="muted" id="uxRuleMeta" style="margin-bottom: 8px"></p>
+          <table id="componentUxPatternTable"></table>
+        </div>
+
+      </section>
+
+      <section id="tabIcon" class="tab-panel">
+        <div class="card section">
+          <h2>Icon Library</h2>
+          <p class="muted" style="margin-bottom: 8px">Loaded from `knowledge/components/knw-icons.json`.</p>
+          <table id="iconTable"></table>
+        </div>
+      </section>
+
+      <section id="tabRule" class="tab-panel">
+        <div class="card section">
+          <h2>Design Rule Engine</h2>
+          <p class="muted" style="margin-bottom: 8px">Loaded from `knowledge/rules/DesignRulesEngine.json`.</p>
+          <div id="rulesContent"></div>
+        </div>
+      </section>
+
+      <section id="tabFont" class="tab-panel">
+        <div class="card section">
+          <h2>Font Styles (H1-H6, P1-P6)</h2>
+          <p class="muted" style="margin-bottom: 8px">Loaded from `knowledge/tokens/knw-font.json` (fallback: `Tokens/tokensv1/creator.type.tokens.json`).</p>
+          <p class="muted" id="fontMeta" style="margin-bottom: 8px"></p>
+          <table id="fontTable"></table>
+        </div>
+      </section>
+
+      <section id="tabAccuracy" class="tab-panel">
+        <div class="card section">
+          <h2>Knowledge Layer Accuracy Score</h2>
+          <p class="muted" style="margin-bottom: 8px">
+            Estimated score for how reliably this knowledge layer can drive design generation.
+          </p>
+          <div id="accuracyContent"></div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      function arr(x) {
+        return Array.isArray(x) ? x : [];
+      }
+
+      function variantOptions(variants, key) {
+        return arr(variants?.[key]?.variantOptions);
+      }
+
+      function isIconName(name) {
+        return String(name || "").toLowerCase().startsWith("icon/");
+      }
+
+      function renderTable(el, headers, rows) {
+        const thead = `<thead><tr>${headers.map((h) => `<th>${h}</th>`).join("")}</tr></thead>`;
+        const tbody = `<tbody>${rows
+          .map((r) => `<tr>${r.map((c) => `<td>${c ?? "-"}</td>`).join("")}</tr>`)
+          .join("")}</tbody>`;
+        el.innerHTML = thead + tbody;
+      }
+
+      function normalizeKey(input) {
+        return String(input || "")
+          .toLowerCase()
+          .replace(/✦/g, "")
+          .replace(/&/g, "and")
+          .replace(/[^a-z0-9]/g, "");
+      }
+
+      function findLooseKey(obj, requested) {
+        if (!obj || typeof obj !== "object") return null;
+        if (Object.prototype.hasOwnProperty.call(obj, requested)) return requested;
+        const target = normalizeKey(requested);
+        return Object.keys(obj).find((k) => normalizeKey(k) === target) || null;
+      }
+
+      function parseRef(ref) {
+        return String(ref)
+          .replace(/^\{\s*|\s*\}$/g, "")
+          .split(".")
+          .map((s) => s.trim())
+          .filter(Boolean);
+      }
+
+      function resolveTypeToken(typeCategory, refOrPath, visited = new Set()) {
+        const roots = typeCategory?.groups
+          ? {
+              Primitive: typeCategory?.groups?.primitives || {},
+              Semantic: typeCategory?.groups?.semantic || {},
+            }
+          : {
+              Primitive: typeCategory?.Primitive || {},
+              Semantic: typeCategory?.Semantic || {},
+            };
+        const path = Array.isArray(refOrPath) ? refOrPath : parseRef(refOrPath);
+
+        let node = roots;
+        for (const step of path) {
+          const key = findLooseKey(node, step);
+          if (!key) return undefined;
+          node = node[key];
+        }
+
+        if (node && typeof node === "object" && "$value" in node) {
+          const value = node.$value;
+          if (typeof value === "string" && value.trim().startsWith("{")) {
+            if (visited.has(value)) return undefined;
+            visited.add(value);
+            return resolveTypeToken(typeCategory, value, visited);
+          }
+          return value;
+        }
+
+        return node;
+      }
+
+      function setupTabs() {
+        const componentBtn = document.getElementById("tabComponentBtn");
+        const iconBtn = document.getElementById("tabIconBtn");
+        const ruleBtn = document.getElementById("tabRuleBtn");
+        const fontBtn = document.getElementById("tabFontBtn");
+        const accuracyBtn = document.getElementById("tabAccuracyBtn");
+        const heroAccuracyBtn = document.getElementById("heroAccuracyBtn");
+        const componentPanel = document.getElementById("tabComponent");
+        const iconPanel = document.getElementById("tabIcon");
+        const rulePanel = document.getElementById("tabRule");
+        const fontPanel = document.getElementById("tabFont");
+        const accuracyPanel = document.getElementById("tabAccuracy");
+
+        function setActive(tab) {
+          componentBtn.classList.toggle("active", tab === "component");
+          iconBtn.classList.toggle("active", tab === "icon");
+          ruleBtn.classList.toggle("active", tab === "rule");
+          fontBtn.classList.toggle("active", tab === "font");
+          accuracyBtn.classList.toggle("active", tab === "accuracy");
+          componentPanel.classList.toggle("active", tab === "component");
+          iconPanel.classList.toggle("active", tab === "icon");
+          rulePanel.classList.toggle("active", tab === "rule");
+          fontPanel.classList.toggle("active", tab === "font");
+          accuracyPanel.classList.toggle("active", tab === "accuracy");
+        }
+
+        componentBtn.addEventListener("click", () => setActive("component"));
+        iconBtn.addEventListener("click", () => setActive("icon"));
+        ruleBtn.addEventListener("click", () => setActive("rule"));
+        fontBtn.addEventListener("click", () => setActive("font"));
+        accuracyBtn.addEventListener("click", () => setActive("accuracy"));
+        heroAccuracyBtn.addEventListener("click", () => setActive("accuracy"));
+
+        return { setActive };
+      }
+
+      async function loadData() {
+        const [tokensRes, compsRes, groupRes, subRes, pageRes, uxRes, uxRulesRes, iconsRes, rulesRes, rawTypeRes, fontRes] = await Promise.all([
+          fetch("knowledge/tokens/knw-design-tokens.json"),
+          fetch("knowledge/components/knw-components.json"),
+          fetch("knowledge/components/knw-group-component.json"),
+          fetch("knowledge/patterns/knw-sub-patterns.json"),
+          fetch("knowledge/patterns/knw-page-patterns.json"),
+          fetch("knowledge/patterns/knw-ux-patterns.json"),
+          fetch("knowledge/rules/ux-pattern-rules.json"),
+          fetch("knowledge/components/knw-icons.json"),
+          fetch("knowledge/rules/DesignRulesEngine.json"),
+          fetch("Tokens/tokensv1/creator.type.tokens.json"),
+          fetch("knowledge/tokens/knw-font.json"),
+        ]);
+
+        if (!tokensRes.ok) throw new Error("Cannot load knowledge/tokens/knw-design-tokens.json");
+        if (!compsRes.ok) throw new Error("Cannot load knowledge/components/knw-components.json");
+        if (!groupRes.ok) throw new Error("Cannot load knowledge/components/knw-group-component.json");
+        if (!subRes.ok) throw new Error("Cannot load knowledge/patterns/knw-sub-patterns.json");
+        if (!pageRes.ok) throw new Error("Cannot load knowledge/patterns/knw-page-patterns.json");
+        if (!uxRes.ok) throw new Error("Cannot load knowledge/patterns/knw-ux-patterns.json");
+        if (!uxRulesRes.ok) throw new Error("Cannot load knowledge/rules/ux-pattern-rules.json");
+
+        const tokens = await tokensRes.json();
+        const components = await compsRes.json();
+        const groupComponents = await groupRes.json();
+        const subPatterns = await subRes.json();
+        const pagePatterns = await pageRes.json();
+        const uxPatterns = await uxRes.json();
+        const uxPatternRules = await uxRulesRes.json();
+        const icons = iconsRes.ok
+          ? await iconsRes.json()
+          : { summary: { totalIcons: 0, withVariants: 0, withProperties: 0 }, icons: [] };
+        const designRules = rulesRes.ok
+          ? await rulesRes.json()
+          : { commands: {}, policy: { allowedPrefixes: [] }, schema: "missing" };
+        const rawTypeTokens = rawTypeRes.ok ? await rawTypeRes.json() : null;
+        const fontKnowledge = fontRes.ok ? await fontRes.json() : null;
+        return {
+          tokens,
+          components,
+          groupComponents,
+          subPatterns,
+          pagePatterns,
+          uxPatterns,
+          uxPatternRules,
+          icons,
+          designRules,
+          rawTypeTokens,
+          fontKnowledge,
+        };
+      }
+
+      function main({
+        tokens,
+        components,
+        groupComponents,
+        subPatterns,
+        pagePatterns,
+        uxPatterns,
+        uxPatternRules,
+        icons,
+        designRules,
+        rawTypeTokens,
+        fontKnowledge,
+      }) {
+        const status = document.getElementById("status");
+        const summary = document.getElementById("summary");
+        const tokenTable = document.getElementById("tokenTable");
+        const componentsGroupTitle = document.getElementById("componentsGroupTitle");
+        const componentButtonTable = document.getElementById("componentButtonTable");
+        const componentDuoTable = document.getElementById("componentDuoTable");
+        const componentInputTable = document.getElementById("componentInputTable");
+        const componentGroupTable = document.getElementById("componentGroupTable");
+        const componentSubPatternTable = document.getElementById("componentSubPatternTable");
+        const componentPagePatternTable = document.getElementById("componentPagePatternTable");
+        const componentUxPatternTable = document.getElementById("componentUxPatternTable");
+        const uxRuleMeta = document.getElementById("uxRuleMeta");
+        const disallowedComponentTable = document.getElementById("disallowedComponentTable");
+        const iconTable = document.getElementById("iconTable");
+        const rulesContent = document.getElementById("rulesContent");
+        const fontTable = document.getElementById("fontTable");
+        const fontMeta = document.getElementById("fontMeta");
+        const accuracyContent = document.getElementById("accuracyContent");
+
+        const subPatternList = arr(subPatterns?.subPatterns);
+        const pagePatternList = arr(pagePatterns?.pagePatterns);
+        const uxPatternList = arr(uxPatterns?.uxPatterns);
+        const groupComponentList = arr(groupComponents?.groupComponents || groupComponents?.components);
+        const uxRuleCount = arr(uxPatternRules?.rules).length + arr(uxPatternRules?.stateRules).length;
+
+        status.innerHTML =
+          `<span class="ok">Loaded</span> · ` +
+          `${tokens.summary?.categoryCount || 0} token categories · ` +
+          `${components.summary?.totalComponents || 0} allowed components · ` +
+          `${components.summary?.disallowedCount || 0} disallowed · ` +
+          `${groupComponents.summary?.totalGroupComponents || groupComponentList.length} group components · ` +
+          `${subPatterns.summary?.totalSubPatterns || subPatternList.length} sub-patterns · ` +
+          `${pagePatterns.summary?.totalPagePatterns || pagePatternList.length} page patterns · ` +
+          `${uxPatterns.summary?.totalUxPatterns || uxPatternList.length} ux patterns · ` +
+          `${icons.summary?.totalIcons || 0} icons`;
+
+        const compList = arr(components.components);
+        const disallowedList = arr(components.disallowedComponents);
+        const componentSets = compList.filter((c) => c.type === "COMPONENT_SET");
+        const withVariants = compList.filter((c) => c.meta?.hasVariants).length;
+
+        summary.innerHTML = [
+          ["Token Categories", tokens.summary?.categoryCount || 0],
+          ["Allowed Components", components.summary?.totalComponents || compList.length],
+          ["Disallowed Components", components.summary?.disallowedCount || disallowedList.length],
+          ["Group Components", groupComponents.summary?.totalGroupComponents || groupComponentList.length],
+          ["Component Sets", componentSets.length],
+          ["Sub-Patterns", subPatterns.summary?.totalSubPatterns || subPatternList.length],
+          ["Page Patterns", pagePatterns.summary?.totalPagePatterns || pagePatternList.length],
+          ["UX Patterns", uxPatterns.summary?.totalUxPatterns || uxPatternList.length],
+          ["Total Icons", icons.summary?.totalIcons || 0],
+        ]
+          .map(
+            ([label, value]) =>
+              `<div class="card"><div class="metric">${value}</div><div class="muted">${label}</div></div>`
+          )
+          .join("");
+
+        const tokenRows = Object.entries(tokens.categories || {}).map(([name, item]) => [
+          name,
+          item.sourceFile || "-",
+          item.stats?.tokenCount ?? 0,
+          Object.keys(item.groups || {})
+            .map((k) => `<span class="chip">${k}</span>`)
+            .join(" "),
+        ]);
+        renderTable(tokenTable, ["Category", "Source", "Token Count", "Groups"], tokenRows);
+
+        function toComponentRows(list) {
+          return list.map((c) => {
+            const keys = Object.keys(c.variants || {});
+            return [
+              c.name,
+              keys.length ? keys.join(", ") : "-",
+              c.meta?.hasProperties ? "Yes" : "No",
+            ];
+          });
+        }
+
+        const groupedButtonSets = componentSets.filter((c) => c.name.startsWith("comp.button."));
+        const groupedDuoSets = componentSets.filter((c) => c.name.startsWith("comp.duobutton."));
+        const groupedInputSets = componentSets.filter((c) => c.name.startsWith("comp.input."));
+        const groupedComponents = groupComponentList;
+        const groupedSubPatterns = subPatternList.filter((c) => c.name.startsWith("sub.pt."));
+        const groupedPagePatterns = pagePatternList.filter(
+          (c) => c.name.startsWith("page.ptn.") || c.name.startsWith("page.")
+        );
+        const groupedUxPatterns = uxPatternList.filter((c) => c.name.startsWith("pt."));
+        const groupedComponentsTotal =
+          groupedButtonSets.length +
+          groupedDuoSets.length +
+          groupedInputSets.length +
+          groupedComponents.length +
+          groupedSubPatterns.length +
+          groupedPagePatterns.length +
+          groupedUxPatterns.length;
+        componentsGroupTitle.textContent = `Components (${groupedComponentsTotal})`;
+        renderTable(
+          disallowedComponentTable,
+          ["Component", "Type", "Variant Properties", "Has Properties"],
+          disallowedList.map((c) => [
+            c.name,
+            c.type || "-",
+            Object.keys(c.variants || {}).join(", ") || "-",
+            c.meta?.hasProperties ? "Yes" : "No",
+          ])
+        );
+
+        renderTable(
+          componentButtonTable,
+          ["Component Set", "Variant Properties", "Has Properties"],
+          toComponentRows(groupedButtonSets)
+        );
+        renderTable(
+          componentDuoTable,
+          ["Component Set", "Variant Properties", "Has Properties"],
+          toComponentRows(groupedDuoSets)
+        );
+        renderTable(
+          componentInputTable,
+          ["Component Set", "Variant Properties", "Has Properties"],
+          toComponentRows(groupedInputSets)
+        );
+        renderTable(
+          componentGroupTable,
+          ["Component", "Type", "Variant Properties", "Has Properties"],
+          groupedComponents.map((c) => [
+            c.name,
+            c.type || "-",
+            Object.keys(c.variants || {}).join(", ") || "-",
+            c.meta?.hasProperties ? "Yes" : "No",
+          ])
+        );
+        renderTable(
+          componentSubPatternTable,
+          ["Component", "Type", "Variant Properties", "Has Properties"],
+          groupedSubPatterns.map((c) => [
+            c.name,
+            c.type || "-",
+            Object.keys(c.variants || {}).join(", ") || "-",
+            c.meta?.hasProperties ? "Yes" : "No",
+          ])
+        );
+        renderTable(
+          componentPagePatternTable,
+          ["Component", "Type", "Variant Properties", "Has Properties"],
+          groupedPagePatterns.map((c) => [
+            c.name,
+            c.type || "-",
+            Object.keys(c.variants || {}).join(", ") || "-",
+            c.meta?.hasProperties ? "Yes" : "No",
+          ])
+        );
+        renderTable(
+          componentUxPatternTable,
+          ["Component", "Type", "Variant Properties", "Has Properties"],
+          groupedUxPatterns.map((c) => [
+            c.name,
+            c.type || "-",
+            Object.keys(c.variants || {}).join(", ") || "-",
+            c.meta?.hasProperties ? "Yes" : "No",
+          ])
+        );
+        if (uxRuleMeta) {
+          uxRuleMeta.textContent = `Loaded UX/state rules from knowledge/rules/ux-pattern-rules.json (${uxRuleCount} total rules).`;
+        }
+
+        const iconList = arr(icons.icons);
+        const iconRows = iconList.map((icon) => [
+          icon.name,
+          icon.type || "-",
+          arr(icon.aliases).join(", ") || "-",
+          Object.keys(icon.variants || {}).join(", ") || "-",
+          Object.keys(icon.properties || {}).join(", ") || "-",
+        ]);
+        renderTable(
+          iconTable,
+          ["Icon", "Type", "Aliases", "Variant Properties", "Component Properties"],
+          iconRows
+        );
+
+        const profiles = arr(designRules?.componentProfiles);
+        const profileSection =
+          profiles.length === 0
+            ? ""
+            : `
+              <div class="section">
+                <h3>Component Profiles</h3>
+                <p class="muted" style="margin-bottom: 8px">Component-level guidance (usage, layout, accessibility, tokens).</p>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Component Ref</th>
+                      <th>Category</th>
+                      <th>Purpose</th>
+                      <th>Variant Keys</th>
+                      <th>Token Rules</th>
+                      <th>Typography</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${profiles
+                      .map((p) => {
+                        const purpose = arr(p?.usage?.purpose).join(", ") || "-";
+                        const variantKeys = Object.keys(p?.variants || {}).join(", ") || "-";
+                        const tokenKeys = Object.keys(p?.token_rules || {}).join(", ") || "-";
+                        const hasTypography = p?.token_rules?.typography ? "Yes" : "No";
+                        return `<tr><td>${p.component_ref || "-"}</td><td>${p.category || "-"}</td><td>${purpose}</td><td>${variantKeys}</td><td>${tokenKeys}</td><td>${hasTypography}</td></tr>`;
+                      })
+                      .join("")}
+                  </tbody>
+                </table>
+              </div>
+            `;
+
+        const commands = designRules?.commands || {};
+        const commandEntries = Object.entries(commands);
+        if (commandEntries.length === 0 && profiles.length === 0) {
+          rulesContent.innerHTML = `<p class="muted">No rules found.</p>`;
+        } else {
+          const sections = commandEntries
+            .map(([commandName, commandValue]) => {
+              const rules = arr(commandValue?.rules);
+              const rows = rules
+                .map((rule) => {
+                  const ruleId = rule.RuleID || rule.id || "-";
+                  const appliesTo =
+                    (Array.isArray(rule.AppliesTo) ? rule.AppliesTo.join(", ") : rule.AppliesTo) ||
+                    arr(rule.appliesTo).join(", ") ||
+                    "-";
+                  const variantKey = rule.VariantKey || "-";
+                  const variantValue = rule.VariantValue || "-";
+                  const intents =
+                    (Array.isArray(rule.IntentAliases) ? rule.IntentAliases.join(", ") : rule.IntentAliases) ||
+                    arr(rule.intentAliases).join(", ") ||
+                    "-";
+                  const useComp = rule.UseComponent || rule?.use?.component || "-";
+                  const priority = rule.Priority ?? rule.priority ?? "-";
+                  const confidence = rule.Confidence || rule.confidence || "-";
+                  const whenText =
+                    (Array.isArray(rule.When) ? rule.When.join(", ") : rule.When) ||
+                    arr(rule?.when?.context).join(", ") ||
+                    "-";
+                  const avoidText =
+                    (Array.isArray(rule.Avoid) ? rule.Avoid.map((a) => a.Reason || a.reason || "-").join("; ") : rule.Avoid) ||
+                    arr(rule.avoid).map((a) => a.reason || "-").join("; ") ||
+                    "-";
+                  const notes = rule.Notes || "-";
+                  return `<tr><td>${ruleId}</td><td>${appliesTo}</td><td>${variantKey}</td><td>${variantValue}</td><td>${intents}</td><td>${useComp}</td><td>${priority}</td><td>${confidence}</td><td>${whenText}</td><td>${avoidText}</td><td>${notes}</td></tr>`;
+                })
+                .join("");
+              return `
+                <div class="section">
+                  <h3>${commandName}</h3>
+                  <p class="muted" style="margin-bottom: 8px">${commandValue?.description || ""}</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Rule ID</th>
+                        <th>Applies To</th>
+                        <th>Variant Key</th>
+                        <th>Variant Value</th>
+                        <th>Intent Aliases</th>
+                        <th>Use Component</th>
+                        <th>Priority</th>
+                        <th>Confidence</th>
+                        <th>When</th>
+                        <th>Avoid</th>
+                        <th>Notes</th>
+                      </tr>
+                    </thead>
+                    <tbody>${rows || `<tr><td colspan="11">-</td></tr>`}</tbody>
+                  </table>
+                </div>
+              `;
+            })
+            .join("");
+          rulesContent.innerHTML = profileSection + sections;
+        }
+
+        const styleBase = [
+          "H1",
+          "H2",
+          "H3",
+          "H4",
+          "H5",
+          "H6",
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+        ];
+        const fontByStyle = new Map(
+          arr(fontKnowledge?.styles).map((item) => [String(item.style || "").toUpperCase(), item])
+        );
+        const hasFontKnowledge = fontByStyle.size > 0;
+        const typeCategory = rawTypeTokens || tokens.categories?.type;
+        const fontRows = styleBase.map((styleName) => {
+          if (hasFontKnowledge) {
+            const row = fontByStyle.get(styleName);
+            return [
+              styleName,
+              row?.family || "-",
+              row?.size ?? "-",
+              row?.lineHeight ?? "-",
+              row?.weightRegular || "-",
+              row?.weightSemibold || "-",
+              row?.weightBold || "-",
+            ];
+          }
+
+          const basePath = ["Semantic", "Type Default ✦", styleName];
+          const family = resolveTypeToken(typeCategory, [...basePath, "family"]);
+          const size = resolveTypeToken(typeCategory, [...basePath, "size"]);
+          const lineHeight = resolveTypeToken(typeCategory, [...basePath, "lineheight"]);
+          const regular =
+            resolveTypeToken(typeCategory, [...basePath, "weight-regular  ✦"]) ||
+            resolveTypeToken(typeCategory, [...basePath, "weight-regular ✦"]);
+          const semibold = resolveTypeToken(typeCategory, [...basePath, "weight-semibold"]);
+          const bold = resolveTypeToken(typeCategory, [...basePath, "weight-bold"]);
+
+          return [styleName, family || "-", size || "-", lineHeight || "-", regular || "-", semibold || "-", bold || "-"];
+        });
+
+        if (hasFontKnowledge) {
+          const baseStyle = fontKnowledge?.summary?.baseStyle || "P2";
+          const baseSize = fontKnowledge?.summary?.baseSize ?? "-";
+          const sourceFile = fontKnowledge?.summary?.sourceFile || "Tokens/tokensv1/creator.type.tokens.json";
+          fontMeta.textContent = `Base style: ${baseStyle} (${baseSize}) · Source: ${sourceFile}`;
+        } else {
+          fontMeta.textContent = "Fallback mode: resolved directly from type tokens.";
+        }
+
+        renderTable(
+          fontTable,
+          ["Style", "Family", "Size", "Line Height", "Weight Regular", "Weight Semibold", "Weight Bold"],
+          fontRows
+        );
+
+        const compSummary = components.summary || {};
+        const iconSummary = icons.summary || {};
+        const profilesCount = arr(designRules?.componentProfiles).length;
+        const commandRuleCount = Object.values(designRules?.commands || {}).reduce(
+          (acc, item) => acc + arr(item?.rules).length,
+          0
+        );
+
+        const governance = compSummary.totalRawComponents
+          ? (1 - (compSummary.disallowedCount || 0) / compSummary.totalRawComponents) * 100
+          : 0;
+        const structure =
+          ((0.5 * ((compSummary.withVariants || 0) / (compSummary.totalComponents || 1))) +
+            (0.5 * ((compSummary.withProperties || 0) / (compSummary.totalComponents || 1)))) *
+          100;
+        const iconTotal = iconSummary.totalIcons || iconList.length || 1;
+        const iconMetadataCoverage =
+          (0.5 * ((iconSummary.withVariants || 0) / iconTotal)) +
+          (0.5 * ((iconSummary.withProperties || 0) / iconTotal));
+        const iconAliasCoverage = iconList.filter((icon) => arr(icon.aliases).length > 0).length / iconTotal;
+        const iconNameCoverage = iconList.filter((icon) => isIconName(icon.name)).length / iconTotal;
+        const iconFallbackCoverage = 0.6 * iconAliasCoverage + 0.4 * iconNameCoverage;
+        const iconStructure = (iconMetadataCoverage * 0.7 + iconFallbackCoverage * 0.3) * 100;
+        const ruleDepth = Math.min(100, profilesCount * 8 + commandRuleCount * 2);
+
+        const score =
+          governance * 0.3 +
+          structure * 0.25 +
+          iconStructure * 0.2 +
+          ruleDepth * 0.25;
+
+        const roundedScore = Math.round(score);
+
+        accuracyContent.innerHTML = `
+          <div class="score-grid">
+            <div class="score-card">
+              <div class="muted">Overall Score</div>
+              <div class="score-value">${roundedScore}/100</div>
+            </div>
+            <div class="score-card">
+              <div class="muted">Governance</div>
+              <div class="score-value">${governance.toFixed(1)}</div>
+            </div>
+            <div class="score-card">
+              <div class="muted">Component Structure</div>
+              <div class="score-value">${structure.toFixed(1)}</div>
+            </div>
+            <div class="score-card">
+              <div class="muted">Icon Structure</div>
+              <div class="score-value">${iconStructure.toFixed(1)}</div>
+            </div>
+            <div class="score-card">
+              <div class="muted">Rule Depth</div>
+              <div class="score-value">${ruleDepth.toFixed(1)}</div>
+            </div>
+          </div>
+          <div style="margin-top:12px">
+            <table>
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Current Value</th>
+                  <th>How It Is Calculated</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Governance</td>
+                  <td>${governance.toFixed(2)}</td>
+                  <td>(1 - disallowed / totalRawComponents) x 100</td>
+                </tr>
+                <tr>
+                  <td>Component Structure</td>
+                  <td>${structure.toFixed(2)}</td>
+                  <td>Average coverage of components with variants and properties</td>
+                </tr>
+                <tr>
+                  <td>Icon Structure</td>
+                  <td>${iconStructure.toFixed(2)}</td>
+                  <td>0.70*metadata coverage (variants + properties) + 0.30*fallback (aliases + icon naming)</td>
+                </tr>
+                <tr>
+                  <td>Rule Depth</td>
+                  <td>${ruleDepth.toFixed(2)}</td>
+                  <td>Min(100, componentProfiles x 8 + rules x 2)</td>
+                </tr>
+                <tr>
+                  <td>Overall</td>
+                  <td>${score.toFixed(2)}</td>
+                  <td>0.30*Governance + 0.25*Component + 0.20*Icon + 0.25*Rules</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        `;
+      }
+
+      setupTabs();
+
+      loadData()
+        .then(main)
+        .catch((e) => {
+          document.getElementById("status").innerHTML =
+            `<span class="err">Load error:</span> ${e.message}<br/><span class="muted">Run with a local server, not file://</span>`;
+        });
+    </script>
+  </body>
+</html>

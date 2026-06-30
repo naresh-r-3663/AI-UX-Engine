@@ -1,0 +1,69 @@
+{
+  "type": "FRAME",
+  "name": "Dashboard Send Email Flow",
+  "layoutMode": "VERTICAL",
+  "children": [
+    {
+      "type": "FRAME",
+      "name": "Dashboard",
+      "layoutMode": "VERTICAL",
+      "children": [
+        {
+          "type": "INSTANCE",
+          "name": "Header",
+          "componentKey": "a49a55283cd38c9a2eb1a7abd176f48e64c6f765"
+        },
+    
+        {
+          "type": "INSTANCE",
+          "name": "Send Email Button",
+          "componentKey": "07107ec181428296e7138c09a59f8e3254f34741"
+        }
+      ]
+    },
+    {
+      "type": "FRAME",
+      "name": "Dashboard + Send Email Popup",
+      "layoutMode": "VERTICAL",
+      "children": [
+        {
+          "type": "INSTANCE",
+          "name": "Header",
+          "componentKey": "a49a55283cd38c9a2eb1a7abd176f48e64c6f765"
+        },
+        {
+          "type": "INSTANCE",
+          "name": "Send Email Button",
+          "componentKey": "07107ec181428296e7138c09a59f8e3254f34741"
+        },
+        {
+          "type": "FRAME",
+          "name": "Send Email Popup",
+          "layoutMode": "VERTICAL",
+          "children": [
+            {
+              "type": "INSTANCE",
+              "name": "Email To Input",
+              "componentKey": "fb41f6c906038ffb11bc9e68cd926172e6aeaea0"
+            },
+            {
+              "type": "INSTANCE",
+              "name": "Email Subject Input",
+              "componentKey": "fb41f6c906038ffb11bc9e68cd926172e6aeaea0"
+            },
+            {
+              "type": "INSTANCE",
+              "name": "Email Body Textarea",
+              "componentKey": "f9ad9b63beeea6f91c72c6c2aefb68db9a481042"
+            },
+            {
+              "type": "INSTANCE",
+              "name": "Send Button",
+              "componentKey": "07107ec181428296e7138c09a59f8e3254f34741"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

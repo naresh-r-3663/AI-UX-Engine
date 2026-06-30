@@ -1,0 +1,223 @@
+{
+  "schema": "knowledge/page-patterns/v1",
+  "generatedAt": "2026-03-31T12:53:52.553Z",
+  "summary": {
+    "totalPagePatterns": 2,
+    "withVariants": 0,
+    "withProperties": 0
+  },
+  "pagePatterns": [
+    {
+      "id": "2005:713",
+      "name": "page.base",
+      "type": "FRAME",
+      "key": null,
+      "variants": {},
+      "properties": {},
+      "nodeMeta": {
+        "type": "FRAME",
+        "layoutMode": null,
+        "itemSpacing": null,
+        "padding": {
+          "left": null,
+          "right": null,
+          "top": null,
+          "bottom": null
+        },
+        "primaryAxisAlignItems": null,
+        "counterAxisAlignItems": null,
+        "layoutAlign": null,
+        "layoutGrow": null,
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "clipsContent": true,
+        "visible": null,
+        "bounds": {
+          "x": 2444,
+          "y": -362,
+          "width": 1440,
+          "height": 900
+        }
+      },
+      "pageMeta": {
+        "instances": [
+          "topbar.page",
+          "icon/arrow-down",
+          "icon/bento-menu",
+          "appicon.avatar",
+          "status.hint",
+          "icon/tick-small",
+          "user",
+          "nav.page.left",
+          "nav.list",
+          "nav.item",
+          "icon/billing",
+          "nav.item",
+          "icon/settings",
+          "nav.item",
+          "icon/results",
+          "nav.item",
+          "icon/security-tick",
+          "nav.item",
+          "icon/organization",
+          "nav.item.users",
+          "icon/users",
+          "nav.section",
+          "nav.list",
+          "nav.item",
+          "icon/placeholder",
+          "nav.item",
+          "icon/portal",
+          "nav.item",
+          "icon/mobile",
+          "nav.item",
+          "icon/environment",
+          "nav.section",
+          "nav.list",
+          "nav.item",
+          "icon/connection",
+          "nav.item.dashboard",
+          "icon/solutions-grid",
+          "nav.section"
+        ]
+      },
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      },
+      "layout": "vertical",
+      "grid": {
+        "columns": 12,
+        "maxWidth": 1440
+      },
+      "sections": [],
+      "components": [
+        "topbar.page",
+        "icon/arrow-down",
+        "icon/bento-menu",
+        "appicon.avatar",
+        "status.hint",
+        "icon/tick-small",
+        "user",
+        "nav.page.left",
+        "nav.list",
+        "nav.item",
+        "icon/billing",
+        "nav.item",
+        "icon/settings",
+        "nav.item",
+        "icon/results",
+        "nav.item",
+        "icon/security-tick",
+        "nav.item",
+        "icon/organization",
+        "nav.item.users",
+        "icon/users",
+        "nav.section",
+        "nav.list",
+        "nav.item",
+        "icon/placeholder",
+        "nav.item",
+        "icon/portal",
+        "nav.item",
+        "icon/mobile",
+        "nav.item",
+        "icon/environment",
+        "nav.section",
+        "nav.list",
+        "nav.item",
+        "icon/connection",
+        "nav.item.dashboard",
+        "icon/solutions-grid",
+        "nav.section"
+      ]
+    },
+    {
+      "id": "2366:6587",
+      "name": "page.full-wizard",
+      "type": "FRAME",
+      "key": null,
+      "variants": {},
+      "properties": {},
+      "nodeMeta": {
+        "type": "FRAME",
+        "layoutMode": null,
+        "itemSpacing": null,
+        "padding": {
+          "left": null,
+          "right": null,
+          "top": null,
+          "bottom": null
+        },
+        "primaryAxisAlignItems": null,
+        "counterAxisAlignItems": null,
+        "layoutAlign": null,
+        "layoutGrow": null,
+        "constraints": {
+          "vertical": "TOP",
+          "horizontal": "LEFT"
+        },
+        "clipsContent": true,
+        "visible": null,
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 900
+        }
+      },
+      "pageMeta": {
+        "instances": [
+          "slot.wizard.hint",
+          "icon/status-marker",
+          "icon/ai",
+          "wizard.header",
+          "comp.huegrey.iconbutton",
+          "icon/close-small-center",
+          "comp.huegrey.button",
+          "icon/placeholder",
+          "icon/edit",
+          "slot.wizard.nav",
+          "space-value",
+          "stepper.gapstrip",
+          "stepper.radio.item",
+          "stepper.radio.label",
+          "label.learn",
+          "icon/hint",
+          "stepper.radio"
+        ]
+      },
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      },
+      "layout": "vertical",
+      "grid": {
+        "columns": 12,
+        "maxWidth": 1440
+      },
+      "sections": [],
+      "components": [
+        "slot.wizard.hint",
+        "icon/status-marker",
+        "icon/ai",
+        "wizard.header",
+        "comp.huegrey.iconbutton",
+        "icon/close-small-center",
+        "comp.huegrey.button",
+        "icon/placeholder",
+        "icon/edit",
+        "slot.wizard.nav",
+        "space-value",
+        "stepper.gapstrip",
+        "stepper.radio.item",
+        "stepper.radio.label",
+        "label.learn",
+        "icon/hint",
+        "stepper.radio"
+      ]
+    }
+  ]
+}

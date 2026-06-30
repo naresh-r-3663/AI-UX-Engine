@@ -1,0 +1,17 @@
+{
+  "schema": "knowledge/ai-decisions/policy/v1",
+  "updatedAt": "2026-03-09T00:00:00.000Z",
+  "confidenceThresholds": {
+    "high": 2,
+    "medium": 1
+  },
+  "tieBreakOrder": [
+    "scoreDesc",
+    "iconNameAsc"
+  ],
+  "fallback": {
+    "icon": "Icon/Placeholder",
+    "primaryLabel": "Submit",
+    "secondaryLabel": "Cancel"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "pt.modal.popup": [
+    "modal.blanket",
+    "sub.pt.modal.popup.base",
+    "modal.popup.header",
+    "slot.popup.form",
+    "modal.popup.footer"
+  ],
+
+  "pt.popup.dropdown": [
+    "dropdown.container",
+    "dropdown.option.list"
+  ],
+
+  "pt.form.slot": [
+    "gr.comp.form.slot"
+  ],
+
+  "pt.toast.success": [
+    "toast.icon.success",
+    "toast.message",
+    "toast.action.close"
+  ]
+}

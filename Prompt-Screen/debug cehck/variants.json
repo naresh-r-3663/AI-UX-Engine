@@ -1,0 +1,421 @@
+[
+  {
+    "id": "2:6479",
+    "name": "input.text.feild",
+    "variants": {
+      "State": {
+        "type": "VARIANT",
+        "defaultValue": "Default",
+        "variantOptions": [
+          "Default",
+          "Hover On Default",
+          "Active",
+          "Disabled",
+          "Disabled After",
+          "Filled",
+          "Error After",
+          "Success",
+          "Hover On Filled",
+          "Error"
+        ]
+      }
+    }
+  },
+  {
+    "id": "2:6530",
+    "name": "comp.input.text.base",
+    "variants": {
+      "State": {
+        "type": "VARIANT",
+        "defaultValue": "Default",
+        "variantOptions": [
+          "Default",
+          "Hover On Default",
+          "Active",
+          "Filled",
+          "Hover On Filled",
+          "Disabled",
+          "Disabled After",
+          "Error",
+          "Error After",
+          "Success"
+        ]
+      }
+    }
+  },
+  {
+    "id": "2:6571",
+    "name": "input.common.label",
+    "variants": {
+      "Label State": {
+        "type": "VARIANT",
+        "defaultValue": "Default",
+        "variantOptions": [
+          "Default",
+          "Hint Hover",
+          "Disabled"
+        ]
+      }
+    }
+  },
+  {
+    "id": "2:6584",
+    "name": "input.common.hint",
+    "variants": {
+      "Hint Text Type": {
+        "type": "VARIANT",
+        "defaultValue": "Default",
+        "variantOptions": [
+          "Default",
+          "Info",
+          "Success",
+          "Warning",
+          "Error",
+          "Disabled"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:221",
+    "name": "comp.input.textarea",
+    "variants": {
+      "State": {
+        "type": "VARIANT",
+        "defaultValue": "Default",
+        "variantOptions": [
+          "Default",
+          "Hover On Default",
+          "Active",
+          "Disabled",
+          "Disabled After",
+          "Filled",
+          "Error",
+          "Success",
+          "Hover On Filled",
+          "Error After"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:262",
+    "name": "input.textarea.feild",
+    "variants": {
+      "State": {
+        "type": "VARIANT",
+        "defaultValue": "Default",
+        "variantOptions": [
+          "Default",
+          "Hover On Default",
+          "Active",
+          "Disabled",
+          "Filled",
+          "Disabled After",
+          "Success",
+          "Error After",
+          "Hover On Filled",
+          "Error"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:498",
+    "name": "comp.button.huegrey",
+    "variants": {
+      "Size": {
+        "type": "VARIANT",
+        "defaultValue": "Base ✦",
+        "variantOptions": [
+          "Base ✦",
+          "Small",
+          "Extra Small",
+          "Large"
+        ]
+      },
+      "Style": {
+        "type": "VARIANT",
+        "defaultValue": "Fill",
+        "variantOptions": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Hyperlink",
+          "Minimal Fill"
+        ]
+      },
+      "Hover": {
+        "type": "VARIANT",
+        "defaultValue": "False",
+        "variantOptions": [
+          "False",
+          "True"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:667",
+    "name": "comp.button.disabled",
+    "variants": {
+      "Size": {
+        "type": "VARIANT",
+        "defaultValue": "Base ✦",
+        "variantOptions": [
+          "Base ✦",
+          "Small",
+          "Extra Small",
+          "Large"
+        ]
+      },
+      "Style": {
+        "type": "VARIANT",
+        "defaultValue": "Fill",
+        "variantOptions": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Hyperlink",
+          "Minimal Fill"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:752",
+    "name": "comp.button.error",
+    "variants": {
+      "Size": {
+        "type": "VARIANT",
+        "defaultValue": "Base ✦",
+        "variantOptions": [
+          "Base ✦",
+          "Small",
+          "Extra Small",
+          "Large"
+        ]
+      },
+      "Style": {
+        "type": "VARIANT",
+        "defaultValue": "Fill",
+        "variantOptions": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Hyperlink",
+          "Minimal Fill"
+        ]
+      },
+      "Hover": {
+        "type": "VARIANT",
+        "defaultValue": "False",
+        "variantOptions": [
+          "False",
+          "True"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:921",
+    "name": "comp.button.secondary",
+    "variants": {
+      "Size": {
+        "type": "VARIANT",
+        "defaultValue": "Base ✦",
+        "variantOptions": [
+          "Base ✦",
+          "Small",
+          "Extra Small",
+          "Large"
+        ]
+      },
+      "Style": {
+        "type": "VARIANT",
+        "defaultValue": "Fill",
+        "variantOptions": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Hyperlink",
+          "Minimal Fill"
+        ]
+      },
+      "Hover": {
+        "type": "VARIANT",
+        "defaultValue": "False",
+        "variantOptions": [
+          "False",
+          "True"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:1090",
+    "name": "comp.button.primary",
+    "variants": {
+      "Size": {
+        "type": "VARIANT",
+        "defaultValue": "Base ✦",
+        "variantOptions": [
+          "Base ✦",
+          "Small",
+          "Extra Small",
+          "Large"
+        ]
+      },
+      "Style": {
+        "type": "VARIANT",
+        "defaultValue": "Fill",
+        "variantOptions": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Hyperlink",
+          "Minimal Fill"
+        ]
+      },
+      "Hover": {
+        "type": "VARIANT",
+        "defaultValue": "False",
+        "variantOptions": [
+          "False",
+          "True"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:1259",
+    "name": "comp.duobutton.primary",
+    "variants": {
+      "Style": {
+        "type": "VARIANT",
+        "defaultValue": "Fill",
+        "variantOptions": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Minimal Fill",
+          "Hyperlink"
+        ]
+      },
+      "Position": {
+        "type": "VARIANT",
+        "defaultValue": "Left",
+        "variantOptions": [
+          "Left",
+          "Right"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:1296",
+    "name": "comp.duobutton.secondary",
+    "variants": {
+      "Style": {
+        "type": "VARIANT",
+        "defaultValue": "Fill",
+        "variantOptions": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Minimal Fill",
+          "Hyperlink"
+        ]
+      },
+      "Position": {
+        "type": "VARIANT",
+        "defaultValue": "Left",
+        "variantOptions": [
+          "Left",
+          "Right"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:1333",
+    "name": "comp.duobutton.error",
+    "variants": {
+      "Style": {
+        "type": "VARIANT",
+        "defaultValue": "Fill",
+        "variantOptions": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Minimal Fill",
+          "Hyperlink"
+        ]
+      },
+      "Position": {
+        "type": "VARIANT",
+        "defaultValue": "Left",
+        "variantOptions": [
+          "Left",
+          "Right"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:1370",
+    "name": "comp.duobutton.huegrey",
+    "variants": {
+      "Style": {
+        "type": "VARIANT",
+        "defaultValue": "Fill",
+        "variantOptions": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Fill",
+          "Minimal Border",
+          "Hyperlink"
+        ]
+      },
+      "Position": {
+        "type": "VARIANT",
+        "defaultValue": "Left",
+        "variantOptions": [
+          "Left",
+          "Right"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:1407",
+    "name": "comp.duobutton.disabled",
+    "variants": {
+      "Position": {
+        "type": "VARIANT",
+        "defaultValue": "Left",
+        "variantOptions": [
+          "Left",
+          "Right"
+        ]
+      },
+      "Type": {
+        "type": "VARIANT",
+        "defaultValue": "CTA Disabled",
+        "variantOptions": [
+          "CTA Disabled",
+          "Sub-CTA Disabled"
+        ]
+      }
+    }
+  }
+]

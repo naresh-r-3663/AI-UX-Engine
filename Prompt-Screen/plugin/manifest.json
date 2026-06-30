@@ -1,0 +1,8 @@
+{
+  "name": "AI UX JSON Renderer",
+  "id": "ai-ux-json-renderer",
+  "api": "1.0.0",
+  "editorType": ["figma"],
+  "main": "code.js",
+  "ui": "ui.html"
+}

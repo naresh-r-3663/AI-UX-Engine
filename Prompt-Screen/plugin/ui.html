@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --surface-glass: rgba(255, 255, 255, 0.9);
+      --ink: #0d0d0d;
+      --muted: #56565a;
+      --accent: #000000;
+      --accent-hover: #1a1a1a;
+      --accent-soft: rgba(0, 0, 0, 0.04);
+      --accent-glow: rgba(0, 0, 0, 0.06);
+      --green: #10b981;
+      --green-soft: rgba(16, 185, 129, 0.08);
+      --green-border: rgba(16, 185, 129, 0.2);
+      --line: rgba(0, 0, 0, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 600px;
+      font-family: "Inter", -apple-system, "SF Pro Display", "Segoe UI", "Helvetica Neue", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+      font-weight: 400;
+    }
+
+    .container {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      height: 600px;
+      overflow: hidden;
+    }
+
+    /* ── Header ── */
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .header-title {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .header-badge {
+      margin-left: auto;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      background: transparent;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    /* ── Step 1: Input ── */
+    .input-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .input-section label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 8px;
+      flex-shrink: 0;
+    }
+
+    .json-textarea {
+      width: 100%;
+      flex: 1;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+      padding: 12px;
+      font-size: 12px;
+      font-family: "SF Mono", "Fira Code", monospace;
+      line-height: 1.5;
+      color: var(--ink);
+      resize: none;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      overflow-y: auto;
+    }
+
+    .json-textarea:focus {
+      border-color: rgba(0, 0, 0, 0.25);
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .json-textarea::placeholder {
+      color: #9a9aaa;
+    }
+
+    .error-msg {
+      font-size: 12px;
+      color: #e0245e;
+      margin-top: 6px;
+      display: none;
+      flex-shrink: 0;
+    }
+
+    .input-cta {
+      flex-shrink: 0;
+      margin-top: 40px;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      border: none;
+      border-radius: 12px;
+      min-height: 42px;
+      padding: 0 20px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13px;
+      transition: all 0.2s;
+      width: 100%;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 4px 14px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(0, 0, 0, 0.03);
+      border-color: rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-confirm {
+      background: var(--green);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25);
+    }
+
+    .btn-confirm:hover {
+      background: #059669;
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-row .btn { flex: 1; }
+
+    /* ── Step 2: Preview ── */
+    .preview-section {
+      display: none;
+      flex: 1;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .preview-section[style*="block"] {
+      display: flex !important;
+    }
+
+    .preview-header {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      flex-shrink: 0;
+    }
+
+    .preview-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+      flex-shrink: 0;
+    }
+
+    .screen-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .preview-cta {
+      flex-shrink: 0;
+      margin-top: 40px;
+    }
+
+    .screen-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: 12px;
+    }
+
+    .screen-number {
+      min-width: 24px;
+      height: 24px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .screen-info { flex: 1; min-width: 0; }
+
+    .screen-name {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.3;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .screen-desc {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+      line-height: 1.3;
+    }
+
+    /* ── Step 3: Progress ── */
+    .progress-section {
+      display: none;
+      flex: 1;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .progress-section[style*="block"] {
+      display: flex !important;
+    }
+
+    .progress-header {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      flex-shrink: 0;
+    }
+
+    .progress-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+      flex-shrink: 0;
+    }
+
+    .progress-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .progress-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: 12px;
+      transition: all 0.3s;
+    }
+
+    .progress-item.done {
+      border-color: var(--green-border);
+      background: var(--green-soft);
+    }
+
+    .progress-item.active {
+      border-color: rgba(0, 0, 0, 0.15);
+      background: var(--accent-soft);
+    }
+
+    .progress-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .progress-icon.pending {
+      border: 2px solid var(--line);
+      background: var(--surface);
+    }
+
+    .progress-icon.loading {
+      border: 2px solid rgba(0, 0, 0, 0.15);
+      border-top-color: var(--accent);
+      background: transparent;
+      animation: spin 0.8s linear infinite;
+    }
+
+    .progress-icon.complete {
+      background: var(--green);
+      border: none;
+    }
+
+    .progress-icon.complete::after {
+      content: "";
+      width: 10px;
+      height: 6px;
+      border-left: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      transform: rotate(-45deg) translateY(-1px);
+    }
+
+    .progress-label {
+      flex: 1;
+      font-size: 13px;
+      font-weight: 500;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .progress-status {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      flex-shrink: 0;
+    }
+
+    .progress-status.done { color: var(--green); }
+    .progress-status.generating { color: var(--accent); }
+    .progress-status.pending { color: var(--muted); }
+
+    /* ── Complete ── */
+    .complete-section {
+      display: none;
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .complete-section[style*="block"] {
+      display: flex !important;
+    }
+
+    .complete-cta {
+      margin-top: 40px;
+      width: 100%;
+    }
+
+    .complete-orb {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--green);
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px rgba(16, 185, 129, 0.25);
+    }
+
+    .complete-orb::after {
+      content: "";
+      width: 18px;
+      height: 10px;
+      border-left: 3px solid #fff;
+      border-bottom: 3px solid #fff;
+      transform: rotate(-45deg) translateY(-2px);
+    }
+
+    .complete-title {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .complete-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .hidden { display: none !important; }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <span class="brand-dot"></span>
+      <span class="header-title">AI UX Engine</span>
+      <span class="header-badge">Figma Plugin</span>
+    </div>
+
+    <!-- Step 1: JSON Input -->
+    <div class="input-section" id="inputSection">
+      <label>Paste JSON</label>
+      <textarea
+        id="jsonInput"
+        class="json-textarea"
+        placeholder='Paste your generated UX JSON here...'
+      ></textarea>
+      <div class="error-msg" id="errorMsg"></div>
+      <div class="input-cta">
+        <button class="btn btn-primary" id="parseBtn" onclick="parseJson()">Generate</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Preview Screens -->
+    <div class="preview-section" id="previewSection">
+      <div class="preview-header" id="previewHeader">Screens to Generate</div>
+      <div class="preview-sub" id="previewSub"></div>
+      <div class="screen-list" id="screenList"></div>
+      <div class="preview-cta">
+        <div class="btn-row">
+          <button class="btn btn-secondary" onclick="goBack()">Back</button>
+          <button class="btn btn-confirm" onclick="confirmGenerate()">Confirm & Build</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3: Progress -->
+    <div class="progress-section" id="progressSection">
+      <div class="progress-header">Building Screens</div>
+      <div class="progress-sub" id="progressSub">Generating your designs in Figma...</div>
+      <div class="progress-list" id="progressList"></div>
+    </div>
+
+    <!-- Step 4: Complete -->
+    <div class="complete-section" id="completeSection">
+      <div class="complete-orb"></div>
+      <div class="complete-title" id="completeTitle">All Screens Created</div>
+      <div class="complete-sub" id="completeSub"></div>
+      <div class="complete-cta">
+        <button class="btn btn-primary" onclick="startOver()">Generate More</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let parsedFrames = []
+    let rawJson = ""
+
+    function escapeHtml(text) {
+      return String(text || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+    }
+
+    function extractScreens(data) {
+      // Handle both array and single object
+      const items = Array.isArray(data) ? data : [data]
+      return items.map((item, i) => {
+        const name = item.name || `Screen ${i + 1}`
+        const type = item.type || "FRAME"
+        const childCount = (item.children || []).length
+        const desc = describeFrame(item, childCount)
+        return { name, type, desc, data: item }
+      })
+    }
+
+    function describeFrame(item, childCount) {
+      const parts = []
+      if (item.width && item.height) parts.push(`${item.width}x${item.height}`)
+      if (item.layoutMode && item.layoutMode !== "NONE") parts.push(item.layoutMode.toLowerCase() + " layout")
+      if (childCount > 0) parts.push(`${childCount} element${childCount > 1 ? "s" : ""}`)
+      return parts.length ? parts.join(" · ") : "Frame"
+    }
+
+    function parseJson() {
+      const input = document.getElementById("jsonInput")
+      const errorEl = document.getElementById("errorMsg")
+      rawJson = input.value.trim()
+
+      if (!rawJson) {
+        errorEl.textContent = "Please paste JSON first."
+        errorEl.style.display = "block"
+        return
+      }
+
+      try {
+        const data = JSON.parse(rawJson)
+        parsedFrames = extractScreens(data)
+        errorEl.style.display = "none"
+
+        if (parsedFrames.length === 0) {
+          errorEl.textContent = "No screens found in JSON."
+          errorEl.style.display = "block"
+          return
+        }
+
+        showPreview()
+      } catch (e) {
+        errorEl.textContent = "Invalid JSON: " + e.message
+        errorEl.style.display = "block"
+      }
+    }
+
+    function showPreview() {
+      document.getElementById("inputSection").style.display = "none"
+      const section = document.getElementById("previewSection")
+      section.style.display = "block"
+
+      document.getElementById("previewHeader").textContent =
+        `${parsedFrames.length} Screen${parsedFrames.length > 1 ? "s" : ""} Found`
+      document.getElementById("previewSub").textContent =
+        "Review the screens below, then confirm to build them in Figma."
+
+      const list = document.getElementById("screenList")
+      list.innerHTML = parsedFrames.map((s, i) => `
+        <div class="screen-item">
+          <div class="screen-number">${i + 1}</div>
+          <div class="screen-info">
+            <div class="screen-name">${escapeHtml(s.name)}</div>
+            <div class="screen-desc">${escapeHtml(s.desc)}</div>
+          </div>
+        </div>
+      `).join("")
+    }
+
+    function goBack() {
+      document.getElementById("previewSection").style.display = "none"
+      document.getElementById("inputSection").style.display = "block"
+    }
+
+    function confirmGenerate() {
+      document.getElementById("previewSection").style.display = "none"
+      const section = document.getElementById("progressSection")
+      section.style.display = "block"
+
+      const list = document.getElementById("progressList")
+      list.innerHTML = parsedFrames.map((s, i) => `
+        <div class="progress-item" id="prog-${i}">
+          <div class="progress-icon pending" id="icon-${i}"></div>
+          <span class="progress-label">${escapeHtml(s.name)}</span>
+          <span class="progress-status pending" id="status-${i}">Pending</span>
+        </div>
+      `).join("")
+
+      document.getElementById("progressSub").textContent =
+        `Building ${parsedFrames.length} screen${parsedFrames.length > 1 ? "s" : ""} in Figma...`
+
+      generateScreens()
+    }
+
+    async function generateScreens() {
+      for (let i = 0; i < parsedFrames.length; i++) {
+        // Mark current as active/loading
+        const item = document.getElementById(`prog-${i}`)
+        const icon = document.getElementById(`icon-${i}`)
+        const status = document.getElementById(`status-${i}`)
+
+        item.classList.add("active")
+        icon.className = "progress-icon loading"
+        status.className = "progress-status generating"
+        status.textContent = "Generating"
+
+        // Send this frame to Figma
+        const frameData = parsedFrames[i].data
+        parent.postMessage({
+          pluginMessage: {
+            type: "render",
+            json: JSON.stringify(frameData),
+            resetLayout: i === 0
+          }
+        }, "*")
+
+        // Wait 3s per screen for visual feedback
+        await new Promise(r => setTimeout(r, 3000))
+
+        // Mark as done
+        item.classList.remove("active")
+        item.classList.add("done")
+        icon.className = "progress-icon complete"
+        status.className = "progress-status done"
+        status.textContent = "Created"
+      }
+
+      // Show complete
+      setTimeout(() => {
+        document.getElementById("progressSection").style.display = "none"
+        const section = document.getElementById("completeSection")
+        section.style.display = "block"
+        document.getElementById("completeSub").textContent =
+          `${parsedFrames.length} screen${parsedFrames.length > 1 ? "s" : ""} generated successfully.`
+      }, 500)
+    }
+
+    function startOver() {
+      document.getElementById("completeSection").style.display = "none"
+      document.getElementById("inputSection").style.display = "block"
+      document.getElementById("jsonInput").value = ""
+      document.getElementById("errorMsg").style.display = "none"
+      parsedFrames = []
+      rawJson = ""
+    }
+  </script>
+</body>
+</html>

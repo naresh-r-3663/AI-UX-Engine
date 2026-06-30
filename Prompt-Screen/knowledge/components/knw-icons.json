@@ -1,0 +1,3839 @@
+{
+  "schema": "knowledge/icons/v1",
+  "generatedAt": "2026-03-31T12:53:52.557Z",
+  "summary": {
+    "totalIcons": 230,
+    "withVariants": 0,
+    "withProperties": 0
+  },
+  "icons": [
+    {
+      "id": "40:1844",
+      "name": "icon/edit",
+      "type": "COMPONENT",
+      "aliases": [
+        "edit",
+        "update",
+        "modify",
+        "pencil",
+        "rename"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3083",
+      "name": "icon/mobile",
+      "type": "COMPONENT",
+      "aliases": [
+        "mobile"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3054",
+      "name": "icon/portal",
+      "type": "COMPONENT",
+      "aliases": [
+        "portal"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3063",
+      "name": "icon/users",
+      "type": "COMPONENT",
+      "aliases": [
+        "users",
+        "people",
+        "members",
+        "team",
+        "patient",
+        "visitor"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3044",
+      "name": "icon/billing",
+      "type": "COMPONENT",
+      "aliases": [
+        "billing"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3024",
+      "name": "icon/more-circle-down",
+      "type": "COMPONENT",
+      "aliases": [
+        "more",
+        "circle",
+        "down",
+        "overflow",
+        "menu",
+        "options"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3078",
+      "name": "icon/more-circle-up",
+      "type": "COMPONENT",
+      "aliases": [
+        "more",
+        "circle",
+        "up",
+        "overflow",
+        "menu",
+        "options"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3076",
+      "name": "icon/user-pending",
+      "type": "COMPONENT",
+      "aliases": [
+        "user",
+        "pending"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3077",
+      "name": "icon/user-remove",
+      "type": "COMPONENT",
+      "aliases": [
+        "user",
+        "remove"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3058",
+      "name": "icon/user-previleged",
+      "type": "COMPONENT",
+      "aliases": [
+        "user",
+        "previleged"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3034",
+      "name": "icon/testcase",
+      "type": "COMPONENT",
+      "aliases": [
+        "testcase"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3071",
+      "name": "icon/testsuits",
+      "type": "COMPONENT",
+      "aliases": [
+        "testsuits"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3081",
+      "name": "icon/testplan",
+      "type": "COMPONENT",
+      "aliases": [
+        "testplan"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3068",
+      "name": "icon/results",
+      "type": "COMPONENT",
+      "aliases": [
+        "results"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3066",
+      "name": "icon/function",
+      "type": "COMPONENT",
+      "aliases": [
+        "function"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3047",
+      "name": "icon/edit-summary",
+      "type": "COMPONENT",
+      "aliases": [
+        "edit",
+        "summary",
+        "update",
+        "modify",
+        "pencil",
+        "rename"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3062",
+      "name": "icon/module",
+      "type": "COMPONENT",
+      "aliases": [
+        "module"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3006",
+      "name": "icon/builder-mode",
+      "type": "COMPONENT",
+      "aliases": [
+        "builder",
+        "mode"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3040",
+      "name": "icon/merge-progress",
+      "type": "COMPONENT",
+      "aliases": [
+        "merge",
+        "progress"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3051",
+      "name": "icon/branching-versions",
+      "type": "COMPONENT",
+      "aliases": [
+        "branching",
+        "versions"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2987",
+      "name": "icon/branch-merge",
+      "type": "COMPONENT",
+      "aliases": [
+        "branch",
+        "merge"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3048",
+      "name": "icon/api-share",
+      "type": "COMPONENT",
+      "aliases": [
+        "api",
+        "share"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3052",
+      "name": "icon/manage",
+      "type": "COMPONENT",
+      "aliases": [
+        "manage"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3080",
+      "name": "icon/branching",
+      "type": "COMPONENT",
+      "aliases": [
+        "branching"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3041",
+      "name": "icon/android",
+      "type": "COMPONENT",
+      "aliases": [
+        "android"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3061",
+      "name": "icon/star",
+      "type": "COMPONENT",
+      "aliases": [
+        "star"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3020",
+      "name": "icon/versions",
+      "type": "COMPONENT",
+      "aliases": [
+        "versions"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3039",
+      "name": "icon/element",
+      "type": "COMPONENT",
+      "aliases": [
+        "element"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3057",
+      "name": "icon/cta-loading",
+      "type": "COMPONENT",
+      "aliases": [
+        "cta",
+        "loading"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3037",
+      "name": "icon/status-marker",
+      "type": "COMPONENT",
+      "aliases": [
+        "status",
+        "marker"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3049",
+      "name": "icon/drag",
+      "type": "COMPONENT",
+      "aliases": [
+        "drag"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3059",
+      "name": "icon/arrow-circle-left",
+      "type": "COMPONENT",
+      "aliases": [
+        "arrow",
+        "circle",
+        "left",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3072",
+      "name": "icon/arrow-circle-right",
+      "type": "COMPONENT",
+      "aliases": [
+        "arrow",
+        "circle",
+        "right",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3036",
+      "name": "icon/record-circle",
+      "type": "COMPONENT",
+      "aliases": [
+        "record",
+        "circle"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3035",
+      "name": "icon/stop-circle",
+      "type": "COMPONENT",
+      "aliases": [
+        "stop",
+        "circle"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3033",
+      "name": "icon/run-circle",
+      "type": "COMPONENT",
+      "aliases": [
+        "run",
+        "circle"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3031",
+      "name": "icon/manual-web",
+      "type": "COMPONENT",
+      "aliases": [
+        "manual",
+        "web"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2975",
+      "name": "icon/all",
+      "type": "COMPONENT",
+      "aliases": [
+        "all"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3079",
+      "name": "icon/save",
+      "type": "COMPONENT",
+      "aliases": [
+        "save"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3027",
+      "name": "icon/suits",
+      "type": "COMPONENT",
+      "aliases": [
+        "suits"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3043",
+      "name": "icon/run-history",
+      "type": "COMPONENT",
+      "aliases": [
+        "run",
+        "history"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3026",
+      "name": "icon/web-browser",
+      "type": "COMPONENT",
+      "aliases": [
+        "web",
+        "browser"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3023",
+      "name": "icon/runing",
+      "type": "COMPONENT",
+      "aliases": [
+        "runing"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3021",
+      "name": "icon/note-tick",
+      "type": "COMPONENT",
+      "aliases": [
+        "note",
+        "tick",
+        "check",
+        "done",
+        "approve"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3019",
+      "name": "icon/connection-plug",
+      "type": "COMPONENT",
+      "aliases": [
+        "connection",
+        "plug",
+        "link",
+        "integrate",
+        "network"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3069",
+      "name": "icon/navigate-external",
+      "type": "COMPONENT",
+      "aliases": [
+        "navigate",
+        "external"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3038",
+      "name": "icon/api-token-key",
+      "type": "COMPONENT",
+      "aliases": [
+        "api",
+        "token",
+        "key"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3082",
+      "name": "icon/code-circle",
+      "type": "COMPONENT",
+      "aliases": [
+        "code",
+        "circle"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3016",
+      "name": "icon/tag-tick",
+      "type": "COMPONENT",
+      "aliases": [
+        "tag",
+        "tick",
+        "check",
+        "done",
+        "approve"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3015",
+      "name": "icon/tag-remove",
+      "type": "COMPONENT",
+      "aliases": [
+        "tag",
+        "remove"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2996",
+      "name": "icon/file",
+      "type": "COMPONENT",
+      "aliases": [
+        "file"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3014",
+      "name": "icon/files",
+      "type": "COMPONENT",
+      "aliases": [
+        "files"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3028",
+      "name": "icon/data-source",
+      "type": "COMPONENT",
+      "aliases": [
+        "data",
+        "source"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2998",
+      "name": "icon/mfa",
+      "type": "COMPONENT",
+      "aliases": [
+        "mfa"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3073",
+      "name": "icon/page",
+      "type": "COMPONENT",
+      "aliases": [
+        "page"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3012",
+      "name": "icon/mfa-alt",
+      "type": "COMPONENT",
+      "aliases": [
+        "mfa",
+        "alt"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3011",
+      "name": "icon/webhook",
+      "type": "COMPONENT",
+      "aliases": [
+        "webhook"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3002",
+      "name": "icon/agent-multi-device",
+      "type": "COMPONENT",
+      "aliases": [
+        "agent",
+        "multi",
+        "device"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3010",
+      "name": "icon/agent-group-users",
+      "type": "COMPONENT",
+      "aliases": [
+        "agent",
+        "group",
+        "users",
+        "people",
+        "members",
+        "team",
+        "patient",
+        "visitor"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3056",
+      "name": "icon/ios",
+      "type": "COMPONENT",
+      "aliases": [
+        "ios"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3060",
+      "name": "icon/tunnel",
+      "type": "COMPONENT",
+      "aliases": [
+        "tunnel"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3046",
+      "name": "icon/timer-clock",
+      "type": "COMPONENT",
+      "aliases": [
+        "timer",
+        "clock",
+        "time",
+        "history",
+        "recent"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3008",
+      "name": "icon/maximize",
+      "type": "COMPONENT",
+      "aliases": [
+        "maximize"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3007",
+      "name": "icon/devider",
+      "type": "COMPONENT",
+      "aliases": [
+        "devider"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3004",
+      "name": "icon/minimize",
+      "type": "COMPONENT",
+      "aliases": [
+        "minimize"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3001",
+      "name": "icon/lock-on",
+      "type": "COMPONENT",
+      "aliases": [
+        "lock",
+        "on"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2997",
+      "name": "icon/computer",
+      "type": "COMPONENT",
+      "aliases": [
+        "computer"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2994",
+      "name": "icon/attach",
+      "type": "COMPONENT",
+      "aliases": [
+        "attach"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3064",
+      "name": "icon/refresh",
+      "type": "COMPONENT",
+      "aliases": [
+        "refresh"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2991",
+      "name": "icon/upload",
+      "type": "COMPONENT",
+      "aliases": [
+        "upload"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2989",
+      "name": "icon/question",
+      "type": "COMPONENT",
+      "aliases": [
+        "question"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3055",
+      "name": "icon/download",
+      "type": "COMPONENT",
+      "aliases": [
+        "download"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3045",
+      "name": "icon/switch-off",
+      "type": "COMPONENT",
+      "aliases": [
+        "switch",
+        "off"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2988",
+      "name": "icon/label-tag",
+      "type": "COMPONENT",
+      "aliases": [
+        "label",
+        "tag"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2986",
+      "name": "icon/switch-on",
+      "type": "COMPONENT",
+      "aliases": [
+        "switch",
+        "on"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2983",
+      "name": "icon/button-click",
+      "type": "COMPONENT",
+      "aliases": [
+        "button",
+        "click"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3005",
+      "name": "icon/support",
+      "type": "COMPONENT",
+      "aliases": [
+        "support"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2984",
+      "name": "icon/input-text",
+      "type": "COMPONENT",
+      "aliases": [
+        "input",
+        "text"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2982",
+      "name": "icon/copy",
+      "type": "COMPONENT",
+      "aliases": [
+        "copy"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3003",
+      "name": "icon/dropdown",
+      "type": "COMPONENT",
+      "aliases": [
+        "dropdown"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2999",
+      "name": "icon/copied",
+      "type": "COMPONENT",
+      "aliases": [
+        "copied"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2995",
+      "name": "icon/link-chain",
+      "type": "COMPONENT",
+      "aliases": [
+        "link",
+        "chain"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2992",
+      "name": "icon/import",
+      "type": "COMPONENT",
+      "aliases": [
+        "import"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2981",
+      "name": "icon/export",
+      "type": "COMPONENT",
+      "aliases": [
+        "export"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2990",
+      "name": "icon/file-upload",
+      "type": "COMPONENT",
+      "aliases": [
+        "file",
+        "upload"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2980",
+      "name": "icon/manual",
+      "type": "COMPONENT",
+      "aliases": [
+        "manual"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2979",
+      "name": "icon/automation",
+      "type": "COMPONENT",
+      "aliases": [
+        "automation"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2978",
+      "name": "icon/integrations",
+      "type": "COMPONENT",
+      "aliases": [
+        "integrations"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3009",
+      "name": "icon/home",
+      "type": "COMPONENT",
+      "aliases": [
+        "home"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3029",
+      "name": "icon/solutions-grid",
+      "type": "COMPONENT",
+      "aliases": [
+        "solutions",
+        "grid"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3013",
+      "name": "icon/link",
+      "type": "COMPONENT",
+      "aliases": [
+        "link"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2977",
+      "name": "icon/automation-alt",
+      "type": "COMPONENT",
+      "aliases": [
+        "automation",
+        "alt"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2976",
+      "name": "icon/disconnect",
+      "type": "COMPONENT",
+      "aliases": [
+        "disconnect"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2974",
+      "name": "icon/arrow-line-alt",
+      "type": "COMPONENT",
+      "aliases": [
+        "arrow",
+        "line",
+        "alt",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2973",
+      "name": "icon/email",
+      "type": "COMPONENT",
+      "aliases": [
+        "email"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3017",
+      "name": "icon/list",
+      "type": "COMPONENT",
+      "aliases": [
+        "list"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2972",
+      "name": "icon/audit",
+      "type": "COMPONENT",
+      "aliases": [
+        "audit"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3032",
+      "name": "icon/view",
+      "type": "COMPONENT",
+      "aliases": [
+        "view"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3074",
+      "name": "icon/timeline-view",
+      "type": "COMPONENT",
+      "aliases": [
+        "timeline",
+        "view"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3070",
+      "name": "icon/list-view-alt",
+      "type": "COMPONENT",
+      "aliases": [
+        "list",
+        "view",
+        "alt"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3018",
+      "name": "icon/rocket",
+      "type": "COMPONENT",
+      "aliases": [
+        "rocket"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2971",
+      "name": "icon/spin",
+      "type": "COMPONENT",
+      "aliases": [
+        "spin"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3000",
+      "name": "icon/reset",
+      "type": "COMPONENT",
+      "aliases": [
+        "reset"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2970",
+      "name": "icon/alert-bell",
+      "type": "COMPONENT",
+      "aliases": [
+        "alert",
+        "bell",
+        "warning",
+        "caution",
+        "attention"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3025",
+      "name": "icon/search-query",
+      "type": "COMPONENT",
+      "aliases": [
+        "search",
+        "query",
+        "find",
+        "lookup"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2969",
+      "name": "icon/expand-all",
+      "type": "COMPONENT",
+      "aliases": [
+        "expand",
+        "all"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3067",
+      "name": "icon/minimize-all",
+      "type": "COMPONENT",
+      "aliases": [
+        "minimize",
+        "all"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2968",
+      "name": "icon/app-box",
+      "type": "COMPONENT",
+      "aliases": [
+        "app",
+        "box"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2967",
+      "name": "icon/sort",
+      "type": "COMPONENT",
+      "aliases": [
+        "sort"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2966",
+      "name": "icon/expand",
+      "type": "COMPONENT",
+      "aliases": [
+        "expand"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3050",
+      "name": "icon/collapse",
+      "type": "COMPONENT",
+      "aliases": [
+        "collapse"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3030",
+      "name": "icon/duplicate",
+      "type": "COMPONENT",
+      "aliases": [
+        "duplicate"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2993",
+      "name": "icon/ai",
+      "type": "COMPONENT",
+      "aliases": [
+        "ai"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3065",
+      "name": "icon/ai-alt",
+      "type": "COMPONENT",
+      "aliases": [
+        "ai",
+        "alt"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2965",
+      "name": "icon/zia",
+      "type": "COMPONENT",
+      "aliases": [
+        "zia"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2964",
+      "name": "icon/ai-fill",
+      "type": "COMPONENT",
+      "aliases": [
+        "ai",
+        "fill"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2963",
+      "name": "icon/aI-fill-alt",
+      "type": "COMPONENT",
+      "aliases": [
+        "ai",
+        "fill",
+        "alt"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2962",
+      "name": "icon/ai-edit",
+      "type": "COMPONENT",
+      "aliases": [
+        "ai",
+        "edit",
+        "update",
+        "modify",
+        "pencil",
+        "rename"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2961",
+      "name": "icon/ai-file",
+      "type": "COMPONENT",
+      "aliases": [
+        "ai",
+        "file"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3042",
+      "name": "icon/text-document",
+      "type": "COMPONENT",
+      "aliases": [
+        "text",
+        "document"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2960",
+      "name": "icon/target",
+      "type": "COMPONENT",
+      "aliases": [
+        "target"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2959",
+      "name": "icon/money",
+      "type": "COMPONENT",
+      "aliases": [
+        "money",
+        "payment",
+        "pay",
+        "amount",
+        "price",
+        "cost",
+        "fee",
+        "billing",
+        "card",
+        "cvv",
+        "expiry",
+        "expiration",
+        "currency",
+        "finance",
+        "transaction",
+        "invoice",
+        "charge"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3053",
+      "name": "icon/flag-fill-alt",
+      "type": "COMPONENT",
+      "aliases": [
+        "flag",
+        "fill",
+        "alt"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:3022",
+      "name": "icon/image",
+      "type": "COMPONENT",
+      "aliases": [
+        "image"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2985",
+      "name": "icon/sand-clock",
+      "type": "COMPONENT",
+      "aliases": [
+        "sand",
+        "clock",
+        "time",
+        "history",
+        "recent"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2958",
+      "name": "icon/ascending",
+      "type": "COMPONENT",
+      "aliases": [
+        "ascending"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "110:2957",
+      "name": "icon/descending",
+      "type": "COMPONENT",
+      "aliases": [
+        "descending"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1847",
+      "name": "icon/delete",
+      "type": "COMPONENT",
+      "aliases": [
+        "delete",
+        "remove",
+        "trash",
+        "bin",
+        "clear"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1850",
+      "name": "icon/placeholder",
+      "type": "COMPONENT",
+      "aliases": [
+        "placeholder",
+        "default",
+        "empty",
+        "fallback"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1064",
+      "name": "icon/arrow-down",
+      "type": "COMPONENT",
+      "aliases": [
+        "arrow",
+        "down",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1066",
+      "name": "icon/arrow-bottom-down",
+      "type": "COMPONENT",
+      "aliases": [
+        "arrow",
+        "bottom",
+        "down",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1068",
+      "name": "icon/arrow-up",
+      "type": "COMPONENT",
+      "aliases": [
+        "arrow",
+        "up",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1072",
+      "name": "icon/arrow-left",
+      "type": "COMPONENT",
+      "aliases": [
+        "arrow",
+        "left",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1070",
+      "name": "icon/arrow-right",
+      "type": "COMPONENT",
+      "aliases": [
+        "arrow",
+        "right",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "107:182",
+      "name": "icon/plus",
+      "type": "COMPONENT",
+      "aliases": [
+        "plus",
+        "add",
+        "create",
+        "new",
+        "insert"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "107:184",
+      "name": "icon/plus-small",
+      "type": "COMPONENT",
+      "aliases": [
+        "plus",
+        "small",
+        "add",
+        "create",
+        "new",
+        "insert"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1084",
+      "name": "icon/filter-add",
+      "type": "COMPONENT",
+      "aliases": [
+        "filter",
+        "add",
+        "funnel",
+        "refine",
+        "sort",
+        "plus",
+        "create",
+        "new",
+        "insert"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1086",
+      "name": "icon/filter-active",
+      "type": "COMPONENT",
+      "aliases": [
+        "filter",
+        "active",
+        "funnel",
+        "refine",
+        "sort"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1088",
+      "name": "icon/filter-close",
+      "type": "COMPONENT",
+      "aliases": [
+        "filter",
+        "close",
+        "funnel",
+        "refine",
+        "sort",
+        "dismiss",
+        "cancel",
+        "x"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1095",
+      "name": "icon/folder-open",
+      "type": "COMPONENT",
+      "aliases": [
+        "folder",
+        "open",
+        "directory",
+        "files",
+        "collection"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1091",
+      "name": "icon/folder-closed",
+      "type": "COMPONENT",
+      "aliases": [
+        "folder",
+        "closed",
+        "directory",
+        "files",
+        "collection"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1101",
+      "name": "icon/more-dots-vertical",
+      "type": "COMPONENT",
+      "aliases": [
+        "more",
+        "dots",
+        "vertical",
+        "overflow",
+        "menu",
+        "options",
+        "kebab",
+        "ellipsis"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1106",
+      "name": "icon/more-dots-horizontal",
+      "type": "COMPONENT",
+      "aliases": [
+        "more",
+        "dots",
+        "horizontal",
+        "overflow",
+        "menu",
+        "options",
+        "kebab",
+        "ellipsis"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1862",
+      "name": "icon/bento-menu",
+      "type": "COMPONENT",
+      "aliases": [
+        "bento",
+        "menu",
+        "grid",
+        "apps"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1114",
+      "name": "icon/close-small-right",
+      "type": "COMPONENT",
+      "aliases": [
+        "close",
+        "small",
+        "right",
+        "dismiss",
+        "cancel",
+        "x"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1112",
+      "name": "icon/close-small-center",
+      "type": "COMPONENT",
+      "aliases": [
+        "close",
+        "small",
+        "center",
+        "dismiss",
+        "cancel",
+        "x"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1116",
+      "name": "icon/close-small-left",
+      "type": "COMPONENT",
+      "aliases": [
+        "close",
+        "small",
+        "left",
+        "dismiss",
+        "cancel",
+        "x"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "107:298",
+      "name": "icon/close-big",
+      "type": "COMPONENT",
+      "aliases": [
+        "close",
+        "big",
+        "dismiss",
+        "cancel",
+        "x"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1865",
+      "name": "icon/tick-scalable",
+      "type": "COMPONENT",
+      "aliases": [
+        "tick",
+        "scalable",
+        "check",
+        "done",
+        "approve"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1868",
+      "name": "icon/tick-small",
+      "type": "COMPONENT",
+      "aliases": [
+        "tick",
+        "small",
+        "check",
+        "done",
+        "approve"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1871",
+      "name": "icon/alert-small",
+      "type": "COMPONENT",
+      "aliases": [
+        "alert",
+        "small",
+        "warning",
+        "caution",
+        "attention"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1874",
+      "name": "icon/minus-small",
+      "type": "COMPONENT",
+      "aliases": [
+        "minus",
+        "small",
+        "subtract",
+        "remove",
+        "collapse"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1877",
+      "name": "icon/search",
+      "type": "COMPONENT",
+      "aliases": [
+        "search",
+        "find",
+        "lookup",
+        "query"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1880",
+      "name": "icon/hint",
+      "type": "COMPONENT",
+      "aliases": [
+        "hint",
+        "help",
+        "tip",
+        "assist"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1883",
+      "name": "icon/info",
+      "type": "COMPONENT",
+      "aliases": [
+        "info",
+        "information",
+        "details",
+        "about"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1886",
+      "name": "icon/success",
+      "type": "COMPONENT",
+      "aliases": [
+        "success",
+        "check",
+        "done",
+        "complete"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1889",
+      "name": "icon/error",
+      "type": "COMPONENT",
+      "aliases": [
+        "error",
+        "fail",
+        "invalid",
+        "danger"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1898",
+      "name": "icon/connection",
+      "type": "COMPONENT",
+      "aliases": [
+        "connection",
+        "link",
+        "integrate",
+        "network"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1906",
+      "name": "icon/environment",
+      "type": "COMPONENT",
+      "aliases": [
+        "environment",
+        "layer",
+        "stack",
+        "context"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1909",
+      "name": "icon/organization",
+      "type": "COMPONENT",
+      "aliases": [
+        "organization",
+        "org",
+        "company",
+        "workspace"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1912",
+      "name": "icon/security-tick",
+      "type": "COMPONENT",
+      "aliases": [
+        "security",
+        "tick",
+        "check",
+        "done",
+        "approve"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1915",
+      "name": "icon/settings",
+      "type": "COMPONENT",
+      "aliases": [
+        "settings",
+        "preferences",
+        "config",
+        "options"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1918",
+      "name": "icon/clock",
+      "type": "COMPONENT",
+      "aliases": [
+        "clock",
+        "time",
+        "history",
+        "recent"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "40:1921",
+      "name": "icon/users-alt",
+      "type": "COMPONENT",
+      "aliases": [
+        "users",
+        "alt",
+        "people",
+        "members",
+        "team",
+        "patient",
+        "visitor"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2362:1682343",
+      "name": "icon=true, state=enabled",
+      "type": "COMPONENT",
+      "aliases": [
+        "icon=true,",
+        "state=enabled"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2362:1682347",
+      "name": "icon=true, state=hover",
+      "type": "COMPONENT",
+      "aliases": [
+        "icon=true,",
+        "state=hover"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2362:1682351",
+      "name": "icon=true, state=active",
+      "type": "COMPONENT",
+      "aliases": [
+        "icon=true,",
+        "state=active"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2362:1682355",
+      "name": "icon=false, state=enabled",
+      "type": "COMPONENT",
+      "aliases": [
+        "icon=false,",
+        "state=enabled"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2362:1682358",
+      "name": "icon=false, state=hover",
+      "type": "COMPONENT",
+      "aliases": [
+        "icon=false,",
+        "state=hover"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2362:1682361",
+      "name": "icon=false, state=active",
+      "type": "COMPONENT",
+      "aliases": [
+        "icon=false,",
+        "state=active"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2362:1682365",
+      "name": "icon-position=left-right, state=enabled",
+      "type": "COMPONENT",
+      "aliases": [
+        "icon",
+        "position=left",
+        "right,",
+        "state=enabled"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2362:1682369",
+      "name": "icon-position=left-right, state=current",
+      "type": "COMPONENT",
+      "aliases": [
+        "icon",
+        "position=left",
+        "right,",
+        "state=current"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2362:1682373",
+      "name": "icon-position=left-right, state=hover",
+      "type": "COMPONENT",
+      "aliases": [
+        "icon",
+        "position=left",
+        "right,",
+        "state=hover"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2362:1682377",
+      "name": "icon-position=left, state=enabled",
+      "type": "COMPONENT",
+      "aliases": [
+        "icon",
+        "position=left,",
+        "state=enabled"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2362:1682380",
+      "name": "icon-position=left, state=current",
+      "type": "COMPONENT",
+      "aliases": [
+        "icon",
+        "position=left,",
+        "state=current"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2362:1682383",
+      "name": "icon-position=left, state=hover",
+      "type": "COMPONENT",
+      "aliases": [
+        "icon",
+        "position=left,",
+        "state=hover"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2362:1682386",
+      "name": "icon-position=right, state=enabled",
+      "type": "COMPONENT",
+      "aliases": [
+        "icon",
+        "position=right,",
+        "state=enabled"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2362:1682389",
+      "name": "icon-position=right, state=current",
+      "type": "COMPONENT",
+      "aliases": [
+        "icon",
+        "position=right,",
+        "state=current"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2362:1682392",
+      "name": "icon-position=right, state=hover",
+      "type": "COMPONENT",
+      "aliases": [
+        "icon",
+        "position=right,",
+        "state=hover"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2362:1682395",
+      "name": "icon-position=none, state=enabled",
+      "type": "COMPONENT",
+      "aliases": [
+        "icon",
+        "position=none,",
+        "state=enabled"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2362:1682397",
+      "name": "icon-position=none, state=current",
+      "type": "COMPONENT",
+      "aliases": [
+        "icon",
+        "position=none,",
+        "state=current"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2362:1682399",
+      "name": "icon-position=none, state=hover",
+      "type": "COMPONENT",
+      "aliases": [
+        "icon",
+        "position=none,",
+        "state=hover"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1597",
+      "name": "size=extra-small, style=fill, hover-on-button=false, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1606",
+      "name": "size=extra-small, style=border, hover-on-button=false, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1615",
+      "name": "size=extra-small, style=minimal-border, hover-on-button=false, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1624",
+      "name": "size=extra-small, style=minimal-fill, hover-on-button=false, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1633",
+      "name": "size=extra-small, style=minimal-fill, hover-on-button=true, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1642",
+      "name": "size=extra-small, style=minimal-fill, hover-on-button=true, hover-on-icon=true",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=true"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1651",
+      "name": "size=extra-small, style=border, hover-on-button=true, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1660",
+      "name": "size=extra-small, style=minimal-border, hover-on-button=true, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1669",
+      "name": "size=extra-small, style=border, hover-on-button=false, hover-on-icon=true",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1678",
+      "name": "size=extra-small, style=minimal-border, hover-on-button=false, hover-on-icon=true",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1687",
+      "name": "size=extra-small, style=fill, hover-on-button=false, hover-on-icon=true",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1696",
+      "name": "size=extra-small, style=fill, hover-on-button=true, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1705",
+      "name": "size=small, style=fill, hover-on-button=false, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=small,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1714",
+      "name": "size=small, style=border, hover-on-button=false, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=small,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1723",
+      "name": "size=small, style=minimal-border, hover-on-button=false, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=small,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1732",
+      "name": "size=small, style=border, hover-on-button=true, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=small,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1741",
+      "name": "size=small, style=minimal-border, hover-on-button=true, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=small,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1750",
+      "name": "size=small, style=minimal-fill, hover-on-button=false, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=small,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1759",
+      "name": "size=small, style=minimal-fill, hover-on-button=true, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=small,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1768",
+      "name": "size=small, style=minimal-fill, hover-on-button=true, hover-on-icon=true",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=small,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=true"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1777",
+      "name": "size=small, style=border, hover-on-button=false, hover-on-icon=true",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=small,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1786",
+      "name": "size=small, style=minimal-border, hover-on-button=false, hover-on-icon=true",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=small,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1795",
+      "name": "size=small, style=fill, hover-on-button=false, hover-on-icon=true",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=small,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1804",
+      "name": "size=small, style=fill, hover-on-button=true, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=small,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1813",
+      "name": "size=base, style=fill, hover-on-button=false, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=base,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1822",
+      "name": "size=base, style=border, hover-on-button=false, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=base,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1831",
+      "name": "size=base, style=minimal-border, hover-on-button=false, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=base,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1840",
+      "name": "size=base, style=border, hover-on-button=true, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=base,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1849",
+      "name": "size=base, style=minimal-border, hover-on-button=true, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=base,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1858",
+      "name": "size=base, style=minimal-fill, hover-on-button=false, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=base,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1867",
+      "name": "size=base, style=minimal-fill, hover-on-button=true, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=base,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1876",
+      "name": "size=base, style=minimal-fill, hover-on-button=true, hover-on-icon=true",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=base,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=true"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1885",
+      "name": "size=base, style=border, hover-on-button=false, hover-on-icon=true",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=base,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1894",
+      "name": "size=base, style=minimal-border, hover-on-button=false, hover-on-icon=true",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=base,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1903",
+      "name": "size=base, style=fill, hover-on-button=false, hover-on-icon=true",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=base,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1912",
+      "name": "size=base, style=fill, hover-on-button=true, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=base,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1921",
+      "name": "size=large, style=fill, hover-on-button=false, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=large,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1930",
+      "name": "size=large, style=border, hover-on-button=false, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=large,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1939",
+      "name": "size=large, style=minimal-border, hover-on-button=false, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=large,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1948",
+      "name": "size=large, style=minimal-fill, hover-on-button=false, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=large,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1957",
+      "name": "size=large, style=minimal-fill, hover-on-button=true, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=large,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1966",
+      "name": "size=large, style=minimal-fill, hover-on-button=true, hover-on-icon=true",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=large,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=true"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1975",
+      "name": "size=large, style=border, hover-on-button=true, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=large,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1984",
+      "name": "size=large, style=minimal-border, hover-on-button=true, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=large,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:1993",
+      "name": "size=large, style=border, hover-on-button=false, hover-on-icon=true",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=large,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:2002",
+      "name": "size=large, style=minimal-border, hover-on-button=false, hover-on-icon=true",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=large,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:2011",
+      "name": "size=large, style=fill, hover-on-button=false, hover-on-icon=true",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=large,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    },
+    {
+      "id": "2364:2020",
+      "name": "size=large, style=fill, hover-on-button=true, hover-on-icon=false",
+      "type": "COMPONENT",
+      "aliases": [
+        "size=large,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "variants": {},
+      "properties": {},
+      "meta": {
+        "hasVariants": false,
+        "hasProperties": false
+      }
+    }
+  ]
+}

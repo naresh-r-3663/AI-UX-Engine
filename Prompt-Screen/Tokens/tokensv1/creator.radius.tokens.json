@@ -1,0 +1,227 @@
+{
+  "Primitives": {
+    "radius-0": {
+      "$type": "number",
+      "$value": 0,
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2:4421",
+        "com.figma.hiddenFromPublishing": true,
+        "com.figma.isOverride": true
+      }
+    },
+    "radius-2": {
+      "$type": "number",
+      "$value": 2,
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2:4422",
+        "com.figma.hiddenFromPublishing": true,
+        "com.figma.isOverride": true
+      }
+    },
+    "radius-4": {
+      "$type": "number",
+      "$value": 4,
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2:4423",
+        "com.figma.hiddenFromPublishing": true,
+        "com.figma.isOverride": true
+      }
+    },
+    "radius-6": {
+      "$type": "number",
+      "$value": 6,
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2:4424",
+        "com.figma.hiddenFromPublishing": true,
+        "com.figma.isOverride": true
+      }
+    },
+    "radius-8": {
+      "$type": "number",
+      "$value": 8,
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2:4425",
+        "com.figma.hiddenFromPublishing": true,
+        "com.figma.isOverride": true
+      }
+    },
+    "radius-10": {
+      "$type": "number",
+      "$value": 10,
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2:4426",
+        "com.figma.hiddenFromPublishing": true,
+        "com.figma.isOverride": true
+      }
+    },
+    "radius-12": {
+      "$type": "number",
+      "$value": 12,
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2:4427",
+        "com.figma.hiddenFromPublishing": true,
+        "com.figma.isOverride": true
+      }
+    },
+    "radius-14": {
+      "$type": "number",
+      "$value": 14,
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2:4428",
+        "com.figma.hiddenFromPublishing": true,
+        "com.figma.isOverride": true
+      }
+    },
+    "radius-16": {
+      "$type": "number",
+      "$value": 16,
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2:4429",
+        "com.figma.hiddenFromPublishing": true,
+        "com.figma.isOverride": true
+      }
+    },
+    "radius-18": {
+      "$type": "number",
+      "$value": 18,
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2:4430",
+        "com.figma.hiddenFromPublishing": true,
+        "com.figma.isOverride": true
+      }
+    },
+    "radius-20": {
+      "$type": "number",
+      "$value": 20,
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2:4431",
+        "com.figma.hiddenFromPublishing": true,
+        "com.figma.isOverride": true
+      }
+    },
+    "radius-999": {
+      "$type": "number",
+      "$value": 999,
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2:4432",
+        "com.figma.hiddenFromPublishing": true,
+        "com.figma.isOverride": true
+      }
+    }
+  },
+  "Semantic": {
+    "radius-null": {
+      "$type": "number",
+      "$value": "{Primitives.radius-0}",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2:4433",
+        "com.figma.scopes": [
+          "CORNER_RADIUS"
+        ],
+        "com.figma.isOverride": true
+      }
+    },
+    "radius-xs": {
+      "$type": "number",
+      "$value": "{Primitives.radius-2}",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2:4434",
+        "com.figma.scopes": [
+          "CORNER_RADIUS"
+        ],
+        "com.figma.isOverride": true
+      }
+    },
+    "radius-s": {
+      "$type": "number",
+      "$value": "{Primitives.radius-4}",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2:4435",
+        "com.figma.scopes": [
+          "CORNER_RADIUS"
+        ],
+        "com.figma.isOverride": true
+      }
+    },
+    "radius-r": {
+      "$type": "number",
+      "$value": "{Primitives.radius-6}",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2:4436",
+        "com.figma.scopes": [
+          "CORNER_RADIUS"
+        ],
+        "com.figma.isOverride": true
+      }
+    },
+    "radius-rl": {
+      "$type": "number",
+      "$value": "{Primitives.radius-8}",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2:4437",
+        "com.figma.scopes": [
+          "CORNER_RADIUS"
+        ],
+        "com.figma.isOverride": true
+      }
+    },
+    "radius-l": {
+      "$type": "number",
+      "$value": "{Primitives.radius-10}",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2:4438",
+        "com.figma.scopes": [
+          "CORNER_RADIUS"
+        ],
+        "com.figma.isOverride": true
+      }
+    },
+    "radius-xl": {
+      "$type": "number",
+      "$value": "{Primitives.radius-14}",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2:4439",
+        "com.figma.scopes": [
+          "CORNER_RADIUS"
+        ],
+        "com.figma.isOverride": true
+      }
+    },
+    "radius-2xl": {
+      "$type": "number",
+      "$value": "{Primitives.radius-18}",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2:4440",
+        "com.figma.scopes": [
+          "CORNER_RADIUS"
+        ],
+        "com.figma.isOverride": true
+      }
+    },
+    "radius-3xl": {
+      "$type": "number",
+      "$value": "{Primitives.radius-20}",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2:4441",
+        "com.figma.scopes": [
+          "CORNER_RADIUS"
+        ],
+        "com.figma.isOverride": true
+      }
+    },
+    "radius-full": {
+      "$type": "number",
+      "$value": "{Primitives.radius-999}",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2:4442",
+        "com.figma.scopes": [
+          "CORNER_RADIUS"
+        ],
+        "com.figma.isOverride": true
+      }
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "Creator"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "solidColors": [
+    "Cardinal", "Tekhelete", "Caribbean", "Avocado",
+    "Russet", "Penred", "Mardigrass", "Biceblue",
+    "Seagreen", "Gold", "Brown", "Black"
+  ],
+  "imageUsers": ["Dev", "Linda", "Neo", "Anna"],
+  "peopleDomainKeywords": [
+    "user", "users", "people", "person", "member", "members",
+    "employee", "employees", "staff", "team", "customer",
+    "customers", "client", "clients", "contact", "contacts"
+  ],
+  "appNames": [
+    "Nexus", "Orbit", "Pulse", "Vortex", "Atlas",
+    "Prism", "Beacon", "Catalyst", "Horizon", "Zenith",
+    "Cloud Drive", "Dev Tools", "Data Vault", "Smart Home",
+    "Code Studio", "Flux Board"
+  ]
+}

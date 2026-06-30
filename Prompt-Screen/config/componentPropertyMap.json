@@ -1,0 +1,508 @@
+{
+  "comp.input.text.base": {
+    "hint-text": {
+      "type": "BOOLEAN",
+      "defaultValue": false
+    },
+    "label": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "state": {
+      "type": "VARIANT",
+      "defaultValue": "default",
+      "values": [
+        "default",
+        "hover-on-default",
+        "active",
+        "filled",
+        "hover-on-filled",
+        "disabled",
+        "disabled-after",
+        "error",
+        "error-after",
+        "Success"
+      ],
+      "semantic": "hover",
+      "hoverValue": "hover-on-default"
+    }
+  },
+  "comp.input.textarea.base": {
+    "hint-text": {
+      "type": "BOOLEAN",
+      "defaultValue": false
+    },
+    "label": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "state": {
+      "type": "VARIANT",
+      "defaultValue": "default",
+      "values": [
+        "default",
+        "hover-on-default",
+        "active",
+        "disabled",
+        "disabled-after",
+        "filled",
+        "error",
+        "success",
+        "hover-on-filled",
+        "Error After"
+      ],
+      "semantic": "hover",
+      "hoverValue": "hover-on-default"
+    }
+  },
+  "comp.input.dropdown.base": {
+    "hint-text": {
+      "type": "BOOLEAN",
+      "defaultValue": false
+    },
+    "label": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "state": {
+      "type": "VARIANT",
+      "defaultValue": "default",
+      "values": [
+        "default",
+        "hover",
+        "active",
+        "disabled",
+        "disabled-after",
+        "selected",
+        "error",
+        "success",
+        "multi-selected",
+        "Selected With Close",
+        "Hover On Selected",
+        "Hover With Clear",
+        "Re-Active",
+        "Re-Active WIth Clear"
+      ],
+      "semantic": "hover",
+      "hoverValue": "hover"
+    }
+  },
+  "comp.input.radio.base": {
+    "hint-text": {
+      "type": "BOOLEAN",
+      "defaultValue": false
+    },
+    "label": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "state": {
+      "type": "VARIANT",
+      "defaultValue": "default",
+      "values": [
+        "default",
+        "hover-on-default",
+        "hover-on-selected",
+        "disabled",
+        "error",
+        "hover-on-error"
+      ],
+      "semantic": "hover",
+      "hoverValue": "hover-on-default"
+    }
+  },
+  "comp.input.checkbox.base": {
+    "hint-text": {
+      "type": "BOOLEAN",
+      "defaultValue": false
+    },
+    "label": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "state": {
+      "type": "VARIANT",
+      "defaultValue": "default",
+      "values": [
+        "default",
+        "hover-on-default",
+        "hover-on-selected",
+        "disabled",
+        "error",
+        "hover-on-error",
+        "selected",
+        "indeterminate"
+      ],
+      "semantic": "hover",
+      "hoverValue": "hover-on-default"
+    }
+  },
+  "comp.huegrey.button": {
+    "icon-left": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "icon-right": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "change-icon-left": {
+      "type": "INSTANCE_SWAP",
+      "defaultValue": "40:1850"
+    },
+    "change-icon-right": {
+      "type": "INSTANCE_SWAP",
+      "defaultValue": "40:1850"
+    },
+    "size": {
+      "type": "VARIANT",
+      "defaultValue": "base",
+      "values": [
+        "base",
+        "small",
+        "extra-small",
+        "large"
+      ]
+    },
+    "Style": {
+      "type": "VARIANT",
+      "defaultValue": "Fill",
+      "values": [
+        "Fill",
+        "Border",
+        "Link",
+        "Minimal Border",
+        "Hyperlink",
+        "Minimal Fill"
+      ]
+    },
+    "hover": {
+      "type": "VARIANT",
+      "defaultValue": "false",
+      "values": [
+        "false",
+        "true"
+      ],
+      "semantic": "hover",
+      "hoverValue": "true"
+    }
+  },
+  "comp.primary.button": {
+    "icon-left": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "icon-right": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "change-icon-left": {
+      "type": "INSTANCE_SWAP",
+      "defaultValue": "40:1850"
+    },
+    "change-icon-right": {
+      "type": "INSTANCE_SWAP",
+      "defaultValue": "40:1850"
+    },
+    "size": {
+      "type": "VARIANT",
+      "defaultValue": "base",
+      "values": [
+        "base",
+        "small",
+        "extra-small",
+        "large"
+      ]
+    },
+    "style": {
+      "type": "VARIANT",
+      "defaultValue": "fill",
+      "values": [
+        "fill",
+        "border",
+        "link",
+        "minimal-border",
+        "hyperlink",
+        "minimal-fill"
+      ]
+    },
+    "hover": {
+      "type": "VARIANT",
+      "defaultValue": "false",
+      "values": [
+        "false",
+        "true"
+      ],
+      "semantic": "hover",
+      "hoverValue": "true"
+    }
+  },
+  "comp.primary.duobutton": {
+    "style": {
+      "type": "VARIANT",
+      "defaultValue": "fill",
+      "values": [
+        "fill",
+        "border",
+        "link",
+        "minimal-border",
+        "minimal-fill",
+        "hyperlink"
+      ]
+    },
+    "position": {
+      "type": "VARIANT",
+      "defaultValue": "left",
+      "values": [
+        "left",
+        "right"
+      ]
+    }
+  },
+  "comp.huegrey.duobutton": {
+    "style": {
+      "type": "VARIANT",
+      "defaultValue": "fill",
+      "values": [
+        "fill",
+        "border",
+        "link",
+        "minimal-fill",
+        "minimal-border",
+        "hyperlink"
+      ]
+    },
+    "position": {
+      "type": "VARIANT",
+      "defaultValue": "left",
+      "values": [
+        "left",
+        "right"
+      ]
+    }
+  },
+  "comp.primary.splitbutton": {
+    "left-icon": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "change-left-icon": {
+      "type": "INSTANCE_SWAP",
+      "defaultValue": "40:1850"
+    },
+    "size": {
+      "type": "VARIANT",
+      "defaultValue": "base",
+      "values": [
+        "base",
+        "small",
+        "extra-small",
+        "large"
+      ]
+    },
+    "style": {
+      "type": "VARIANT",
+      "defaultValue": "fill",
+      "values": [
+        "fill",
+        "border",
+        "minimal-border",
+        "minimal-fill"
+      ]
+    },
+    "hover-on-button": {
+      "type": "VARIANT",
+      "defaultValue": "false",
+      "values": [
+        "false",
+        "true"
+      ]
+    },
+    "hover-on-icon": {
+      "type": "VARIANT",
+      "defaultValue": "false",
+      "values": [
+        "false",
+        "true"
+      ]
+    }
+  },
+  "comp.primary.circle.iconbutton": {
+    "change-icon": {
+      "type": "INSTANCE_SWAP",
+      "defaultValue": "40:1850"
+    },
+    "size": {
+      "type": "VARIANT",
+      "defaultValue": "base",
+      "values": [
+        "base",
+        "small",
+        "extra-small",
+        "large"
+      ]
+    },
+    "style": {
+      "type": "VARIANT",
+      "defaultValue": "fill",
+      "values": [
+        "fill",
+        "border",
+        "link",
+        "minimal-border",
+        "minimal-fill"
+      ]
+    },
+    "hover": {
+      "type": "VARIANT",
+      "defaultValue": "false",
+      "values": [
+        "true",
+        "false"
+      ],
+      "semantic": "hover",
+      "hoverValue": "true"
+    }
+  },
+  "comp.primary.iconbutton": {
+    "change-icon": {
+      "type": "INSTANCE_SWAP",
+      "defaultValue": "40:1850"
+    },
+    "size": {
+      "type": "VARIANT",
+      "defaultValue": "base",
+      "values": [
+        "base",
+        "small",
+        "extra-small",
+        "large"
+      ]
+    },
+    "style": {
+      "type": "VARIANT",
+      "defaultValue": "fill",
+      "values": [
+        "fill",
+        "border",
+        "link",
+        "minimal-border",
+        "minimal-fill"
+      ]
+    },
+    "hover": {
+      "type": "VARIANT",
+      "defaultValue": "false",
+      "values": [
+        "true",
+        "false"
+      ],
+      "semantic": "hover",
+      "hoverValue": "true"
+    }
+  },
+  "comp.primary.duo.iconbutton": {
+    "change-right-icon": {
+      "type": "INSTANCE_SWAP",
+      "defaultValue": "40:1850"
+    },
+    "change-left-icon": {
+      "type": "INSTANCE_SWAP",
+      "defaultValue": "40:1850"
+    },
+    "size": {
+      "type": "VARIANT",
+      "defaultValue": "base",
+      "values": [
+        "base",
+        "small",
+        "extra-small",
+        "large"
+      ]
+    },
+    "style": {
+      "type": "VARIANT",
+      "defaultValue": "fill",
+      "values": [
+        "fill",
+        "border",
+        "minimal-border",
+        "minimal-fill"
+      ]
+    },
+    "hover-on-left": {
+      "type": "VARIANT",
+      "defaultValue": "false",
+      "values": [
+        "false",
+        "true"
+      ]
+    },
+    "hover-on-right": {
+      "type": "VARIANT",
+      "defaultValue": "false",
+      "values": [
+        "false",
+        "true"
+      ]
+    }
+  },
+  "comp.primary.duo.combobutton": {
+    "style": {
+      "type": "VARIANT",
+      "defaultValue": "fill",
+      "values": [
+        "fill",
+        "border",
+        "link",
+        "minimal-border",
+        "minimal-fill"
+      ]
+    },
+    "position": {
+      "type": "VARIANT",
+      "defaultValue": "left",
+      "values": [
+        "left",
+        "right"
+      ]
+    }
+  },
+  "comp.huegrey.iconbutton": {
+    "change-icon": {
+      "type": "INSTANCE_SWAP",
+      "defaultValue": "40:1850"
+    },
+    "size": {
+      "type": "VARIANT",
+      "defaultValue": "base",
+      "values": [
+        "base",
+        "small",
+        "extra-small",
+        "large"
+      ]
+    },
+    "style": {
+      "type": "VARIANT",
+      "defaultValue": "fill",
+      "values": [
+        "fill",
+        "border",
+        "link",
+        "minimal-border",
+        "minimal-fill"
+      ]
+    },
+    "hover": {
+      "type": "VARIANT",
+      "defaultValue": "false",
+      "values": [
+        "true",
+        "false"
+      ],
+      "semantic": "hover",
+      "hoverValue": "true"
+    }
+  }
+}

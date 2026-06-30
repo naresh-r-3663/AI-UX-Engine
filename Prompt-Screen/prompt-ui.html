@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI UX Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --surface-glass: rgba(255, 255, 255, 0.9);
+      --ink: #0d0d0d;
+      --muted: #56565a;
+      --accent: #000000;
+      --accent-hover: #1a1a1a;
+      --accent-soft: rgba(0, 0, 0, 0.04);
+      --accent-glow: rgba(0, 0, 0, 0.06);
+      --line: rgba(0, 0, 0, 0.08);
+      --topbar-h: 56px;
+      --sidebar-w: 260px;
+      --composer-h: 100px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      height: 100%;
+      font-family: "Inter", -apple-system, "Segoe UI", "Helvetica Neue", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+      font-weight: 400;
+    }
+
+    /* ── Topbar ── */
+    .topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--topbar-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      z-index: 100;
+    }
+
+    .brand {
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: -0.2px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .topbar-badge {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      background: transparent;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    /* ── Shell ── */
+    .shell {
+      position: fixed;
+      top: var(--topbar-h);
+      left: 0; right: 0; bottom: 0;
+      display: grid;
+      grid-template-columns: var(--sidebar-w) 1fr;
+      min-height: 0;
+    }
+
+    /* ── Sidebar ── */
+    .sidebar {
+      border-right: 1px solid var(--line);
+      background: #fafafa;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 0;
+      min-height: 0;
+    }
+
+    .new-chat {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      min-height: 40px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 400;
+      font-size: 14px;
+      transition: all 0.15s;
+    }
+
+    .new-chat:hover {
+      background: #f5f5f5;
+    }
+
+    .history-title {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+    }
+
+    .history-empty {
+      font-size: 12px;
+      color: var(--muted);
+      border: 1px dashed var(--line);
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .sidebar-footer {
+      margin-top: auto;
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+    }
+
+    .readme-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      min-height: 36px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 400;
+      text-decoration: none;
+      transition: all 0.15s;
+    }
+
+    .readme-btn:hover {
+      background: #f5f5f5;
+      color: var(--ink);
+    }
+
+    .history {
+      overflow-y: auto;
+      border-top: 1px solid var(--line);
+      padding-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-height: 0;
+    }
+
+    .history-item {
+      border: none;
+      background: transparent;
+      border-radius: 8px;
+      padding: 8px 10px;
+      cursor: pointer;
+      font-size: 13px;
+      line-height: 1.35;
+      text-align: left;
+      transition: all 0.12s;
+    }
+
+    .history-item:hover {
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .history-item.active {
+      background: rgba(0, 0, 0, 0.06);
+    }
+
+    .history-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .history-title-text {
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-weight: 400;
+    }
+
+    .history-delete {
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      border-radius: 6px;
+      min-width: 22px;
+      height: 22px;
+      cursor: pointer;
+      font-size: 12px;
+      line-height: 1;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: all 0.12s;
+    }
+
+    .history-item:hover .history-delete {
+      opacity: 1;
+    }
+
+    .history-delete:hover {
+      color: #e0245e;
+      background: rgba(224, 36, 94, 0.06);
+    }
+
+    .history-meta {
+      display: block;
+      margin-top: 3px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* ── Main ── */
+    .main {
+      min-width: 0;
+      position: relative;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      background: transparent;
+      min-height: 0;
+    }
+
+    .feed {
+      overflow-y: auto;
+      padding: 22px 22px calc(var(--composer-h) + 26px);
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .feed > * {
+      width: 100%;
+      max-width: 680px;
+    }
+
+    /* ── Empty State ── */
+    .empty-state {
+      padding: 0 24px 36px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      min-height: 60vh;
+    }
+
+    .orb {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #000, #444);
+      position: relative;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .orb::after {
+      content: "";
+      position: absolute;
+      inset: -6px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 50%;
+      animation: pulse-ring 2.5s ease-out infinite;
+    }
+
+    .empty-title {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: -0.4px;
+      color: var(--ink);
+    }
+
+    .empty-title .accent {
+      color: var(--ink);
+      -webkit-text-fill-color: unset;
+    }
+
+    .empty-sub {
+      margin: 6px 0 24px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .suggestion-btn {
+      border: 1px solid var(--line);
+      background: transparent;
+      border-radius: 999px;
+      min-height: 34px;
+      padding: 0 14px;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .suggestion-btn:hover {
+      background: rgba(0, 0, 0, 0.03);
+      border-color: rgba(0, 0, 0, 0.15);
+      color: var(--ink);
+    }
+
+    /* ── Cards ── */
+    .card {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-bottom: 1px solid var(--line);
+      background: #fafafa;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 3px 9px;
+      font-size: 11px;
+      font-weight: 400;
+      background: transparent;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      color: var(--muted);
+    }
+
+    .card-body { padding: 14px 16px; }
+    .prompt-text { font-size: 14px; line-height: 1.6; white-space: pre-wrap; }
+
+    /* ── Loader ── */
+    .loader { text-align: center; padding: 20px 0 8px; }
+
+    .loader-orb {
+      width: 44px;
+      height: 44px;
+      margin: 0 auto 16px;
+      background: linear-gradient(145deg, #000, #555, #999);
+      background-size: 200% 200%;
+      animation: orb-morph 3s ease-in-out infinite, orb-gradient 4s ease infinite;
+    }
+
+    .loader-orb.knowledge {
+      background: linear-gradient(145deg, #1a1a1a, #666, #aaa);
+      background-size: 200% 200%;
+      animation: orb-morph-k 3.2s ease-in-out infinite, orb-gradient 4s ease infinite;
+    }
+
+    @keyframes orb-morph {
+      0%       { border-radius: 50%; transform: rotate(0deg) scale(1); }
+      25%      { border-radius: 30% 50% 30% 50%; transform: rotate(45deg) scale(0.95); }
+      50%      { border-radius: 16px; transform: rotate(90deg) scale(1); }
+      75%      { border-radius: 50% 30% 50% 30%; transform: rotate(135deg) scale(0.95); }
+      100%     { border-radius: 50%; transform: rotate(180deg) scale(1); }
+    }
+
+    @keyframes orb-morph-k {
+      0%       { border-radius: 14px; transform: rotate(0deg) scale(1); }
+      25%      { border-radius: 50%; transform: rotate(-30deg) scale(0.96); }
+      50%      { border-radius: 20px 14px; transform: rotate(0deg) scale(1); }
+      75%      { border-radius: 50%; transform: rotate(30deg) scale(0.96); }
+      100%     { border-radius: 14px; transform: rotate(0deg) scale(1); }
+    }
+
+    @keyframes orb-gradient {
+      0%, 100% { background-position: 0% 0%; }
+      50%      { background-position: 100% 100%; }
+    }
+
+    .loader-title { margin: 0; font-size: 14px; font-weight: 500; }
+
+    .loader-words {
+      margin: 6px 0 0;
+      height: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .loader-words-track {
+      display: flex;
+      flex-direction: column;
+      animation: word-cycle 6s ease-in-out infinite;
+    }
+
+    .loader-word {
+      height: 20px;
+      line-height: 20px;
+      font-size: 13px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    @keyframes word-cycle {
+      0%, 8%     { transform: translateY(0); }
+      12%, 20%   { transform: translateY(-20px); }
+      24%, 32%   { transform: translateY(-40px); }
+      36%, 44%   { transform: translateY(-60px); }
+      48%, 56%   { transform: translateY(-80px); }
+      60%, 68%   { transform: translateY(-100px); }
+      72%, 80%   { transform: translateY(-120px); }
+      84%, 92%   { transform: translateY(-140px); }
+      96%, 100%  { transform: translateY(0); }
+    }
+
+    .steps {
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
+      padding-top: 8px;
+    }
+
+    .step {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .step:last-child { border-bottom: none; }
+
+    .step-tag {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 400;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      color: var(--muted);
+      background: transparent;
+    }
+
+    .summary {
+      border: 1px solid var(--line);
+      background: #fafafa;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .json {
+      border: 1px solid var(--line);
+      background: #1a1a1a;
+      color: #e0e0e0;
+      border-radius: 10px;
+      max-height: 300px;
+      overflow: auto;
+      padding: 14px;
+      white-space: pre;
+      font-size: 12px;
+      line-height: 1.5;
+      font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+    }
+
+    .actions {
+      margin-top: 10px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .btn {
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 999px;
+      min-height: 38px;
+      padding: 0 18px;
+      cursor: pointer;
+      font-weight: 400;
+      font-size: 13px;
+      transition: all 0.15s;
+    }
+
+    .btn:hover {
+      background: var(--accent-hover);
+    }
+
+    .btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+
+    .btn.secondary:hover {
+      background: rgba(0, 0, 0, 0.03);
+    }
+
+    /* ── Composer ── */
+    .composer {
+      position: sticky;
+      bottom: 0;
+      border-top: 1px solid var(--line);
+      background: var(--bg);
+      padding: 12px 16px;
+      min-height: var(--composer-h);
+    }
+
+    .composer-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .prompt-input {
+      flex: 1;
+      min-height: 44px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fafafa;
+      padding: 0 18px;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.15s;
+      font-family: inherit;
+    }
+
+    .prompt-input:focus {
+      border-color: rgba(0, 0, 0, 0.2);
+      background: var(--surface);
+    }
+
+    .composer-note {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 6px;
+      padding-left: 6px;
+    }
+
+    .landing-composer {
+      margin-top: 24px;
+      width: 100%;
+      max-width: 680px;
+    }
+
+    .landing-composer .composer-row {
+      max-width: 100%;
+    }
+
+    .landing-composer .composer-note {
+      text-align: center;
+      padding-left: 0;
+    }
+
+    .hidden { display: none !important; }
+
+    /* ── Animations ── */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes spin-slow { to { transform: rotate(360deg); } }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    @keyframes pulse-ring { from { transform: scale(0.95); opacity: 0.5; } to { transform: scale(1.15); opacity: 0; } }
+
+    /* ── Save Domain Modal ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      width: 460px;
+      max-width: 92vw;
+      max-height: 88vh;
+      overflow-y: auto;
+      box-shadow: 0 16px 60px rgba(0, 0, 0, 0.12);
+      padding: 24px;
+    }
+
+    .modal-title {
+      margin: 0 0 4px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .modal-sub {
+      margin: 0 0 16px;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .modal-field {
+      margin-bottom: 14px;
+    }
+
+    .modal-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .modal-input {
+      width: 100%;
+      min-height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fafafa;
+      padding: 0 12px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .modal-input:focus {
+      border-color: rgba(0, 0, 0, 0.2);
+      background: var(--surface);
+    }
+
+    .modal-summary-box {
+      background: #fafafa;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+
+    .radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .radio-pill {
+      position: relative;
+    }
+
+    .radio-pill input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .radio-pill label {
+      display: inline-block;
+      padding: 6px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 400;
+      cursor: pointer;
+      transition: all 0.12s;
+      background: var(--surface);
+    }
+
+    .radio-pill input:checked + label {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .radio-pill label:hover {
+      border-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-conflict {
+      background: rgba(255, 180, 0, 0.08);
+      border: 1px solid rgba(255, 180, 0, 0.25);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 12px;
+      color: #8a6d00;
+      margin-bottom: 14px;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    /* ── Toast ── */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #000;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 400;
+      z-index: 300;
+      opacity: 0;
+      transition: all 0.2s ease;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .btn-save-domain {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--ink);
+      border-radius: 999px;
+      min-height: 38px;
+      padding: 0 16px;
+      cursor: pointer;
+      font-weight: 400;
+      font-size: 13px;
+      transition: all 0.15s;
+    }
+
+    .btn-save-domain:hover {
+      background: rgba(0, 0, 0, 0.03);
+      border-color: rgba(0, 0, 0, 0.15);
+    }
+
+    /* ── Mode Toggle ── */
+    .mode-toggle {
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .mode-toggle-btn {
+      flex: 1;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 400;
+      padding: 7px 14px;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: inherit;
+    }
+
+    .mode-toggle-btn.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .mode-toggle-btn:not(.active):hover {
+      background: rgba(0, 0, 0, 0.03);
+    }
+
+    /* ── Screen List Composer ── */
+    .screenlist-composer {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .screenlist-textarea {
+      width: 100%;
+      min-height: 180px;
+      max-height: 320px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #fafafa;
+      padding: 12px 14px;
+      font-size: 12px;
+      line-height: 1.5;
+      font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+      outline: none;
+      resize: vertical;
+      transition: border-color 0.15s;
+      color: var(--ink);
+    }
+
+    .screenlist-textarea:focus {
+      border-color: rgba(0, 0, 0, 0.2);
+      background: var(--surface);
+    }
+
+    .screenlist-textarea::placeholder {
+      color: var(--muted);
+      font-family: "Inter", sans-serif;
+      font-size: 13px;
+    }
+
+    .screenlist-actions {
+      display: flex;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .btn-patch {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+
+    .btn-patch:hover {
+      background: rgba(0, 0, 0, 0.03);
+    }
+
+    .screenlist-hint {
+      font-size: 11px;
+      color: var(--muted);
+      padding-left: 2px;
+    }
+
+    .screenlist-error {
+      font-size: 12px;
+      color: #e0245e;
+      background: rgba(224, 36, 94, 0.06);
+      border: 1px solid rgba(224, 36, 94, 0.15);
+      border-radius: 8px;
+      padding: 8px 12px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 980px) {
+      .shell { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      AI UX Engine
+    </div>
+    <div class="topbar-badge">Knowledge + UX AI Routing</div>
+  </header>
+
+  <div class="shell">
+    <aside class="sidebar">
+      <button class="new-chat" id="newChatBtn">+ New Screen</button>
+      <div class="history-title">Screens Generated</div>
+      <div class="history" id="historyList"></div>
+      <div class="sidebar-footer">
+        <a href="/engine-readme.html" class="readme-btn" id="readmeBtn">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M12 6.25a.75.75 0 01.75.75v4.25H17a.75.75 0 010 1.5h-4.25V17a.75.75 0 01-1.5 0v-4.25H7a.75.75 0 010-1.5h4.25V7a.75.75 0 01.75-.75z" fill="currentColor"/><path d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12z" stroke="currentColor" stroke-width="1.5"/></svg>
+          Architecture & Flow
+        </a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="feed" id="feed">
+        <section class="empty-state" id="emptyState">
+          <div class="orb" aria-hidden="true"></div>
+          <h2 class="empty-title">What's on <span class="accent">your mind</span>?</h2>
+          <p class="empty-sub">Start with a suggestion or describe the screen you need.</p>
+          <div class="suggestions">
+            <button type="button" class="suggestion-btn" data-suggestion="application dashboard">Application Dashboard</button>
+            <button type="button" class="suggestion-btn" data-suggestion="user management">User Management Table</button>
+            <button type="button" class="suggestion-btn" data-flow="ai-dashboard" data-suggestion="ai dashboard flow">AI Dashboard Flow</button>
+            <button type="button" class="suggestion-btn" data-flow="ai-table" data-suggestion="ai table flow">AI Table Flow</button>
+            <button type="button" class="suggestion-btn" data-flow="ai-wizard" data-suggestion="ai wizard flow">AI Wizard Flow</button>
+          </div>
+          <div class="landing-composer">
+            <div class="composer-row">
+              <input id="landingInput" class="prompt-input" placeholder='Ask a question or describe a screen...' />
+              <button id="landingStartBtn" class="btn">Generate</button>
+            </div>
+          </div>
+        </section>
+        <div id="conversation"></div>
+      </div>
+
+      <div class="composer hidden" id="bottomComposer">
+        <div class="mode-toggle">
+          <button type="button" class="mode-toggle-btn active" id="modePrompt">Prompt</button>
+          <button type="button" class="mode-toggle-btn" id="modeScreenList">Screen List</button>
+        </div>
+
+        <!-- Prompt mode (default) -->
+        <div id="promptMode">
+          <div class="composer-row">
+            <input id="promptInput" class="prompt-input" placeholder='Ask a question or describe a screen...' />
+            <button id="startBtn" class="btn">Generate</button>
+            <button id="stopBtn" class="btn secondary hidden">Stop</button>
+          </div>
+          <div class="composer-note" id="composerNote">Known domain prompts use knowledge. New prompts call UX AI.</div>
+        </div>
+
+        <!-- Screen List mode -->
+        <div id="screenListMode" class="hidden">
+          <div class="screenlist-composer">
+            <textarea id="screenListInput" class="screenlist-textarea" placeholder='Paste screen-list JSON here...
+{
+  "prompt": "Music album dashboard",
+  "screens": [
+    { "module": "dashboard", "screen": "default", "name": "01 Dashboard" },
+    { "module": "form", "screen": "default", "name": "02 Add Form", "base": "page.full-wizard" }
+  ]
+}'></textarea>
+            <div class="screenlist-error hidden" id="screenListError"></div>
+            <div class="screenlist-actions">
+              <button id="patchOnlyBtn" class="btn btn-patch">Patch Only</button>
+              <button id="fullGenerateBtn" class="btn">Full Generate</button>
+              <button id="stopScreenListBtn" class="btn secondary hidden">Stop</button>
+            </div>
+            <div class="screenlist-hint">Paste your screen-list JSON with prompt + screens array. Full Generate renders all screens. Patch Only re-applies patches without re-rendering.</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Save Domain Modal -->
+  <div class="modal-overlay hidden" id="domainModal">
+    <div class="modal">
+      <h3 class="modal-title">Save as Domain Model</h3>
+      <p class="modal-sub">This AI-generated flow can be saved so future prompts skip the AI call.</p>
+
+      <div class="modal-summary-box" id="modalSummary"></div>
+
+      <div class="modal-conflict hidden" id="modalConflict"></div>
+
+      <div class="modal-field">
+        <span class="modal-label">Domain Key</span>
+        <input class="modal-input" id="modalKey" placeholder="e.g. invoice" />
+      </div>
+
+      <div class="modal-field">
+        <span class="modal-label">Entity</span>
+        <input class="modal-input" id="modalEntity" placeholder="e.g. Invoice" />
+      </div>
+
+      <div class="modal-field">
+        <span class="modal-label">Keywords (comma separated)</span>
+        <input class="modal-input" id="modalKeywords" placeholder="e.g. invoice, billing, payment" />
+      </div>
+
+      <div class="modal-field">
+        <span class="modal-label">Expiry</span>
+        <div class="radio-group" id="expiryGroup">
+          <div class="radio-pill"><input type="radio" name="expiry" id="exp1" value="1" /><label for="exp1">1 Day</label></div>
+          <div class="radio-pill"><input type="radio" name="expiry" id="exp7" value="7" /><label for="exp7">7 Days</label></div>
+          <div class="radio-pill"><input type="radio" name="expiry" id="exp14" value="14" /><label for="exp14">14 Days</label></div>
+          <div class="radio-pill"><input type="radio" name="expiry" id="exp30" value="30" checked /><label for="exp30">30 Days</label></div>
+          <div class="radio-pill"><input type="radio" name="expiry" id="expAlways" value="0" /><label for="expAlways">Always</label></div>
+        </div>
+      </div>
+
+      <div class="modal-field">
+        <span class="modal-label">Priority</span>
+        <div class="radio-group" id="priorityGroup">
+          <div class="radio-pill"><input type="radio" name="priority" id="pri1" value="1" checked /><label for="pri1">High</label></div>
+          <div class="radio-pill"><input type="radio" name="priority" id="pri2" value="2" /><label for="pri2">Medium</label></div>
+          <div class="radio-pill"><input type="radio" name="priority" id="pri3" value="3" /><label for="pri3">Low</label></div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn secondary" id="modalCancel">Cancel</button>
+        <button class="btn" id="modalSave">Save Domain Model</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const STORAGE_KEY = "aiuxengine-chat-history-v1"
+
+    const state = {
+      chats: [],
+      activeChatId: null,
+      running: false,
+      controller: null,
+      progressTimer: null,
+      activeRunMessageId: null
+    }
+
+    const historyList = document.getElementById("historyList")
+    const conversation = document.getElementById("conversation")
+    const feed = document.getElementById("feed")
+    const promptInput = document.getElementById("promptInput")
+    const startBtn = document.getElementById("startBtn")
+    const stopBtn = document.getElementById("stopBtn")
+    const newChatBtn = document.getElementById("newChatBtn")
+    const composerNote = document.getElementById("composerNote")
+    const emptyState = document.getElementById("emptyState")
+    const bottomComposer = document.getElementById("bottomComposer")
+    const landingInput = document.getElementById("landingInput")
+    const landingStartBtn = document.getElementById("landingStartBtn")
+
+    function nowLabel() {
+      return new Date().toLocaleString([], { month: "short", day: "2-digit", hour: "2-digit", minute: "2-digit" })
+    }
+
+    function normalizePrompt(text) {
+      return String(text || "").replace(/\s+/g, " ").trim()
+    }
+
+    function escapeHtml(text) {
+      return String(text || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/\"/g, "&quot;")
+        .replace(/'/g, "&#39;")
+    }
+
+    function uid(prefix = "id") {
+      return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`
+    }
+
+    const flowSuggestionPools = {
+      "ai-dashboard": [
+        "AI dashboard flow for SaaS revenue analytics",
+        "AI dashboard flow for customer success health",
+        "AI dashboard flow for sales performance and pipeline",
+        "AI dashboard flow for product usage insights",
+        "AI dashboard flow for marketing campaign ROI",
+        "AI dashboard flow for finance spend overview",
+        "AI dashboard flow for incident monitoring and SLAs",
+        "AI dashboard flow for HR workforce analytics",
+        "AI dashboard flow for logistics and delivery tracking",
+        "AI dashboard flow for e-commerce conversion metrics",
+        "AI dashboard flow for cybersecurity posture",
+        "AI dashboard flow for energy consumption monitoring",
+        "AI dashboard flow for healthcare operations overview",
+        "AI dashboard flow for fraud detection summary",
+        "AI dashboard flow for inventory management KPIs",
+        "AI dashboard flow for onboarding funnel metrics",
+        "AI dashboard flow for sustainability reporting",
+        "AI dashboard flow for support ticket trends",
+        "AI dashboard flow for compliance risk overview",
+        "AI dashboard flow for executive quarterly review"
+      ],
+      "ai-table": [
+        "AI table flow for team access requests",
+        "AI table flow for user management and roles",
+        "AI table flow for invoice approvals",
+        "AI table flow for vendor onboarding",
+        "AI table flow for sales leads triage",
+        "AI table flow for customer renewal pipeline",
+        "AI table flow for bug triage backlog",
+        "AI table flow for security audit findings",
+        "AI table flow for shipment exceptions",
+        "AI table flow for device inventory",
+        "AI table flow for employee onboarding tasks",
+        "AI table flow for contract renewals",
+        "AI table flow for policy exceptions",
+        "AI table flow for content moderation queue",
+        "AI table flow for procurement requests",
+        "AI table flow for expense report approvals",
+        "AI table flow for recruiting candidates",
+        "AI table flow for data quality issues",
+        "AI table flow for feature rollout status",
+        "AI table flow for training compliance"
+      ],
+      "ai-wizard": [
+        "AI wizard flow for data source connection",
+        "AI wizard flow for API integration setup",
+        "AI wizard flow for agent creation",
+        "AI wizard flow for user onboarding",
+        "AI wizard flow for payment gateway setup",
+        "AI wizard flow for cloud deployment",
+        "AI wizard flow for database migration",
+        "AI wizard flow for webhook configuration",
+        "AI wizard flow for SSO authentication",
+        "AI wizard flow for environment provisioning"
+      ]
+    }
+
+    const flowShuffleState = Object.create(null)
+
+    function shuffleArray(items) {
+      const arr = items.slice()
+      for (let i = arr.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1))
+        ;[arr[i], arr[j]] = [arr[j], arr[i]]
+      }
+      return arr
+    }
+
+    function nextFlowSuggestion(flowKey, fallback) {
+      const pool = flowSuggestionPools[flowKey]
+      if (!pool || !pool.length) return fallback
+      const state = flowShuffleState[flowKey] || { order: [], index: 0 }
+      if (!state.order.length || state.index >= state.order.length) {
+        state.order = shuffleArray(pool)
+        state.index = 0
+      }
+      const suggestion = state.order[state.index]
+      state.index += 1
+      flowShuffleState[flowKey] = state
+      return suggestion
+    }
+
+    function saveChats() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ chats: state.chats, activeChatId: state.activeChatId }))
+    }
+
+    function loadChats() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY)
+        if (!raw) return false
+        const data = JSON.parse(raw)
+        if (!Array.isArray(data.chats)) return false
+        state.chats = data.chats
+        state.activeChatId = data.activeChatId || (data.chats[0] && data.chats[0].id) || null
+        return true
+      } catch {
+        return false
+      }
+    }
+
+    function createChat() {
+      const chat = {
+        id: uid("chat"),
+        title: "New Screen",
+        createdAt: nowLabel(),
+        messages: []
+      }
+      state.chats.unshift(chat)
+      state.activeChatId = chat.id
+      saveChats()
+      renderAll()
+      promptInput.focus()
+    }
+
+    function deleteChat(chatId) {
+      const index = state.chats.findIndex(c => c.id === chatId)
+      if (index === -1) return
+
+      const deletingActive = state.activeChatId === chatId
+      state.chats.splice(index, 1)
+
+      if (!state.chats.length) {
+        state.activeChatId = null
+        saveChats()
+        renderAll()
+        return
+      }
+
+      if (deletingActive) {
+        state.activeChatId = state.chats[0].id
+      }
+
+      saveChats()
+      renderAll()
+    }
+
+    function getActiveChat() {
+      return state.chats.find(c => c.id === state.activeChatId) || null
+    }
+
+    function renderHistory() {
+      historyList.innerHTML = ""
+      if (!state.chats.length) {
+        const empty = document.createElement("div")
+        empty.className = "history-empty"
+        empty.textContent = "No screens generated yet"
+        historyList.appendChild(empty)
+        return
+      }
+      state.chats.forEach(chat => {
+        const item = document.createElement("div")
+        item.className = `history-item ${chat.id === state.activeChatId ? "active" : ""}`
+        item.innerHTML = `
+          <div class="history-row">
+            <span class="history-title-text">${escapeHtml(chat.title)}</span>
+            <button type="button" class="history-delete" title="Delete chat" aria-label="Delete chat">✕</button>
+          </div>
+          <span class="history-meta">${escapeHtml(chat.createdAt || "")}</span>
+        `
+        item.addEventListener("click", () => {
+          if (state.running) return
+          state.activeChatId = chat.id
+          saveChats()
+          renderAll()
+        })
+        const deleteBtn = item.querySelector(".history-delete")
+        deleteBtn.addEventListener("click", (event) => {
+          event.stopPropagation()
+          if (state.running) return
+          deleteChat(chat.id)
+        })
+        historyList.appendChild(item)
+      })
+    }
+
+    const aiWords = [
+      "Thinking…",
+      "Mapping layouts…",
+      "Structuring components…",
+      "Generating fields…",
+      "Composing hierarchy…",
+      "Wiring interactions…",
+      "Refining spacing…",
+      "Finalizing screens…"
+    ]
+
+    const knowledgeWords = [
+      "Retrieving…",
+      "Matching domain…",
+      "Loading fields…",
+      "Mapping structure…",
+      "Resolving patterns…",
+      "Fetching templates…",
+      "Assembling layout…",
+      "Preparing output…"
+    ]
+
+    function loaderHtml(mode) {
+      const isKnowledge = mode === "Knowledge" || mode === "knowledge"
+      const words = isKnowledge ? knowledgeWords : aiWords
+      const title = isKnowledge ? "Loading from Knowledge" : "UX AI Thinking"
+      const orbClass = isKnowledge ? "loader-orb knowledge" : "loader-orb"
+      const wordsHtml = words.map(w => `<div class="loader-word">${escapeHtml(w)}</div>`).join("")
+
+      return `
+        <div class="loader">
+          <div class="${orbClass}" aria-hidden="true"></div>
+          <p class="loader-title">${escapeHtml(title)}</p>
+          <div class="loader-words">
+            <div class="loader-words-track">${wordsHtml}</div>
+          </div>
+        </div>
+      `
+    }
+
+    function renderMessage(msg) {
+      if (msg.type === "prompt") {
+        return `
+          <section class="card">
+            <div class="card-head">
+              <span class="chip">Prompt</span>
+              <span>${escapeHtml(msg.time || "")}</span>
+            </div>
+            <div class="card-body"><div class="prompt-text">${escapeHtml(msg.text)}</div></div>
+          </section>
+        `
+      }
+
+      if (msg.type === "run") {
+        const steps = (msg.steps || []).map(s => `
+          <div class="step"><span>${escapeHtml(s.label)}</span><span class="step-tag">${escapeHtml(s.status)}</span></div>
+        `).join("")
+
+        return `
+          <section class="card" data-run-id="${escapeHtml(msg.id)}">
+            <div class="card-head">
+              <span class="chip">Generator Run</span>
+              <span class="chip">${escapeHtml(msg.mode || "Preparing")}</span>
+            </div>
+            <div class="card-body">
+              ${msg.loading ? loaderHtml(msg.mode) : ""}
+              <div class="steps">${steps}</div>
+            </div>
+          </section>
+        `
+      }
+
+      if (msg.type === "result") {
+        const saveDomainBtn = msg.mode === "AI"
+          ? `<button class="btn-save-domain" data-save-domain="${escapeHtml(msg.id)}">Save as Domain Model</button>`
+          : ""
+        return `
+          <section class="card">
+            <div class="card-head">
+              <span class="chip">Output</span>
+              <span class="chip">${escapeHtml(msg.mode || "")}</span>
+            </div>
+            <div class="card-body">
+              <div class="summary">${escapeHtml(msg.summary || "")}</div>
+              <div class="json">${escapeHtml(msg.payload || "[]")}</div>
+              <div class="actions">
+                ${saveDomainBtn}
+                <button class="btn secondary" data-copy="${escapeHtml(msg.id)}">Copy JSON</button>
+              </div>
+            </div>
+          </section>
+        `
+      }
+
+      return ""
+    }
+
+    function renderConversation() {
+      const chat = getActiveChat()
+      const hasMessages = chat && chat.messages.length > 0
+      conversation.innerHTML = chat ? chat.messages.map(renderMessage).join("") : ""
+      // Show landing for no chat or empty chat; show bottom composer when messages exist
+      emptyState.classList.toggle("hidden", hasMessages)
+      bottomComposer.classList.toggle("hidden", !hasMessages)
+
+      conversation.querySelectorAll("[data-copy]").forEach(btn => {
+        btn.addEventListener("click", async () => {
+          const id = btn.getAttribute("data-copy")
+          const active = getActiveChat()
+          if (!active) return
+          const msg = active.messages.find(m => m.id === id)
+          if (!msg) return
+          await navigator.clipboard.writeText(msg.payload || "[]")
+          btn.textContent = "Copied"
+          setTimeout(() => { btn.textContent = "Copy JSON" }, 900)
+        })
+      })
+
+      conversation.querySelectorAll("[data-save-domain]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-save-domain")
+          const active = getActiveChat()
+          if (!active) return
+          const msg = active.messages.find(m => m.id === id)
+          if (!msg) return
+          // Find the original prompt text from the preceding prompt message
+          const msgIdx = active.messages.findIndex(m => m.id === id)
+          let originalPrompt = ""
+          for (let i = msgIdx - 1; i >= 0; i--) {
+            if (active.messages[i].type === "prompt") { originalPrompt = active.messages[i].text || ""; break }
+          }
+          // Use candidate if available, otherwise build a basic one from the prompt
+          const candidate = msg.domainModelCandidate || (() => {
+            const words = (originalPrompt || "domain").toLowerCase().replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter(w => w.length > 1)
+            const key = words.join("_") || "custom"
+            return { key, entity: key, keywords: words.length ? words : [key], texts: {}, fields: [] }
+          })()
+          candidate._originalPrompt = originalPrompt
+          openDomainModal(candidate, msg.summary || "")
+        })
+      })
+
+      requestAnimationFrame(() => { feed.scrollTop = feed.scrollHeight })
+    }
+
+    function renderAll() {
+      renderHistory()
+      renderConversation()
+    }
+
+    function appendMessage(message) {
+      const chat = getActiveChat()
+      if (!chat) return
+      chat.messages.push(message)
+      saveChats()
+      renderAll()
+    }
+
+    function updateRunMessage(updater) {
+      const chat = getActiveChat()
+      if (!chat || !state.activeRunMessageId) return
+      const idx = chat.messages.findIndex(m => m.id === state.activeRunMessageId)
+      if (idx === -1) return
+      updater(chat.messages[idx])
+      saveChats()
+      renderConversation()
+    }
+
+    function addStep(label, status) {
+      updateRunMessage(run => {
+        run.steps = run.steps || []
+        run.steps.push({ label, status })
+      })
+    }
+
+    function setComposerRunning(isRunning) {
+      state.running = isRunning
+      startBtn.classList.toggle("hidden", isRunning)
+      stopBtn.classList.toggle("hidden", !isRunning)
+      promptInput.disabled = isRunning
+      landingInput.disabled = isRunning
+      landingStartBtn.disabled = isRunning
+      composerNote.textContent = isRunning
+        ? "Generation in progress. You can stop anytime."
+        : "Known domain prompts use knowledge. New prompts call UX AI."
+    }
+
+    async function fetchJson(url, payload, signal) {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        signal
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || "Request failed")
+      return data
+    }
+
+    function startProgress(screenNames) {
+      const names = Array.isArray(screenNames) ? screenNames.slice() : []
+      let i = 0
+      if (state.progressTimer) clearInterval(state.progressTimer)
+
+      state.progressTimer = setInterval(() => {
+        if (!state.running) {
+          clearInterval(state.progressTimer)
+          state.progressTimer = null
+          return
+        }
+        if (i >= names.length) {
+          clearInterval(state.progressTimer)
+          state.progressTimer = null
+          return
+        }
+        addStep(`Screen ${i + 1} generated: ${names[i]}`, "done")
+        i += 1
+      }, 430)
+    }
+
+    function getActiveInput() {
+      // Use landing input when visible, otherwise bottom composer input
+      return emptyState.classList.contains("hidden") ? promptInput : landingInput
+    }
+
+    async function runPrompt() {
+      const activeInput = getActiveInput()
+      const prompt = normalizePrompt(activeInput.value)
+      if (!prompt || state.running) return
+
+      if (!getActiveChat()) createChat()
+
+      // Clear both inputs and sync
+      landingInput.value = ""
+      promptInput.value = ""
+
+      setComposerRunning(true)
+      state.controller = new AbortController()
+
+      const chat = getActiveChat()
+      if (chat && chat.title === "New Screen") {
+        chat.title = prompt.length > 28 ? `${prompt.slice(0, 28)}...` : prompt
+        saveChats()
+      }
+
+      appendMessage({ id: uid("msg"), type: "prompt", text: prompt, time: nowLabel() })
+
+      const runId = uid("run")
+      state.activeRunMessageId = runId
+      appendMessage({ id: runId, type: "run", mode: "Preparing", loading: true, steps: [{ label: "Step 1: Prompt accepted", status: "ok" }] })
+
+      try {
+        const mode = await fetchJson("/api/mode", { prompt }, state.controller.signal)
+        updateRunMessage(run => {
+          run.mode = mode.mode === "knowledge" ? "Knowledge" : "AI"
+        })
+
+        if (mode.mode === "knowledge") {
+          addStep("Step 2: Domain knowledge matched", "ok")
+          addStep("Step 3: Intentional load", "running")
+        } else {
+          addStep("Step 2: New prompt detected", "ok")
+          addStep("Step 3: Calling UX AI", "running")
+        }
+
+        const result = await fetchJson("/api/generate", { prompt }, state.controller.signal)
+
+        addStep("Step 4: Creating UX flow", "running")
+        startProgress(result.screenNames || [])
+
+        const waitMs = Math.max(800, ((result.screenNames || []).length * 420))
+        await new Promise(resolve => setTimeout(resolve, waitMs))
+
+        if (!state.running) return
+
+        addStep("Step 5: JSON ready", "done")
+        updateRunMessage(run => { run.loading = false })
+
+        const summary = result.summary || { screens: (result.frames || []).length, flow: "UX flow" }
+        appendMessage({
+          id: uid("result"),
+          type: "result",
+          mode: result.mode === "knowledge" ? "Knowledge" : "AI",
+          summary: `Generated ${summary.screens} screens • ${summary.flow}`,
+          payload: JSON.stringify(result.frames || [], null, 2),
+          domainModelCandidate: result.domainModelCandidate || null
+        })
+      } catch (err) {
+        addStep(err.name === "AbortError" ? "Generation stopped by user" : `Error: ${err.message}`, err.name === "AbortError" ? "stopped" : "failed")
+      } finally {
+        setComposerRunning(false)
+        state.controller = null
+        state.activeRunMessageId = null
+        if (state.progressTimer) {
+          clearInterval(state.progressTimer)
+          state.progressTimer = null
+        }
+        renderAll()
+      }
+    }
+
+    function stopRun() {
+      if (state.controller) state.controller.abort()
+    }
+
+    startBtn.addEventListener("click", runPrompt)
+    landingStartBtn.addEventListener("click", runPrompt)
+    stopBtn.addEventListener("click", stopRun)
+    newChatBtn.addEventListener("click", () => {
+      if (state.running) return
+      createChat()
+      promptInput.value = ""
+      landingInput.value = ""
+    })
+
+    promptInput.addEventListener("keydown", e => {
+      if (e.key === "Enter") runPrompt()
+    })
+    landingInput.addEventListener("keydown", e => {
+      if (e.key === "Enter") runPrompt()
+    })
+
+    document.querySelectorAll("[data-suggestion]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const flowKey = btn.getAttribute("data-flow")
+        const fallback = btn.getAttribute("data-suggestion") || ""
+        const value = flowKey ? nextFlowSuggestion(flowKey, fallback) : fallback
+        const activeInput = getActiveInput()
+        activeInput.value = value
+        activeInput.focus()
+      })
+    })
+
+    // ── Screen List Mode ──
+    const modePromptBtn = document.getElementById("modePrompt")
+    const modeScreenListBtn = document.getElementById("modeScreenList")
+    const promptModeEl = document.getElementById("promptMode")
+    const screenListModeEl = document.getElementById("screenListMode")
+    const screenListInput = document.getElementById("screenListInput")
+    const screenListError = document.getElementById("screenListError")
+    const fullGenerateBtn = document.getElementById("fullGenerateBtn")
+    const patchOnlyBtn = document.getElementById("patchOnlyBtn")
+    const stopScreenListBtn = document.getElementById("stopScreenListBtn")
+
+    modePromptBtn.addEventListener("click", () => {
+      modePromptBtn.classList.add("active")
+      modeScreenListBtn.classList.remove("active")
+      promptModeEl.classList.remove("hidden")
+      screenListModeEl.classList.add("hidden")
+    })
+
+    modeScreenListBtn.addEventListener("click", () => {
+      modeScreenListBtn.classList.add("active")
+      modePromptBtn.classList.remove("active")
+      screenListModeEl.classList.remove("hidden")
+      promptModeEl.classList.add("hidden")
+    })
+
+    function parseScreenList() {
+      const raw = screenListInput.value.trim()
+      if (!raw) {
+        screenListError.textContent = "Paste a screen-list JSON to continue."
+        screenListError.classList.remove("hidden")
+        return null
+      }
+      try {
+        const data = JSON.parse(raw)
+        if (!data.prompt || !Array.isArray(data.screens) || !data.screens.length) {
+          screenListError.textContent = "JSON must have \"prompt\" (string) and \"screens\" (non-empty array)."
+          screenListError.classList.remove("hidden")
+          return null
+        }
+        screenListError.classList.add("hidden")
+        return data
+      } catch (err) {
+        screenListError.textContent = "Invalid JSON: " + err.message
+        screenListError.classList.remove("hidden")
+        return null
+      }
+    }
+
+    async function runScreenList(patchOnly) {
+      const data = parseScreenList()
+      if (!data || state.running) return
+
+      if (!getActiveChat()) createChat()
+
+      setComposerRunning(true)
+      state.controller = new AbortController()
+      fullGenerateBtn.classList.add("hidden")
+      patchOnlyBtn.classList.add("hidden")
+      stopScreenListBtn.classList.remove("hidden")
+
+      const chat = getActiveChat()
+      const label = patchOnly ? "Patch Only" : "Full Generate"
+      if (chat && chat.title === "New Screen") {
+        chat.title = data.prompt.length > 24 ? data.prompt.slice(0, 24) + "..." : data.prompt
+        saveChats()
+      }
+
+      appendMessage({
+        id: uid("msg"),
+        type: "prompt",
+        text: `[${label}] ${data.prompt}\n${data.screens.length} screen(s)`,
+        time: nowLabel()
+      })
+
+      const runId = uid("run")
+      state.activeRunMessageId = runId
+      appendMessage({
+        id: runId,
+        type: "run",
+        mode: patchOnly ? "Patch" : "Preparing",
+        loading: true,
+        steps: [{ label: patchOnly ? "Loading existing render-output.json" : "Step 1: Screen list accepted", status: "ok" }]
+      })
+
+      try {
+        const result = await fetchJson("/api/render-screens", {
+          prompt: data.prompt,
+          screens: data.screens,
+          patchOnly
+        }, state.controller.signal)
+
+        if (patchOnly) {
+          addStep("Patches applied", "done")
+        } else {
+          addStep("Step 2: Rendering screens", "running")
+          startProgress(result.screenNames || [])
+          const waitMs = Math.max(600, (result.screenNames || []).length * 350)
+          await new Promise(resolve => setTimeout(resolve, waitMs))
+          if (!state.running) return
+          addStep("Step 3: JSON ready", "done")
+        }
+
+        updateRunMessage(run => { run.loading = false })
+
+        const summary = result.summary || { screens: (result.frames || []).length, flow: "screen list" }
+        appendMessage({
+          id: uid("result"),
+          type: "result",
+          mode: patchOnly ? "Patch" : (result.mode === "knowledge" ? "Knowledge" : "AI"),
+          summary: `Generated ${summary.screens} screens • ${summary.flow}`,
+          payload: JSON.stringify(result.frames || [], null, 2),
+          domainModelCandidate: result.domainModelCandidate || null
+        })
+      } catch (err) {
+        addStep(err.name === "AbortError" ? "Stopped by user" : "Error: " + err.message, err.name === "AbortError" ? "stopped" : "failed")
+        updateRunMessage(run => { run.loading = false })
+      } finally {
+        setComposerRunning(false)
+        state.controller = null
+        state.activeRunMessageId = null
+        fullGenerateBtn.classList.remove("hidden")
+        patchOnlyBtn.classList.remove("hidden")
+        stopScreenListBtn.classList.add("hidden")
+        if (state.progressTimer) {
+          clearInterval(state.progressTimer)
+          state.progressTimer = null
+        }
+        renderAll()
+      }
+    }
+
+    fullGenerateBtn.addEventListener("click", () => runScreenList(false))
+    patchOnlyBtn.addEventListener("click", () => runScreenList(true))
+    stopScreenListBtn.addEventListener("click", stopRun)
+
+    // ── Domain Modal Logic ──
+    const domainModal = document.getElementById("domainModal")
+    const modalSummary = document.getElementById("modalSummary")
+    const modalConflict = document.getElementById("modalConflict")
+    const modalKey = document.getElementById("modalKey")
+    const modalEntity = document.getElementById("modalEntity")
+    const modalKeywords = document.getElementById("modalKeywords")
+    const modalCancel = document.getElementById("modalCancel")
+    const modalSave = document.getElementById("modalSave")
+    const toastEl = document.getElementById("toast")
+
+    let _pendingCandidate = null
+
+    function showToast(text) {
+      toastEl.textContent = text
+      toastEl.classList.add("show")
+      setTimeout(() => toastEl.classList.remove("show"), 2400)
+    }
+
+    async function checkConflicts(key) {
+      try {
+        const res = await fetch("/api/list-domains")
+        const data = await res.json()
+        const match = (data.domains || []).find(d => d.key === key)
+        if (match) {
+          modalConflict.textContent = `A domain model "${match.key}" (entity: ${match.entity}) already exists. Saving will overwrite it.`
+          modalConflict.classList.remove("hidden")
+        } else {
+          modalConflict.classList.add("hidden")
+        }
+      } catch {
+        modalConflict.classList.add("hidden")
+      }
+    }
+
+    function openDomainModal(candidate, summaryText) {
+      _pendingCandidate = candidate
+      const fieldCount = (candidate.fields || []).length
+      const catCount = candidate.fieldCategories ? Object.keys(candidate.fieldCategories).length : 0
+      const textCount = Object.values(candidate.texts || {}).filter(Boolean).length
+      let summary = summaryText || `Domain: ${candidate.entity}`
+      if (fieldCount > 0 || textCount > 0 || catCount > 0) {
+        summary += ` • ${fieldCount} fields`
+        if (catCount > 0) summary += ` • ${catCount} categories`
+        summary += ` • ${textCount} texts`
+      }
+      if (fieldCount === 0) {
+        summary += "\n⚠ No form fields captured — re-generate this prompt first to capture fields before saving."
+      }
+      modalSummary.textContent = summary
+      modalSummary.style.borderColor = fieldCount === 0 ? "rgba(255, 180, 0, 0.4)" : ""
+      modalSummary.style.background = fieldCount === 0 ? "rgba(255, 180, 0, 0.06)" : ""
+      modalKey.value = candidate.key || ""
+      modalEntity.value = candidate.entity || ""
+      modalKeywords.value = (candidate.keywords || []).join(", ")
+      modalConflict.classList.add("hidden")
+
+      // Disable save if no fields captured
+      modalSave.disabled = fieldCount === 0
+      modalSave.title = fieldCount === 0 ? "Re-generate to capture fields first" : ""
+
+      // Reset radios to defaults
+      document.getElementById("exp30").checked = true
+      document.getElementById("pri1").checked = true
+
+      domainModal.classList.remove("hidden")
+      checkConflicts(candidate.key)
+    }
+
+    function closeDomainModal() {
+      domainModal.classList.add("hidden")
+      _pendingCandidate = null
+    }
+
+    modalCancel.addEventListener("click", closeDomainModal)
+    domainModal.addEventListener("click", (e) => {
+      if (e.target === domainModal) closeDomainModal()
+    })
+
+    modalKey.addEventListener("blur", () => {
+      if (modalKey.value.trim()) checkConflicts(modalKey.value.trim().replace(/[^a-zA-Z0-9_-]/g, "_").toLowerCase())
+    })
+
+    modalSave.addEventListener("click", async () => {
+      if (!_pendingCandidate) return
+
+      const key = modalKey.value.trim()
+      const entity = modalEntity.value.trim()
+      const keywords = modalKeywords.value.split(",").map(k => k.trim()).filter(Boolean)
+      const expiryEl = document.querySelector('input[name="expiry"]:checked')
+      const priorityEl = document.querySelector('input[name="priority"]:checked')
+      const expiry = expiryEl ? Number(expiryEl.value) : 30
+      const priority = priorityEl ? Number(priorityEl.value) : 1
+
+      if (!key) {
+        showToast("Domain key is required")
+        return
+      }
+
+      modalSave.disabled = true
+      modalSave.textContent = "Saving..."
+
+      try {
+        const res = await fetch("/api/save-domain", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            key,
+            entity: entity || key,
+            keywords: keywords.length ? keywords : [key],
+            texts: _pendingCandidate.texts || {},
+            fields: _pendingCandidate.fields || [],
+            fieldCategories: _pendingCandidate.fieldCategories || null,
+            cardNames: _pendingCandidate.cardNames || [],
+            expiry: expiry || null,
+            priority,
+            originalPrompt: _pendingCandidate._originalPrompt || ""
+          })
+        })
+        const data = await res.json()
+        if (data.saved) {
+          showToast(data.overwritten ? `Domain "${data.key}" updated` : `Domain "${data.key}" saved`)
+          closeDomainModal()
+        } else {
+          showToast("Failed to save domain model")
+        }
+      } catch (err) {
+        showToast("Error: " + err.message)
+      } finally {
+        modalSave.disabled = false
+        modalSave.textContent = "Save Domain Model"
+      }
+    })
+
+    loadChats()
+    renderAll()
+  </script>
+</body>
+</html>

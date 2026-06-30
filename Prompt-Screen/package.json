@@ -1,0 +1,25 @@
+{
+  "name": "figma-exportv1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "fetch:figma": "node scripts/fetchFigma.js",
+    "extract:figma": "node scripts/extractDesignData.js",
+    "extract:components": "node scripts/extractDesignData.js",
+    "generate:knowledge": "node scripts/generateKnowledge.js",
+    "generate:with-icons-schema": "node scripts/schema/generateWithIconsSchema.js",
+    "generate:form-schema": "npm run generate:with-icons-schema && node scripts/schema/buildRenderOutput.js",
+    "refresh:knowledge": "npm run extract:figma && npm run generate:knowledge",
+    "sync:knowledge": "node scripts/syncKnowledge.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ui:prompt": "node scripts/runPromptUi.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}

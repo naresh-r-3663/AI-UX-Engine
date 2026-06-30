@@ -1,0 +1,120 @@
+{
+  "schema": "knowledge/font/v1",
+  "generatedAt": "2026-03-31T12:53:52.546Z",
+  "summary": {
+    "sourceFile": "Tokens/tokensv1/creator.type.tokens.json",
+    "styleCount": 12,
+    "baseStyle": "P2",
+    "baseSize": 14
+  },
+  "styles": [
+    {
+      "style": "H1",
+      "family": "Zoho Puvi",
+      "size": 29,
+      "lineHeight": 38,
+      "weightRegular": "Regular",
+      "weightSemibold": "Medium",
+      "weightBold": "Semibold"
+    },
+    {
+      "style": "H2",
+      "family": "Zoho Puvi",
+      "size": 26,
+      "lineHeight": 34,
+      "weightRegular": "Regular",
+      "weightSemibold": "Medium",
+      "weightBold": "Semibold"
+    },
+    {
+      "style": "H3",
+      "family": "Zoho Puvi",
+      "size": 23,
+      "lineHeight": 30,
+      "weightRegular": "Regular",
+      "weightSemibold": "Medium",
+      "weightBold": "Semibold"
+    },
+    {
+      "style": "H4",
+      "family": "Zoho Puvi",
+      "size": 22,
+      "lineHeight": 29,
+      "weightRegular": "Regular",
+      "weightSemibold": "Medium",
+      "weightBold": "Semibold"
+    },
+    {
+      "style": "H5",
+      "family": "Zoho Puvi",
+      "size": 20,
+      "lineHeight": 26,
+      "weightRegular": "Regular",
+      "weightSemibold": "Medium",
+      "weightBold": "Semibold"
+    },
+    {
+      "style": "H6",
+      "family": "Zoho Puvi",
+      "size": 18,
+      "lineHeight": 24,
+      "weightRegular": "Regular",
+      "weightSemibold": "Medium",
+      "weightBold": "Semibold"
+    },
+    {
+      "style": "P1",
+      "family": "Zoho Puvi",
+      "size": 16,
+      "lineHeight": 21,
+      "weightRegular": "Regular",
+      "weightSemibold": "Medium",
+      "weightBold": "Semibold"
+    },
+    {
+      "style": "P2",
+      "family": "Zoho Puvi",
+      "size": 14,
+      "lineHeight": 18,
+      "weightRegular": "Regular",
+      "weightSemibold": "Medium",
+      "weightBold": "Semibold"
+    },
+    {
+      "style": "P3",
+      "family": "Zoho Puvi",
+      "size": 12,
+      "lineHeight": 15,
+      "weightRegular": "Regular",
+      "weightSemibold": "Medium",
+      "weightBold": "Semibold"
+    },
+    {
+      "style": "P4",
+      "family": "Zoho Puvi",
+      "size": 11,
+      "lineHeight": 14,
+      "weightRegular": "Regular",
+      "weightSemibold": "Medium",
+      "weightBold": "Semibold"
+    },
+    {
+      "style": "P5",
+      "family": "Zoho Puvi",
+      "size": 10,
+      "lineHeight": 13,
+      "weightRegular": "Regular",
+      "weightSemibold": "Medium",
+      "weightBold": "Semibold"
+    },
+    {
+      "style": "P6",
+      "family": "Zoho Puvi",
+      "size": 9,
+      "lineHeight": 12,
+      "weightRegular": "Regular",
+      "weightSemibold": "Medium",
+      "weightBold": "Semibold"
+    }
+  ]
+}

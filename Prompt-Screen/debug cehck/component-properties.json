@@ -1,0 +1,571 @@
+[
+  {
+    "id": "2:6479",
+    "name": "input.text.feild",
+    "properties": {
+      "Placeholder Icon": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Change Placeholder Icon": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "2:6076",
+        "preferredValues": []
+      },
+      "Actionable Icon": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Change Actionable Icon": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "2:6076",
+        "preferredValues": []
+      },
+      "State": {
+        "type": "VARIANT",
+        "defaultValue": "Default",
+        "variantOptions": [
+          "Default",
+          "Hover On Default",
+          "Active",
+          "Disabled",
+          "Disabled After",
+          "Filled",
+          "Error After",
+          "Success",
+          "Hover On Filled",
+          "Error"
+        ]
+      }
+    }
+  },
+  {
+    "id": "2:6530",
+    "name": "comp.input.text.base",
+    "properties": {
+      "Hint Text": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Label": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "State": {
+        "type": "VARIANT",
+        "defaultValue": "Default",
+        "variantOptions": [
+          "Default",
+          "Hover On Default",
+          "Active",
+          "Filled",
+          "Hover On Filled",
+          "Disabled",
+          "Disabled After",
+          "Error",
+          "Error After",
+          "Success"
+        ]
+      }
+    }
+  },
+  {
+    "id": "2:6571",
+    "name": "input.common.label",
+    "properties": {
+      "Icon": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Is Optional": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Label State": {
+        "type": "VARIANT",
+        "defaultValue": "Default",
+        "variantOptions": [
+          "Default",
+          "Hint Hover",
+          "Disabled"
+        ]
+      }
+    }
+  },
+  {
+    "id": "2:6584",
+    "name": "input.common.hint",
+    "properties": {
+      "Icon": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Change Icon": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "2:6459",
+        "preferredValues": []
+      },
+      "Hint Text Type": {
+        "type": "VARIANT",
+        "defaultValue": "Default",
+        "variantOptions": [
+          "Default",
+          "Info",
+          "Success",
+          "Warning",
+          "Error",
+          "Disabled"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:221",
+    "name": "comp.input.textarea",
+    "properties": {
+      "Hint Text": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Label": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "State": {
+        "type": "VARIANT",
+        "defaultValue": "Default",
+        "variantOptions": [
+          "Default",
+          "Hover On Default",
+          "Active",
+          "Disabled",
+          "Disabled After",
+          "Filled",
+          "Error",
+          "Success",
+          "Hover On Filled",
+          "Error After"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:262",
+    "name": "input.textarea.feild",
+    "properties": {
+      "Placeholder Icon": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Change Placeholder Icon": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "2:6076",
+        "preferredValues": []
+      },
+      "State": {
+        "type": "VARIANT",
+        "defaultValue": "Default",
+        "variantOptions": [
+          "Default",
+          "Hover On Default",
+          "Active",
+          "Disabled",
+          "Filled",
+          "Disabled After",
+          "Success",
+          "Error After",
+          "Hover On Filled",
+          "Error"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:498",
+    "name": "comp.button.huegrey",
+    "properties": {
+      "Icon Left": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Icon Right": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Change Icon Left": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "2:6076",
+        "preferredValues": []
+      },
+      "Change Icon RIght": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "2:6076",
+        "preferredValues": []
+      },
+      "Size": {
+        "type": "VARIANT",
+        "defaultValue": "Base ✦",
+        "variantOptions": [
+          "Base ✦",
+          "Small",
+          "Extra Small",
+          "Large"
+        ]
+      },
+      "Style": {
+        "type": "VARIANT",
+        "defaultValue": "Fill",
+        "variantOptions": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Hyperlink",
+          "Minimal Fill"
+        ]
+      },
+      "Hover": {
+        "type": "VARIANT",
+        "defaultValue": "False",
+        "variantOptions": [
+          "False",
+          "True"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:667",
+    "name": "comp.button.disabled",
+    "properties": {
+      "Icon Left": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Icon Right": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Change Icon Left": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "2:6076",
+        "preferredValues": []
+      },
+      "Change Icon RIght": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "2:6076",
+        "preferredValues": []
+      },
+      "Size": {
+        "type": "VARIANT",
+        "defaultValue": "Base ✦",
+        "variantOptions": [
+          "Base ✦",
+          "Small",
+          "Extra Small",
+          "Large"
+        ]
+      },
+      "Style": {
+        "type": "VARIANT",
+        "defaultValue": "Fill",
+        "variantOptions": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Hyperlink",
+          "Minimal Fill"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:752",
+    "name": "comp.button.error",
+    "properties": {
+      "Icon Left": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Icon Right": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Change Icon Left": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "2:6076",
+        "preferredValues": []
+      },
+      "Change Icon RIght": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "2:6076",
+        "preferredValues": []
+      },
+      "Size": {
+        "type": "VARIANT",
+        "defaultValue": "Base ✦",
+        "variantOptions": [
+          "Base ✦",
+          "Small",
+          "Extra Small",
+          "Large"
+        ]
+      },
+      "Style": {
+        "type": "VARIANT",
+        "defaultValue": "Fill",
+        "variantOptions": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Hyperlink",
+          "Minimal Fill"
+        ]
+      },
+      "Hover": {
+        "type": "VARIANT",
+        "defaultValue": "False",
+        "variantOptions": [
+          "False",
+          "True"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:921",
+    "name": "comp.button.secondary",
+    "properties": {
+      "Icon Left": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Icon Right": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Change Icon Left": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "2:6076",
+        "preferredValues": []
+      },
+      "Change Icon RIght": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "2:6076",
+        "preferredValues": []
+      },
+      "Size": {
+        "type": "VARIANT",
+        "defaultValue": "Base ✦",
+        "variantOptions": [
+          "Base ✦",
+          "Small",
+          "Extra Small",
+          "Large"
+        ]
+      },
+      "Style": {
+        "type": "VARIANT",
+        "defaultValue": "Fill",
+        "variantOptions": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Hyperlink",
+          "Minimal Fill"
+        ]
+      },
+      "Hover": {
+        "type": "VARIANT",
+        "defaultValue": "False",
+        "variantOptions": [
+          "False",
+          "True"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:1090",
+    "name": "comp.button.primary",
+    "properties": {
+      "Icon Left": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Icon Right": {
+        "type": "BOOLEAN",
+        "defaultValue": true
+      },
+      "Change Icon Left": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "2:6076",
+        "preferredValues": []
+      },
+      "Change Icon RIght": {
+        "type": "INSTANCE_SWAP",
+        "defaultValue": "2:6076",
+        "preferredValues": []
+      },
+      "Size": {
+        "type": "VARIANT",
+        "defaultValue": "Base ✦",
+        "variantOptions": [
+          "Base ✦",
+          "Small",
+          "Extra Small",
+          "Large"
+        ]
+      },
+      "Style": {
+        "type": "VARIANT",
+        "defaultValue": "Fill",
+        "variantOptions": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Hyperlink",
+          "Minimal Fill"
+        ]
+      },
+      "Hover": {
+        "type": "VARIANT",
+        "defaultValue": "False",
+        "variantOptions": [
+          "False",
+          "True"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:1259",
+    "name": "comp.duobutton.primary",
+    "properties": {
+      "Style": {
+        "type": "VARIANT",
+        "defaultValue": "Fill",
+        "variantOptions": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Minimal Fill",
+          "Hyperlink"
+        ]
+      },
+      "Position": {
+        "type": "VARIANT",
+        "defaultValue": "Left",
+        "variantOptions": [
+          "Left",
+          "Right"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:1296",
+    "name": "comp.duobutton.secondary",
+    "properties": {
+      "Style": {
+        "type": "VARIANT",
+        "defaultValue": "Fill",
+        "variantOptions": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Minimal Fill",
+          "Hyperlink"
+        ]
+      },
+      "Position": {
+        "type": "VARIANT",
+        "defaultValue": "Left",
+        "variantOptions": [
+          "Left",
+          "Right"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:1333",
+    "name": "comp.duobutton.error",
+    "properties": {
+      "Style": {
+        "type": "VARIANT",
+        "defaultValue": "Fill",
+        "variantOptions": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Minimal Fill",
+          "Hyperlink"
+        ]
+      },
+      "Position": {
+        "type": "VARIANT",
+        "defaultValue": "Left",
+        "variantOptions": [
+          "Left",
+          "Right"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:1370",
+    "name": "comp.duobutton.huegrey",
+    "properties": {
+      "Style": {
+        "type": "VARIANT",
+        "defaultValue": "Fill",
+        "variantOptions": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Fill",
+          "Minimal Border",
+          "Hyperlink"
+        ]
+      },
+      "Position": {
+        "type": "VARIANT",
+        "defaultValue": "Left",
+        "variantOptions": [
+          "Left",
+          "Right"
+        ]
+      }
+    }
+  },
+  {
+    "id": "5:1407",
+    "name": "comp.duobutton.disabled",
+    "properties": {
+      "Position": {
+        "type": "VARIANT",
+        "defaultValue": "Left",
+        "variantOptions": [
+          "Left",
+          "Right"
+        ]
+      },
+      "Type": {
+        "type": "VARIANT",
+        "defaultValue": "CTA Disabled",
+        "variantOptions": [
+          "CTA Disabled",
+          "Sub-CTA Disabled"
+        ]
+      }
+    }
+  }
+]
