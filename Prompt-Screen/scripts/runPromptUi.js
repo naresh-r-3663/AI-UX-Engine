@@ -85,13 +85,14 @@ async function handleGenerate(req, res) {
     return sendJson(res, 400, { error: "Prompt is required" })
   }
 
+  const aiConfig = body?.aiConfig || null
   const modeResult = getRunMode(prompt)
 
   if (modeResult.mode === "knowledge") {
     await sleep(1200)
   }
 
-  const result = await runOrchestrator(prompt, { renderTool: "json" })
+  const result = await runOrchestrator(prompt, { renderTool: "json", aiConfig })
   const frames = result.frames || result
   const domainModelCandidate = result.domainModelCandidate || null
   const screenNames = (Array.isArray(frames) ? frames : []).map(f => f.name)
@@ -118,6 +119,7 @@ async function handleRenderScreens(req, res) {
   const prompt = String(body?.prompt || "").trim()
   const screens = Array.isArray(body?.screens) ? body.screens : null
   const patchOnly = !!body?.patchOnly
+  const aiConfig = body?.aiConfig || null
 
   if (!prompt && !patchOnly) {
     return sendJson(res, 400, { error: "prompt is required" })
@@ -135,7 +137,7 @@ async function handleRenderScreens(req, res) {
     }
     frames = JSON.parse(fs.readFileSync(RENDER_OUTPUT, "utf8"))
   } else {
-    const result = await runOrchestrator(prompt, { renderTool: "json", screens })
+    const result = await runOrchestrator(prompt, { renderTool: "json", screens, aiConfig })
     frames = result.frames || result
     domainModelCandidate = result.domainModelCandidate || null
     fs.writeFileSync(RENDER_OUTPUT, JSON.stringify(frames, null, 2))
@@ -147,7 +149,7 @@ async function handleRenderScreens(req, res) {
     for (const screen of screensWithPatch) {
       const frame = frames.find(function(f) { return f.name === screen.name })
       if (!frame) continue
-      await applyPatch(frame, screen.patch, screen.name)
+      await applyPatch(frame, screen.patch, screen.name, aiConfig)
     }
     fs.writeFileSync(RENDER_OUTPUT, JSON.stringify(frames, null, 2))
   }

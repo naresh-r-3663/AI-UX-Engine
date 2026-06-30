@@ -1,32 +1,7 @@
 const { buildHoverSummary } = require("./propertyResolver")
+const { generateText } = require("../ai/aiProvider")
 
-async function getFetch() {
-  if (typeof fetch === "function") return fetch
-  const mod = await import("node-fetch")
-  return mod.default
-}
-
-async function ollamaGenerate(prompt) {
-  if (process.env.OLLAMA_ENABLED === "false") return null
-  const url   = process.env.OLLAMA_URL   || "http://127.0.0.1:11434"
-  const model = process.env.OLLAMA_MODEL || "llama3.1:8b"
-
-  try {
-    const fetchImpl = await getFetch()
-    const res = await fetchImpl(`${url}/api/generate`, {
-      method:  "POST",
-      headers: { "Content-Type": "application/json" },
-      body:    JSON.stringify({ model, prompt, stream: false })
-    })
-    if (!res.ok) return null
-    const data = await res.json()
-    return String(data?.response || "").trim() || null
-  } catch (_) {
-    return null
-  }
-}
-
-async function resolveWithAI(screenDesc, moduleKey) {
+async function resolveWithAI(screenDesc, moduleKey, aiConfig) {
   const hoverSummary = buildHoverSummary()
 
   const prompt = `You resolve a UI screen description to a JSON object. Output ONLY valid JSON, nothing else.
@@ -74,7 +49,7 @@ Examples (input -> output):
 Now resolve: "${screenDesc}"
 JSON:`
 
-  const raw = await ollamaGenerate(prompt)
+  const raw = await generateText(prompt, { config: aiConfig })
   if (!raw) return null
 
   try {

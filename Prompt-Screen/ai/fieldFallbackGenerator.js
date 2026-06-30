@@ -1,5 +1,6 @@
 const fs = require("fs")
 const path = require("path")
+const { generateText } = require("./aiProvider")
 
 function readJson(filePath){
   try {
@@ -11,14 +12,6 @@ function readJson(filePath){
 
 function normalize(text){
   return String(text || "").toLowerCase()
-}
-
-async function getFetch(){
-  if(typeof fetch === "function"){
-    return fetch
-  }
-  const mod = await import("node-fetch")
-  return mod.default
 }
 
 // Strips UI/layout noise words to find the real entity the user wants to manage.
@@ -92,49 +85,26 @@ function extractFirstJsonObject(text){
 }
 
 async function generateFieldsWithOllama(prompt, options = {}){
-  const useAI = options.useAI !== false
-  const enabled = useAI && process.env.OLLAMA_ENABLED !== "false"
-  if(!enabled){
+  const text = await generateText(buildOllamaPrompt(prompt), {
+    temperature: 0,
+    useAI: options.useAI !== false,
+    config: options.aiConfig
+  })
+
+  if(!text){
     return null
   }
 
-  const url = process.env.OLLAMA_URL || "http://127.0.0.1:11434"
-  const model = process.env.OLLAMA_MODEL || "llama3.1:8b"
-
   try {
-    const fetchImpl = await getFetch()
-    const response = await fetchImpl(`${url}/api/generate`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model,
-        prompt: buildOllamaPrompt(prompt),
-        stream: false,
-        options: { temperature: 0 }
-      })
-    })
-
-    if(!response.ok){
-      console.error("[Ollama] HTTP error:", response.status)
-      return null
-    }
-
-    const payload = await response.json()
-    const text = String(payload?.response || "").trim()
-    if(!text){
-      console.error("[Ollama] Empty response for prompt:", prompt)
-      return null
-    }
-
     const jsonStr = extractFirstJsonObject(text)
     if(!jsonStr){
-      console.error("[Ollama] No JSON object found in response:", text.slice(0, 200))
+      console.error("[AI] No JSON object found in response:", text.slice(0, 200))
       return null
     }
 
     const parsed = JSON.parse(jsonStr)
     if(!parsed || !Array.isArray(parsed.fields)){
-      console.error("[Ollama] Parsed JSON has no fields array:", jsonStr.slice(0, 200))
+      console.error("[AI] Parsed JSON has no fields array:", jsonStr.slice(0, 200))
       return null
     }
 
@@ -147,7 +117,7 @@ async function generateFieldsWithOllama(prompt, options = {}){
       visible: true
     }))
   } catch (error) {
-    console.error("[Ollama] Field generation failed:", error.message)
+    console.error("[AI] Field generation failed:", error.message)
     return null
   }
 }

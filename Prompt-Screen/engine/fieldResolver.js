@@ -7,6 +7,7 @@ function normalize(text){
 async function resolveFields(prompt, domainModel = {}, screen = {}){
   const step = normalize(screen.step || "")
   const useAI = screen?.useAI !== false
+  const aiConfig = screen?.aiConfig
   if(step === "list" || step === "success" || step === "dashboard" || step === "details"){
     return []
   }
@@ -25,7 +26,7 @@ async function resolveFields(prompt, domainModel = {}, screen = {}){
 
   // For all non-user flows, prefer Ollama-generated fields whenever AI is enabled.
   if (useAI) {
-    const aiFirstFields = await fallbackFields(prompt, { useAI: true })
+    const aiFirstFields = await fallbackFields(prompt, { useAI: true, aiConfig })
     if (Array.isArray(aiFirstFields) && aiFirstFields.length) {
       return aiFirstFields
     }
@@ -42,7 +43,7 @@ async function resolveFields(prompt, domainModel = {}, screen = {}){
     }))
   }
 
-  return await fallbackFields(prompt, { useAI })
+  return await fallbackFields(prompt, { useAI, aiConfig })
 }
 
 module.exports = resolveFields

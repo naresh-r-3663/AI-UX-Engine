@@ -1,11 +1,6 @@
 const path = require("path")
 const fs = require("fs")
-
-async function getFetch() {
-  if (typeof fetch === "function") return fetch
-  const mod = await import("node-fetch")
-  return mod.default
-}
+const { generateText } = require("./aiProvider")
 
 function readJson(filePath) {
   try { return JSON.parse(fs.readFileSync(filePath, "utf8")) } catch (_) { return null }
@@ -57,13 +52,6 @@ function validateAiNames(names) {
 // ─── Ollama AI resolution ───────────────────────────────────────────────────
 
 async function resolveNamesWithOllama(prompt, count, options = {}) {
-  const useAI = options.useAI !== false
-  const enabled = useAI && process.env.OLLAMA_ENABLED !== "false"
-  if (!enabled) return null
-
-  const url = process.env.OLLAMA_URL || "http://127.0.0.1:11434"
-  const model = process.env.OLLAMA_MODEL || "llama3.1:8b"
-
   const entity = extractEntity(prompt)
 
   const ollamaPrompt = [
@@ -93,22 +81,14 @@ async function resolveNamesWithOllama(prompt, count, options = {}) {
     "Return ONLY a JSON array. No explanations, no markdown."
   ].join("\n")
 
+  const text = await generateText(ollamaPrompt, {
+    temperature: 0.3,
+    useAI: options.useAI !== false,
+    config: options.aiConfig
+  })
+  if (!text) return null
+
   try {
-    const fetchImpl = await getFetch()
-    const response = await fetchImpl(`${url}/api/generate`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model,
-        prompt: ollamaPrompt,
-        stream: false,
-        options: { temperature: 0.3 }
-      })
-    })
-    if (!response.ok) return null
-    const payload = await response.json()
-    const text = String(payload?.response || "").trim()
-    if (!text) return null
     const arr = extractJsonArray(text)
     if (!Array.isArray(arr) || !arr.length) return null
     const raw = arr.slice(0, count).map(n => String(n).trim()).filter(Boolean)

@@ -35,7 +35,7 @@ function learnToRegistry(screenDesc, props) {
 }
 
 // Find matching screen registry entry, or call AI on miss
-async function resolveScreenProps(screenDesc, moduleKey) {
+async function resolveScreenProps(screenDesc, moduleKey, aiConfig) {
   const needle = normalise(screenDesc)
 
   // 1. Exact match
@@ -59,7 +59,7 @@ async function resolveScreenProps(screenDesc, moduleKey) {
 
   // 3. AI resolve on miss
   console.log(`[AI Resolver] No registry match for "${screenDesc}" — calling AI...`)
-  const aiProps = await resolveWithAI(screenDesc, moduleKey)
+  const aiProps = await resolveWithAI(screenDesc, moduleKey, aiConfig)
   if (aiProps && Object.keys(aiProps).filter(k => k !== "_source").length > 0) {
     learnToRegistry(screenDesc, aiProps)
     return aiProps
@@ -85,11 +85,11 @@ function buildMenuChildOverrides(menuItemHover) {
 }
 
 // Resolve a single screen entry → step object
-async function resolveScreen(screenEntry, domainTitle, index) {
+async function resolveScreen(screenEntry, domainTitle, index, aiConfig) {
   const moduleKey = normalise(screenEntry.module)
   const moduleDef = moduleRegistry[moduleKey] || moduleRegistry["dashboard"]
 
-  const screenProps = await resolveScreenProps(screenEntry.screen || "default", moduleKey)
+  const screenProps = await resolveScreenProps(screenEntry.screen || "default", moduleKey, aiConfig)
   const screenName  = screenEntry.name || `${String(index + 1).padStart(2, "0")} ${domainTitle} - ${screenEntry.screen || "default"}`
 
   const step = {
@@ -132,9 +132,9 @@ async function resolveScreen(screenEntry, domainTitle, index) {
 }
 
 // Resolve a full screens array → array of step objects
-async function resolveScreens(screens, domainTitle) {
+async function resolveScreens(screens, domainTitle, aiConfig) {
   return Promise.all(
-    (screens || []).map((entry, i) => resolveScreen(entry, domainTitle, i))
+    (screens || []).map((entry, i) => resolveScreen(entry, domainTitle, i, aiConfig))
   )
 }
 
