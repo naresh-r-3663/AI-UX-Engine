@@ -1,39 +1,19 @@
-async function getFetch() {
-  if (typeof fetch === "function") return fetch
-  const mod = await import("node-fetch")
-  return mod.default
-}
+const { generateText } = require("./aiProvider")
 
 async function ollamaGenerate(prompt, options = {}) {
-  const useAI = options.useAI !== false
-  const enabled = useAI && process.env.OLLAMA_ENABLED !== "false"
-  if (!enabled) return null
-
-  const url = process.env.OLLAMA_URL || "http://127.0.0.1:11434"
-  const model = process.env.OLLAMA_MODEL || "llama3.1:8b"
-
-  try {
-    const fetchImpl = await getFetch()
-    const response = await fetchImpl(`${url}/api/generate`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ model, prompt, stream: false })
-    })
-    if (!response.ok) return null
-    const payload = await response.json()
-    return String(payload?.response || "").trim() || null
-  } catch (_) {
-    return null
-  }
+  return await generateText(prompt, {
+    useAI: options.useAI !== false,
+    config: options.aiConfig
+  })
 }
 
-// Generic slot resolver: static → ollama → rule → default
+// Generic slot resolver: static → AI → rule → default
 // To add a new slot: add a resolveSlot() call in resolveContext() and return it.
-async function resolveSlot({ staticVal, ollamaPrompt, ruleFallback, defaultText, maxWords, isTitleField, validator, useAI }) {
+async function resolveSlot({ staticVal, ollamaPrompt, ruleFallback, defaultText, maxWords, isTitleField, validator, useAI, aiConfig }) {
   if (staticVal) return staticVal
 
   if (ollamaPrompt) {
-    const raw = await ollamaGenerate(ollamaPrompt, { useAI })
+    const raw = await ollamaGenerate(ollamaPrompt, { useAI, aiConfig })
     if (raw) {
       // Take only the first line (prevents multi-line explanations)
       const firstLine = raw.split(/[\n\r]/)[0].trim()
@@ -186,6 +166,7 @@ function toTwoWordCta(actionText, entity) {
 // To add a new slot: add a resolveSlot() call and include it in the return object.
 async function resolveContext(prompt, domain, options = {}) {
   const useAI = options.useAI !== false
+  const aiConfig = options.aiConfig
   const texts = (domain && domain.texts) || {}
   const entity = domain && (domain.entity || domain.title || domain.name) || ""
   // Only use entity as a static header value when it came from a known domain model.
@@ -202,6 +183,7 @@ async function resolveContext(prompt, domain, options = {}) {
       ruleFallback: ctaFromPrompt(prompt, subjectForText || entity),
       defaultText: "Submit",
       useAI,
+      aiConfig,
       validator: function(text) {
         return /^(add|save|submit|book|schedule|invite|hire|assign|apply|upload|send|place|purchase|make|register|enroll|create)\b/i.test(text)
       }
@@ -212,6 +194,7 @@ async function resolveContext(prompt, domain, options = {}) {
       ruleFallback: headerTextFromPrompt(prompt),
       defaultText: "Dashboard",
       useAI,
+      aiConfig,
       maxWords: 3
     }),
     resolveSlot({
@@ -220,6 +203,7 @@ async function resolveContext(prompt, domain, options = {}) {
       ruleFallback: subjectForText ? `Manage and track your ${String(subjectForText).toLowerCase()} records` : null,
       defaultText: "Manage your records",
       useAI,
+      aiConfig,
       maxWords: 10
     }),
     resolveSlot({
@@ -228,6 +212,7 @@ async function resolveContext(prompt, domain, options = {}) {
       ruleFallback: subjectForText ? `Create New ${subjectForText}` : null,
       defaultText: "Create New Item",
       useAI,
+      aiConfig,
       maxWords: 4,
       isTitleField: true,
       validator: function(text) {
@@ -240,6 +225,7 @@ async function resolveContext(prompt, domain, options = {}) {
       ruleFallback: subjectForText ? `Fill in all required details to add a new ${String(subjectForText).toLowerCase()}` : null,
       defaultText: "Fill in all required fields to continue",
       useAI,
+      aiConfig,
       maxWords: 10
     })
   ])

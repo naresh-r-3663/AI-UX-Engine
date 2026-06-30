@@ -6,32 +6,7 @@
 const path      = require("path")
 const fs        = require("fs")
 const patchFrame = require("../patcher/framePatcher")
-
-// ─── Ollama ───────────────────────────────────────────────────────────────────
-async function getFetch() {
-  if (typeof fetch === "function") return fetch
-  const mod = await import("node-fetch")
-  return mod.default
-}
-
-async function ollamaGenerate(prompt) {
-  if (process.env.OLLAMA_ENABLED === "false") return null
-  const url   = process.env.OLLAMA_URL   || "http://127.0.0.1:11434"
-  const model = process.env.OLLAMA_MODEL || "llama3.1:8b"
-  try {
-    const fetchImpl = await getFetch()
-    const res = await fetchImpl(`${url}/api/generate`, {
-      method:  "POST",
-      headers: { "Content-Type": "application/json" },
-      body:    JSON.stringify({ model, prompt, stream: false })
-    })
-    if (!res.ok) return null
-    const data = await res.json()
-    return String(data?.response || "").trim() || null
-  } catch (_) {
-    return null
-  }
-}
+const { generateText } = require("../ai/aiProvider")
 
 // ─── Frame node summary for AI context ───────────────────────────────────────
 function buildNodeSummary(frame) {
@@ -74,7 +49,7 @@ function buildPropertySummary() {
 }
 
 // ─── NL patch → structured ops via Ollama ────────────────────────────────────
-async function resolveNLPatch(patchStr, frame, screenName) {
+async function resolveNLPatch(patchStr, frame, screenName, aiConfig) {
   const nodeSummary  = buildNodeSummary(frame)
   const propSummary  = buildPropertySummary()
 
@@ -109,7 +84,7 @@ Examples:
 Now resolve: "${patchStr}"
 JSON:`
 
-  const raw = await ollamaGenerate(prompt)
+  const raw = await generateText(prompt, { config: aiConfig })
   if (!raw) return null
 
   try {
@@ -124,19 +99,19 @@ JSON:`
 }
 
 // ─── Main export ──────────────────────────────────────────────────────────────
-async function applyPatch(frame, patch, screenName) {
+async function applyPatch(frame, patch, screenName, aiConfig) {
   let ops
 
   if (Array.isArray(patch)) {
     // Structured — use directly, no AI
     ops = patch
   } else if (typeof patch === "string" && patch.trim()) {
-    // Natural language — resolve via Ollama with real frame context
-    ops = await resolveNLPatch(patch.trim(), frame, screenName)
+    // Natural language — resolve via the AI provider with real frame context
+    ops = await resolveNLPatch(patch.trim(), frame, screenName, aiConfig)
     if (!ops) {
       console.warn(
-        `[Patcher] SKIPPED "${screenName}": Ollama could not resolve patch "${patch}".` +
-        ` Ensure Ollama is running (OLLAMA_ENABLED != false) or use structured patch array.`
+        `[Patcher] SKIPPED "${screenName}": AI could not resolve patch "${patch}".` +
+        ` Ensure the AI provider is configured/reachable or use a structured patch array.`
       )
       return { skipped: true }
     }

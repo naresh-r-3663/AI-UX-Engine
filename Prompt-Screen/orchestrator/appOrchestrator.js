@@ -14,13 +14,14 @@ const { randomCreatedOn } = require("../ai/slotGenerator")
 async function run(prompt, options = {}){
   const domain = resolveDomain(prompt)
   const useAI = shouldUseAI(prompt, domain)
+  const aiConfig = options.aiConfig
 
   // If an explicit screens list is provided, use screenResolver — otherwise fall back to flowGenerator
   const flowSteps = (options.screens && options.screens.length)
-    ? await resolveScreens(options.screens, domain.title || "Screen")
+    ? await resolveScreens(options.screens, domain.title || "Screen", aiConfig)
     : generateFlow(prompt, domain)
 
-  const baseFormFields = await resolveFields(prompt, domain, { step: "form", useAI })
+  const baseFormFields = await resolveFields(prompt, domain, { step: "form", useAI, aiConfig })
 
   // Pre-resolve card names once for all dashboard/table steps (shared pool)
   const hasDashboardStep = flowSteps.some(s => s.step === "dashboard")
@@ -28,7 +29,7 @@ async function run(prompt, options = {}){
   // Use saved card names from domain model if available, otherwise resolve fresh
   const hasSavedCardNames = Array.isArray(domain.cardNames) && domain.cardNames.length > 0
   const _cardNames = (hasDashboardStep || hasTableStep)
-    ? (hasSavedCardNames ? domain.cardNames.slice(0, 16) : await resolveItemNames(prompt, 16, { useAI }))
+    ? (hasSavedCardNames ? domain.cardNames.slice(0, 16) : await resolveItemNames(prompt, 16, { useAI, aiConfig }))
     : null
 
   // New card name = first resolved card name (same value that fills frame 03's primary name field)
@@ -39,7 +40,7 @@ async function run(prompt, options = {}){
 
   // Pre-resolve form context texts once for all form steps (shared values)
   const hasFormStep = flowSteps.some(s => s.step === "form" || s.step === "filledForm")
-  const _formContext = hasFormStep ? await resolveContext(prompt, domain, { useAI }) : null
+  const _formContext = hasFormStep ? await resolveContext(prompt, domain, { useAI, aiConfig }) : null
 
   // Collect field categories from explicit fields for domain candidate
   const _fieldCategories = {}
@@ -60,7 +61,7 @@ async function run(prompt, options = {}){
         fields = baseFormFields
         if (step._fieldCategory) _fieldCategories[step._fieldCategory] = fields
       } else {
-        fields = await resolveFields(prompt, domain, { ...step, useAI })
+        fields = await resolveFields(prompt, domain, { ...step, useAI, aiConfig })
       }
 
       const mappedFields = mapFields(fields)

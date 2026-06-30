@@ -77,6 +77,31 @@
       border-radius: 999px;
     }
 
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .settings-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .settings-btn:hover {
+      background: #f5f5f5;
+      color: var(--ink);
+    }
+
     /* ── Shell ── */
     .shell {
       position: fixed;
@@ -896,7 +921,12 @@
       <span class="brand-dot"></span>
       AI UX Engine
     </div>
-    <div class="topbar-badge">Knowledge + UX AI Routing</div>
+    <div class="topbar-right">
+      <div class="topbar-badge">Knowledge + UX AI Routing</div>
+      <button type="button" class="settings-btn" id="settingsBtn" title="AI provider settings" aria-label="AI provider settings">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z" stroke="currentColor" stroke-width="1.5"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </button>
+    </div>
   </header>
 
   <div class="shell">
@@ -1023,6 +1053,40 @@
       <div class="modal-actions">
         <button class="btn secondary" id="modalCancel">Cancel</button>
         <button class="btn" id="modalSave">Save Domain Model</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI Settings Modal -->
+  <div class="modal-overlay hidden" id="settingsModal">
+    <div class="modal">
+      <h3 class="modal-title">AI Provider Settings</h3>
+      <p class="modal-sub">Choose which AI resolves your flows. Saved in this browser only and sent with each request — the server never stores your key.</p>
+
+      <div class="modal-field">
+        <span class="modal-label">Provider</span>
+        <div class="radio-group" id="providerGroup">
+          <div class="radio-pill"><input type="radio" name="provider" id="provOllama" value="ollama" checked /><label for="provOllama">Ollama (local)</label></div>
+          <div class="radio-pill"><input type="radio" name="provider" id="provAnthropic" value="anthropic" /><label for="provAnthropic">Claude</label></div>
+          <div class="radio-pill"><input type="radio" name="provider" id="provOpenai" value="openai" /><label for="provOpenai">OpenAI</label></div>
+        </div>
+      </div>
+
+      <div class="modal-field">
+        <span class="modal-label">Model</span>
+        <input class="modal-input" id="settingsModel" placeholder="e.g. claude-opus-4-8" />
+      </div>
+
+      <div class="modal-field" id="settingsKeyField">
+        <span class="modal-label">API Key</span>
+        <input class="modal-input" id="settingsKey" type="password" placeholder="Paste your provider API key" autocomplete="off" />
+      </div>
+
+      <div class="modal-conflict hidden" id="settingsNote"></div>
+
+      <div class="modal-actions">
+        <button class="btn secondary" id="settingsCancel">Cancel</button>
+        <button class="btn" id="settingsSave">Save Settings</button>
       </div>
     </div>
   </div>
@@ -1518,7 +1582,7 @@
           addStep("Step 3: Calling UX AI", "running")
         }
 
-        const result = await fetchJson("/api/generate", { prompt }, state.controller.signal)
+        const result = await fetchJson("/api/generate", { prompt, aiConfig: getAiConfig() }, state.controller.signal)
 
         addStep("Step 4: Creating UX flow", "running")
         startProgress(result.screenNames || [])
@@ -1674,7 +1738,8 @@
         const result = await fetchJson("/api/render-screens", {
           prompt: data.prompt,
           screens: data.screens,
-          patchOnly
+          patchOnly,
+          aiConfig: getAiConfig()
         }, state.controller.signal)
 
         if (patchOnly) {
@@ -1853,6 +1918,89 @@
         modalSave.disabled = false
         modalSave.textContent = "Save Domain Model"
       }
+    })
+
+    // ── AI Provider Settings ──
+    const AI_CONFIG_KEY = "aiuxengine-ai-config-v1"
+    const DEFAULT_MODELS = { ollama: "llama3.1:8b", anthropic: "claude-opus-4-8", openai: "gpt-4o-mini" }
+
+    const settingsModal = document.getElementById("settingsModal")
+    const settingsBtn = document.getElementById("settingsBtn")
+    const settingsModel = document.getElementById("settingsModel")
+    const settingsKey = document.getElementById("settingsKey")
+    const settingsKeyField = document.getElementById("settingsKeyField")
+    const settingsNote = document.getElementById("settingsNote")
+    const settingsCancel = document.getElementById("settingsCancel")
+    const settingsSave = document.getElementById("settingsSave")
+
+    // Reads saved config; returns { provider, model, apiKey } with empty fields omitted.
+    // Returns null when nothing is configured so the server falls back to its env defaults.
+    function getAiConfig() {
+      try {
+        const raw = localStorage.getItem(AI_CONFIG_KEY)
+        if (!raw) return null
+        const cfg = JSON.parse(raw)
+        const out = {}
+        if (cfg.provider) out.provider = cfg.provider
+        if (cfg.model) out.model = cfg.model
+        if (cfg.apiKey) out.apiKey = cfg.apiKey
+        return Object.keys(out).length ? out : null
+      } catch {
+        return null
+      }
+    }
+
+    function getSelectedProvider() {
+      const el = document.querySelector('input[name="provider"]:checked')
+      return el ? el.value : "ollama"
+    }
+
+    function syncSettingsForProvider(provider) {
+      // Ollama is local and needs no key
+      const needsKey = provider !== "ollama"
+      settingsKeyField.style.display = needsKey ? "" : "none"
+      if (!settingsModel.value.trim()) settingsModel.placeholder = "e.g. " + DEFAULT_MODELS[provider]
+    }
+
+    function openSettingsModal() {
+      const cfg = getAiConfig() || {}
+      const provider = cfg.provider || "ollama"
+      const provEl = document.querySelector('input[name="provider"][value="' + provider + '"]')
+      if (provEl) provEl.checked = true
+      settingsModel.value = cfg.model || ""
+      settingsModel.placeholder = "e.g. " + DEFAULT_MODELS[provider]
+      settingsKey.value = cfg.apiKey || ""
+      settingsNote.classList.add("hidden")
+      syncSettingsForProvider(provider)
+      settingsModal.classList.remove("hidden")
+    }
+
+    function closeSettingsModal() {
+      settingsModal.classList.add("hidden")
+    }
+
+    settingsBtn.addEventListener("click", openSettingsModal)
+    settingsCancel.addEventListener("click", closeSettingsModal)
+    settingsModal.addEventListener("click", (e) => { if (e.target === settingsModal) closeSettingsModal() })
+    document.querySelectorAll('input[name="provider"]').forEach(el => {
+      el.addEventListener("change", () => syncSettingsForProvider(getSelectedProvider()))
+    })
+
+    settingsSave.addEventListener("click", () => {
+      const provider = getSelectedProvider()
+      const model = settingsModel.value.trim()
+      const apiKey = provider === "ollama" ? "" : settingsKey.value.trim()
+
+      if (provider !== "ollama" && !apiKey) {
+        settingsNote.textContent = "An API key is required for " + (provider === "anthropic" ? "Claude" : "OpenAI") + "."
+        settingsNote.classList.remove("hidden")
+        return
+      }
+
+      localStorage.setItem(AI_CONFIG_KEY, JSON.stringify({ provider, model, apiKey }))
+      closeSettingsModal()
+      const label = provider === "anthropic" ? "Claude" : provider === "openai" ? "OpenAI" : "Ollama (local)"
+      showToast("AI provider set to " + label + (model ? " · " + model : ""))
     })
 
     loadChats()
