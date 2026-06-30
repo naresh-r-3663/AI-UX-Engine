@@ -13,7 +13,11 @@
     "refresh:knowledge": "npm run extract:figma && npm run generate:knowledge",
     "sync:knowledge": "node scripts/syncKnowledge.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "ui:prompt": "node scripts/runPromptUi.js"
+    "ui:prompt": "node scripts/runPromptUi.js",
+    "start": "node scripts/runPromptUi.js"
+  },
+  "engines": {
+    "node": ">=18"
   },
   "keywords": [],
   "author": "",

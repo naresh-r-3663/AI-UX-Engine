@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: ai-ux-engine
+    runtime: node
+    rootDir: Prompt-Screen
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: "20"

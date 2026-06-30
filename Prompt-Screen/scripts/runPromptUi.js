@@ -7,8 +7,10 @@ const applyPatch = require("../engine/patchResolver")
 const resolveDomain = require("../engine/domainResolver")
 const { shouldUseAI } = require("../engine/runModeResolver")
 
-const HOST = process.env.UI_HOST || "127.0.0.1"
-const PORT = Number(process.env.UI_PORT || 3210)
+// Cloud hosts (Render/Railway/Fly) inject PORT and require binding to 0.0.0.0.
+// Locally, http://127.0.0.1:<PORT> still resolves to a 0.0.0.0 listener.
+const HOST = process.env.HOST || process.env.UI_HOST || "0.0.0.0"
+const PORT = Number(process.env.PORT || process.env.UI_PORT || 3210)
 const UI_FILE = path.join(__dirname, "..", "prompt-ui.html")
 const README_FILE = path.join(__dirname, "..", "engine-readme.html")
 const DOMAIN_MODELS_PATH = path.join(__dirname, "..", "config", "domainModels.json")
@@ -321,5 +323,6 @@ const server = http.createServer(async (req, res) => {
 purgeExpiredDomains()
 
 server.listen(PORT, HOST, () => {
-  console.log(`Prompt UI running at http://${HOST}:${PORT}`)
+  const shown = HOST === "0.0.0.0" ? "127.0.0.1" : HOST
+  console.log(`Prompt UI running at http://${shown}:${PORT} (bound to ${HOST}:${PORT})`)
 })
