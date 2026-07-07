@@ -1505,14 +1505,35 @@
     }
 
     async function fetchJson(url, payload, signal) {
-      const res = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-        signal
-      })
-      const data = await res.json()
-      if (!res.ok) throw new Error(data.error || "Request failed")
+      let res
+      try {
+        res = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+          signal
+        })
+      } catch (err) {
+        // Keep abort behaving as "stopped by user" for the caller
+        if (err.name === "AbortError") throw err
+        // Network-level failure: server down, offline, DNS, CORS
+        throw new Error("Cannot reach the backend server. This page needs its Node server running — screen generation works on http://127.0.0.1:3210 or a deployed host (Catalyst AppSail).")
+      }
+
+      const raw = await res.text()
+      let data = null
+      try { data = raw ? JSON.parse(raw) : null } catch (_) { /* non-JSON body */ }
+
+      if (!res.ok) {
+        if (data && data.error) throw new Error(data.error)
+        // 404/405 from a static host = there is no API backend at this URL
+        if (res.status === 404 || res.status === 405) {
+          throw new Error("No API backend at this URL (HTTP " + res.status + "). This site is served by static hosting with no Node server. Deploy the app (Catalyst AppSail) or open http://127.0.0.1:3210.")
+        }
+        throw new Error("Request failed (HTTP " + res.status + ")")
+      }
+
+      if (data === null) throw new Error("Server returned an unexpected (non-JSON) response.")
       return data
     }
 
