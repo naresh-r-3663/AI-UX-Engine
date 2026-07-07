@@ -197,20 +197,32 @@ function readDomainModels() {
 }
 
 function writeDomainModels(data) {
-  fs.writeFileSync(DOMAIN_MODELS_PATH, JSON.stringify(data, null, 2))
+  // Cloud hosts (Catalyst AppSail, etc.) may have a read-only/ephemeral FS.
+  // A failed write must not crash the server — log and continue.
+  try {
+    fs.writeFileSync(DOMAIN_MODELS_PATH, JSON.stringify(data, null, 2))
+    return true
+  } catch (err) {
+    console.warn("[domain] write skipped (filesystem not writable):", err.message)
+    return false
+  }
 }
 
 function purgeExpiredDomains() {
-  const data = readDomainModels()
-  let changed = false
-  for (const key of Object.keys(data)) {
-    const meta = data[key]?._meta
-    if (meta && meta.expiresAt && new Date(meta.expiresAt) < new Date()) {
-      delete data[key]
-      changed = true
+  try {
+    const data = readDomainModels()
+    let changed = false
+    for (const key of Object.keys(data)) {
+      const meta = data[key]?._meta
+      if (meta && meta.expiresAt && new Date(meta.expiresAt) < new Date()) {
+        delete data[key]
+        changed = true
+      }
     }
+    if (changed) writeDomainModels(data)
+  } catch (err) {
+    console.warn("[domain] purge skipped:", err.message)
   }
-  if (changed) writeDomainModels(data)
 }
 
 async function handleSaveDomain(req, res) {
@@ -326,8 +338,16 @@ const server = http.createServer(async (req, res) => {
   }
 })
 
-// Purge expired domain models on startup
+// Purge expired domain models on startup (never fatal)
 purgeExpiredDomains()
+
+// Surface any boot failure in the host logs instead of a silent 503.
+server.on("error", (err) => {
+  console.error(`[boot] server failed to bind ${HOST}:${PORT}:`, err.message)
+})
+process.on("uncaughtException", (err) => {
+  console.error("[boot] uncaught exception:", err && err.stack ? err.stack : err)
+})
 
 server.listen(PORT, HOST, () => {
   const shown = HOST === "0.0.0.0" ? "127.0.0.1" : HOST
