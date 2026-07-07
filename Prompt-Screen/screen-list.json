@@ -1,0 +1,119 @@
+{
+  "prompt": "Data source connection wizard",
+  "screens": [
+    {
+      "module": "wizardform",
+      "screen": "default",
+      "name": "01 Select Source Type",
+      "base": "page.full-wizard",
+      "wizardStep": 1,
+      "wizardTotal": 4,
+      "wizardLabels": ["Source Type", "Connection", "Authentication", "Review"],
+      "fields": [
+        { "label": "Source Name", "type": "text" },
+        { "label": "Source Type", "type": "dropdown" },
+        { "label": "Environment", "type": "dropdown" },
+        { "label": "Description", "type": "textarea" }
+      ]
+    },
+    {
+      "module": "wizardform",
+      "screen": "form filled",
+      "name": "02 Source Type Filled",
+      "base": "page.full-wizard",
+      "wizardStep": 1,
+      "wizardTotal": 4,
+      "wizardLabels": ["Source Type", "Connection", "Authentication", "Review"],
+      "fields": [
+        { "label": "Source Name", "type": "text" },
+        { "label": "Source Type", "type": "dropdown" },
+        { "label": "Environment", "type": "dropdown" },
+        { "label": "Description", "type": "textarea" }
+      ]
+    },
+    {
+      "module": "wizardform",
+      "screen": "default",
+      "name": "03 Connection Details",
+      "base": "page.full-wizard",
+      "wizardStep": 2,
+      "wizardTotal": 4,
+      "wizardLabels": ["Source Type", "Connection", "Authentication", "Review"],
+      "fields": [
+        { "label": "Host", "type": "text" },
+        { "label": "Port", "type": "text" },
+        { "label": "Database Name", "type": "text" },
+        { "label": "Schema", "type": "dropdown" },
+        { "label": "Connection String", "type": "textarea" }
+      ]
+    },
+    {
+      "module": "wizardform",
+      "screen": "form filled",
+      "name": "04 Connection Filled",
+      "base": "page.full-wizard",
+      "wizardStep": 2,
+      "wizardTotal": 4,
+      "wizardLabels": ["Source Type", "Connection", "Authentication", "Review"],
+      "fields": [
+        { "label": "Host", "type": "text" },
+        { "label": "Port", "type": "text" },
+        { "label": "Database Name", "type": "text" },
+        { "label": "Schema", "type": "dropdown" },
+        { "label": "Connection String", "type": "textarea" }
+      ]
+    },
+    {
+      "module": "wizardform",
+      "screen": "default",
+      "name": "05 Authentication",
+      "base": "page.full-wizard",
+      "wizardStep": 3,
+      "wizardTotal": 4,
+      "wizardLabels": ["Source Type", "Connection", "Authentication", "Review"],
+      "fields": [
+        { "label": "Auth Method", "type": "dropdown" },
+        { "label": "Username", "type": "text" },
+        { "label": "Password", "type": "text" },
+        { "label": "SSL Mode", "type": "dropdown" },
+        { "label": "SSH Tunnel", "type": "dropdown" }
+      ]
+    },
+    {
+      "module": "wizardform",
+      "screen": "form filled",
+      "name": "06 Authentication Filled",
+      "base": "page.full-wizard",
+      "wizardStep": 3,
+      "wizardTotal": 4,
+      "wizardLabels": ["Source Type", "Connection", "Authentication", "Review"],
+      "fields": [
+        { "label": "Auth Method", "type": "dropdown" },
+        { "label": "Username", "type": "text" },
+        { "label": "Password", "type": "text" },
+        { "label": "SSL Mode", "type": "dropdown" },
+        { "label": "SSH Tunnel", "type": "dropdown" }
+      ]
+    },
+    {
+      "module": "wizardform",
+      "screen": "default",
+      "name": "07 Test and Save",
+      "base": "page.full-wizard",
+      "wizardStep": 4,
+      "wizardTotal": 4,
+      "wizardLabels": ["Source Type", "Connection", "Authentication", "Review"],
+      "fields": [
+        { "label": "Source Name", "type": "text" },
+        { "label": "Source Type", "type": "dropdown" },
+        { "label": "Host", "type": "text" },
+        { "label": "Status", "type": "dropdown" }
+      ]
+    },
+    {
+      "module": "dashboard",
+      "screen": "success",
+      "name": "08 Data Source Connected"
+    }
+  ]
+}

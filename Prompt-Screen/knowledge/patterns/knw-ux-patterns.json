@@ -1,0 +1,18 @@
+{
+  "schema": "knowledge/ux-patterns/v1",
+  "generatedAt": "2026-03-31T12:53:52.554Z",
+  "policy": {
+    "allowedPrefixes": [
+      "pt."
+    ]
+  },
+  "summary": {
+    "totalUxPatterns": 0,
+    "withVariants": 0,
+    "withProperties": 0
+  },
+  "rulesFile": "knowledge/rules/ux-pattern-rules.json",
+  "uxRules": [],
+  "stateRules": [],
+  "uxPatterns": []
+}

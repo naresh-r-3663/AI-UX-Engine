@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Render Output Viewer</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "SF Mono", "Fira Code", monospace; background: #0f1117; color: #c9d1d9; font-size: 13px; }
+    .top-bar { background: #161b22; border-bottom: 1px solid #30363d; padding: 12px 20px; display: flex; align-items: center; gap: 12px; }
+    .top-bar h1 { font-size: 14px; font-weight: 600; color: #e6edf3; }
+    .top-bar span { font-size: 12px; color: #8b949e; }
+    .badge { background: #1f6feb; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 10px; }
+    .frames { display: flex; gap: 0; overflow-x: auto; height: calc(100vh - 48px); }
+    .frame-col { min-width: 280px; border-right: 1px solid #21262d; display: flex; flex-direction: column; }
+    .frame-header { background: #161b22; padding: 10px 14px; border-bottom: 1px solid #30363d; position: sticky; top: 0; }
+    .frame-name { font-size: 12px; font-weight: 700; color: #e6edf3; }
+    .frame-meta { font-size: 11px; color: #8b949e; margin-top: 2px; }
+    .frame-body { padding: 12px; overflow-y: auto; flex: 1; }
+    .node { margin: 3px 0; }
+    .node-label { display: flex; align-items: center; gap: 6px; padding: 4px 8px; border-radius: 5px; cursor: default; white-space: nowrap; }
+    .node-label:hover { background: #21262d; }
+    .node-children { margin-left: 16px; border-left: 1px solid #21262d; padding-left: 4px; }
+    .tag { font-size: 10px; padding: 1px 5px; border-radius: 3px; font-weight: 600; letter-spacing: 0.3px; flex-shrink: 0; }
+    .tag-module  { background: #1a3a5c; color: #79c0ff; }
+    .tag-content { background: #1a3f2a; color: #56d364; }
+    .tag-sub     { background: #2d1a3f; color: #bc8cff; }
+    .tag-form    { background: #3a2a00; color: #e3b341; }
+    .tag-toast   { background: #3a1a1a; color: #f85149; }
+    .tag-field   { background: #1e2533; color: #8b949e; }
+    .tag-base    { background: #21262d; color: #8b949e; }
+    .node-name   { color: #e6edf3; font-size: 12px; }
+    .node-state  { font-size: 10px; padding: 1px 6px; border-radius: 8px; }
+    .state-hover  { background: #1a3a5c; color: #79c0ff; }
+    .state-filled { background: #1a3f2a; color: #56d364; }
+    .state-default { background: #21262d; color: #8b949e; }
+    .divider { border: none; border-top: 1px solid #21262d; margin: 8px 0; }
+    .toast-banner { background: #3a1a1a; border: 1px solid #f85149; border-radius: 6px; padding: 6px 10px; margin: 6px 0; font-size: 11px; color: #f85149; display: flex; align-items: center; gap: 6px; }
+    .prompt-bar { background: #161b22; padding: 10px 20px; border-bottom: 1px solid #30363d; display: flex; align-items: center; gap: 10px; }
+    .prompt-bar input { background: #0d1117; border: 1px solid #30363d; color: #e6edf3; padding: 6px 10px; border-radius: 6px; font-size: 13px; width: 320px; font-family: inherit; }
+    .prompt-bar button { background: #238636; color: #fff; border: none; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 13px; }
+    .prompt-bar button:hover { background: #2ea043; }
+    .flow-label { font-size: 11px; color: #8b949e; }
+    .flow-label strong { color: #e6edf3; }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <h1>Render Output Viewer</h1>
+  <span class="badge" id="frame-count">—</span>
+  <span id="flow-info" class="flow-label"></span>
+</div>
+
+<div class="prompt-bar">
+  <input id="prompt-input" type="text" placeholder='e.g. "manage users" or "app grid"' />
+  <button onclick="runPrompt()">Run</button>
+  <span style="color:#8b949e;font-size:12px">or</span>
+  <button onclick="loadFile()" style="background:#1f6feb">Load render-output.json</button>
+</div>
+
+<div class="frames" id="frames-container">
+  <div style="padding:40px;color:#8b949e;font-size:13px">Load render-output.json or run a prompt above.</div>
+</div>
+
+<script>
+function getTag(name) {
+  const n = name || ""
+  if (n === "comp.toast.message") return { cls: "tag-toast", label: "TOAST" }
+  if (n.startsWith("slot.module."))  return { cls: "tag-module",  label: "MODULE" }
+  if (n.startsWith("slot.content.")) return { cls: "tag-content", label: "CONTENT" }
+  if (n.startsWith("slot."))         return { cls: "tag-sub",     label: "SLOT" }
+  if (n.startsWith("comp.input."))   return { cls: "tag-field",   label: "INPUT" }
+  if (n === "page.base")             return { cls: "tag-base",    label: "BASE" }
+  return null
+}
+
+function stateChip(state) {
+  if (!state) return ""
+  const cls = state.toLowerCase().includes("hover") ? "state-hover"
+            : state.toLowerCase().includes("filled") ? "state-filled"
+            : "state-default"
+  return `<span class="node-state ${cls}">${state}</span>`
+}
+
+function renderNode(node, depth = 0) {
+  if (!node) return ""
+  const name = node.name || node.componentName || ""
+  const tag = getTag(name)
+  const state = node.meta && node.meta.variantState
+
+  let labelHtml = `<span class="node-name">${name}</span>`
+  if (tag) labelHtml = `<span class="tag ${tag.cls}">${tag.label}</span>` + labelHtml
+  if (state) labelHtml += stateChip(state)
+
+  const children = node.children || []
+  const childrenHtml = children.length
+    ? `<div class="node-children">${children.map(c => renderNode(c, depth + 1)).join("")}</div>`
+    : ""
+
+  return `<div class="node"><div class="node-label">${labelHtml}</div>${childrenHtml}</div>`
+}
+
+function renderFrame(frame) {
+  const hasToast = (frame.children || []).some(c => c.name === "comp.toast.message")
+  const toastBanner = hasToast
+    ? `<div class="toast-banner">🔔 comp.toast.message overlay</div>`
+    : ""
+
+  const bodyHtml = (frame.children || []).map(c => renderNode(c)).join("")
+
+  return `
+    <div class="frame-col">
+      <div class="frame-header">
+        <div class="frame-name">${frame.name}</div>
+        <div class="frame-meta">base: ${frame.base || "page.base"} · ${frame.width}×${frame.height}</div>
+      </div>
+      <div class="frame-body">
+        ${toastBanner}
+        ${bodyHtml}
+      </div>
+    </div>`
+}
+
+function render(frames) {
+  const container = document.getElementById("frames-container")
+  const countBadge = document.getElementById("frame-count")
+  const flowInfo = document.getElementById("flow-info")
+
+  countBadge.textContent = `${frames.length} screens`
+  container.innerHTML = frames.map(renderFrame).join("")
+
+  // detect flow type
+  const first = frames[0] || {}
+  const firstModule = ((first.children || [])[0] || {}).name || ""
+  if (firstModule.includes("dashboard")) {
+    flowInfo.innerHTML = "Flow B — <strong>dashboard / grid / app</strong>"
+  } else if (firstModule.includes("table")) {
+    flowInfo.innerHTML = "Flow A — <strong>manage / list / table</strong>"
+  } else {
+    flowInfo.innerHTML = ""
+  }
+}
+
+async function loadFile() {
+  try {
+    const res = await fetch("render-output.json?t=" + Date.now())
+    const data = await res.json()
+    render(Array.isArray(data) ? data : [data])
+  } catch(e) {
+    alert("Could not load render-output.json: " + e.message)
+  }
+}
+
+async function runPrompt() {
+  const prompt = document.getElementById("prompt-input").value.trim()
+  if (!prompt) return
+  alert(`Run this in terminal first:\n\nnode aiuxengine.js "${prompt}"\n\nThen click "Load render-output.json"`)
+}
+
+// Auto-load on open
+loadFile()
+</script>
+</body>
+</html>

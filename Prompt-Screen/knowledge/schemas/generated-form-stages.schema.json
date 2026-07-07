@@ -1,0 +1,3305 @@
+{
+  "schema": "generated/form-stages/v2",
+  "generatedAt": "2026-03-31T12:53:52.897Z",
+  "source": {
+    "icons": "knowledge/components/knw-icons.json",
+    "rules": "knowledge/rules/DesignRulesEngine.json"
+  },
+  "aiHints": {
+    "resolver": "alias + slot aware scoring + policy fallback + label intent mapping",
+    "slots": [
+      "input_left",
+      "button_left"
+    ],
+    "notes": [
+      "Use candidates for fallback or tie-break in downstream AI flows.",
+      "Confidence is heuristic and should be validated for production.",
+      "Stage 1 fields use placeholder text with empty value."
+    ]
+  },
+  "decisionConfig": {
+    "policyFile": "knowledge/ai-decisions/decision-policy.json",
+    "iconRulesFile": "knowledge/ai-decisions/icon-selection.rules.json",
+    "labelRulesFile": "knowledge/ai-decisions/label-selection.rules.json"
+  },
+  "formIntent": "default form",
+  "formShell": {
+    "form": "gr.comp.form",
+    "section": "gr.comp.area",
+    "pattern": "sub.pt.form"
+  },
+  "iconSettings": {
+    "includeAllIcons": true,
+    "includeCandidates": true,
+    "candidateLimit": 5
+  },
+  "iconCatalog": [
+    {
+      "name": "icon/edit",
+      "aliases": [
+        "edit",
+        "update",
+        "modify",
+        "pencil",
+        "rename"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/mobile",
+      "aliases": [
+        "mobile"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/portal",
+      "aliases": [
+        "portal"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/users",
+      "aliases": [
+        "users",
+        "people",
+        "members",
+        "team",
+        "patient",
+        "visitor"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/billing",
+      "aliases": [
+        "billing"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/more-circle-down",
+      "aliases": [
+        "more",
+        "circle",
+        "down",
+        "overflow",
+        "menu",
+        "options"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/more-circle-up",
+      "aliases": [
+        "more",
+        "circle",
+        "up",
+        "overflow",
+        "menu",
+        "options"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/user-pending",
+      "aliases": [
+        "user",
+        "pending"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/user-remove",
+      "aliases": [
+        "user",
+        "remove"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/user-previleged",
+      "aliases": [
+        "user",
+        "previleged"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/testcase",
+      "aliases": [
+        "testcase"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/testsuits",
+      "aliases": [
+        "testsuits"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/testplan",
+      "aliases": [
+        "testplan"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/results",
+      "aliases": [
+        "results"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/function",
+      "aliases": [
+        "function"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/edit-summary",
+      "aliases": [
+        "edit",
+        "summary",
+        "update",
+        "modify",
+        "pencil",
+        "rename"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/module",
+      "aliases": [
+        "module"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/builder-mode",
+      "aliases": [
+        "builder",
+        "mode"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/merge-progress",
+      "aliases": [
+        "merge",
+        "progress"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/branching-versions",
+      "aliases": [
+        "branching",
+        "versions"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/branch-merge",
+      "aliases": [
+        "branch",
+        "merge"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/api-share",
+      "aliases": [
+        "api",
+        "share"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/manage",
+      "aliases": [
+        "manage"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/branching",
+      "aliases": [
+        "branching"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/android",
+      "aliases": [
+        "android"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/star",
+      "aliases": [
+        "star"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/versions",
+      "aliases": [
+        "versions"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/element",
+      "aliases": [
+        "element"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/cta-loading",
+      "aliases": [
+        "cta",
+        "loading"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/status-marker",
+      "aliases": [
+        "status",
+        "marker"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/drag",
+      "aliases": [
+        "drag"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/arrow-circle-left",
+      "aliases": [
+        "arrow",
+        "circle",
+        "left",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/arrow-circle-right",
+      "aliases": [
+        "arrow",
+        "circle",
+        "right",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/record-circle",
+      "aliases": [
+        "record",
+        "circle"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/stop-circle",
+      "aliases": [
+        "stop",
+        "circle"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/run-circle",
+      "aliases": [
+        "run",
+        "circle"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/manual-web",
+      "aliases": [
+        "manual",
+        "web"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/all",
+      "aliases": [
+        "all"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/save",
+      "aliases": [
+        "save"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/suits",
+      "aliases": [
+        "suits"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/run-history",
+      "aliases": [
+        "run",
+        "history"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/web-browser",
+      "aliases": [
+        "web",
+        "browser"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/runing",
+      "aliases": [
+        "runing"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/note-tick",
+      "aliases": [
+        "note",
+        "tick",
+        "check",
+        "done",
+        "approve"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/connection-plug",
+      "aliases": [
+        "connection",
+        "plug",
+        "link",
+        "integrate",
+        "network"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/navigate-external",
+      "aliases": [
+        "navigate",
+        "external"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/api-token-key",
+      "aliases": [
+        "api",
+        "token",
+        "key"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/code-circle",
+      "aliases": [
+        "code",
+        "circle"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/tag-tick",
+      "aliases": [
+        "tag",
+        "tick",
+        "check",
+        "done",
+        "approve"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/tag-remove",
+      "aliases": [
+        "tag",
+        "remove"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/file",
+      "aliases": [
+        "file"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/files",
+      "aliases": [
+        "files"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/data-source",
+      "aliases": [
+        "data",
+        "source"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/mfa",
+      "aliases": [
+        "mfa"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/page",
+      "aliases": [
+        "page"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/mfa-alt",
+      "aliases": [
+        "mfa",
+        "alt"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/webhook",
+      "aliases": [
+        "webhook"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/agent-multi-device",
+      "aliases": [
+        "agent",
+        "multi",
+        "device"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/agent-group-users",
+      "aliases": [
+        "agent",
+        "group",
+        "users",
+        "people",
+        "members",
+        "team",
+        "patient",
+        "visitor"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/ios",
+      "aliases": [
+        "ios"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/tunnel",
+      "aliases": [
+        "tunnel"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/timer-clock",
+      "aliases": [
+        "timer",
+        "clock",
+        "time",
+        "history",
+        "recent"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/maximize",
+      "aliases": [
+        "maximize"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/devider",
+      "aliases": [
+        "devider"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/minimize",
+      "aliases": [
+        "minimize"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/lock-on",
+      "aliases": [
+        "lock",
+        "on"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/computer",
+      "aliases": [
+        "computer"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/attach",
+      "aliases": [
+        "attach"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/refresh",
+      "aliases": [
+        "refresh"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/upload",
+      "aliases": [
+        "upload"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/question",
+      "aliases": [
+        "question"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/download",
+      "aliases": [
+        "download"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/switch-off",
+      "aliases": [
+        "switch",
+        "off"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/label-tag",
+      "aliases": [
+        "label",
+        "tag"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/switch-on",
+      "aliases": [
+        "switch",
+        "on"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/button-click",
+      "aliases": [
+        "button",
+        "click"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/support",
+      "aliases": [
+        "support"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/input-text",
+      "aliases": [
+        "input",
+        "text"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/copy",
+      "aliases": [
+        "copy"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/dropdown",
+      "aliases": [
+        "dropdown"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/copied",
+      "aliases": [
+        "copied"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/link-chain",
+      "aliases": [
+        "link",
+        "chain"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/import",
+      "aliases": [
+        "import"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/export",
+      "aliases": [
+        "export"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/file-upload",
+      "aliases": [
+        "file",
+        "upload"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/manual",
+      "aliases": [
+        "manual"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/automation",
+      "aliases": [
+        "automation"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/integrations",
+      "aliases": [
+        "integrations"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/home",
+      "aliases": [
+        "home"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/solutions-grid",
+      "aliases": [
+        "solutions",
+        "grid"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/link",
+      "aliases": [
+        "link"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/automation-alt",
+      "aliases": [
+        "automation",
+        "alt"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/disconnect",
+      "aliases": [
+        "disconnect"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/arrow-line-alt",
+      "aliases": [
+        "arrow",
+        "line",
+        "alt",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/email",
+      "aliases": [
+        "email"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/list",
+      "aliases": [
+        "list"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/audit",
+      "aliases": [
+        "audit"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/view",
+      "aliases": [
+        "view"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/timeline-view",
+      "aliases": [
+        "timeline",
+        "view"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/list-view-alt",
+      "aliases": [
+        "list",
+        "view",
+        "alt"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/rocket",
+      "aliases": [
+        "rocket"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/spin",
+      "aliases": [
+        "spin"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/reset",
+      "aliases": [
+        "reset"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/alert-bell",
+      "aliases": [
+        "alert",
+        "bell",
+        "warning",
+        "caution",
+        "attention"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/search-query",
+      "aliases": [
+        "search",
+        "query",
+        "find",
+        "lookup"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/expand-all",
+      "aliases": [
+        "expand",
+        "all"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/minimize-all",
+      "aliases": [
+        "minimize",
+        "all"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/app-box",
+      "aliases": [
+        "app",
+        "box"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/sort",
+      "aliases": [
+        "sort"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/expand",
+      "aliases": [
+        "expand"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/collapse",
+      "aliases": [
+        "collapse"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/duplicate",
+      "aliases": [
+        "duplicate"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/ai",
+      "aliases": [
+        "ai"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/ai-alt",
+      "aliases": [
+        "ai",
+        "alt"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/zia",
+      "aliases": [
+        "zia"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/ai-fill",
+      "aliases": [
+        "ai",
+        "fill"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/aI-fill-alt",
+      "aliases": [
+        "ai",
+        "fill",
+        "alt"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/ai-edit",
+      "aliases": [
+        "ai",
+        "edit",
+        "update",
+        "modify",
+        "pencil",
+        "rename"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/ai-file",
+      "aliases": [
+        "ai",
+        "file"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/text-document",
+      "aliases": [
+        "text",
+        "document"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/target",
+      "aliases": [
+        "target"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/money",
+      "aliases": [
+        "money",
+        "payment",
+        "pay",
+        "amount",
+        "price",
+        "cost",
+        "fee",
+        "billing",
+        "card",
+        "cvv",
+        "expiry",
+        "expiration",
+        "currency",
+        "finance",
+        "transaction",
+        "invoice",
+        "charge"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/flag-fill-alt",
+      "aliases": [
+        "flag",
+        "fill",
+        "alt"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/image",
+      "aliases": [
+        "image"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/sand-clock",
+      "aliases": [
+        "sand",
+        "clock",
+        "time",
+        "history",
+        "recent"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/ascending",
+      "aliases": [
+        "ascending"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/descending",
+      "aliases": [
+        "descending"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/delete",
+      "aliases": [
+        "delete",
+        "remove",
+        "trash",
+        "bin",
+        "clear"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/placeholder",
+      "aliases": [
+        "placeholder",
+        "default",
+        "empty",
+        "fallback"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/arrow-down",
+      "aliases": [
+        "arrow",
+        "down",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/arrow-bottom-down",
+      "aliases": [
+        "arrow",
+        "bottom",
+        "down",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/arrow-up",
+      "aliases": [
+        "arrow",
+        "up",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/arrow-left",
+      "aliases": [
+        "arrow",
+        "left",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/arrow-right",
+      "aliases": [
+        "arrow",
+        "right",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/plus",
+      "aliases": [
+        "plus",
+        "add",
+        "create",
+        "new",
+        "insert"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/plus-small",
+      "aliases": [
+        "plus",
+        "small",
+        "add",
+        "create",
+        "new",
+        "insert"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/filter-add",
+      "aliases": [
+        "filter",
+        "add",
+        "funnel",
+        "refine",
+        "sort",
+        "plus",
+        "create",
+        "new",
+        "insert"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/filter-active",
+      "aliases": [
+        "filter",
+        "active",
+        "funnel",
+        "refine",
+        "sort"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/filter-close",
+      "aliases": [
+        "filter",
+        "close",
+        "funnel",
+        "refine",
+        "sort",
+        "dismiss",
+        "cancel",
+        "x"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/folder-open",
+      "aliases": [
+        "folder",
+        "open",
+        "directory",
+        "files",
+        "collection"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/folder-closed",
+      "aliases": [
+        "folder",
+        "closed",
+        "directory",
+        "files",
+        "collection"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/more-dots-vertical",
+      "aliases": [
+        "more",
+        "dots",
+        "vertical",
+        "overflow",
+        "menu",
+        "options",
+        "kebab",
+        "ellipsis"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/more-dots-horizontal",
+      "aliases": [
+        "more",
+        "dots",
+        "horizontal",
+        "overflow",
+        "menu",
+        "options",
+        "kebab",
+        "ellipsis"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/bento-menu",
+      "aliases": [
+        "bento",
+        "menu",
+        "grid",
+        "apps"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/close-small-right",
+      "aliases": [
+        "close",
+        "small",
+        "right",
+        "dismiss",
+        "cancel",
+        "x"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/close-small-center",
+      "aliases": [
+        "close",
+        "small",
+        "center",
+        "dismiss",
+        "cancel",
+        "x"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/close-small-left",
+      "aliases": [
+        "close",
+        "small",
+        "left",
+        "dismiss",
+        "cancel",
+        "x"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/close-big",
+      "aliases": [
+        "close",
+        "big",
+        "dismiss",
+        "cancel",
+        "x"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/tick-scalable",
+      "aliases": [
+        "tick",
+        "scalable",
+        "check",
+        "done",
+        "approve"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/tick-small",
+      "aliases": [
+        "tick",
+        "small",
+        "check",
+        "done",
+        "approve"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/alert-small",
+      "aliases": [
+        "alert",
+        "small",
+        "warning",
+        "caution",
+        "attention"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/minus-small",
+      "aliases": [
+        "minus",
+        "small",
+        "subtract",
+        "remove",
+        "collapse"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/search",
+      "aliases": [
+        "search",
+        "find",
+        "lookup",
+        "query"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/hint",
+      "aliases": [
+        "hint",
+        "help",
+        "tip",
+        "assist"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/info",
+      "aliases": [
+        "info",
+        "information",
+        "details",
+        "about"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/success",
+      "aliases": [
+        "success",
+        "check",
+        "done",
+        "complete"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/error",
+      "aliases": [
+        "error",
+        "fail",
+        "invalid",
+        "danger"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/connection",
+      "aliases": [
+        "connection",
+        "link",
+        "integrate",
+        "network"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/environment",
+      "aliases": [
+        "environment",
+        "layer",
+        "stack",
+        "context"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/organization",
+      "aliases": [
+        "organization",
+        "org",
+        "company",
+        "workspace"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/security-tick",
+      "aliases": [
+        "security",
+        "tick",
+        "check",
+        "done",
+        "approve"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/settings",
+      "aliases": [
+        "settings",
+        "preferences",
+        "config",
+        "options"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/clock",
+      "aliases": [
+        "clock",
+        "time",
+        "history",
+        "recent"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon/users-alt",
+      "aliases": [
+        "users",
+        "alt",
+        "people",
+        "members",
+        "team",
+        "patient",
+        "visitor"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon=true, state=enabled",
+      "aliases": [
+        "icon=true,",
+        "state=enabled"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon=true, state=hover",
+      "aliases": [
+        "icon=true,",
+        "state=hover"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon=true, state=active",
+      "aliases": [
+        "icon=true,",
+        "state=active"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon=false, state=enabled",
+      "aliases": [
+        "icon=false,",
+        "state=enabled"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon=false, state=hover",
+      "aliases": [
+        "icon=false,",
+        "state=hover"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon=false, state=active",
+      "aliases": [
+        "icon=false,",
+        "state=active"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon-position=left-right, state=enabled",
+      "aliases": [
+        "icon",
+        "position=left",
+        "right,",
+        "state=enabled"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon-position=left-right, state=current",
+      "aliases": [
+        "icon",
+        "position=left",
+        "right,",
+        "state=current"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon-position=left-right, state=hover",
+      "aliases": [
+        "icon",
+        "position=left",
+        "right,",
+        "state=hover"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon-position=left, state=enabled",
+      "aliases": [
+        "icon",
+        "position=left,",
+        "state=enabled"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon-position=left, state=current",
+      "aliases": [
+        "icon",
+        "position=left,",
+        "state=current"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon-position=left, state=hover",
+      "aliases": [
+        "icon",
+        "position=left,",
+        "state=hover"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon-position=right, state=enabled",
+      "aliases": [
+        "icon",
+        "position=right,",
+        "state=enabled"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon-position=right, state=current",
+      "aliases": [
+        "icon",
+        "position=right,",
+        "state=current"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon-position=right, state=hover",
+      "aliases": [
+        "icon",
+        "position=right,",
+        "state=hover"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon-position=none, state=enabled",
+      "aliases": [
+        "icon",
+        "position=none,",
+        "state=enabled"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon-position=none, state=current",
+      "aliases": [
+        "icon",
+        "position=none,",
+        "state=current"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "icon-position=none, state=hover",
+      "aliases": [
+        "icon",
+        "position=none,",
+        "state=hover"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=extra-small, style=fill, hover-on-button=false, hover-on-icon=false",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=extra-small, style=border, hover-on-button=false, hover-on-icon=false",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=extra-small, style=minimal-border, hover-on-button=false, hover-on-icon=false",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=extra-small, style=minimal-fill, hover-on-button=false, hover-on-icon=false",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=extra-small, style=minimal-fill, hover-on-button=true, hover-on-icon=false",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=extra-small, style=minimal-fill, hover-on-button=true, hover-on-icon=true",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=true"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=extra-small, style=border, hover-on-button=true, hover-on-icon=false",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=extra-small, style=minimal-border, hover-on-button=true, hover-on-icon=false",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=extra-small, style=border, hover-on-button=false, hover-on-icon=true",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=extra-small, style=minimal-border, hover-on-button=false, hover-on-icon=true",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=extra-small, style=fill, hover-on-button=false, hover-on-icon=true",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=extra-small, style=fill, hover-on-button=true, hover-on-icon=false",
+      "aliases": [
+        "size=extra",
+        "small,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=small, style=fill, hover-on-button=false, hover-on-icon=false",
+      "aliases": [
+        "size=small,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=small, style=border, hover-on-button=false, hover-on-icon=false",
+      "aliases": [
+        "size=small,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=small, style=minimal-border, hover-on-button=false, hover-on-icon=false",
+      "aliases": [
+        "size=small,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=small, style=border, hover-on-button=true, hover-on-icon=false",
+      "aliases": [
+        "size=small,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=small, style=minimal-border, hover-on-button=true, hover-on-icon=false",
+      "aliases": [
+        "size=small,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=small, style=minimal-fill, hover-on-button=false, hover-on-icon=false",
+      "aliases": [
+        "size=small,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=small, style=minimal-fill, hover-on-button=true, hover-on-icon=false",
+      "aliases": [
+        "size=small,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=small, style=minimal-fill, hover-on-button=true, hover-on-icon=true",
+      "aliases": [
+        "size=small,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=true"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=small, style=border, hover-on-button=false, hover-on-icon=true",
+      "aliases": [
+        "size=small,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=small, style=minimal-border, hover-on-button=false, hover-on-icon=true",
+      "aliases": [
+        "size=small,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=small, style=fill, hover-on-button=false, hover-on-icon=true",
+      "aliases": [
+        "size=small,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=small, style=fill, hover-on-button=true, hover-on-icon=false",
+      "aliases": [
+        "size=small,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=base, style=fill, hover-on-button=false, hover-on-icon=false",
+      "aliases": [
+        "size=base,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=base, style=border, hover-on-button=false, hover-on-icon=false",
+      "aliases": [
+        "size=base,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=base, style=minimal-border, hover-on-button=false, hover-on-icon=false",
+      "aliases": [
+        "size=base,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=base, style=border, hover-on-button=true, hover-on-icon=false",
+      "aliases": [
+        "size=base,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=base, style=minimal-border, hover-on-button=true, hover-on-icon=false",
+      "aliases": [
+        "size=base,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=base, style=minimal-fill, hover-on-button=false, hover-on-icon=false",
+      "aliases": [
+        "size=base,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=base, style=minimal-fill, hover-on-button=true, hover-on-icon=false",
+      "aliases": [
+        "size=base,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=base, style=minimal-fill, hover-on-button=true, hover-on-icon=true",
+      "aliases": [
+        "size=base,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=true"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=base, style=border, hover-on-button=false, hover-on-icon=true",
+      "aliases": [
+        "size=base,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=base, style=minimal-border, hover-on-button=false, hover-on-icon=true",
+      "aliases": [
+        "size=base,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=base, style=fill, hover-on-button=false, hover-on-icon=true",
+      "aliases": [
+        "size=base,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=base, style=fill, hover-on-button=true, hover-on-icon=false",
+      "aliases": [
+        "size=base,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=large, style=fill, hover-on-button=false, hover-on-icon=false",
+      "aliases": [
+        "size=large,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=large, style=border, hover-on-button=false, hover-on-icon=false",
+      "aliases": [
+        "size=large,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=large, style=minimal-border, hover-on-button=false, hover-on-icon=false",
+      "aliases": [
+        "size=large,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=large, style=minimal-fill, hover-on-button=false, hover-on-icon=false",
+      "aliases": [
+        "size=large,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=large, style=minimal-fill, hover-on-button=true, hover-on-icon=false",
+      "aliases": [
+        "size=large,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=large, style=minimal-fill, hover-on-button=true, hover-on-icon=true",
+      "aliases": [
+        "size=large,",
+        "style=minimal",
+        "fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=true"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=large, style=border, hover-on-button=true, hover-on-icon=false",
+      "aliases": [
+        "size=large,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=large, style=minimal-border, hover-on-button=true, hover-on-icon=false",
+      "aliases": [
+        "size=large,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=large, style=border, hover-on-button=false, hover-on-icon=true",
+      "aliases": [
+        "size=large,",
+        "style=border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=large, style=minimal-border, hover-on-button=false, hover-on-icon=true",
+      "aliases": [
+        "size=large,",
+        "style=minimal",
+        "border,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=large, style=fill, hover-on-button=false, hover-on-icon=true",
+      "aliases": [
+        "size=large,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=false,",
+        "icon=true"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "size=large, style=fill, hover-on-button=true, hover-on-icon=false",
+      "aliases": [
+        "size=large,",
+        "style=fill,",
+        "hover",
+        "on",
+        "button=true,",
+        "icon=false"
+      ],
+      "type": "COMPONENT"
+    }
+  ],
+  "stages": [
+    {
+      "stage": "Stage 1",
+      "description": "All fields in default state when user first sees the UI.",
+      "fields": [
+        {
+          "label": "name",
+          "component": "comp.input.text.base",
+          "state": "Default",
+          "value": "",
+          "placeholder": "Enter name",
+          "leftIcon": {
+            "name": "icon/agent-group-users",
+            "confidence": "medium",
+            "reason": "Matched aliases: users",
+            "candidates": [
+              {
+                "icon": "icon/agent-group-users",
+                "score": 1.25,
+                "matchedAliases": [
+                  "users"
+                ],
+                "reason": "Matched aliases: users"
+              },
+              {
+                "icon": "icon/users",
+                "score": 1.25,
+                "matchedAliases": [
+                  "users"
+                ],
+                "reason": "Matched aliases: users"
+              },
+              {
+                "icon": "icon/users-alt",
+                "score": 1.25,
+                "matchedAliases": [
+                  "users"
+                ],
+                "reason": "Matched aliases: users"
+              },
+              {
+                "icon": "icon/user-pending",
+                "score": 1,
+                "matchedAliases": [
+                  "user"
+                ],
+                "reason": "Matched aliases: user"
+              },
+              {
+                "icon": "icon/user-previleged",
+                "score": 1,
+                "matchedAliases": [
+                  "user"
+                ],
+                "reason": "Matched aliases: user"
+              }
+            ]
+          }
+        },
+        {
+          "label": "email",
+          "component": "comp.input.text.base",
+          "state": "Default",
+          "value": "",
+          "placeholder": "Enter email",
+          "leftIcon": {
+            "name": "icon/info",
+            "confidence": "medium",
+            "reason": "Matched aliases: info",
+            "candidates": [
+              {
+                "icon": "icon/info",
+                "score": 1.25,
+                "matchedAliases": [
+                  "info"
+                ],
+                "reason": "Matched aliases: info"
+              },
+              {
+                "icon": "icon/email",
+                "score": 1,
+                "matchedAliases": [
+                  "email"
+                ],
+                "reason": "Matched aliases: email"
+              },
+              {
+                "icon": "icon/agent-group-users",
+                "score": 0.25,
+                "matchedAliases": [],
+                "reason": "Matched aliases: "
+              },
+              {
+                "icon": "icon/ai-edit",
+                "score": 0.25,
+                "matchedAliases": [],
+                "reason": "Matched aliases: "
+              },
+              {
+                "icon": "icon/clock",
+                "score": 0.25,
+                "matchedAliases": [],
+                "reason": "Matched aliases: "
+              }
+            ]
+          }
+        },
+        {
+          "label": "phone",
+          "component": "comp.input.text.base",
+          "state": "Default",
+          "value": "",
+          "placeholder": "Enter phone number",
+          "leftIcon": {
+            "name": "icon/connection",
+            "confidence": "medium",
+            "reason": "Matched aliases: connection",
+            "candidates": [
+              {
+                "icon": "icon/connection",
+                "score": 1.25,
+                "matchedAliases": [
+                  "connection"
+                ],
+                "reason": "Matched aliases: connection"
+              },
+              {
+                "icon": "icon/connection-plug",
+                "score": 1.25,
+                "matchedAliases": [
+                  "connection"
+                ],
+                "reason": "Matched aliases: connection"
+              },
+              {
+                "icon": "icon/mobile",
+                "score": 1,
+                "matchedAliases": [
+                  "mobile"
+                ],
+                "reason": "Matched aliases: mobile"
+              },
+              {
+                "icon": "icon/agent-group-users",
+                "score": 0.25,
+                "matchedAliases": [],
+                "reason": "Matched aliases: "
+              },
+              {
+                "icon": "icon/ai-edit",
+                "score": 0.25,
+                "matchedAliases": [],
+                "reason": "Matched aliases: "
+              }
+            ]
+          }
+        },
+        {
+          "label": "message",
+          "component": "comp.input.textarea.base",
+          "state": "Default",
+          "value": "",
+          "placeholder": "Enter details",
+          "leftIcon": {
+            "name": "icon/ai-edit",
+            "confidence": "medium",
+            "reason": "Matched aliases: edit",
+            "candidates": [
+              {
+                "icon": "icon/ai-edit",
+                "score": 1.25,
+                "matchedAliases": [
+                  "edit"
+                ],
+                "reason": "Matched aliases: edit"
+              },
+              {
+                "icon": "icon/edit",
+                "score": 1.25,
+                "matchedAliases": [
+                  "edit"
+                ],
+                "reason": "Matched aliases: edit"
+              },
+              {
+                "icon": "icon/edit-summary",
+                "score": 1.25,
+                "matchedAliases": [
+                  "edit"
+                ],
+                "reason": "Matched aliases: edit"
+              },
+              {
+                "icon": "icon/input-text",
+                "score": 1,
+                "matchedAliases": [
+                  "text"
+                ],
+                "reason": "Matched aliases: text"
+              },
+              {
+                "icon": "icon/note-tick",
+                "score": 1,
+                "matchedAliases": [
+                  "note"
+                ],
+                "reason": "Matched aliases: note"
+              }
+            ]
+          }
+        }
+      ],
+      "actions": [
+        {
+          "component": "comp.button.primary",
+          "label": "Submit",
+          "labelMeta": {
+            "confidence": "low",
+            "reason": "No intent-specific label rule found; using default"
+          },
+          "variant": {
+            "Size": "Base ✦",
+            "Style": "Fill",
+            "Hover": "False"
+          },
+          "leftIcon": {
+            "name": "icon/note-tick",
+            "confidence": "high",
+            "reason": "Matched aliases: tick, check, done",
+            "candidates": [
+              {
+                "icon": "icon/note-tick",
+                "score": 3.5,
+                "matchedAliases": [
+                  "tick",
+                  "check",
+                  "done"
+                ],
+                "reason": "Matched aliases: tick, check, done"
+              },
+              {
+                "icon": "icon/security-tick",
+                "score": 3.5,
+                "matchedAliases": [
+                  "tick",
+                  "check",
+                  "done"
+                ],
+                "reason": "Matched aliases: tick, check, done"
+              },
+              {
+                "icon": "icon/success",
+                "score": 3.5,
+                "matchedAliases": [
+                  "success",
+                  "check",
+                  "done"
+                ],
+                "reason": "Matched aliases: success, check, done"
+              },
+              {
+                "icon": "icon/tag-tick",
+                "score": 3.5,
+                "matchedAliases": [
+                  "tick",
+                  "check",
+                  "done"
+                ],
+                "reason": "Matched aliases: tick, check, done"
+              },
+              {
+                "icon": "icon/tick-scalable",
+                "score": 3.5,
+                "matchedAliases": [
+                  "tick",
+                  "check",
+                  "done"
+                ],
+                "reason": "Matched aliases: tick, check, done"
+              }
+            ]
+          }
+        },
+        {
+          "component": "comp.button.secondary",
+          "label": "Cancel",
+          "labelMeta": {
+            "confidence": "low",
+            "reason": "No intent-specific label rule found; using default"
+          },
+          "variant": {
+            "Size": "Base ✦",
+            "Style": "Border",
+            "Hover": "False"
+          },
+          "leftIcon": {
+            "name": "icon/close-big",
+            "confidence": "high",
+            "reason": "Matched aliases: cancel, close",
+            "candidates": [
+              {
+                "icon": "icon/close-big",
+                "score": 2.25,
+                "matchedAliases": [
+                  "cancel",
+                  "close"
+                ],
+                "reason": "Matched aliases: cancel, close"
+              },
+              {
+                "icon": "icon/close-small-center",
+                "score": 2.25,
+                "matchedAliases": [
+                  "cancel",
+                  "close"
+                ],
+                "reason": "Matched aliases: cancel, close"
+              },
+              {
+                "icon": "icon/close-small-left",
+                "score": 2.25,
+                "matchedAliases": [
+                  "cancel",
+                  "close"
+                ],
+                "reason": "Matched aliases: cancel, close"
+              },
+              {
+                "icon": "icon/close-small-right",
+                "score": 2.25,
+                "matchedAliases": [
+                  "cancel",
+                  "close"
+                ],
+                "reason": "Matched aliases: cancel, close"
+              },
+              {
+                "icon": "icon/filter-close",
+                "score": 2.25,
+                "matchedAliases": [
+                  "cancel",
+                  "close"
+                ],
+                "reason": "Matched aliases: cancel, close"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "stage": "Stage 2",
+      "description": "User entered first two inputs.",
+      "fields": [
+        {
+          "label": "name",
+          "component": "comp.input.text.base",
+          "state": "Filled",
+          "value": "Alex Johnson",
+          "placeholder": "Enter name",
+          "leftIcon": {
+            "name": "icon/agent-group-users",
+            "confidence": "medium",
+            "reason": "Matched aliases: users",
+            "candidates": [
+              {
+                "icon": "icon/agent-group-users",
+                "score": 1.25,
+                "matchedAliases": [
+                  "users"
+                ],
+                "reason": "Matched aliases: users"
+              },
+              {
+                "icon": "icon/users",
+                "score": 1.25,
+                "matchedAliases": [
+                  "users"
+                ],
+                "reason": "Matched aliases: users"
+              },
+              {
+                "icon": "icon/users-alt",
+                "score": 1.25,
+                "matchedAliases": [
+                  "users"
+                ],
+                "reason": "Matched aliases: users"
+              },
+              {
+                "icon": "icon/user-pending",
+                "score": 1,
+                "matchedAliases": [
+                  "user"
+                ],
+                "reason": "Matched aliases: user"
+              },
+              {
+                "icon": "icon/user-previleged",
+                "score": 1,
+                "matchedAliases": [
+                  "user"
+                ],
+                "reason": "Matched aliases: user"
+              }
+            ]
+          }
+        },
+        {
+          "label": "email",
+          "component": "comp.input.text.base",
+          "state": "Filled",
+          "value": "user@company.com",
+          "placeholder": "Enter email",
+          "leftIcon": {
+            "name": "icon/info",
+            "confidence": "medium",
+            "reason": "Matched aliases: info",
+            "candidates": [
+              {
+                "icon": "icon/info",
+                "score": 1.25,
+                "matchedAliases": [
+                  "info"
+                ],
+                "reason": "Matched aliases: info"
+              },
+              {
+                "icon": "icon/email",
+                "score": 1,
+                "matchedAliases": [
+                  "email"
+                ],
+                "reason": "Matched aliases: email"
+              },
+              {
+                "icon": "icon/agent-group-users",
+                "score": 0.25,
+                "matchedAliases": [],
+                "reason": "Matched aliases: "
+              },
+              {
+                "icon": "icon/ai-edit",
+                "score": 0.25,
+                "matchedAliases": [],
+                "reason": "Matched aliases: "
+              },
+              {
+                "icon": "icon/clock",
+                "score": 0.25,
+                "matchedAliases": [],
+                "reason": "Matched aliases: "
+              }
+            ]
+          }
+        },
+        {
+          "label": "phone",
+          "component": "comp.input.text.base",
+          "state": "Default",
+          "value": "",
+          "placeholder": "Enter phone number",
+          "leftIcon": {
+            "name": "icon/connection",
+            "confidence": "medium",
+            "reason": "Matched aliases: connection",
+            "candidates": [
+              {
+                "icon": "icon/connection",
+                "score": 1.25,
+                "matchedAliases": [
+                  "connection"
+                ],
+                "reason": "Matched aliases: connection"
+              },
+              {
+                "icon": "icon/connection-plug",
+                "score": 1.25,
+                "matchedAliases": [
+                  "connection"
+                ],
+                "reason": "Matched aliases: connection"
+              },
+              {
+                "icon": "icon/mobile",
+                "score": 1,
+                "matchedAliases": [
+                  "mobile"
+                ],
+                "reason": "Matched aliases: mobile"
+              },
+              {
+                "icon": "icon/agent-group-users",
+                "score": 0.25,
+                "matchedAliases": [],
+                "reason": "Matched aliases: "
+              },
+              {
+                "icon": "icon/ai-edit",
+                "score": 0.25,
+                "matchedAliases": [],
+                "reason": "Matched aliases: "
+              }
+            ]
+          }
+        },
+        {
+          "label": "message",
+          "component": "comp.input.textarea.base",
+          "state": "Default",
+          "value": "",
+          "placeholder": "Enter details",
+          "leftIcon": {
+            "name": "icon/ai-edit",
+            "confidence": "medium",
+            "reason": "Matched aliases: edit",
+            "candidates": [
+              {
+                "icon": "icon/ai-edit",
+                "score": 1.25,
+                "matchedAliases": [
+                  "edit"
+                ],
+                "reason": "Matched aliases: edit"
+              },
+              {
+                "icon": "icon/edit",
+                "score": 1.25,
+                "matchedAliases": [
+                  "edit"
+                ],
+                "reason": "Matched aliases: edit"
+              },
+              {
+                "icon": "icon/edit-summary",
+                "score": 1.25,
+                "matchedAliases": [
+                  "edit"
+                ],
+                "reason": "Matched aliases: edit"
+              },
+              {
+                "icon": "icon/input-text",
+                "score": 1,
+                "matchedAliases": [
+                  "text"
+                ],
+                "reason": "Matched aliases: text"
+              },
+              {
+                "icon": "icon/note-tick",
+                "score": 1,
+                "matchedAliases": [
+                  "note"
+                ],
+                "reason": "Matched aliases: note"
+              }
+            ]
+          }
+        }
+      ],
+      "actions": [
+        {
+          "component": "comp.button.primary",
+          "label": "Submit",
+          "labelMeta": {
+            "confidence": "low",
+            "reason": "No intent-specific label rule found; using default"
+          },
+          "variant": {
+            "Size": "Base ✦",
+            "Style": "Fill",
+            "Hover": "False"
+          },
+          "leftIcon": {
+            "name": "icon/note-tick",
+            "confidence": "high",
+            "reason": "Matched aliases: tick, check, done",
+            "candidates": [
+              {
+                "icon": "icon/note-tick",
+                "score": 3.5,
+                "matchedAliases": [
+                  "tick",
+                  "check",
+                  "done"
+                ],
+                "reason": "Matched aliases: tick, check, done"
+              },
+              {
+                "icon": "icon/security-tick",
+                "score": 3.5,
+                "matchedAliases": [
+                  "tick",
+                  "check",
+                  "done"
+                ],
+                "reason": "Matched aliases: tick, check, done"
+              },
+              {
+                "icon": "icon/success",
+                "score": 3.5,
+                "matchedAliases": [
+                  "success",
+                  "check",
+                  "done"
+                ],
+                "reason": "Matched aliases: success, check, done"
+              },
+              {
+                "icon": "icon/tag-tick",
+                "score": 3.5,
+                "matchedAliases": [
+                  "tick",
+                  "check",
+                  "done"
+                ],
+                "reason": "Matched aliases: tick, check, done"
+              },
+              {
+                "icon": "icon/tick-scalable",
+                "score": 3.5,
+                "matchedAliases": [
+                  "tick",
+                  "check",
+                  "done"
+                ],
+                "reason": "Matched aliases: tick, check, done"
+              }
+            ]
+          }
+        },
+        {
+          "component": "comp.button.secondary",
+          "label": "Cancel",
+          "labelMeta": {
+            "confidence": "low",
+            "reason": "No intent-specific label rule found; using default"
+          },
+          "variant": {
+            "Size": "Base ✦",
+            "Style": "Border",
+            "Hover": "False"
+          },
+          "leftIcon": {
+            "name": "icon/close-big",
+            "confidence": "high",
+            "reason": "Matched aliases: cancel, close",
+            "candidates": [
+              {
+                "icon": "icon/close-big",
+                "score": 2.25,
+                "matchedAliases": [
+                  "cancel",
+                  "close"
+                ],
+                "reason": "Matched aliases: cancel, close"
+              },
+              {
+                "icon": "icon/close-small-center",
+                "score": 2.25,
+                "matchedAliases": [
+                  "cancel",
+                  "close"
+                ],
+                "reason": "Matched aliases: cancel, close"
+              },
+              {
+                "icon": "icon/close-small-left",
+                "score": 2.25,
+                "matchedAliases": [
+                  "cancel",
+                  "close"
+                ],
+                "reason": "Matched aliases: cancel, close"
+              },
+              {
+                "icon": "icon/close-small-right",
+                "score": 2.25,
+                "matchedAliases": [
+                  "cancel",
+                  "close"
+                ],
+                "reason": "Matched aliases: cancel, close"
+              },
+              {
+                "icon": "icon/filter-close",
+                "score": 2.25,
+                "matchedAliases": [
+                  "cancel",
+                  "close"
+                ],
+                "reason": "Matched aliases: cancel, close"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "stage": "Stage 3",
+      "description": "User filled all inputs and hovered primary button.",
+      "fields": [
+        {
+          "label": "name",
+          "component": "comp.input.text.base",
+          "state": "Filled",
+          "value": "Alex Johnson",
+          "placeholder": "Enter name",
+          "leftIcon": {
+            "name": "icon/agent-group-users",
+            "confidence": "medium",
+            "reason": "Matched aliases: users",
+            "candidates": [
+              {
+                "icon": "icon/agent-group-users",
+                "score": 1.25,
+                "matchedAliases": [
+                  "users"
+                ],
+                "reason": "Matched aliases: users"
+              },
+              {
+                "icon": "icon/users",
+                "score": 1.25,
+                "matchedAliases": [
+                  "users"
+                ],
+                "reason": "Matched aliases: users"
+              },
+              {
+                "icon": "icon/users-alt",
+                "score": 1.25,
+                "matchedAliases": [
+                  "users"
+                ],
+                "reason": "Matched aliases: users"
+              },
+              {
+                "icon": "icon/user-pending",
+                "score": 1,
+                "matchedAliases": [
+                  "user"
+                ],
+                "reason": "Matched aliases: user"
+              },
+              {
+                "icon": "icon/user-previleged",
+                "score": 1,
+                "matchedAliases": [
+                  "user"
+                ],
+                "reason": "Matched aliases: user"
+              }
+            ]
+          }
+        },
+        {
+          "label": "email",
+          "component": "comp.input.text.base",
+          "state": "Filled",
+          "value": "user@company.com",
+          "placeholder": "Enter email",
+          "leftIcon": {
+            "name": "icon/info",
+            "confidence": "medium",
+            "reason": "Matched aliases: info",
+            "candidates": [
+              {
+                "icon": "icon/info",
+                "score": 1.25,
+                "matchedAliases": [
+                  "info"
+                ],
+                "reason": "Matched aliases: info"
+              },
+              {
+                "icon": "icon/email",
+                "score": 1,
+                "matchedAliases": [
+                  "email"
+                ],
+                "reason": "Matched aliases: email"
+              },
+              {
+                "icon": "icon/agent-group-users",
+                "score": 0.25,
+                "matchedAliases": [],
+                "reason": "Matched aliases: "
+              },
+              {
+                "icon": "icon/ai-edit",
+                "score": 0.25,
+                "matchedAliases": [],
+                "reason": "Matched aliases: "
+              },
+              {
+                "icon": "icon/clock",
+                "score": 0.25,
+                "matchedAliases": [],
+                "reason": "Matched aliases: "
+              }
+            ]
+          }
+        },
+        {
+          "label": "phone",
+          "component": "comp.input.text.base",
+          "state": "Filled",
+          "value": "+1 555 010 2244",
+          "placeholder": "Enter phone number",
+          "leftIcon": {
+            "name": "icon/connection",
+            "confidence": "medium",
+            "reason": "Matched aliases: connection",
+            "candidates": [
+              {
+                "icon": "icon/connection",
+                "score": 1.25,
+                "matchedAliases": [
+                  "connection"
+                ],
+                "reason": "Matched aliases: connection"
+              },
+              {
+                "icon": "icon/connection-plug",
+                "score": 1.25,
+                "matchedAliases": [
+                  "connection"
+                ],
+                "reason": "Matched aliases: connection"
+              },
+              {
+                "icon": "icon/mobile",
+                "score": 1,
+                "matchedAliases": [
+                  "mobile"
+                ],
+                "reason": "Matched aliases: mobile"
+              },
+              {
+                "icon": "icon/agent-group-users",
+                "score": 0.25,
+                "matchedAliases": [],
+                "reason": "Matched aliases: "
+              },
+              {
+                "icon": "icon/ai-edit",
+                "score": 0.25,
+                "matchedAliases": [],
+                "reason": "Matched aliases: "
+              }
+            ]
+          }
+        },
+        {
+          "label": "message",
+          "component": "comp.input.textarea.base",
+          "state": "Filled",
+          "value": "Need this for day-to-day project work.",
+          "placeholder": "Enter details",
+          "leftIcon": {
+            "name": "icon/ai-edit",
+            "confidence": "medium",
+            "reason": "Matched aliases: edit",
+            "candidates": [
+              {
+                "icon": "icon/ai-edit",
+                "score": 1.25,
+                "matchedAliases": [
+                  "edit"
+                ],
+                "reason": "Matched aliases: edit"
+              },
+              {
+                "icon": "icon/edit",
+                "score": 1.25,
+                "matchedAliases": [
+                  "edit"
+                ],
+                "reason": "Matched aliases: edit"
+              },
+              {
+                "icon": "icon/edit-summary",
+                "score": 1.25,
+                "matchedAliases": [
+                  "edit"
+                ],
+                "reason": "Matched aliases: edit"
+              },
+              {
+                "icon": "icon/input-text",
+                "score": 1,
+                "matchedAliases": [
+                  "text"
+                ],
+                "reason": "Matched aliases: text"
+              },
+              {
+                "icon": "icon/note-tick",
+                "score": 1,
+                "matchedAliases": [
+                  "note"
+                ],
+                "reason": "Matched aliases: note"
+              }
+            ]
+          }
+        }
+      ],
+      "actions": [
+        {
+          "component": "comp.button.primary",
+          "label": "Submit",
+          "labelMeta": {
+            "confidence": "low",
+            "reason": "No intent-specific label rule found; using default"
+          },
+          "variant": {
+            "Size": "Base ✦",
+            "Style": "Fill",
+            "Hover": "True"
+          },
+          "leftIcon": {
+            "name": "icon/note-tick",
+            "confidence": "high",
+            "reason": "Matched aliases: tick, check, done",
+            "candidates": [
+              {
+                "icon": "icon/note-tick",
+                "score": 3.5,
+                "matchedAliases": [
+                  "tick",
+                  "check",
+                  "done"
+                ],
+                "reason": "Matched aliases: tick, check, done"
+              },
+              {
+                "icon": "icon/security-tick",
+                "score": 3.5,
+                "matchedAliases": [
+                  "tick",
+                  "check",
+                  "done"
+                ],
+                "reason": "Matched aliases: tick, check, done"
+              },
+              {
+                "icon": "icon/success",
+                "score": 3.5,
+                "matchedAliases": [
+                  "success",
+                  "check",
+                  "done"
+                ],
+                "reason": "Matched aliases: success, check, done"
+              },
+              {
+                "icon": "icon/tag-tick",
+                "score": 3.5,
+                "matchedAliases": [
+                  "tick",
+                  "check",
+                  "done"
+                ],
+                "reason": "Matched aliases: tick, check, done"
+              },
+              {
+                "icon": "icon/tick-scalable",
+                "score": 3.5,
+                "matchedAliases": [
+                  "tick",
+                  "check",
+                  "done"
+                ],
+                "reason": "Matched aliases: tick, check, done"
+              }
+            ]
+          }
+        },
+        {
+          "component": "comp.button.secondary",
+          "label": "Cancel",
+          "labelMeta": {
+            "confidence": "low",
+            "reason": "No intent-specific label rule found; using default"
+          },
+          "variant": {
+            "Size": "Base ✦",
+            "Style": "Border",
+            "Hover": "False"
+          },
+          "leftIcon": {
+            "name": "icon/close-big",
+            "confidence": "high",
+            "reason": "Matched aliases: cancel, close",
+            "candidates": [
+              {
+                "icon": "icon/close-big",
+                "score": 2.25,
+                "matchedAliases": [
+                  "cancel",
+                  "close"
+                ],
+                "reason": "Matched aliases: cancel, close"
+              },
+              {
+                "icon": "icon/close-small-center",
+                "score": 2.25,
+                "matchedAliases": [
+                  "cancel",
+                  "close"
+                ],
+                "reason": "Matched aliases: cancel, close"
+              },
+              {
+                "icon": "icon/close-small-left",
+                "score": 2.25,
+                "matchedAliases": [
+                  "cancel",
+                  "close"
+                ],
+                "reason": "Matched aliases: cancel, close"
+              },
+              {
+                "icon": "icon/close-small-right",
+                "score": 2.25,
+                "matchedAliases": [
+                  "cancel",
+                  "close"
+                ],
+                "reason": "Matched aliases: cancel, close"
+              },
+              {
+                "icon": "icon/filter-close",
+                "score": 2.25,
+                "matchedAliases": [
+                  "cancel",
+                  "close"
+                ],
+                "reason": "Matched aliases: cancel, close"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

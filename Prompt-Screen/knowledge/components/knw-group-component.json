@@ -1,0 +1,19 @@
+{
+  "schema": "knowledge/group-components/v1",
+  "generatedAt": "2026-03-31T12:53:52.553Z",
+  "policy": {
+    "allowedPrefixes": [
+      "gr.comp.",
+      ".gr.com"
+    ],
+    "iconPrefixExcludedFromDisallowed": "icon/*",
+    "includeVariantsFromAllowedComponentSets": true,
+    "variantMatchingFallback": "name-pattern by allowed variant keys (key=...)"
+  },
+  "summary": {
+    "totalGroupComponents": 0,
+    "withVariants": 0,
+    "withProperties": 0
+  },
+  "groupComponents": []
+}

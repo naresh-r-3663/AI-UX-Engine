@@ -1,0 +1,30 @@
+{
+  "schema": "knowledge/ai-decisions/label-selection/v1",
+  "updatedAt": "2026-03-09T00:00:00.000Z",
+  "defaults": {
+    "primary": "Submit",
+    "secondary": "Cancel"
+  },
+  "intentMap": [
+    {
+      "match": ["invite", "invitation", "send invite"],
+      "primary": "Send Invite",
+      "secondary": "Cancel"
+    },
+    {
+      "match": ["register", "registration", "sign up", "signup"],
+      "primary": "Register",
+      "secondary": "Cancel"
+    },
+    {
+      "match": ["visitor", "visitor register", "visitor registration"],
+      "primary": "Register Visitor",
+      "secondary": "Cancel"
+    },
+    {
+      "match": ["save", "edit", "update"],
+      "primary": "Save",
+      "secondary": "Discard"
+    }
+  ]
+}

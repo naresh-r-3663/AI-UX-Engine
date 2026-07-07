@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI UX Engine — Presentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #fafbfc;
+      --surface: #ffffff;
+      --border: #e5e7eb;
+      --border-light: #f0f1f3;
+      --text-primary: #111827;
+      --text-secondary: #4b5563;
+      --text-tertiary: #9ca3af;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --accent-border: #bfdbfe;
+      --accent-glow: rgba(37, 99, 235, 0.08);
+      --orange: #f97316;
+      --orange-light: #fff7ed;
+      --orange-border: #fed7aa;
+      --green: #10b981;
+      --green-light: #ecfdf5;
+      --green-border: #a7f3d0;
+      --purple: #8b5cf6;
+      --purple-light: #f5f3ff;
+      --purple-border: #ddd6fe;
+      --code-bg: #0f172a;
+      --code-text: #e2e8f0;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
+      --radius: 12px;
+      --radius-lg: 16px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Grid background */
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent);
+    }
+
+    /* Gradient blobs */
+    .blob-1 {
+      position: fixed;
+      top: -200px;
+      right: -100px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(37,99,235,0.06), transparent 70%);
+      pointer-events: none;
+    }
+    .blob-2 {
+      position: fixed;
+      top: 400px;
+      left: -200px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(249,115,22,0.05), transparent 70%);
+      pointer-events: none;
+    }
+
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,251,252,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+    .nav-logo-icon {
+      width: 28px;
+      height: 28px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-logo-icon svg { width: 16px; height: 16px; }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-links a {
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.15s;
+    }
+    .nav-links a:hover {
+      color: var(--text-primary);
+      background: rgba(0,0,0,0.03);
+    }
+    .nav-btn-readmore {
+      display: inline-flex !important;
+      align-items: center;
+      gap: 5px;
+      background: var(--accent) !important;
+      color: #fff !important;
+      padding: 6px 16px !important;
+      border-radius: 8px !important;
+      font-weight: 600 !important;
+      margin-left: 8px;
+      transition: all 0.2s !important;
+      box-shadow: 0 2px 8px rgba(37,99,235,0.25);
+    }
+    .nav-btn-readmore:hover {
+      background: #1d4ed8 !important;
+      color: #fff !important;
+      box-shadow: 0 4px 12px rgba(37,99,235,0.35);
+      transform: translateY(-1px);
+    }
+    .nav-btn-readmore svg {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.2s;
+    }
+    .nav-btn-readmore:hover svg {
+      transform: translateX(2px);
+    }
+
+    /* Sections */
+    section { padding: 80px 0; }
+    section + section { border-top: 1px solid var(--border-light); }
+
+    /* Section headers */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-light);
+      border: 1px solid var(--accent-border);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .section-subtitle {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 520px;
+    }
+    .section-header { margin-bottom: 40px; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-subtitle { margin: 0 auto; }
+
+    /* Cards */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .card-flat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Hero */
+    .hero { padding: 100px 0 80px; border-top: none; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .hero-title {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .hero-title .gradient {
+      background: linear-gradient(135deg, var(--accent), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-desc {
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 460px;
+    }
+    .hero-buttons { display: flex; gap: 12px; }
+    .btn-primary {
+      padding: 10px 22px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s;
+      box-shadow: 0 2px 8px rgba(37,99,235,0.25);
+    }
+    .btn-primary:hover { background: #1d4ed8; }
+    .btn-secondary {
+      padding: 10px 22px;
+      background: var(--surface);
+      color: var(--text-primary);
+      font-size: 14px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s;
+    }
+    .btn-secondary:hover { background: #f9fafb; border-color: #d1d5db; }
+
+    /* Prompt input mock */
+    .prompt-card { padding: 28px; }
+    .prompt-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+    .prompt-input {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f9fafb;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 15px;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+    .prompt-input .cursor {
+      width: 2px;
+      height: 20px;
+      background: var(--accent);
+      border-radius: 1px;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+    .prompt-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .prompt-chip {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background: #f3f4f6;
+      padding: 5px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border-light);
+    }
+
+    /* Pipeline */
+    .pipeline-track {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+      padding: 8px 0;
+    }
+    .pipeline-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .pipeline-node {
+      padding: 10px 18px;
+      background: #f9fafb;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      white-space: nowrap;
+      transition: all 0.3s;
+    }
+    .pipeline-node.active {
+      background: var(--accent-light);
+      border-color: var(--accent-border);
+      color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+    .pipeline-node.end {
+      background: var(--orange-light);
+      border-color: var(--orange-border);
+      color: var(--orange);
+    }
+    .pipeline-arrow {
+      width: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .pipeline-arrow svg { color: var(--text-tertiary); }
+    .pipeline-desc {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      text-align: center;
+    }
+
+    /* Flow type cards */
+    .flow-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .flow-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .flow-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .flow-icon.blue { background: var(--accent-light); border: 1px solid var(--accent-border); }
+    .flow-icon.orange { background: var(--orange-light); border: 1px solid var(--orange-border); }
+    .flow-icon svg { width: 20px; height: 20px; }
+    .flow-card-title { font-size: 16px; font-weight: 700; }
+    .flow-card-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; }
+    .flow-steps {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .flow-step {
+      font-size: 12px;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 5px 12px;
+      background: #f3f4f6;
+      border-radius: 6px;
+      color: var(--text-secondary);
+    }
+    .flow-step-arrow { color: var(--text-tertiary); font-size: 12px; }
+
+    /* Domain model */
+    .domain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    .code-block {
+      background: var(--code-bg);
+      color: var(--code-text);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      padding: 24px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.06);
+      overflow-x: auto;
+    }
+    .code-block .key { color: #7dd3fc; }
+    .code-block .string { color: #86efac; }
+    .code-block .bracket { color: #94a3b8; }
+    .domain-detail-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .domain-detail-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      background: #f9fafb;
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+    }
+    .domain-detail-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: var(--accent-light);
+      border: 1px solid var(--accent-border);
+    }
+    .domain-detail-icon svg { width: 16px; height: 16px; color: var(--accent); }
+    .domain-detail-text { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+    .domain-detail-text strong { color: var(--text-primary); font-weight: 600; }
+
+    /* Slot system */
+    .slot-diagram {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .slot-row {
+      border: 2px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      transition: all 0.2s;
+    }
+    .slot-row:hover {
+      border-color: var(--accent);
+      background: var(--accent-light);
+    }
+    .slot-row + .slot-row { margin-top: -2px; }
+    .slot-label {
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      background: var(--bg);
+      padding: 0 8px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-tertiary);
+    }
+    .slot-content {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .slot-sub {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin-top: 4px;
+    }
+    .slot-connector {
+      width: 2px;
+      height: 16px;
+      background: var(--border);
+      margin: 0 auto;
+    }
+
+    /* Output preview */
+    .output-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .screen-card { padding: 16px; }
+    .screen-label {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .screen-label .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    .screen-mock {
+      background: #f9fafb;
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      padding: 12px;
+      min-height: 160px;
+    }
+    .mock-bar {
+      height: 6px;
+      border-radius: 3px;
+      background: #e5e7eb;
+    }
+    .mock-row {
+      display: flex;
+      gap: 6px;
+    }
+    .mock-block {
+      height: 24px;
+      border-radius: 6px;
+      background: #fff;
+      border: 1px solid var(--border-light);
+      flex: 1;
+    }
+    .mock-btn {
+      height: 24px;
+      border-radius: 6px;
+      flex: 1;
+    }
+
+    /* Comparison */
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .compare-card {
+      padding: 28px;
+    }
+    .compare-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 16px;
+    }
+    .compare-badge.primary {
+      background: var(--green-light);
+      border: 1px solid var(--green-border);
+      color: #059669;
+    }
+    .compare-badge.secondary {
+      background: var(--purple-light);
+      border: 1px solid var(--purple-border);
+      color: var(--purple);
+    }
+    .compare-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .compare-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .compare-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .compare-list li svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Future / Design Graph */
+    .graph-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .graph-visual {
+      position: relative;
+      padding: 32px;
+    }
+    .graph-nodes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .graph-node {
+      padding: 14px;
+      text-align: center;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: #f9fafb;
+      transition: all 0.2s;
+    }
+    .graph-node:hover {
+      border-color: var(--accent-border);
+      background: var(--accent-light);
+    }
+    .graph-node.center {
+      background: linear-gradient(135deg, var(--accent), var(--purple));
+      color: #fff;
+      border: none;
+      box-shadow: 0 4px 16px rgba(37,99,235,0.2);
+      grid-column: 2;
+    }
+    .graph-lines {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    /* Architecture vertical pipeline */
+    .arch-pipeline {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .arch-node {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 22px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+      font-size: 14px;
+      font-weight: 600;
+      width: 100%;
+      max-width: 400px;
+      transition: all 0.2s;
+    }
+    .arch-node:hover {
+      border-color: var(--accent-border);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+    .arch-node-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .arch-node-icon.purple { background: var(--purple-light); color: var(--purple); border: 1px solid var(--purple-border); }
+    .arch-node-icon.blue { background: var(--accent-light); color: var(--accent); border: 1px solid var(--accent-border); }
+    .arch-node-icon.green { background: var(--green-light); color: var(--green); border: 1px solid var(--green-border); }
+    .arch-node-icon.orange { background: var(--orange-light); color: var(--orange); border: 1px solid var(--orange-border); }
+    .arch-node-text { flex: 1; }
+    .arch-node-label { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+    .arch-node-sub { font-size: 12px; color: var(--text-tertiary); font-weight: 400; margin-top: 2px; }
+    .arch-arrow {
+      width: 2px;
+      height: 28px;
+      background: linear-gradient(180deg, var(--accent), rgba(37,99,235,0.2));
+      position: relative;
+    }
+    .arch-arrow::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid var(--accent);
+      opacity: 0.4;
+    }
+    .arch-branch {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      width: 100%;
+      max-width: 560px;
+    }
+    .arch-branch-side {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+    .arch-branch-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+    .arch-branch-label.knowledge {
+      background: var(--green-light);
+      color: #059669;
+      border: 1px solid var(--green-border);
+    }
+    .arch-branch-label.ai {
+      background: var(--purple-light);
+      color: var(--purple);
+      border: 1px solid var(--purple-border);
+    }
+    .arch-branch .arch-node {
+      max-width: 100%;
+      font-size: 13px;
+      padding: 12px 16px;
+    }
+    .arch-branch .arch-arrow { height: 20px; }
+    .arch-node.highlight {
+      border-color: var(--accent-border);
+      background: var(--accent-light);
+      box-shadow: 0 0 0 3px var(--accent-glow), var(--shadow-md);
+    }
+
+    /* Module grid */
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .module-card {
+      padding: 20px;
+      text-align: center;
+    }
+    .module-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+    }
+    .module-card h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .module-card p {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      line-height: 1.5;
+    }
+    .module-card code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      background: rgba(37,99,235,0.06);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--accent);
+    }
+
+    /* File map rows */
+    .filemap {
+      display: grid;
+      gap: 0;
+    }
+    .filemap-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 16px;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 13px;
+      align-items: baseline;
+      transition: background 0.15s;
+    }
+    .filemap-row:last-child { border-bottom: none; }
+    .filemap-row:hover { background: var(--accent-light); }
+    .filemap-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .filemap-desc {
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-grid, .domain-grid, .graph-grid { grid-template-columns: 1fr; }
+      .flow-cards, .compare-grid { grid-template-columns: 1fr; }
+      .output-grid { grid-template-columns: 1fr 1fr; }
+      .hero-title { font-size: 36px; }
+      .section-title { font-size: 26px; }
+      .nav-links { display: none; }
+      .pipeline-track { justify-content: flex-start; }
+      .module-grid { grid-template-columns: 1fr; }
+      .arch-branch { grid-template-columns: 1fr; }
+      .filemap-row { grid-template-columns: 1fr; gap: 4px; }
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      border-top: 1px solid var(--border-light);
+    }
+    footer p { font-size: 14px; color: var(--text-tertiary); }
+  </style>
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">
+          <div class="nav-logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+              <path d="M12 3L2 12h4v8h12v-8h4L12 3z"/>
+            </svg>
+          </div>
+          AI UX Engine
+        </a>
+        <div class="nav-links">
+          <a href="#pipeline">Pipeline</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#flows">Flows</a>
+          <a href="#domain">Domain</a>
+          <a href="#slots">Slots</a>
+          <a href="#output">Output</a>
+          <a href="#compare">Compare</a>
+          <a href="#future">Future</a>
+          <a href="ai-ux-engine-docs.html" class="nav-btn-readmore">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" style="border-top: none;">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="reveal">
+          <div class="section-label">Knowledge-Driven UX Generation</div>
+          <h1 class="hero-title">
+            Build UX with<br><span class="gradient">AI UX Engine</span>
+          </h1>
+          <p class="hero-desc">
+            A knowledge-driven UX generation system that turns a single prompt into deterministic flows, structured layouts, and ready-to-export Figma screens.
+          </p>
+          <div class="hero-buttons">
+            <a href="#pipeline" class="btn-primary">View Pipeline</a>
+            <a href="#output" class="btn-secondary">See Outputs</a>
+          </div>
+        </div>
+        <div class="reveal" style="transition-delay: 0.1s;">
+          <div class="card prompt-card">
+            <div class="prompt-label">Prompt Input</div>
+            <div class="prompt-input">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              <span>Student management dashboard</span>
+              <span class="cursor"></span>
+            </div>
+            <div class="prompt-chips">
+              <span class="prompt-chip">Domain: Student</span>
+              <span class="prompt-chip">Intent: Management</span>
+              <span class="prompt-chip">Flow: Dashboard</span>
+            </div>
+            <p style="font-size: 13px; color: var(--text-tertiary); margin-top: 16px;">
+              The engine resolves domain, picks a flow, and assembles UI slots into full screens.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pipeline -->
+  <section id="pipeline">
+    <div class="container">
+      <div class="section-header center reveal">
+        <div class="section-label">Step-by-Step</div>
+        <h2 class="section-title">Flow Visualization</h2>
+        <p class="section-subtitle">From a single prompt to a full Figma export through a deterministic knowledge pipeline.</p>
+      </div>
+      <div class="card-flat reveal" style="padding: 32px; transition-delay: 0.1s;">
+        <div class="pipeline-track">
+          <div class="pipeline-step">
+            <div class="pipeline-node active">Prompt</div>
+            <div class="pipeline-desc">User input</div>
+          </div>
+          <div class="pipeline-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+          </div>
+          <div class="pipeline-step">
+            <div class="pipeline-node">Domain Resolver</div>
+            <div class="pipeline-desc">Identify entity</div>
+          </div>
+          <div class="pipeline-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+          </div>
+          <div class="pipeline-step">
+            <div class="pipeline-node">Flow Generator</div>
+            <div class="pipeline-desc">Pick flow type</div>
+          </div>
+          <div class="pipeline-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+          </div>
+          <div class="pipeline-step">
+            <div class="pipeline-node">Field Resolver</div>
+            <div class="pipeline-desc">Map fields</div>
+          </div>
+          <div class="pipeline-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+          </div>
+          <div class="pipeline-step">
+            <div class="pipeline-node">Component Mapper</div>
+            <div class="pipeline-desc">Select UI parts</div>
+          </div>
+          <div class="pipeline-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+          </div>
+          <div class="pipeline-step">
+            <div class="pipeline-node">Layout Builder</div>
+            <div class="pipeline-desc">Compose slots</div>
+          </div>
+          <div class="pipeline-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+          </div>
+          <div class="pipeline-step">
+            <div class="pipeline-node">JSON</div>
+            <div class="pipeline-desc">Structured output</div>
+          </div>
+          <div class="pipeline-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+          </div>
+          <div class="pipeline-step">
+            <div class="pipeline-node end">Figma</div>
+            <div class="pipeline-desc">Export</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture: How It Works (n8n-style vertical pipeline) -->
+  <section id="architecture">
+    <div class="container">
+      <div class="section-header center reveal">
+        <div class="section-label">System Architecture</div>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">The engine uses dual-mode routing &mdash; known prompts take a deterministic knowledge path, unknown prompts call Ollama AI. Both converge into the same render pipeline.</p>
+      </div>
+
+      <div class="card-flat reveal" style="padding: 40px; transition-delay: 0.1s;">
+        <div class="arch-pipeline">
+
+          <div class="arch-node highlight">
+            <div class="arch-node-icon purple">1</div>
+            <div class="arch-node-text">
+              <div class="arch-node-label">Prompt Input</div>
+              <div class="arch-node-sub">CLI or Prompt UI (/api/generate)</div>
+            </div>
+          </div>
+          <div class="arch-arrow"></div>
+
+          <div class="arch-node">
+            <div class="arch-node-icon blue">2</div>
+            <div class="arch-node-text">
+              <div class="arch-node-label">aiuxengine.js</div>
+              <div class="arch-node-sub">Entry point &mdash; Express API server</div>
+            </div>
+          </div>
+          <div class="arch-arrow"></div>
+
+          <div class="arch-node">
+            <div class="arch-node-icon blue">3</div>
+            <div class="arch-node-text">
+              <div class="arch-node-label">appOrchestrator.js</div>
+              <div class="arch-node-sub">Coordinates full generation pipeline</div>
+            </div>
+          </div>
+          <div class="arch-arrow"></div>
+
+          <div class="arch-node">
+            <div class="arch-node-icon orange">4</div>
+            <div class="arch-node-text">
+              <div class="arch-node-label">domainResolver + runModeResolver</div>
+              <div class="arch-node-sub">Decides: knowledge path or AI path?</div>
+            </div>
+          </div>
+          <div class="arch-arrow"></div>
+
+          <!-- Dual-mode branch -->
+          <div class="arch-branch">
+            <div class="arch-branch-side">
+              <div class="arch-branch-label knowledge">useAI = false</div>
+              <div class="arch-node">
+                <div class="arch-node-icon green">K</div>
+                <div class="arch-node-text">
+                  <div class="arch-node-label">Knowledge Path</div>
+                  <div class="arch-node-sub">Deterministic, instant</div>
+                </div>
+              </div>
+              <div class="arch-arrow"></div>
+              <div class="arch-node">
+                <div class="arch-node-icon green">5a</div>
+                <div class="arch-node-text">
+                  <div class="arch-node-label">domainModels.json</div>
+                  <div class="arch-node-sub">Pre-mapped entities, fields, flows</div>
+                </div>
+              </div>
+            </div>
+            <div class="arch-branch-side">
+              <div class="arch-branch-label ai">useAI = true</div>
+              <div class="arch-node">
+                <div class="arch-node-icon purple">AI</div>
+                <div class="arch-node-text">
+                  <div class="arch-node-label">Ollama AI Path</div>
+                  <div class="arch-node-sub">Dynamic generation</div>
+                </div>
+              </div>
+              <div class="arch-arrow"></div>
+              <div class="arch-node">
+                <div class="arch-node-icon purple">5b</div>
+                <div class="arch-node-text">
+                  <div class="arch-node-label">flowGenerator.js</div>
+                  <div class="arch-node-sub">AI-generated screen plan</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="arch-arrow"></div>
+
+          <div class="arch-node">
+            <div class="arch-node-icon blue">6</div>
+            <div class="arch-node-text">
+              <div class="arch-node-label">fieldResolver.js</div>
+              <div class="arch-node-sub">Resolve fields from domain or AI output</div>
+            </div>
+          </div>
+          <div class="arch-arrow"></div>
+
+          <div class="arch-node">
+            <div class="arch-node-icon orange">7</div>
+            <div class="arch-node-text">
+              <div class="arch-node-label">itemNameResolver + contextResolver</div>
+              <div class="arch-node-sub">Semantic names and micro-copy</div>
+            </div>
+          </div>
+          <div class="arch-arrow"></div>
+
+          <div class="arch-node">
+            <div class="arch-node-icon blue">8</div>
+            <div class="arch-node-text">
+              <div class="arch-node-label">componentMapper.js</div>
+              <div class="arch-node-sub">Map fields to UI components</div>
+            </div>
+          </div>
+          <div class="arch-arrow"></div>
+
+          <div class="arch-node">
+            <div class="arch-node-icon green">9</div>
+            <div class="arch-node-text">
+              <div class="arch-node-label">layoutBuilder + jsonBuilder</div>
+              <div class="arch-node-sub">Compose slots into render-ready JSON</div>
+            </div>
+          </div>
+          <div class="arch-arrow"></div>
+
+          <div class="arch-node">
+            <div class="arch-node-icon orange">10</div>
+            <div class="arch-node-text">
+              <div class="arch-node-label">figmaRenderer.js</div>
+              <div class="arch-node-sub">Figma-compatible frame export</div>
+            </div>
+          </div>
+          <div class="arch-arrow"></div>
+
+          <div class="arch-node highlight">
+            <div class="arch-node-icon purple">Out</div>
+            <div class="arch-node-text">
+              <div class="arch-node-label">render-output.json</div>
+              <div class="arch-node-sub">Final output &mdash; ready for Figma &amp; viewers</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Key Concepts -->
+      <div style="margin-top: 48px;">
+        <div class="section-header center reveal">
+          <div class="section-label">Key Concepts</div>
+          <h2 class="section-title" style="font-size: 24px;">Core Modules</h2>
+          <p class="section-subtitle">The engine is built from composable, single-responsibility modules.</p>
+        </div>
+
+        <div class="module-grid">
+          <div class="card module-card reveal" style="transition-delay: 0s;">
+            <div class="module-icon" style="background: var(--purple-light); border: 1px solid var(--purple-border);">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h4>Dual-Mode Routing</h4>
+            <p>Known prompts use deterministic domain knowledge. Unknown prompts call Ollama AI for dynamic generation.</p>
+          </div>
+          <div class="card module-card reveal" style="transition-delay: 0.05s;">
+            <div class="module-icon" style="background: var(--accent-light); border: 1px solid var(--accent-border);">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="#2563eb" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="#2563eb" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="#2563eb" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="#2563eb" stroke-width="2"/></svg>
+            </div>
+            <h4>Component Mapping</h4>
+            <p>Resolved fields are mapped to UI components (tables, cards, forms) with layout semantics built in.</p>
+          </div>
+          <div class="card module-card reveal" style="transition-delay: 0.1s;">
+            <div class="module-icon" style="background: var(--green-light); border: 1px solid var(--green-border);">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h4>JSON Output</h4>
+            <p>Final output is render-ready JSON frames compatible with Figma rendering and design-system viewers.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- File Map -->
+      <div style="margin-top: 48px;">
+        <div class="section-header center reveal">
+          <div class="section-label">File Map</div>
+          <h2 class="section-title" style="font-size: 24px;">Project Structure</h2>
+          <p class="section-subtitle">Each module has a single responsibility in the generation pipeline.</p>
+        </div>
+
+        <div class="card-flat reveal" style="padding: 0; overflow: hidden; transition-delay: 0.1s;">
+          <div class="filemap">
+            <div class="filemap-row">
+              <span class="filemap-name">aiuxengine.js</span>
+              <span class="filemap-desc">Main entry point &mdash; CLI and Express API server</span>
+            </div>
+            <div class="filemap-row">
+              <span class="filemap-name">orchestrator/</span>
+              <span class="filemap-desc">appOrchestrator.js &mdash; coordinates the full generation pipeline</span>
+            </div>
+            <div class="filemap-row">
+              <span class="filemap-name">engine/</span>
+              <span class="filemap-desc">domainResolver, runModeResolver, fieldResolver, componentMapper</span>
+            </div>
+            <div class="filemap-row">
+              <span class="filemap-name">ai/</span>
+              <span class="filemap-desc">flowGenerator, itemNameResolver, contextResolver &mdash; Ollama AI layer</span>
+            </div>
+            <div class="filemap-row">
+              <span class="filemap-name">builder/</span>
+              <span class="filemap-desc">layoutBuilder, jsonBuilder &mdash; convert resolved data into JSON frames</span>
+            </div>
+            <div class="filemap-row">
+              <span class="filemap-name">renderer/</span>
+              <span class="filemap-desc">figmaRenderer.js &mdash; produces Figma-compatible output</span>
+            </div>
+            <div class="filemap-row">
+              <span class="filemap-name">config/</span>
+              <span class="filemap-desc">domainModels.json &mdash; domain knowledge catalog (entities, fields, prompts)</span>
+            </div>
+            <div class="filemap-row">
+              <span class="filemap-name">knowledge/</span>
+              <span class="filemap-desc">Extended domain knowledge, flow templates, design tokens, rules</span>
+            </div>
+            <div class="filemap-row">
+              <span class="filemap-name">render-output.json</span>
+              <span class="filemap-desc">Generated output &mdash; array of Figma-compatible frames</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flow Types -->
+  <section id="flows">
+    <div class="container">
+      <div class="section-header center reveal">
+        <div class="section-label">Flow Patterns</div>
+        <h2 class="section-title">Flow Types</h2>
+        <p class="section-subtitle">Two core patterns selected by intent and domain context.</p>
+      </div>
+      <div class="flow-cards">
+        <div class="card reveal" style="transition-delay: 0.05s;">
+          <div class="flow-card-header">
+            <div class="flow-icon blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </div>
+            <div>
+              <div class="flow-card-title">Flow A</div>
+              <div style="font-size: 12px; color: var(--text-tertiary);">Table-based</div>
+            </div>
+          </div>
+          <p class="flow-card-desc">Table-based flow for data-heavy management interfaces with list, create, and detail views.</p>
+          <div class="flow-steps">
+            <span class="flow-step">table</span>
+            <span class="flow-step-arrow">&rarr;</span>
+            <span class="flow-step">form</span>
+            <span class="flow-step-arrow">&rarr;</span>
+            <span class="flow-step">detail</span>
+          </div>
+        </div>
+        <div class="card reveal" style="transition-delay: 0.1s;">
+          <div class="flow-card-header">
+            <div class="flow-icon orange">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            </div>
+            <div>
+              <div class="flow-card-title">Flow B</div>
+              <div style="font-size: 12px; color: var(--text-tertiary);">Dashboard-based</div>
+            </div>
+          </div>
+          <p class="flow-card-desc">Dashboard-based flow for overview interfaces with metrics, actions, and success states.</p>
+          <div class="flow-steps">
+            <span class="flow-step">dashboard</span>
+            <span class="flow-step-arrow">&rarr;</span>
+            <span class="flow-step">form</span>
+            <span class="flow-step-arrow">&rarr;</span>
+            <span class="flow-step">success</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Domain Model -->
+  <section id="domain">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Knowledge Base</div>
+        <h2 class="section-title">Domain Model Example</h2>
+        <p class="section-subtitle">A compact student model drives fields, labels, and CTA text deterministically.</p>
+      </div>
+      <div class="domain-grid">
+        <div class="reveal" style="transition-delay: 0.05s;">
+          <div class="code-block"><span class="bracket">{</span>
+  <span class="key">"entity"</span>: <span class="string">"student"</span>,
+  <span class="key">"fields"</span>: <span class="bracket">[</span>
+    <span class="bracket">{</span> <span class="key">"name"</span>: <span class="string">"name"</span>,  <span class="key">"type"</span>: <span class="string">"text"</span>  <span class="bracket">}</span>,
+    <span class="bracket">{</span> <span class="key">"name"</span>: <span class="string">"email"</span>, <span class="key">"type"</span>: <span class="string">"email"</span> <span class="bracket">}</span>
+  <span class="bracket">]</span>,
+  <span class="key">"cta"</span>: <span class="string">"Create Student"</span>
+<span class="bracket">}</span></div>
+        </div>
+        <div class="reveal" style="transition-delay: 0.1s;">
+          <div class="domain-detail-list">
+            <div class="domain-detail-item">
+              <div class="domain-detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <div class="domain-detail-text">
+                <strong>Field Resolver</strong> extracts <code>name</code> and <code>email</code> from the domain model to build form inputs automatically.
+              </div>
+            </div>
+            <div class="domain-detail-item">
+              <div class="domain-detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8m-4-4h8"/></svg>
+              </div>
+              <div class="domain-detail-text">
+                <strong>Component Mapper</strong> selects the right input type and validation rules for each field.
+              </div>
+            </div>
+            <div class="domain-detail-item">
+              <div class="domain-detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              </div>
+              <div class="domain-detail-text">
+                <strong>CTA text</strong> stays deterministic &mdash; always derived from the model, never guessed by AI.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slot System -->
+  <section id="slots">
+    <div class="container">
+      <div class="section-header center reveal">
+        <div class="section-label">Layout Architecture</div>
+        <h2 class="section-title">Slot System Visualization</h2>
+        <p class="section-subtitle">Named slots keep layouts predictable and composable across all screen types.</p>
+      </div>
+      <div class="card-flat reveal" style="padding: 40px; transition-delay: 0.1s;">
+        <div class="slot-diagram">
+          <div class="slot-row">
+            <span class="slot-label">HEADER SLOT</span>
+            <div class="slot-content">Page Title + Navigation + Filters</div>
+            <div class="slot-sub">Breadcrumbs, search bar, filter chips</div>
+          </div>
+          <div class="slot-connector"></div>
+          <div class="slot-row" style="min-height: 120px;">
+            <span class="slot-label">CONTENT SLOT</span>
+            <div class="slot-content">Primary Content Area</div>
+            <div class="slot-sub">Tables, cards, dashboards, forms &mdash; driven by flow type</div>
+          </div>
+          <div class="slot-connector"></div>
+          <div class="slot-row">
+            <span class="slot-label">ACTION SLOT</span>
+            <div class="slot-content">CTAs + Secondary Actions</div>
+            <div class="slot-sub">Submit, cancel, navigation buttons</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Output Preview -->
+  <section id="output">
+    <div class="container">
+      <div class="section-header center reveal">
+        <div class="section-label">Generated Screens</div>
+        <h2 class="section-title">Output Preview</h2>
+        <p class="section-subtitle">Mock screens generated from the same knowledge source, ready for Figma export.</p>
+      </div>
+      <div class="output-grid">
+        <!-- Dashboard -->
+        <div class="card screen-card reveal" style="transition-delay: 0s;">
+          <div class="screen-label">
+            <span class="dot" style="background: var(--accent);"></span>
+            Dashboard
+          </div>
+          <div class="screen-mock">
+            <div class="mock-bar" style="width: 60%; margin-bottom: 10px;"></div>
+            <div class="mock-row" style="margin-bottom: 8px;">
+              <div class="mock-block" style="height: 48px; background: var(--accent-light); border-color: var(--accent-border);"></div>
+              <div class="mock-block" style="height: 48px; background: var(--accent-light); border-color: var(--accent-border);"></div>
+              <div class="mock-block" style="height: 48px; background: var(--accent-light); border-color: var(--accent-border);"></div>
+            </div>
+            <div class="mock-block" style="height: 56px; width: 100%;"></div>
+          </div>
+        </div>
+        <!-- Form -->
+        <div class="card screen-card reveal" style="transition-delay: 0.05s;">
+          <div class="screen-label">
+            <span class="dot" style="background: var(--purple);"></span>
+            Form
+          </div>
+          <div class="screen-mock">
+            <div class="mock-bar" style="width: 40%; margin-bottom: 10px;"></div>
+            <div class="mock-block" style="height: 28px; width: 100%; margin-bottom: 8px;"></div>
+            <div class="mock-block" style="height: 28px; width: 100%; margin-bottom: 8px;"></div>
+            <div class="mock-block" style="height: 28px; width: 100%; margin-bottom: 10px;"></div>
+            <div class="mock-btn" style="height: 28px; width: 40%; background: var(--accent); border-radius: 6px;"></div>
+          </div>
+        </div>
+        <!-- Success -->
+        <div class="card screen-card reveal" style="transition-delay: 0.1s;">
+          <div class="screen-label">
+            <span class="dot" style="background: var(--green);"></span>
+            Success
+          </div>
+          <div class="screen-mock" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;">
+            <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--green-light); border: 2px solid var(--green-border); display: flex; align-items: center; justify-content: center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="mock-bar" style="width: 50%;"></div>
+            <div class="mock-bar" style="width: 70%; height: 4px; background: #f3f4f6;"></div>
+          </div>
+        </div>
+        <!-- Detail -->
+        <div class="card screen-card reveal" style="transition-delay: 0.15s;">
+          <div class="screen-label">
+            <span class="dot" style="background: var(--orange);"></span>
+            Detail
+          </div>
+          <div class="screen-mock">
+            <div class="mock-bar" style="width: 50%; margin-bottom: 10px;"></div>
+            <div class="mock-row" style="margin-bottom: 8px;">
+              <div style="flex:1;">
+                <div class="mock-bar" style="width: 60%; margin-bottom: 4px; height: 4px;"></div>
+                <div class="mock-block" style="height: 20px;"></div>
+              </div>
+              <div style="flex:1;">
+                <div class="mock-bar" style="width: 60%; margin-bottom: 4px; height: 4px;"></div>
+                <div class="mock-block" style="height: 20px;"></div>
+              </div>
+            </div>
+            <div class="mock-block" style="height: 48px; width: 100%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI vs Knowledge -->
+  <section id="compare">
+    <div class="container">
+      <div class="section-header center reveal">
+        <div class="section-label">Architecture Philosophy</div>
+        <h2 class="section-title">AI vs Knowledge</h2>
+        <p class="section-subtitle">Deterministic knowledge first, AI only as a fallback when domain rules are insufficient.</p>
+      </div>
+      <div class="compare-grid">
+        <div class="card compare-card reveal" style="transition-delay: 0.05s;">
+          <div class="compare-badge primary">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Primary
+          </div>
+          <div class="compare-title">Knowledge-Driven</div>
+          <ul class="compare-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="16 8 10 16 7 13"/></svg>
+              Flow selection based on domain rules &mdash; no guessing
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="16 8 10 16 7 13"/></svg>
+              Fields and CTA text locked to the domain model
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="16 8 10 16 7 13"/></svg>
+              Predictable, repeatable layouts via the slot system
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="16 8 10 16 7 13"/></svg>
+              Fully explainable &mdash; every decision is traceable
+            </li>
+          </ul>
+        </div>
+        <div class="card compare-card reveal" style="transition-delay: 0.1s;">
+          <div class="compare-badge secondary">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></svg>
+            Fallback
+          </div>
+          <div class="compare-title">AI-Assisted</div>
+          <ul class="compare-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
+              Intent enrichment when the domain is unclear
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
+              Copy suggestions when labels are missing
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
+              Never overrides knowledge rules or slot structure
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
+              Always flagged and auditable in the output
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Future Vision -->
+  <section id="future" style="border-bottom: none;">
+    <div class="container">
+      <div class="graph-grid">
+        <div class="reveal">
+          <div class="section-label">What's Next</div>
+          <h2 class="section-title">Future Vision</h2>
+          <p class="section-subtitle" style="margin-bottom: 24px;">
+            Design Graph connects knowledge, components, and layouts into a single explainable source of truth &mdash; enabling cross-product consistency and faster iteration.
+          </p>
+          <div class="flow-steps">
+            <span class="flow-step">Tokens</span>
+            <span class="flow-step-arrow">&rarr;</span>
+            <span class="flow-step">Components</span>
+            <span class="flow-step-arrow">&rarr;</span>
+            <span class="flow-step">Layouts</span>
+            <span class="flow-step-arrow">&rarr;</span>
+            <span class="flow-step" style="background: var(--accent-light); color: var(--accent); border: 1px solid var(--accent-border);">Design Graph</span>
+          </div>
+        </div>
+        <div class="card graph-visual reveal" style="transition-delay: 0.1s;">
+          <div class="graph-nodes">
+            <div class="graph-node">Domain</div>
+            <div class="graph-node">Slots</div>
+            <div class="graph-node">Layouts</div>
+            <div class="graph-node">Copy</div>
+            <div class="graph-node center">Design<br>Graph</div>
+            <div class="graph-node">Tokens</div>
+            <div class="graph-node">Flows</div>
+            <div class="graph-node">Components</div>
+            <div class="graph-node">Export</div>
+          </div>
+          <p style="font-size: 13px; color: var(--text-tertiary); text-align: center; margin-top: 20px;">
+            All nodes connect through the graph &mdash; one change propagates everywhere.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>AI UX Engine &mdash; Deterministic design flows with optional AI assistance.</p>
+      <p style="margin-top: 8px; font-size: 12px; color: var(--text-tertiary);">Knowledge-driven. Explainable. Ready for production.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll reveal -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

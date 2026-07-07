@@ -1,0 +1,219 @@
+{
+  "user": {
+    "entity": "User",
+    "keywords": [
+      "user",
+      "users",
+      "user management",
+      "member",
+      "account",
+      "role",
+      "permission",
+      "access control"
+    ],
+    "exactPrompts": [
+      "user management"
+    ],
+    "texts": {
+      "ctaText": "Add User",
+      "ctaIcon": "Icon/User-add",
+      "headerText": "Users",
+      "headerDescription": "Manage user accounts, roles, and access permissions"
+    },
+    "fields": [
+      {
+        "label": "First Name",
+        "type": "text"
+      },
+      {
+        "label": "Last Name",
+        "type": "text"
+      },
+      {
+        "label": "Username",
+        "type": "text"
+      },
+      {
+        "label": "Email",
+        "type": "email"
+      },
+      {
+        "label": "Password",
+        "type": "password"
+      },
+      {
+        "label": "Role",
+        "type": "dropdown"
+      },
+      {
+        "label": "Department",
+        "type": "dropdown"
+      },
+      {
+        "label": "Phone Number",
+        "type": "phone"
+      },
+      {
+        "label": "Active",
+        "type": "checkbox"
+      },
+      {
+        "label": "Created At",
+        "type": "date"
+      },
+      {
+        "label": "Updated At",
+        "type": "date"
+      },
+      {
+        "label": "Last Login",
+        "type": "date"
+      }
+    ]
+  },
+  "application_dashboard": {
+    "entity": "Application",
+    "keywords": [
+      "application",
+      "app",
+      "application dashboard",
+      "app dashboard",
+      "dashboard",
+      "workspace",
+      "project app",
+      "product app"
+    ],
+    "exactPrompts": [
+      "application dashboard"
+    ],
+    "texts": {
+      "ctaText": "Add Application",
+      "ctaIcon": "Icon/Plus",
+      "headerText": "Applications",
+      "headerDescription": "Manage applications, ownership, status, and access"
+    },
+    "fields": [
+      {
+        "label": "Application Name",
+        "type": "text"
+      },
+      {
+        "label": "Application Code",
+        "type": "text"
+      },
+      {
+        "label": "Owner Name",
+        "type": "text"
+      },
+      {
+        "label": "Owner Email",
+        "type": "email"
+      },
+      {
+        "label": "Environment",
+        "type": "dropdown"
+      },
+      {
+        "label": "Business Unit",
+        "type": "dropdown"
+      },
+      {
+        "label": "Criticality",
+        "type": "dropdown"
+      },
+      {
+        "label": "Status",
+        "type": "dropdown"
+      },
+      {
+        "label": "Go Live Date",
+        "type": "date"
+      },
+      {
+        "label": "Support Contact",
+        "type": "phone"
+      },
+      {
+        "label": "Description",
+        "type": "textarea"
+      },
+      {
+        "label": "Active",
+        "type": "checkbox"
+      }
+    ]
+  },
+  "ai_for_support_ticket_trends": {
+    "entity": "Support Ticket Trends",
+    "keywords": [
+      "Support Ticket Trends"
+    ],
+    "exactPrompts": [
+      "ai dashboard flow for support ticket trends"
+    ],
+    "texts": {
+      "ctaText": "Add Trends",
+      "ctaIcon": "Icon/Plus",
+      "headerText": "Support Ticket Trends",
+      "headerDescription": "Analyze and visualize support ticket trends with AI insights"
+    },
+    "fields": [
+      {
+        "label": "Ticket Type",
+        "type": "dropdown"
+      },
+      {
+        "label": "Priority",
+        "type": "dropdown"
+      },
+      {
+        "label": "Category",
+        "type": "dropdown"
+      },
+      {
+        "label": "Description",
+        "type": "textarea"
+      },
+      {
+        "label": "Resolution Time",
+        "type": "number"
+      },
+      {
+        "label": "Resolution Rate",
+        "type": "number"
+      },
+      {
+        "label": "Ticket Volume",
+        "type": "number"
+      },
+      {
+        "label": "Support Team",
+        "type": "dropdown"
+      }
+    ],
+    "cardNames": [
+      "Google Cloud AI",
+      "Microsoft Azure ML",
+      "Amazon SageMaker",
+      "IBM Watson Studio",
+      "NVIDIA Deep Learning",
+      "Facebook AI Research",
+      "DeepMind Support",
+      "Google AI Platform",
+      "Amazon Rekognition",
+      "Microsoft Cognitive Services",
+      "IBM Watson Assistant",
+      "NVIDIA GPU Support",
+      "Facebook AI Support",
+      "Google Cloud ML",
+      "Microsoft Azure AI",
+      "Amazon AI Services"
+    ],
+    "_meta": {
+      "priority": 1,
+      "expiresAt": null,
+      "savedAt": "2026-03-31T09:46:03.832Z",
+      "source": "auto-saved"
+    }
+  }
+}

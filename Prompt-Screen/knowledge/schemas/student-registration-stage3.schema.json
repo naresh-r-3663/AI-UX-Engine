@@ -1,0 +1,1689 @@
+{
+  "schema": "generated/form-stages/v2",
+  "generatedAt": "2026-03-09T18:48:26.581Z",
+  "source": {
+    "icons": "knowledge/components/knw-icons.json",
+    "rules": "knowledge/rules/DesignRulesEngine.json"
+  },
+  "aiHints": {
+    "resolver": "alias + slot aware scoring + policy fallback + label intent mapping",
+    "slots": [
+      "input_left",
+      "button_left"
+    ],
+    "notes": [
+      "Use candidates for fallback or tie-break in downstream AI flows.",
+      "Confidence is heuristic and should be validated for production.",
+      "Stage 1 fields use placeholder text with empty value."
+    ]
+  },
+  "decisionConfig": {
+    "policyFile": "knowledge/ai-decisions/decision-policy.json",
+    "iconRulesFile": "knowledge/ai-decisions/icon-selection.rules.json",
+    "labelRulesFile": "knowledge/ai-decisions/label-selection.rules.json"
+  },
+  "formIntent": "student registration",
+  "formShell": {
+    "form": "gr.comp.form",
+    "section": "gr.comp.area",
+    "pattern": "sub.pt.form"
+  },
+  "iconSettings": {
+    "includeAllIcons": true,
+    "includeCandidates": true,
+    "candidateLimit": 5
+  },
+  "testFormPreset": "student-registration-stage3",
+  "iconCatalog": [
+    {
+      "name": "Icon/Edit",
+      "aliases": [
+        "edit",
+        "update",
+        "modify",
+        "pencil",
+        "rename"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Mobile",
+      "aliases": [
+        "mobile"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Portal",
+      "aliases": [
+        "portal"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Users",
+      "aliases": [
+        "users",
+        "people",
+        "members",
+        "team"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Billing",
+      "aliases": [
+        "billing"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/More-circle-down",
+      "aliases": [
+        "more",
+        "circle",
+        "down",
+        "overflow",
+        "menu",
+        "options"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/More-circle-up",
+      "aliases": [
+        "more",
+        "circle",
+        "up",
+        "overflow",
+        "menu",
+        "options"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/User-pending",
+      "aliases": [
+        "user",
+        "pending"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/User-remove",
+      "aliases": [
+        "user",
+        "remove"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/User-previleged",
+      "aliases": [
+        "user",
+        "previleged"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Testcase",
+      "aliases": [
+        "testcase"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Testsuits",
+      "aliases": [
+        "testsuits"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Testplan",
+      "aliases": [
+        "testplan"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Results",
+      "aliases": [
+        "results"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Function",
+      "aliases": [
+        "function"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Edit-summary",
+      "aliases": [
+        "edit",
+        "summary",
+        "update",
+        "modify",
+        "pencil",
+        "rename"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Module",
+      "aliases": [
+        "module"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Builder-mode",
+      "aliases": [
+        "builder",
+        "mode"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Merge-progress",
+      "aliases": [
+        "merge",
+        "progress"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Branching-versions",
+      "aliases": [
+        "branching",
+        "versions"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Branch-merge",
+      "aliases": [
+        "branch",
+        "merge"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/API-share",
+      "aliases": [
+        "api",
+        "share"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Manage",
+      "aliases": [
+        "manage"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Branching",
+      "aliases": [
+        "branching"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Android",
+      "aliases": [
+        "android"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Star",
+      "aliases": [
+        "star"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Versions",
+      "aliases": [
+        "versions"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Element",
+      "aliases": [
+        "element"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/CTA-loading",
+      "aliases": [
+        "cta",
+        "loading"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Status-marker",
+      "aliases": [
+        "status",
+        "marker"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Drag",
+      "aliases": [
+        "drag"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Arrow-circle-left",
+      "aliases": [
+        "arrow",
+        "circle",
+        "left",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Arrow-circle-right",
+      "aliases": [
+        "arrow",
+        "circle",
+        "right",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Record-circle",
+      "aliases": [
+        "record",
+        "circle"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Stop-circle",
+      "aliases": [
+        "stop",
+        "circle"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Run-circle",
+      "aliases": [
+        "run",
+        "circle"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Manual-web",
+      "aliases": [
+        "manual",
+        "web"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/All",
+      "aliases": [
+        "all"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Save",
+      "aliases": [
+        "save"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Suits",
+      "aliases": [
+        "suits"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Run-history",
+      "aliases": [
+        "run",
+        "history"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Web-browser",
+      "aliases": [
+        "web",
+        "browser"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Runing",
+      "aliases": [
+        "runing"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Testcase",
+      "aliases": [
+        "testcase"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Connection-plug",
+      "aliases": [
+        "connection",
+        "plug",
+        "link",
+        "integrate",
+        "network"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Navigate-external",
+      "aliases": [
+        "navigate",
+        "external"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/API-token-key",
+      "aliases": [
+        "api",
+        "token",
+        "key"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Code-circle",
+      "aliases": [
+        "code",
+        "circle"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Tag-tick",
+      "aliases": [
+        "tag",
+        "tick",
+        "check",
+        "done",
+        "approve"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Tag-remove",
+      "aliases": [
+        "tag",
+        "remove"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/File",
+      "aliases": [
+        "file"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Files",
+      "aliases": [
+        "files"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Data-source",
+      "aliases": [
+        "data",
+        "source"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/MFA",
+      "aliases": [
+        "mfa"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Page",
+      "aliases": [
+        "page"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/MFA2",
+      "aliases": [
+        "mfa2"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Webhook",
+      "aliases": [
+        "webhook"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Agent-multi-device",
+      "aliases": [
+        "agent",
+        "multi",
+        "device"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Agent-group-users",
+      "aliases": [
+        "agent",
+        "group",
+        "users",
+        "people",
+        "members",
+        "team"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/iOS",
+      "aliases": [
+        "ios"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Tunnel",
+      "aliases": [
+        "tunnel"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Timer-clock",
+      "aliases": [
+        "timer",
+        "clock",
+        "time",
+        "history",
+        "recent"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Maximize",
+      "aliases": [
+        "maximize"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Devider",
+      "aliases": [
+        "devider"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Minimize",
+      "aliases": [
+        "minimize"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Lock-on",
+      "aliases": [
+        "lock",
+        "on"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Computer",
+      "aliases": [
+        "computer"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Attach",
+      "aliases": [
+        "attach"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Refresh",
+      "aliases": [
+        "refresh"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Upload",
+      "aliases": [
+        "upload"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Question",
+      "aliases": [
+        "question"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Download",
+      "aliases": [
+        "download"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Switch-off",
+      "aliases": [
+        "switch",
+        "off"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Label-tag",
+      "aliases": [
+        "label",
+        "tag"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Switch-on",
+      "aliases": [
+        "switch",
+        "on"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Button-click",
+      "aliases": [
+        "button",
+        "click"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Support",
+      "aliases": [
+        "support"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Input-text",
+      "aliases": [
+        "input",
+        "text"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Copy",
+      "aliases": [
+        "copy"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Dropdown",
+      "aliases": [
+        "dropdown"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Copied",
+      "aliases": [
+        "copied"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Link-chain",
+      "aliases": [
+        "link",
+        "chain"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Import",
+      "aliases": [
+        "import"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Export",
+      "aliases": [
+        "export"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/File-upload",
+      "aliases": [
+        "file",
+        "upload"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Manual",
+      "aliases": [
+        "manual"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Automation",
+      "aliases": [
+        "automation"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Integrations",
+      "aliases": [
+        "integrations"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Home",
+      "aliases": [
+        "home"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Solutions-grid",
+      "aliases": [
+        "solutions",
+        "grid"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Link",
+      "aliases": [
+        "link"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Automation-alt",
+      "aliases": [
+        "automation",
+        "alt"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Disconnect",
+      "aliases": [
+        "disconnect"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Arrow-line-alt",
+      "aliases": [
+        "arrow",
+        "line",
+        "alt",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Email",
+      "aliases": [
+        "email"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/List",
+      "aliases": [
+        "list"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Audit",
+      "aliases": [
+        "audit"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/View",
+      "aliases": [
+        "view"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Timeline-view",
+      "aliases": [
+        "timeline",
+        "view"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/List-view-alt",
+      "aliases": [
+        "list",
+        "view",
+        "alt"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Rocket",
+      "aliases": [
+        "rocket"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Spin",
+      "aliases": [
+        "spin"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Reset",
+      "aliases": [
+        "reset"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Alert-bell",
+      "aliases": [
+        "alert",
+        "bell",
+        "warning",
+        "caution",
+        "attention"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Search-query",
+      "aliases": [
+        "search",
+        "query",
+        "find",
+        "lookup"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Expand-all",
+      "aliases": [
+        "expand",
+        "all"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Minimize-all",
+      "aliases": [
+        "minimize",
+        "all"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/App-box",
+      "aliases": [
+        "app",
+        "box"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Sort",
+      "aliases": [
+        "sort"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Expand",
+      "aliases": [
+        "expand"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Collapse",
+      "aliases": [
+        "collapse"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Duplicate",
+      "aliases": [
+        "duplicate"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/AI",
+      "aliases": [
+        "ai"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/AI-alt",
+      "aliases": [
+        "ai",
+        "alt"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Zia",
+      "aliases": [
+        "zia"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/AI-fill",
+      "aliases": [
+        "ai",
+        "fill"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/AI-fill-alt",
+      "aliases": [
+        "ai",
+        "fill",
+        "alt"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/AI-edit",
+      "aliases": [
+        "ai",
+        "edit",
+        "update",
+        "modify",
+        "pencil",
+        "rename"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/AI-file",
+      "aliases": [
+        "ai",
+        "file"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Text-document",
+      "aliases": [
+        "text",
+        "document"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Target",
+      "aliases": [
+        "target"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Flag-fill",
+      "aliases": [
+        "flag",
+        "fill"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Flag-alt",
+      "aliases": [
+        "flag",
+        "alt"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Image",
+      "aliases": [
+        "image"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Sand-clock",
+      "aliases": [
+        "sand",
+        "clock",
+        "time",
+        "history",
+        "recent"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Ascending",
+      "aliases": [
+        "ascending"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Descending",
+      "aliases": [
+        "descending"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Delete",
+      "aliases": [
+        "delete",
+        "remove",
+        "trash",
+        "bin",
+        "clear"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Placeholder",
+      "aliases": [
+        "placeholder",
+        "default",
+        "empty",
+        "fallback"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Arrow-down",
+      "aliases": [
+        "arrow",
+        "down",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Arrow-bottom-down",
+      "aliases": [
+        "arrow",
+        "bottom",
+        "down",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Arrow-up",
+      "aliases": [
+        "arrow",
+        "up",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Arrow-left",
+      "aliases": [
+        "arrow",
+        "left",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Arrow-right",
+      "aliases": [
+        "arrow",
+        "right",
+        "chevron",
+        "caret",
+        "direction"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Plus",
+      "aliases": [
+        "plus",
+        "add",
+        "create",
+        "new",
+        "insert"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Plus-small",
+      "aliases": [
+        "plus",
+        "small",
+        "add",
+        "create",
+        "new",
+        "insert"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Filter-add",
+      "aliases": [
+        "filter",
+        "add",
+        "funnel",
+        "refine",
+        "sort",
+        "plus",
+        "create",
+        "new",
+        "insert"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Filter-active",
+      "aliases": [
+        "filter",
+        "active",
+        "funnel",
+        "refine",
+        "sort"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Filter-close",
+      "aliases": [
+        "filter",
+        "close",
+        "funnel",
+        "refine",
+        "sort",
+        "dismiss",
+        "cancel",
+        "x"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Folder-open",
+      "aliases": [
+        "folder",
+        "open",
+        "directory",
+        "files",
+        "collection"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Folder-closed",
+      "aliases": [
+        "folder",
+        "closed",
+        "directory",
+        "files",
+        "collection"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/More-dots-vertical",
+      "aliases": [
+        "more",
+        "dots",
+        "vertical",
+        "overflow",
+        "menu",
+        "options",
+        "kebab",
+        "ellipsis"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/More-dots-horizontal",
+      "aliases": [
+        "more",
+        "dots",
+        "horizontal",
+        "overflow",
+        "menu",
+        "options",
+        "kebab",
+        "ellipsis"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Bento-menu",
+      "aliases": [
+        "bento",
+        "menu",
+        "grid",
+        "apps"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Close-right",
+      "aliases": [
+        "close",
+        "right",
+        "dismiss",
+        "cancel",
+        "x"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Close-center",
+      "aliases": [
+        "close",
+        "center",
+        "dismiss",
+        "cancel",
+        "x"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Close-left",
+      "aliases": [
+        "close",
+        "left",
+        "dismiss",
+        "cancel",
+        "x"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Close-big",
+      "aliases": [
+        "close",
+        "big",
+        "dismiss",
+        "cancel",
+        "x"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Tick-scalable",
+      "aliases": [
+        "tick",
+        "scalable",
+        "check",
+        "done",
+        "approve"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Tick-small",
+      "aliases": [
+        "tick",
+        "small",
+        "check",
+        "done",
+        "approve"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Alert-small",
+      "aliases": [
+        "alert",
+        "small",
+        "warning",
+        "caution",
+        "attention"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Minus",
+      "aliases": [
+        "minus",
+        "subtract",
+        "remove",
+        "collapse"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Search",
+      "aliases": [
+        "search",
+        "find",
+        "lookup",
+        "query"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Hint",
+      "aliases": [
+        "hint",
+        "help",
+        "tip",
+        "assist"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Info",
+      "aliases": [
+        "info",
+        "information",
+        "details",
+        "about"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Success",
+      "aliases": [
+        "success",
+        "check",
+        "done",
+        "complete"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Error",
+      "aliases": [
+        "error",
+        "fail",
+        "invalid",
+        "danger"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Connection",
+      "aliases": [
+        "connection",
+        "link",
+        "integrate",
+        "network"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Environment",
+      "aliases": [
+        "environment",
+        "layer",
+        "stack",
+        "context"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Organization",
+      "aliases": [
+        "organization",
+        "org",
+        "company",
+        "workspace"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Security-tick",
+      "aliases": [
+        "security",
+        "tick",
+        "check",
+        "done",
+        "approve"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Settings",
+      "aliases": [
+        "settings",
+        "preferences",
+        "config",
+        "options"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Clock",
+      "aliases": [
+        "clock",
+        "time",
+        "history",
+        "recent"
+      ],
+      "type": "COMPONENT"
+    },
+    {
+      "name": "Icon/Users-alt",
+      "aliases": [
+        "users",
+        "alt",
+        "people",
+        "members",
+        "team"
+      ],
+      "type": "COMPONENT"
+    }
+  ],
+  "stages": [
+    {
+      "stage": "Stage 3",
+      "description": "Student Registration Form (Stage 3, regenerated with updated icons + dropdown).",
+      "fields": [
+        {
+          "label": "Student Name",
+          "component": "comp.input.text.base",
+          "state": "Filled",
+          "value": "Aarav Sharma",
+          "placeholder": "Enter name",
+          "leftIcon": {
+            "name": "Icon/Users",
+            "confidence": "high",
+            "reason": "Preset test form definition",
+            "candidates": [
+              {
+                "icon": "Icon/Users",
+                "score": 3,
+                "matchedAliases": [
+                  "preset"
+                ],
+                "reason": "Preset mapping"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Student Email",
+          "component": "comp.input.text.base",
+          "state": "Filled",
+          "value": "aarav.sharma@student.edu",
+          "placeholder": "Enter email",
+          "leftIcon": {
+            "name": "Icon/Portal",
+            "confidence": "high",
+            "reason": "Preset test form definition",
+            "candidates": [
+              {
+                "icon": "Icon/Portal",
+                "score": 3,
+                "matchedAliases": [
+                  "preset"
+                ],
+                "reason": "Preset mapping"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Phone Number",
+          "component": "comp.input.text.base",
+          "state": "Filled",
+          "value": "+91 98765 43210",
+          "placeholder": "Enter phone number",
+          "leftIcon": {
+            "name": "Icon/Mobile",
+            "confidence": "high",
+            "reason": "Preset test form definition",
+            "candidates": [
+              {
+                "icon": "Icon/Mobile",
+                "score": 3,
+                "matchedAliases": [
+                  "preset"
+                ],
+                "reason": "Preset mapping"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Student ID",
+          "component": "comp.input.text.base",
+          "state": "Filled",
+          "value": "STU-2026-0142",
+          "placeholder": "Enter ID",
+          "leftIcon": {
+            "name": "Icon/User-pending",
+            "confidence": "high",
+            "reason": "Preset test form definition",
+            "candidates": [
+              {
+                "icon": "Icon/User-pending",
+                "score": 3,
+                "matchedAliases": [
+                  "preset"
+                ],
+                "reason": "Preset mapping"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Department",
+          "component": "comp.input.dropdown.base",
+          "state": "Selected",
+          "value": "Computer Science",
+          "placeholder": "Select department",
+          "leftIcon": {
+            "name": "Icon/Billing",
+            "confidence": "high",
+            "reason": "Preset test form definition",
+            "candidates": [
+              {
+                "icon": "Icon/Billing",
+                "score": 3,
+                "matchedAliases": [
+                  "preset"
+                ],
+                "reason": "Preset mapping"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Course",
+          "component": "comp.input.dropdown.base",
+          "state": "Selected",
+          "value": "B.Tech",
+          "placeholder": "Select course",
+          "leftIcon": {
+            "name": "Icon/Testcase",
+            "confidence": "high",
+            "reason": "Preset test form definition",
+            "candidates": [
+              {
+                "icon": "Icon/Testcase",
+                "score": 3,
+                "matchedAliases": [
+                  "preset"
+                ],
+                "reason": "Preset mapping"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Admission Date",
+          "component": "comp.input.text.base",
+          "state": "Filled",
+          "value": "2026-06-15",
+          "placeholder": "Add date",
+          "leftIcon": {
+            "name": "Icon/More-circle-down",
+            "confidence": "high",
+            "reason": "Preset test form definition",
+            "candidates": [
+              {
+                "icon": "Icon/More-circle-down",
+                "score": 3,
+                "matchedAliases": [
+                  "preset"
+                ],
+                "reason": "Preset mapping"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Notes",
+          "component": "comp.input.textarea.base",
+          "state": "Filled",
+          "value": "Requires hostel accommodation.",
+          "placeholder": "Enter details",
+          "leftIcon": {
+            "name": "Icon/Edit",
+            "confidence": "high",
+            "reason": "Preset test form definition",
+            "candidates": [
+              {
+                "icon": "Icon/Edit",
+                "score": 3,
+                "matchedAliases": [
+                  "preset"
+                ],
+                "reason": "Preset mapping"
+              }
+            ]
+          }
+        }
+      ],
+      "actions": [
+        {
+          "component": "comp.button.primary",
+          "label": "Register Student",
+          "variant": {
+            "Size": "Base ✦",
+            "Style": "Fill",
+            "Hover": "True"
+          },
+          "leftIcon": {
+            "name": "Icon/User-previleged",
+            "confidence": "high",
+            "reason": "Preset test form definition",
+            "candidates": [
+              {
+                "icon": "Icon/User-previleged",
+                "score": 3,
+                "matchedAliases": [
+                  "preset"
+                ],
+                "reason": "Preset mapping"
+              }
+            ]
+          }
+        },
+        {
+          "component": "comp.button.secondary",
+          "label": "Cancel",
+          "variant": {
+            "Size": "Base ✦",
+            "Style": "Border",
+            "Hover": "False"
+          },
+          "leftIcon": {
+            "name": "Icon/User-remove",
+            "confidence": "high",
+            "reason": "Preset test form definition",
+            "candidates": [
+              {
+                "icon": "Icon/User-remove",
+                "score": 3,
+                "matchedAliases": [
+                  "preset"
+                ],
+                "reason": "Preset mapping"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1406 @@
+{
+  "schema": "knowledge/design-rules-engine/v3-hybrid",
+  "updatedAt": "2026-03-10T07:58:58.658Z",
+  "policy": {
+    "allowedPrefixes": [
+      "comp.",
+      "gr.comp.",
+      "sub.pt.",
+      "page.ptn."
+    ],
+    "ruleIdPattern": "<ComponentFamily><VariantValue>",
+    "tieBreakOrder": [
+      "appliesToExactOverWildcard",
+      "priorityAsc",
+      "confidenceDesc"
+    ]
+  },
+  "componentProfiles": [
+    {
+      "component_ref": "sub.pt.form",
+      "component_name": "Sub Pattern Form",
+      "category": "sub-pattern"
+    },
+    {
+      "component_ref": "gr.comp.form",
+      "component_name": "Group Component Form",
+      "category": "pattern"
+    },
+    {
+      "component_ref": "gr.comp.area",
+      "component_name": "Group Component Area",
+      "category": "layout"
+    },
+    {
+      "component_ref": "comp.input.text.base",
+      "component_name": "Input Text",
+      "category": "data-entry",
+      "usage": {
+        "purpose": [
+          "user text input",
+          "form field",
+          "search input"
+        ]
+      },
+      "variants": {
+        "State": [
+          "Default",
+          "Hover On Default",
+          "Active",
+          "Filled",
+          "Hover On Filled",
+          "Disabled",
+          "Disabled After",
+          "Error",
+          "Error After",
+          "Success"
+        ]
+      },
+      "token_rules": {
+        "source": "Tokens/tokensv1/creator.color.tokens.json + Tokens/tokensv1/creator.radius.tokens.json",
+        "base": {
+          "radius": "{Semantic.radius-r}",
+          "padding": "12px 14px"
+        },
+        "by_variant": {
+          "State=Default": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.HueGrey.Text.huegrey-text-dark}",
+              "border": "{Semantic.HueGrey.Border.huegrey-border-default}"
+            }
+          },
+          "State=Hover On Default": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.HueGrey.Text.huegrey-text-dark-hover}",
+              "border": "{Semantic.HueGrey.Border.huegrey-border-default-hover}"
+            }
+          },
+          "State=Active": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Primary.Text.primary-text-default}",
+              "border": "{Semantic.Primary.Border.primary-border-default}"
+            }
+          },
+          "State=Filled": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.HueGrey.Text.huegrey-text-dark}",
+              "border": "{Semantic.HueGrey.Border.huegrey-border-bold}"
+            }
+          },
+          "State=Error": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Error.Text.error-text-default}",
+              "border": "{Semantic.Error.Border.error-border-default}"
+            }
+          },
+          "State=Success": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Success.Text.success-text-default}",
+              "border": "{Semantic.Success.Border.success-border-default}"
+            }
+          },
+          "State=Disabled": {
+            "colors": {
+              "background": "{Semantic.HueGrey.Surface.huegrey-surface-subtle}",
+              "text": "{Semantic.HueGrey.Text.huegrey-text-low}",
+              "border": "{Semantic.HueGrey.Border.huegrey-border-subtle}"
+            }
+          }
+        },
+        "typography": {
+          "role": "input-text",
+          "base": {
+            "textStyleRef": "Semantic.Type Default.P2",
+            "familyRef": "Primitive.Family.font-family-default",
+            "sizeRef": "Semantic.Type Default.P2.font-size",
+            "lineHeightRef": "Semantic.Type Default.P2.lineheight",
+            "weightRef": "Semantic.Type Default.P2.font-weight-regular",
+            "fallback": {
+              "family": "Zoho Puvi",
+              "size": 14,
+              "lineHeight": 18,
+              "weight": "Regular"
+            }
+          },
+          "by_variant": {
+            "State=Disabled": {
+              "textStyleRef": "Semantic.Type Default.P2",
+              "weightRef": "Semantic.Type Default.P2.font-weight-regular"
+            },
+            "State=Error": {
+              "textStyleRef": "Semantic.Type Default.P2",
+              "weightRef": "Semantic.Type Default.P2.font-weight-regular"
+            },
+            "State=Success": {
+              "textStyleRef": "Semantic.Type Default.P2",
+              "weightRef": "Semantic.Type Default.P2.font-weight-regular"
+            }
+          }
+        }
+      }
+    },
+    {
+      "component_ref": "comp.input.textarea.base",
+      "component_name": "Input Textarea",
+      "category": "data-entry",
+      "usage": {
+        "purpose": [
+          "multi-line input",
+          "comments",
+          "message box"
+        ]
+      },
+      "variants": {
+        "State": [
+          "Default",
+          "Hover On Default",
+          "Active",
+          "Disabled",
+          "Disabled After",
+          "Filled",
+          "Error",
+          "Success",
+          "Hover On Filled",
+          "Error After"
+        ]
+      },
+      "token_rules": {
+        "source": "Tokens/tokensv1/creator.color.tokens.json + Tokens/tokensv1/creator.radius.tokens.json",
+        "base": {
+          "radius": "{Semantic.radius-r}",
+          "padding": "12px 14px"
+        },
+        "by_variant": {
+          "State=Default": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.HueGrey.Text.huegrey-text-dark}",
+              "border": "{Semantic.HueGrey.Border.huegrey-border-default}"
+            }
+          },
+          "State=Error": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Error.Text.error-text-default}",
+              "border": "{Semantic.Error.Border.error-border-default}"
+            }
+          },
+          "State=Success": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Success.Text.success-text-default}",
+              "border": "{Semantic.Success.Border.success-border-default}"
+            }
+          },
+          "State=Disabled": {
+            "colors": {
+              "background": "{Semantic.HueGrey.Surface.huegrey-surface-subtle}",
+              "text": "{Semantic.HueGrey.Text.huegrey-text-low}",
+              "border": "{Semantic.HueGrey.Border.huegrey-border-subtle}"
+            }
+          }
+        },
+        "typography": {
+          "role": "input-text",
+          "base": {
+            "textStyleRef": "Semantic.Type Default.P2",
+            "familyRef": "Primitive.Family.font-family-default",
+            "sizeRef": "Semantic.Type Default.P2.font-size",
+            "lineHeightRef": "Semantic.Type Default.P2.lineheight",
+            "weightRef": "Semantic.Type Default.P2.font-weight-regular",
+            "fallback": {
+              "family": "Zoho Puvi",
+              "size": 14,
+              "lineHeight": 18,
+              "weight": "Regular"
+            }
+          },
+          "by_variant": {
+            "State=Disabled": {
+              "textStyleRef": "Semantic.Type Default.P2",
+              "weightRef": "Semantic.Type Default.P2.font-weight-regular"
+            },
+            "State=Error": {
+              "textStyleRef": "Semantic.Type Default.P2",
+              "weightRef": "Semantic.Type Default.P2.font-weight-regular"
+            },
+            "State=Success": {
+              "textStyleRef": "Semantic.Type Default.P2",
+              "weightRef": "Semantic.Type Default.P2.font-weight-regular"
+            }
+          }
+        }
+      }
+    },
+    {
+      "component_ref": "comp.input.dropdown.base",
+      "component_name": "Input Dropdown",
+      "category": "data-entry",
+      "usage": {
+        "purpose": [
+          "single-select input",
+          "multi-select input",
+          "option selection from list"
+        ]
+      },
+      "variants": {
+        "State": [
+          "Default",
+          "Hover",
+          "Active",
+          "Disabled",
+          "Disabled After",
+          "Selected",
+          "Error",
+          "Success",
+          "Multi Selected",
+          "Selected With Close",
+          "Hover On Selected",
+          "Hover With Clear",
+          "Re-Active",
+          "Re-Active WIth Clear"
+        ]
+      },
+      "token_rules": {
+        "source": "Tokens/tokensv1/creator.color.tokens.json + Tokens/tokensv1/creator.radius.tokens.json",
+        "base": {
+          "radius": "{Semantic.radius-r}",
+          "padding": "12px 14px"
+        },
+        "by_variant": {
+          "State=Default": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.HueGrey.Text.huegrey-text-dark}",
+              "border": "{Semantic.HueGrey.Border.huegrey-border-default}"
+            }
+          },
+          "State=Active": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Primary.Text.primary-text-default}",
+              "border": "{Semantic.Primary.Border.primary-border-default}"
+            }
+          },
+          "State=Selected": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Primary.Text.primary-text-default}",
+              "border": "{Semantic.Primary.Border.primary-border-default}"
+            }
+          },
+          "State=Error": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Error.Text.error-text-default}",
+              "border": "{Semantic.Error.Border.error-border-default}"
+            }
+          },
+          "State=Success": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Success.Text.success-text-default}",
+              "border": "{Semantic.Success.Border.success-border-default}"
+            }
+          },
+          "State=Disabled": {
+            "colors": {
+              "background": "{Semantic.HueGrey.Surface.huegrey-surface-subtle}",
+              "text": "{Semantic.HueGrey.Text.huegrey-text-low}",
+              "border": "{Semantic.HueGrey.Border.huegrey-border-subtle}"
+            }
+          }
+        },
+        "typography": {
+          "role": "input-text",
+          "base": {
+            "textStyleRef": "Semantic.Type Default.P2",
+            "familyRef": "Primitive.Family.font-family-default",
+            "sizeRef": "Semantic.Type Default.P2.font-size",
+            "lineHeightRef": "Semantic.Type Default.P2.lineheight",
+            "weightRef": "Semantic.Type Default.P2.font-weight-regular",
+            "fallback": {
+              "family": "Zoho Puvi",
+              "size": 14,
+              "lineHeight": 18,
+              "weight": "Regular"
+            }
+          },
+          "by_variant": {
+            "State=Disabled": {
+              "textStyleRef": "Semantic.Type Default.P2",
+              "weightRef": "Semantic.Type Default.P2.font-weight-regular"
+            },
+            "State=Error": {
+              "textStyleRef": "Semantic.Type Default.P2",
+              "weightRef": "Semantic.Type Default.P2.font-weight-regular"
+            },
+            "State=Success": {
+              "textStyleRef": "Semantic.Type Default.P2",
+              "weightRef": "Semantic.Type Default.P2.font-weight-regular"
+            }
+          }
+        }
+      }
+    },
+    {
+      "component_ref": "comp.input.radio.base",
+      "component_name": "Radio Base",
+      "category": "data-entry",
+      "usage": {
+        "purpose": [
+          "auto-added from knw-components"
+        ]
+      },
+      "variants": {
+        "State": [
+          "Default",
+          "Hover On Default",
+          "Hover On Selected",
+          "Disabled",
+          "Error",
+          "Hover On Error"
+        ]
+      },
+      "token_rules": {
+        "source": "Tokens/tokensv1/creator.color.tokens.json + Tokens/tokensv1/creator.radius.tokens.json",
+        "base": {
+          "radius": "{Semantic.radius-r}",
+          "padding": "12px 14px"
+        },
+        "by_variant": {
+          "State=Default": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.HueGrey.Text.huegrey-text-dark}",
+              "border": "{Semantic.HueGrey.Border.huegrey-border-default}"
+            }
+          },
+          "State=Error": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Error.Text.error-text-default}",
+              "border": "{Semantic.Error.Border.error-border-default}"
+            }
+          },
+          "State=Success": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Success.Text.success-text-default}",
+              "border": "{Semantic.Success.Border.success-border-default}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "component_ref": "comp.input.checkbox.base",
+      "component_name": "Checkbox Base",
+      "category": "data-entry",
+      "usage": {
+        "purpose": [
+          "auto-added from knw-components"
+        ]
+      },
+      "variants": {
+        "State": [
+          "Default",
+          "Hover On Default",
+          "Hover On Selected",
+          "Disabled",
+          "Error",
+          "Hover On Error",
+          "Selected",
+          "Indeterminate"
+        ]
+      },
+      "token_rules": {
+        "source": "Tokens/tokensv1/creator.color.tokens.json + Tokens/tokensv1/creator.radius.tokens.json",
+        "base": {
+          "radius": "{Semantic.radius-r}",
+          "padding": "12px 14px"
+        },
+        "by_variant": {
+          "State=Default": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.HueGrey.Text.huegrey-text-dark}",
+              "border": "{Semantic.HueGrey.Border.huegrey-border-default}"
+            }
+          },
+          "State=Error": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Error.Text.error-text-default}",
+              "border": "{Semantic.Error.Border.error-border-default}"
+            }
+          },
+          "State=Success": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Success.Text.success-text-default}",
+              "border": "{Semantic.Success.Border.success-border-default}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "component_ref": "comp.button.huegrey",
+      "component_name": "Huegrey",
+      "category": "data-entry",
+      "usage": {
+        "purpose": [
+          "auto-added from knw-components"
+        ]
+      },
+      "variants": {
+        "Size": [
+          "Base ✦",
+          "Small",
+          "Extra Small",
+          "Large"
+        ],
+        "Style": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Hyperlink",
+          "Minimal Fill"
+        ],
+        "Hover": [
+          "False",
+          "True"
+        ]
+      },
+      "token_rules": {
+        "source": "Tokens/tokensv1/creator.color.tokens.json + Tokens/tokensv1/creator.radius.tokens.json",
+        "base": {
+          "radius": "{Semantic.radius-r}",
+          "padding": "12px 14px"
+        },
+        "by_variant": {
+          "State=Default": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.HueGrey.Text.huegrey-text-dark}",
+              "border": "{Semantic.HueGrey.Border.huegrey-border-default}"
+            }
+          },
+          "State=Error": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Error.Text.error-text-default}",
+              "border": "{Semantic.Error.Border.error-border-default}"
+            }
+          },
+          "State=Success": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Success.Text.success-text-default}",
+              "border": "{Semantic.Success.Border.success-border-default}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "component_ref": "comp.button.disabled",
+      "component_name": "Disabled",
+      "category": "data-entry",
+      "usage": {
+        "purpose": [
+          "auto-added from knw-components"
+        ]
+      },
+      "variants": {
+        "Size": [
+          "Base ✦",
+          "Small",
+          "Extra Small",
+          "Large"
+        ],
+        "Style": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Hyperlink",
+          "Minimal Fill"
+        ]
+      },
+      "token_rules": {
+        "source": "Tokens/tokensv1/creator.color.tokens.json + Tokens/tokensv1/creator.radius.tokens.json",
+        "base": {
+          "radius": "{Semantic.radius-r}",
+          "padding": "12px 14px"
+        },
+        "by_variant": {
+          "State=Default": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.HueGrey.Text.huegrey-text-dark}",
+              "border": "{Semantic.HueGrey.Border.huegrey-border-default}"
+            }
+          },
+          "State=Error": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Error.Text.error-text-default}",
+              "border": "{Semantic.Error.Border.error-border-default}"
+            }
+          },
+          "State=Success": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Success.Text.success-text-default}",
+              "border": "{Semantic.Success.Border.success-border-default}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "component_ref": "comp.button.error",
+      "component_name": "Error",
+      "category": "data-entry",
+      "usage": {
+        "purpose": [
+          "auto-added from knw-components"
+        ]
+      },
+      "variants": {
+        "Size": [
+          "Base ✦",
+          "Small",
+          "Extra Small",
+          "Large"
+        ],
+        "Style": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Hyperlink",
+          "Minimal Fill"
+        ],
+        "Hover": [
+          "False",
+          "True"
+        ]
+      },
+      "token_rules": {
+        "source": "Tokens/tokensv1/creator.color.tokens.json + Tokens/tokensv1/creator.radius.tokens.json",
+        "base": {
+          "radius": "{Semantic.radius-r}",
+          "padding": "12px 14px"
+        },
+        "by_variant": {
+          "State=Default": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.HueGrey.Text.huegrey-text-dark}",
+              "border": "{Semantic.HueGrey.Border.huegrey-border-default}"
+            }
+          },
+          "State=Error": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Error.Text.error-text-default}",
+              "border": "{Semantic.Error.Border.error-border-default}"
+            }
+          },
+          "State=Success": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Success.Text.success-text-default}",
+              "border": "{Semantic.Success.Border.success-border-default}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "component_ref": "comp.button.secondary",
+      "component_name": "Button Secondary",
+      "category": "action",
+      "usage": {
+        "purpose": [
+          "cancel action",
+          "secondary action",
+          "back navigation"
+        ]
+      },
+      "variants": {
+        "Size": [
+          "Base ✦",
+          "Small",
+          "Extra Small",
+          "Large"
+        ],
+        "Style": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Hyperlink",
+          "Minimal Fill"
+        ],
+        "Hover": [
+          "False",
+          "True"
+        ]
+      },
+      "token_rules": {
+        "source": "Tokens/tokensv1/creator.color.tokens.json + Tokens/tokensv1/creator.radius.tokens.json",
+        "base": {
+          "radius": "{Semantic.radius-r}",
+          "padding_by_size": {
+            "Base ✦": "14px 14px",
+            "Small": "12px 12px",
+            "Extra Small": "10px 10px",
+            "Large": "16px 16px"
+          }
+        },
+        "by_variant": {
+          "Style=Fill|Hover=False": {
+            "colors": {
+              "background": "{Semantic.Secondary.Surface.secondary-surface-default}",
+              "text": "{Alias.Neutral.neutral-white}",
+              "border": "{Semantic.Secondary.Border.secondary-border-default}"
+            }
+          },
+          "Style=Fill|Hover=True": {
+            "colors": {
+              "background": "{Semantic.Secondary.Surface.secondary-surface-default-hover}",
+              "text": "{Alias.Neutral.neutral-white}",
+              "border": "{Semantic.Secondary.Border.secondary-border-default-hover}"
+            }
+          },
+          "Style=Minimal Fill|Hover=False": {
+            "colors": {
+              "background": "{Semantic.Secondary.Surface.secondary-surface-minimal}",
+              "text": "{Semantic.Secondary.Text.secondary-text-bold}",
+              "border": "{Semantic.Secondary.Border.secondary-border-minimal}"
+            }
+          },
+          "Style=Minimal Fill|Hover=True": {
+            "colors": {
+              "background": "{Semantic.Secondary.Surface.secondary-surface-minimal-hover}",
+              "text": "{Semantic.Secondary.Text.secondary-text-bold-hover}",
+              "border": "{Semantic.Secondary.Border.secondary-border-minimal-hover}"
+            }
+          },
+          "Style=Border|Hover=False": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Secondary.Text.secondary-text-default}",
+              "border": "{Semantic.Secondary.Border.secondary-border-default}"
+            }
+          },
+          "Style=Border|Hover=True": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Secondary.Text.secondary-text-default-hover}",
+              "border": "{Semantic.Secondary.Border.secondary-border-default-hover}"
+            }
+          }
+        },
+        "typography": {
+          "role": "button-label",
+          "base": {
+            "textStyleRef": "Semantic.Type Default.P2",
+            "familyRef": "Primitive.Family.font-family-default",
+            "sizeRef": "Semantic.Type Default.P2.font-size",
+            "lineHeightRef": "Semantic.Type Default.P2.lineheight",
+            "weightRef": "Semantic.Type Default.P2.font-weight-semibold",
+            "fallback": {
+              "family": "Zoho Puvi",
+              "size": 14,
+              "lineHeight": 18,
+              "weight": "Medium"
+            }
+          },
+          "by_variant": {
+            "State=Disabled": {
+              "textStyleRef": "Semantic.Type Default.P2",
+              "weightRef": "Semantic.Type Default.P2.font-weight-semibold"
+            },
+            "State=Error": {
+              "textStyleRef": "Semantic.Type Default.P2",
+              "weightRef": "Semantic.Type Default.P2.font-weight-semibold"
+            },
+            "State=Success": {
+              "textStyleRef": "Semantic.Type Default.P2",
+              "weightRef": "Semantic.Type Default.P2.font-weight-semibold"
+            }
+          }
+        }
+      }
+    },
+    {
+      "component_ref": "comp.button.primary",
+      "component_name": "Button Primary",
+      "category": "action",
+      "usage": {
+        "purpose": [
+          "submit form",
+          "confirm action",
+          "primary call-to-action",
+          "brand button",
+          "cta"
+        ]
+      },
+      "variants": {
+        "Size": [
+          "Base ✦",
+          "Small",
+          "Extra Small",
+          "Large"
+        ],
+        "Style": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Hyperlink",
+          "Minimal Fill"
+        ],
+        "Hover": [
+          "False",
+          "True"
+        ]
+      },
+      "token_rules": {
+        "source": "Tokens/tokensv1/creator.color.tokens.json + Tokens/tokensv1/creator.radius.tokens.json",
+        "base": {
+          "radius": "{Semantic.radius-r}",
+          "padding_by_size": {
+            "Base ✦": "14px 14px",
+            "Small": "12px 12px",
+            "Extra Small": "10px 10px",
+            "Large": "16px 16px"
+          }
+        },
+        "by_variant": {
+          "Style=Fill|Hover=False": {
+            "colors": {
+              "background": "{Semantic.Primary.Surface.primary-surface-default}",
+              "text": "{Alias.Neutral.neutral-white}",
+              "border": "{Semantic.Primary.Border.primary-border-default}"
+            }
+          },
+          "Style=Fill|Hover=True": {
+            "colors": {
+              "background": "{Semantic.Primary.Surface.primary-surface-default-hover}",
+              "text": "{Alias.Neutral.neutral-white}",
+              "border": "{Semantic.Primary.Border.primary-border-default-hover}"
+            }
+          },
+          "Style=Minimal Fill|Hover=False": {
+            "colors": {
+              "background": "{Semantic.Primary.Surface.primary-surface-minimal}",
+              "text": "{Semantic.Primary.Text.primary-text-bold}",
+              "border": "{Semantic.Primary.Border.primary-border-minimal}"
+            }
+          },
+          "Style=Minimal Fill|Hover=True": {
+            "colors": {
+              "background": "{Semantic.Primary.Surface.primary-surface-minimal-hover}",
+              "text": "{Semantic.Primary.Text.primary-text-bold-hover}",
+              "border": "{Semantic.Primary.Border.primary-border-minimal-hover}"
+            }
+          },
+          "Style=Border|Hover=False": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Primary.Text.primary-text-default}",
+              "border": "{Semantic.Primary.Border.primary-border-default}"
+            }
+          },
+          "Style=Border|Hover=True": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Primary.Text.primary-text-default-hover}",
+              "border": "{Semantic.Primary.Border.primary-border-default-hover}"
+            }
+          }
+        },
+        "typography": {
+          "role": "button-label",
+          "base": {
+            "textStyleRef": "Semantic.Type Default.P2",
+            "familyRef": "Primitive.Family.font-family-default",
+            "sizeRef": "Semantic.Type Default.P2.font-size",
+            "lineHeightRef": "Semantic.Type Default.P2.lineheight",
+            "weightRef": "Semantic.Type Default.P2.font-weight-semibold",
+            "fallback": {
+              "family": "Zoho Puvi",
+              "size": 14,
+              "lineHeight": 18,
+              "weight": "Medium"
+            }
+          },
+          "by_variant": {
+            "State=Disabled": {
+              "textStyleRef": "Semantic.Type Default.P2",
+              "weightRef": "Semantic.Type Default.P2.font-weight-semibold"
+            },
+            "State=Error": {
+              "textStyleRef": "Semantic.Type Default.P2",
+              "weightRef": "Semantic.Type Default.P2.font-weight-semibold"
+            },
+            "State=Success": {
+              "textStyleRef": "Semantic.Type Default.P2",
+              "weightRef": "Semantic.Type Default.P2.font-weight-semibold"
+            }
+          }
+        }
+      }
+    },
+    {
+      "component_ref": "comp.duobutton.primary",
+      "component_name": "Duo Button Primary",
+      "category": "action-group",
+      "usage": {
+        "purpose": [
+          "paired primary actions",
+          "save and continue flows",
+          "two-cta layout with stronger emphasis"
+        ]
+      },
+      "variants": {
+        "Style": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Minimal Fill",
+          "Hyperlink"
+        ],
+        "Position": [
+          "Left",
+          "Right"
+        ]
+      },
+      "token_rules": {
+        "source": "Tokens/tokensv1/creator.color.tokens.json + Tokens/tokensv1/creator.radius.tokens.json",
+        "base": {
+          "radius": "{Semantic.radius-r}",
+          "group_spacing": "12px"
+        },
+        "by_variant": {
+          "Style=Fill|Position=Left": {
+            "colors": {
+              "background": "{Semantic.Primary.Surface.primary-surface-default}",
+              "text": "{Alias.Neutral.neutral-white}",
+              "border": "{Semantic.Primary.Border.primary-border-default}"
+            }
+          },
+          "Style=Fill|Position=Right": {
+            "colors": {
+              "background": "{Semantic.Primary.Surface.primary-surface-default}",
+              "text": "{Alias.Neutral.neutral-white}",
+              "border": "{Semantic.Primary.Border.primary-border-default}"
+            }
+          },
+          "Style=Border|Position=Left": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Primary.Text.primary-text-default}",
+              "border": "{Semantic.Primary.Border.primary-border-default}"
+            }
+          },
+          "Style=Border|Position=Right": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Primary.Text.primary-text-default}",
+              "border": "{Semantic.Primary.Border.primary-border-default}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "component_ref": "comp.duobutton.secondary",
+      "component_name": "Duo Button Secondary",
+      "category": "action-group",
+      "usage": {
+        "purpose": [
+          "paired actions",
+          "save and cancel flows",
+          "two-cta layout"
+        ]
+      },
+      "variants": {
+        "Style": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Minimal Fill",
+          "Hyperlink"
+        ],
+        "Position": [
+          "Left",
+          "Right"
+        ]
+      },
+      "token_rules": {
+        "source": "Tokens/tokensv1/creator.color.tokens.json + Tokens/tokensv1/creator.radius.tokens.json",
+        "base": {
+          "radius": "{Semantic.radius-r}",
+          "group_spacing": "12px"
+        },
+        "by_variant": {
+          "Style=Border|Position=Left": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Secondary.Text.secondary-text-default}",
+              "border": "{Semantic.Secondary.Border.secondary-border-default}"
+            }
+          },
+          "Style=Border|Position=Right": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Secondary.Text.secondary-text-default}",
+              "border": "{Semantic.Secondary.Border.secondary-border-default}"
+            }
+          },
+          "Style=Fill|Position=Left": {
+            "colors": {
+              "background": "{Semantic.Secondary.Surface.secondary-surface-default}",
+              "text": "{Alias.Neutral.neutral-white}",
+              "border": "{Semantic.Secondary.Border.secondary-border-default}"
+            }
+          },
+          "Style=Fill|Position=Right": {
+            "colors": {
+              "background": "{Semantic.Secondary.Surface.secondary-surface-default}",
+              "text": "{Alias.Neutral.neutral-white}",
+              "border": "{Semantic.Secondary.Border.secondary-border-default}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "component_ref": "comp.duobutton.error",
+      "component_name": "Error",
+      "category": "data-entry",
+      "usage": {
+        "purpose": [
+          "auto-added from knw-components"
+        ]
+      },
+      "variants": {
+        "Style": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Border",
+          "Minimal Fill",
+          "Hyperlink"
+        ],
+        "Position": [
+          "Left",
+          "Right"
+        ]
+      },
+      "token_rules": {
+        "source": "Tokens/tokensv1/creator.color.tokens.json + Tokens/tokensv1/creator.radius.tokens.json",
+        "base": {
+          "radius": "{Semantic.radius-r}",
+          "padding": "12px 14px"
+        },
+        "by_variant": {
+          "State=Default": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.HueGrey.Text.huegrey-text-dark}",
+              "border": "{Semantic.HueGrey.Border.huegrey-border-default}"
+            }
+          },
+          "State=Error": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Error.Text.error-text-default}",
+              "border": "{Semantic.Error.Border.error-border-default}"
+            }
+          },
+          "State=Success": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Success.Text.success-text-default}",
+              "border": "{Semantic.Success.Border.success-border-default}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "component_ref": "comp.duobutton.huegrey",
+      "component_name": "Huegrey",
+      "category": "data-entry",
+      "usage": {
+        "purpose": [
+          "auto-added from knw-components"
+        ]
+      },
+      "variants": {
+        "Style": [
+          "Fill",
+          "Border",
+          "Link",
+          "Minimal Fill",
+          "Minimal Border",
+          "Hyperlink"
+        ],
+        "Position": [
+          "Left",
+          "Right"
+        ]
+      },
+      "token_rules": {
+        "source": "Tokens/tokensv1/creator.color.tokens.json + Tokens/tokensv1/creator.radius.tokens.json",
+        "base": {
+          "radius": "{Semantic.radius-r}",
+          "padding": "12px 14px"
+        },
+        "by_variant": {
+          "State=Default": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.HueGrey.Text.huegrey-text-dark}",
+              "border": "{Semantic.HueGrey.Border.huegrey-border-default}"
+            }
+          },
+          "State=Error": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Error.Text.error-text-default}",
+              "border": "{Semantic.Error.Border.error-border-default}"
+            }
+          },
+          "State=Success": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Success.Text.success-text-default}",
+              "border": "{Semantic.Success.Border.success-border-default}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "component_ref": "comp.duobutton.disabled",
+      "component_name": "Disabled",
+      "category": "data-entry",
+      "usage": {
+        "purpose": [
+          "auto-added from knw-components"
+        ]
+      },
+      "variants": {
+        "Position": [
+          "Left",
+          "Right"
+        ],
+        "Type": [
+          "CTA Disabled",
+          "Sub-CTA Disabled"
+        ]
+      },
+      "token_rules": {
+        "source": "Tokens/tokensv1/creator.color.tokens.json + Tokens/tokensv1/creator.radius.tokens.json",
+        "base": {
+          "radius": "{Semantic.radius-r}",
+          "padding": "12px 14px"
+        },
+        "by_variant": {
+          "State=Default": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.HueGrey.Text.huegrey-text-dark}",
+              "border": "{Semantic.HueGrey.Border.huegrey-border-default}"
+            }
+          },
+          "State=Error": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Error.Text.error-text-default}",
+              "border": "{Semantic.Error.Border.error-border-default}"
+            }
+          },
+          "State=Success": {
+            "colors": {
+              "background": "{Alias.Neutral.neutral-white}",
+              "text": "{Semantic.Success.Text.success-text-default}",
+              "border": "{Semantic.Success.Border.success-border-default}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "component_ref": "page.dashboard",
+      "component_name": "Dashboard Page",
+      "category": "page",
+      "usage": {
+        "purpose": [
+          "page layout container",
+          "dashboard entry point"
+        ]
+      }
+    }
+  ],
+  "commands": {
+    "comp.*": {
+      "description": "Variant-level usage rules for base components.",
+      "rules": [
+        {
+          "RuleID": "CompInputTextBaseDefault",
+          "AppliesTo": "comp.input.text.base",
+          "VariantKey": "State",
+          "VariantValue": "Default",
+          "IntentAliases": [
+            "default state",
+            "initial state"
+          ],
+          "UseComponent": "comp.input.text.base",
+          "Priority": 1,
+          "Confidence": "high"
+        },
+        {
+          "RuleID": "CompInputTextBaseError",
+          "AppliesTo": "comp.input.text.base",
+          "VariantKey": "State",
+          "VariantValue": "Error",
+          "IntentAliases": [
+            "validation failed",
+            "invalid value"
+          ],
+          "UseComponent": "comp.input.text.base",
+          "Priority": 2,
+          "Confidence": "high"
+        },
+        {
+          "RuleID": "CompInputTextBaseSuccess",
+          "AppliesTo": "comp.input.text.base",
+          "VariantKey": "State",
+          "VariantValue": "Success",
+          "IntentAliases": [
+            "validation passed",
+            "valid input"
+          ],
+          "UseComponent": "comp.input.text.base",
+          "Priority": 2,
+          "Confidence": "high"
+        },
+        {
+          "RuleID": "CompInputTextareaBaseDefault",
+          "AppliesTo": "comp.input.textarea.base",
+          "VariantKey": "State",
+          "VariantValue": "Default",
+          "IntentAliases": [
+            "default state",
+            "initial state"
+          ],
+          "UseComponent": "comp.input.textarea.base",
+          "Priority": 1,
+          "Confidence": "high"
+        },
+        {
+          "RuleID": "CompInputTextareaBaseError",
+          "AppliesTo": "comp.input.textarea.base",
+          "VariantKey": "State",
+          "VariantValue": "Error",
+          "IntentAliases": [
+            "validation failed",
+            "invalid value"
+          ],
+          "UseComponent": "comp.input.textarea.base",
+          "Priority": 2,
+          "Confidence": "high"
+        },
+        {
+          "RuleID": "CompInputTextareaBaseSuccess",
+          "AppliesTo": "comp.input.textarea.base",
+          "VariantKey": "State",
+          "VariantValue": "Success",
+          "IntentAliases": [
+            "validation passed",
+            "valid input"
+          ],
+          "UseComponent": "comp.input.textarea.base",
+          "Priority": 2,
+          "Confidence": "high"
+        },
+        {
+          "RuleID": "CompInputDropdownBaseDefault",
+          "AppliesTo": "comp.input.dropdown.base",
+          "VariantKey": "State",
+          "VariantValue": "Default",
+          "IntentAliases": [
+            "default state",
+            "initial state"
+          ],
+          "UseComponent": "comp.input.dropdown.base",
+          "Priority": 1,
+          "Confidence": "high"
+        },
+        {
+          "RuleID": "CompInputDropdownBaseError",
+          "AppliesTo": "comp.input.dropdown.base",
+          "VariantKey": "State",
+          "VariantValue": "Error",
+          "IntentAliases": [
+            "validation failed",
+            "invalid value"
+          ],
+          "UseComponent": "comp.input.dropdown.base",
+          "Priority": 2,
+          "Confidence": "high"
+        },
+        {
+          "RuleID": "CompInputDropdownBaseSuccess",
+          "AppliesTo": "comp.input.dropdown.base",
+          "VariantKey": "State",
+          "VariantValue": "Success",
+          "IntentAliases": [
+            "validation passed",
+            "valid input"
+          ],
+          "UseComponent": "comp.input.dropdown.base",
+          "Priority": 2,
+          "Confidence": "high"
+        },
+        {
+          "RuleID": "CompInputRadioBaseDefault",
+          "AppliesTo": "comp.input.radio.base",
+          "VariantKey": "State",
+          "VariantValue": "Default",
+          "IntentAliases": [
+            "default state",
+            "initial state"
+          ],
+          "UseComponent": "comp.input.radio.base",
+          "Priority": 1,
+          "Confidence": "high"
+        },
+        {
+          "RuleID": "CompInputRadioBaseError",
+          "AppliesTo": "comp.input.radio.base",
+          "VariantKey": "State",
+          "VariantValue": "Error",
+          "IntentAliases": [
+            "validation failed",
+            "invalid value"
+          ],
+          "UseComponent": "comp.input.radio.base",
+          "Priority": 2,
+          "Confidence": "high"
+        },
+        {
+          "RuleID": "CompInputCheckboxBaseDefault",
+          "AppliesTo": "comp.input.checkbox.base",
+          "VariantKey": "State",
+          "VariantValue": "Default",
+          "IntentAliases": [
+            "default state",
+            "initial state"
+          ],
+          "UseComponent": "comp.input.checkbox.base",
+          "Priority": 1,
+          "Confidence": "high"
+        },
+        {
+          "RuleID": "CompInputCheckboxBaseError",
+          "AppliesTo": "comp.input.checkbox.base",
+          "VariantKey": "State",
+          "VariantValue": "Error",
+          "IntentAliases": [
+            "validation failed",
+            "invalid value"
+          ],
+          "UseComponent": "comp.input.checkbox.base",
+          "Priority": 2,
+          "Confidence": "high"
+        }
+      ]
+    },
+    "sub.pt*": {
+      "description": "Rules for sub-pattern components.",
+      "rules": [
+        {
+          "RuleID": "SubPatternFormDefault",
+          "AppliesTo": "sub.pt.form",
+          "VariantKey": "Structure",
+          "VariantValue": "Default",
+          "IntentAliases": [
+            "form subsection",
+            "reusable form block"
+          ],
+          "UseComponent": "sub.pt.form",
+          "Priority": 1,
+          "Confidence": "medium"
+        }
+      ]
+    },
+    "gr.comp.*": {
+      "description": "Rules for group/pattern-level components.",
+      "rules": [
+        {
+          "RuleID": "GroupFormDefault",
+          "AppliesTo": "gr.comp.form",
+          "VariantKey": "Structure",
+          "VariantValue": "Default",
+          "IntentAliases": [
+            "top-level form shell",
+            "form container"
+          ],
+          "UseComponent": "gr.comp.form",
+          "Priority": 1,
+          "Confidence": "high"
+        },
+        {
+          "RuleID": "GroupAreaDefault",
+          "AppliesTo": "gr.comp.area",
+          "VariantKey": "Structure",
+          "VariantValue": "Default",
+          "IntentAliases": [
+            "grouped content area",
+            "section wrapper"
+          ],
+          "UseComponent": "gr.comp.area",
+          "Priority": 2,
+          "Confidence": "medium"
+        }
+      ]
+    },
+    "page.*": {
+      "description": "Page-level usage rules for page patterns.",
+      "rules": [
+        {
+          "RuleID": "PageDashboardBase",
+          "AppliesTo": "page.dashboard",
+          "IntentAliases": [
+            "dashboard page",
+            "dashboard view",
+            "dashboard screen"
+          ],
+          "UseComponent": "page.dashboard",
+          "Priority": 1,
+          "Confidence": "high"
+        }
+      ]
+    }
+  }
+}

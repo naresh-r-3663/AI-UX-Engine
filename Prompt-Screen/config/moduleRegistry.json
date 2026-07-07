@@ -1,0 +1,39 @@
+{
+  "dashboard": {
+    "moduleSlot": "slot.module.dashboard",
+    "contentSlot": "slot.content.card-dashboard",
+    "step": "dashboard",
+    "base": "page.base"
+  },
+  "form": {
+    "moduleSlot": "slot.module.form",
+    "contentSlot": "slot.content.form",
+    "step": "form",
+    "base": "page.base"
+  },
+  "table": {
+    "moduleSlot": "slot.module.table",
+    "contentSlot": "slot.content.table",
+    "step": "table",
+    "base": "page.base"
+  },
+  "detail": {
+    "moduleSlot": "slot.module.details.card",
+    "contentSlot": "slot.content.details.card",
+    "step": "details",
+    "base": "page.base"
+  },
+  "detail.table": {
+    "moduleSlot": "slot.module.details.table",
+    "contentSlot": "slot.content.details.table",
+    "subSlot": "slot.content.details.subtable",
+    "step": "details",
+    "base": "page.base"
+  },
+  "wizardform": {
+    "moduleSlot": "slot.module.wizardform",
+    "contentSlot": "slot.content.form",
+    "step": "form",
+    "base": "page.base"
+  }
+}

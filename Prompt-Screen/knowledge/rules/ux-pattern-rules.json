@@ -1,0 +1,106 @@
+{
+  "schema": "knowledge/ux-pattern-rules/v1",
+  "generatedAt": "2026-03-15T21:19:25.957Z",
+  "rules": [
+    {
+      "id": "popup.base",
+      "pattern": "pt.popup",
+      "appliesTo": [
+        "pt.popup.*"
+      ],
+      "description": "Base popup structure and behavior",
+      "structure": {
+        "requiredSlots": [
+          "overlay",
+          "container",
+          "header",
+          "body",
+          "footer"
+        ],
+        "optionalSlots": [
+          "icon",
+          "closeButton"
+        ]
+      },
+      "behavior": {
+        "defaultOpen": false,
+        "closeOnOverlayClick": true,
+        "closeOnEsc": true,
+        "trapFocus": true,
+        "restoreFocusOnClose": true,
+        "ariaRole": "dialog",
+        "ariaModal": true
+      },
+      "variants": [
+        {
+          "name": "size",
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        {
+          "name": "tone",
+          "values": [
+            "default",
+            "warning",
+            "danger"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pt.modal.popup.base",
+      "pattern": "pt.modal.popup",
+      "appliesTo": [
+        "pt.modal.popup.*"
+      ],
+      "description": "Auto-added from knw-ux-patterns",
+      "structure": {
+        "requiredSlots": [],
+        "optionalSlots": []
+      },
+      "behavior": {}
+    }
+  ],
+  "stateRules": [
+    {
+      "id": "popup.states",
+      "pattern": "pt.popup",
+      "states": {
+        "default": {
+          "visible": false
+        },
+        "open": {
+          "visible": true,
+          "overlayVisible": true
+        },
+        "loading": {
+          "interactive": false,
+          "showSpinner": true
+        },
+        "disabled": {
+          "interactive": false
+        }
+      },
+      "transitions": [
+        {
+          "from": "default",
+          "to": "open",
+          "on": "OPEN"
+        },
+        {
+          "from": "open",
+          "to": "default",
+          "on": "CLOSE"
+        },
+        {
+          "from": "open",
+          "to": "loading",
+          "on": "SUBMIT"
+        }
+      ]
+    }
+  ]
+}

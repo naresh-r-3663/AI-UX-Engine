@@ -1,0 +1,2830 @@
+[
+  {
+    "type": "FRAME",
+    "name": "01 Select Source Type",
+    "width": 1440,
+    "height": 900,
+    "children": [
+      {
+        "type": "INSTANCE",
+        "name": "slot.module.wizardform",
+        "componentKey": null,
+        "componentName": "slot.module.wizardform",
+        "children": [
+          {
+            "type": "INSTANCE",
+            "name": "slot.content.form",
+            "componentKey": null,
+            "componentName": "slot.content.form",
+            "children": [
+              {
+                "type": "INSTANCE",
+                "name": "Source Name",
+                "componentKey": null,
+                "componentName": "comp.input.text.base",
+                "meta": {
+                  "componentName": "comp.input.text.base",
+                  "replace.labelText": "Source Name",
+                  "index": 0,
+                  "visible": true,
+                  "replace.inputValue": null,
+                  "enabled": true,
+                  "variantState": "default"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Source Name",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Source Name"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.text.feild",
+                    "componentKey": null,
+                    "componentName": "input.text.feild",
+                    "meta": {
+                      "placeholder": "Add Source Name",
+                      "replace.inputValue": null
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "icon/data-source"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Source Name"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "Source Type",
+                "componentKey": null,
+                "componentName": "comp.input.dropdown.base",
+                "meta": {
+                  "componentName": "comp.input.dropdown.base",
+                  "replace.labelText": "Source Type",
+                  "index": 1,
+                  "visible": true,
+                  "replace.inputValue": null,
+                  "enabled": true,
+                  "variantState": "default"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Source Type",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Source Type"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.dropdown.feild",
+                    "componentKey": null,
+                    "componentName": "input.dropdown.feild",
+                    "meta": {
+                      "placeholder": "Add Source Type",
+                      "replace.inputValue": null
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "icon/data-source"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Source Type"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "Environment",
+                "componentKey": null,
+                "componentName": "comp.input.dropdown.base",
+                "meta": {
+                  "componentName": "comp.input.dropdown.base",
+                  "replace.labelText": "Environment",
+                  "index": 2,
+                  "visible": true,
+                  "replace.inputValue": null,
+                  "enabled": true,
+                  "variantState": "default"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Environment",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Environment"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.dropdown.feild",
+                    "componentKey": null,
+                    "componentName": "input.dropdown.feild",
+                    "meta": {
+                      "placeholder": "Add Environment",
+                      "replace.inputValue": null
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "icon/environment"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Environment"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "Description",
+                "componentKey": null,
+                "componentName": "comp.input.textarea.base",
+                "meta": {
+                  "componentName": "comp.input.textarea.base",
+                  "replace.labelText": "Description",
+                  "index": 3,
+                  "visible": true,
+                  "replace.inputValue": null,
+                  "enabled": true,
+                  "variantState": "default"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Description",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Description"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.textarea.feild",
+                    "componentKey": null,
+                    "componentName": "input.textarea.feild",
+                    "meta": {
+                      "placeholder": "Add Description",
+                      "replace.inputValue": null
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "Icon/Text-document"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Description"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "meta": {
+          "formTitle": "Connect Data Source",
+          "ctaText": "Add Wizard",
+          "hintText": "enter the details to connect to your data source successfully"
+        },
+        "childOverrides": [
+          {
+            "childName": "comp.huegrey.button",
+            "property": "visible",
+            "value": false
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "name": "wizard.header",
+        "componentKey": null,
+        "componentName": "wizard.header",
+        "meta": {
+          "variantState": "first.screen",
+          "wizardTitle": "Connect Data Source",
+          "wizardSubText": null
+        }
+      },
+      {
+        "type": "INSTANCE",
+        "name": "slot.wizard.nav",
+        "componentKey": null,
+        "componentName": "slot.wizard.nav",
+        "children": [
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Source Type",
+            "stepState": "active",
+            "label": "Source Type",
+            "meta": {
+              "index": 0
+            }
+          },
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Connection",
+            "stepState": "default",
+            "label": "Connection",
+            "meta": {
+              "index": 1
+            }
+          },
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Authentication",
+            "stepState": "default",
+            "label": "Authentication",
+            "meta": {
+              "index": 2
+            }
+          },
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Review",
+            "stepState": "default",
+            "label": "Review",
+            "meta": {
+              "index": 3
+            }
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "name": "slot.wizard.hint",
+        "componentKey": null,
+        "componentName": "slot.wizard.hint",
+        "meta": {
+          "hintText": "enter the details to connect to your data source successfully"
+        }
+      }
+    ],
+    "base": "page.full-wizard"
+  },
+  {
+    "type": "FRAME",
+    "name": "02 Source Type Filled",
+    "width": 1440,
+    "height": 900,
+    "children": [
+      {
+        "type": "INSTANCE",
+        "name": "slot.module.wizardform",
+        "componentKey": null,
+        "componentName": "slot.module.wizardform",
+        "children": [
+          {
+            "type": "INSTANCE",
+            "name": "slot.content.form",
+            "componentKey": null,
+            "componentName": "slot.content.form",
+            "children": [
+              {
+                "type": "INSTANCE",
+                "name": "Source Name",
+                "componentKey": null,
+                "componentName": "comp.input.text.base",
+                "meta": {
+                  "componentName": "comp.input.text.base",
+                  "replace.labelText": "Source Name",
+                  "index": 0,
+                  "visible": true,
+                  "replace.inputValue": "Amazon S3",
+                  "enabled": true,
+                  "variantState": "filled"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Source Name",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Source Name"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.text.feild",
+                    "componentKey": null,
+                    "componentName": "input.text.feild",
+                    "meta": {
+                      "placeholder": "Add Source Name",
+                      "replace.inputValue": "Amazon S3"
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "icon/data-source"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Source Name"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "Source Type",
+                "componentKey": null,
+                "componentName": "comp.input.dropdown.base",
+                "meta": {
+                  "componentName": "comp.input.dropdown.base",
+                  "replace.labelText": "Source Type",
+                  "index": 1,
+                  "visible": true,
+                  "replace.inputValue": "Category A",
+                  "enabled": true,
+                  "variantState": "filled"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Source Type",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Source Type"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.dropdown.feild",
+                    "componentKey": null,
+                    "componentName": "input.dropdown.feild",
+                    "meta": {
+                      "placeholder": "Add Source Type",
+                      "replace.inputValue": "Category A"
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "icon/data-source"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Source Type"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "Environment",
+                "componentKey": null,
+                "componentName": "comp.input.dropdown.base",
+                "meta": {
+                  "componentName": "comp.input.dropdown.base",
+                  "replace.labelText": "Environment",
+                  "index": 2,
+                  "visible": true,
+                  "replace.inputValue": "Option 1",
+                  "enabled": true,
+                  "variantState": "filled"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Environment",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Environment"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.dropdown.feild",
+                    "componentKey": null,
+                    "componentName": "input.dropdown.feild",
+                    "meta": {
+                      "placeholder": "Add Environment",
+                      "replace.inputValue": "Option 1"
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "icon/environment"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Environment"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "Description",
+                "componentKey": null,
+                "componentName": "comp.input.textarea.base",
+                "meta": {
+                  "componentName": "comp.input.textarea.base",
+                  "replace.labelText": "Description",
+                  "index": 3,
+                  "visible": true,
+                  "replace.inputValue": "Details about Amazon S3.",
+                  "enabled": true,
+                  "variantState": "filled"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Description",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Description"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.textarea.feild",
+                    "componentKey": null,
+                    "componentName": "input.textarea.feild",
+                    "meta": {
+                      "placeholder": "Add Description",
+                      "replace.inputValue": "Details about Amazon S3."
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "Icon/Text-document"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Description"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "meta": {
+          "formTitle": "Connect Data Source",
+          "ctaText": "Add Wizard",
+          "hintText": "enter the details to connect to your data source successfully"
+        },
+        "childOverrides": [
+          {
+            "childName": "comp.huegrey.button",
+            "property": "visible",
+            "value": false
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "name": "wizard.header",
+        "componentKey": null,
+        "componentName": "wizard.header",
+        "meta": {
+          "variantState": "first.screen",
+          "wizardTitle": "Connect Data Source",
+          "wizardSubText": null
+        }
+      },
+      {
+        "type": "INSTANCE",
+        "name": "slot.wizard.nav",
+        "componentKey": null,
+        "componentName": "slot.wizard.nav",
+        "children": [
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Source Type",
+            "stepState": "active",
+            "label": "Source Type",
+            "meta": {
+              "index": 0
+            }
+          },
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Connection",
+            "stepState": "default",
+            "label": "Connection",
+            "meta": {
+              "index": 1
+            }
+          },
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Authentication",
+            "stepState": "default",
+            "label": "Authentication",
+            "meta": {
+              "index": 2
+            }
+          },
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Review",
+            "stepState": "default",
+            "label": "Review",
+            "meta": {
+              "index": 3
+            }
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "name": "slot.wizard.hint",
+        "componentKey": null,
+        "componentName": "slot.wizard.hint",
+        "meta": {
+          "hintText": "enter the details to connect to your data source successfully"
+        }
+      }
+    ],
+    "base": "page.full-wizard"
+  },
+  {
+    "type": "FRAME",
+    "name": "03 Connection Details",
+    "width": 1440,
+    "height": 900,
+    "children": [
+      {
+        "type": "INSTANCE",
+        "name": "slot.module.wizardform",
+        "componentKey": null,
+        "componentName": "slot.module.wizardform",
+        "children": [
+          {
+            "type": "INSTANCE",
+            "name": "slot.content.form",
+            "componentKey": null,
+            "componentName": "slot.content.form",
+            "children": [
+              {
+                "type": "INSTANCE",
+                "name": "Host",
+                "componentKey": null,
+                "componentName": "comp.input.text.base",
+                "meta": {
+                  "componentName": "comp.input.text.base",
+                  "replace.labelText": "Host",
+                  "index": 0,
+                  "visible": true,
+                  "replace.inputValue": null,
+                  "enabled": true,
+                  "variantState": "default"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Host",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Host"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.text.feild",
+                    "componentKey": null,
+                    "componentName": "input.text.feild",
+                    "meta": {
+                      "placeholder": "Add Host",
+                      "replace.inputValue": null
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "Icon/Input-text"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Host"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "Port",
+                "componentKey": null,
+                "componentName": "comp.input.text.base",
+                "meta": {
+                  "componentName": "comp.input.text.base",
+                  "replace.labelText": "Port",
+                  "index": 1,
+                  "visible": true,
+                  "replace.inputValue": null,
+                  "enabled": true,
+                  "variantState": "default"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Port",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Port"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.text.feild",
+                    "componentKey": null,
+                    "componentName": "input.text.feild",
+                    "meta": {
+                      "placeholder": "Add Port",
+                      "replace.inputValue": null
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "Icon/Input-text"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Port"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "Database Name",
+                "componentKey": null,
+                "componentName": "comp.input.text.base",
+                "meta": {
+                  "componentName": "comp.input.text.base",
+                  "replace.labelText": "Database Name",
+                  "index": 2,
+                  "visible": true,
+                  "replace.inputValue": null,
+                  "enabled": true,
+                  "variantState": "default"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Database Name",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Database Name"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.text.feild",
+                    "componentKey": null,
+                    "componentName": "input.text.feild",
+                    "meta": {
+                      "placeholder": "Add Database Name",
+                      "replace.inputValue": null
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "Icon/Input-text"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Database Name"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "Schema",
+                "componentKey": null,
+                "componentName": "comp.input.dropdown.base",
+                "meta": {
+                  "componentName": "comp.input.dropdown.base",
+                  "replace.labelText": "Schema",
+                  "index": 3,
+                  "visible": true,
+                  "replace.inputValue": null,
+                  "enabled": true,
+                  "variantState": "default"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Schema",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Schema"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.dropdown.feild",
+                    "componentKey": null,
+                    "componentName": "input.dropdown.feild",
+                    "meta": {
+                      "placeholder": "Add Schema",
+                      "replace.inputValue": null
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "Icon/Dropdown"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Schema"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "Connection String",
+                "componentKey": null,
+                "componentName": "comp.input.textarea.base",
+                "meta": {
+                  "componentName": "comp.input.textarea.base",
+                  "replace.labelText": "Connection String",
+                  "index": 4,
+                  "visible": true,
+                  "replace.inputValue": null,
+                  "enabled": true,
+                  "variantState": "default"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Connection String",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Connection String"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.textarea.feild",
+                    "componentKey": null,
+                    "componentName": "input.textarea.feild",
+                    "meta": {
+                      "placeholder": "Add Connection String",
+                      "replace.inputValue": null
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "icon/connection-plug"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Connection String"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "meta": {
+          "formTitle": "Connect Data Source",
+          "ctaText": "Add Wizard",
+          "hintText": "enter the details to connect to your data source successfully"
+        },
+        "childOverrides": [
+          {
+            "childName": "comp.huegrey.button",
+            "property": "visible",
+            "value": true
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "name": "wizard.header",
+        "componentKey": null,
+        "componentName": "wizard.header",
+        "meta": {
+          "variantState": "type2",
+          "wizardTitle": "Connect Data Source",
+          "wizardSubText": "Amazon S3"
+        }
+      },
+      {
+        "type": "INSTANCE",
+        "name": "slot.wizard.nav",
+        "componentKey": null,
+        "componentName": "slot.wizard.nav",
+        "children": [
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Source Type",
+            "stepState": "completed",
+            "label": "Source Type",
+            "meta": {
+              "index": 0
+            }
+          },
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Connection",
+            "stepState": "active",
+            "label": "Connection",
+            "meta": {
+              "index": 1
+            }
+          },
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Authentication",
+            "stepState": "default",
+            "label": "Authentication",
+            "meta": {
+              "index": 2
+            }
+          },
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Review",
+            "stepState": "default",
+            "label": "Review",
+            "meta": {
+              "index": 3
+            }
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "name": "slot.wizard.hint",
+        "componentKey": null,
+        "componentName": "slot.wizard.hint",
+        "meta": {
+          "hintText": "enter the details to connect to your data source successfully"
+        }
+      }
+    ],
+    "base": "page.full-wizard"
+  },
+  {
+    "type": "FRAME",
+    "name": "04 Connection Filled",
+    "width": 1440,
+    "height": 900,
+    "children": [
+      {
+        "type": "INSTANCE",
+        "name": "slot.module.wizardform",
+        "componentKey": null,
+        "componentName": "slot.module.wizardform",
+        "children": [
+          {
+            "type": "INSTANCE",
+            "name": "slot.content.form",
+            "componentKey": null,
+            "componentName": "slot.content.form",
+            "children": [
+              {
+                "type": "INSTANCE",
+                "name": "Host",
+                "componentKey": null,
+                "componentName": "comp.input.text.base",
+                "meta": {
+                  "componentName": "comp.input.text.base",
+                  "replace.labelText": "Host",
+                  "index": 0,
+                  "visible": true,
+                  "replace.inputValue": "Host Value",
+                  "enabled": true,
+                  "variantState": "filled"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Host",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Host"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.text.feild",
+                    "componentKey": null,
+                    "componentName": "input.text.feild",
+                    "meta": {
+                      "placeholder": "Add Host",
+                      "replace.inputValue": "Host Value"
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "Icon/Input-text"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Host"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "Port",
+                "componentKey": null,
+                "componentName": "comp.input.text.base",
+                "meta": {
+                  "componentName": "comp.input.text.base",
+                  "replace.labelText": "Port",
+                  "index": 1,
+                  "visible": true,
+                  "replace.inputValue": "Port Value",
+                  "enabled": true,
+                  "variantState": "filled"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Port",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Port"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.text.feild",
+                    "componentKey": null,
+                    "componentName": "input.text.feild",
+                    "meta": {
+                      "placeholder": "Add Port",
+                      "replace.inputValue": "Port Value"
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "Icon/Input-text"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Port"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "Database Name",
+                "componentKey": null,
+                "componentName": "comp.input.text.base",
+                "meta": {
+                  "componentName": "comp.input.text.base",
+                  "replace.labelText": "Database Name",
+                  "index": 2,
+                  "visible": true,
+                  "replace.inputValue": "Amazon S3",
+                  "enabled": true,
+                  "variantState": "filled"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Database Name",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Database Name"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.text.feild",
+                    "componentKey": null,
+                    "componentName": "input.text.feild",
+                    "meta": {
+                      "placeholder": "Add Database Name",
+                      "replace.inputValue": "Amazon S3"
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "Icon/Input-text"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Database Name"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "Schema",
+                "componentKey": null,
+                "componentName": "comp.input.dropdown.base",
+                "meta": {
+                  "componentName": "comp.input.dropdown.base",
+                  "replace.labelText": "Schema",
+                  "index": 3,
+                  "visible": true,
+                  "replace.inputValue": "Option 1",
+                  "enabled": true,
+                  "variantState": "filled"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Schema",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Schema"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.dropdown.feild",
+                    "componentKey": null,
+                    "componentName": "input.dropdown.feild",
+                    "meta": {
+                      "placeholder": "Add Schema",
+                      "replace.inputValue": "Option 1"
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "Icon/Dropdown"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Schema"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "Connection String",
+                "componentKey": null,
+                "componentName": "comp.input.textarea.base",
+                "meta": {
+                  "componentName": "comp.input.textarea.base",
+                  "replace.labelText": "Connection String",
+                  "index": 4,
+                  "visible": true,
+                  "replace.inputValue": "Details about Amazon S3.",
+                  "enabled": true,
+                  "variantState": "filled"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Connection String",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Connection String"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.textarea.feild",
+                    "componentKey": null,
+                    "componentName": "input.textarea.feild",
+                    "meta": {
+                      "placeholder": "Add Connection String",
+                      "replace.inputValue": "Details about Amazon S3."
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "icon/connection-plug"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Connection String"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "meta": {
+          "formTitle": "Connect Data Source",
+          "ctaText": "Add Wizard",
+          "hintText": "enter the details to connect to your data source successfully"
+        },
+        "childOverrides": [
+          {
+            "childName": "comp.huegrey.button",
+            "property": "visible",
+            "value": true
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "name": "wizard.header",
+        "componentKey": null,
+        "componentName": "wizard.header",
+        "meta": {
+          "variantState": "type2",
+          "wizardTitle": "Connect Data Source",
+          "wizardSubText": "Amazon S3"
+        }
+      },
+      {
+        "type": "INSTANCE",
+        "name": "slot.wizard.nav",
+        "componentKey": null,
+        "componentName": "slot.wizard.nav",
+        "children": [
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Source Type",
+            "stepState": "completed",
+            "label": "Source Type",
+            "meta": {
+              "index": 0
+            }
+          },
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Connection",
+            "stepState": "active",
+            "label": "Connection",
+            "meta": {
+              "index": 1
+            }
+          },
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Authentication",
+            "stepState": "default",
+            "label": "Authentication",
+            "meta": {
+              "index": 2
+            }
+          },
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Review",
+            "stepState": "default",
+            "label": "Review",
+            "meta": {
+              "index": 3
+            }
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "name": "slot.wizard.hint",
+        "componentKey": null,
+        "componentName": "slot.wizard.hint",
+        "meta": {
+          "hintText": "enter the details to connect to your data source successfully"
+        }
+      }
+    ],
+    "base": "page.full-wizard"
+  },
+  {
+    "type": "FRAME",
+    "name": "05 Authentication",
+    "width": 1440,
+    "height": 900,
+    "children": [
+      {
+        "type": "INSTANCE",
+        "name": "slot.module.wizardform",
+        "componentKey": null,
+        "componentName": "slot.module.wizardform",
+        "children": [
+          {
+            "type": "INSTANCE",
+            "name": "slot.content.form",
+            "componentKey": null,
+            "componentName": "slot.content.form",
+            "children": [
+              {
+                "type": "INSTANCE",
+                "name": "Auth Method",
+                "componentKey": null,
+                "componentName": "comp.input.dropdown.base",
+                "meta": {
+                  "componentName": "comp.input.dropdown.base",
+                  "replace.labelText": "Auth Method",
+                  "index": 0,
+                  "visible": true,
+                  "replace.inputValue": null,
+                  "enabled": true,
+                  "variantState": "default"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Auth Method",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Auth Method"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.dropdown.feild",
+                    "componentKey": null,
+                    "componentName": "input.dropdown.feild",
+                    "meta": {
+                      "placeholder": "Add Auth Method",
+                      "replace.inputValue": null
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "Icon/Dropdown"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Auth Method"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "Username",
+                "componentKey": null,
+                "componentName": "comp.input.text.base",
+                "meta": {
+                  "componentName": "comp.input.text.base",
+                  "replace.labelText": "Username",
+                  "index": 1,
+                  "visible": true,
+                  "replace.inputValue": null,
+                  "enabled": true,
+                  "variantState": "default"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Username",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Username"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.text.feild",
+                    "componentKey": null,
+                    "componentName": "input.text.feild",
+                    "meta": {
+                      "placeholder": "Add Username",
+                      "replace.inputValue": null
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "Icon/Input-text"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Username"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "Password",
+                "componentKey": null,
+                "componentName": "comp.input.text.base",
+                "meta": {
+                  "componentName": "comp.input.text.base",
+                  "replace.labelText": "Password",
+                  "index": 2,
+                  "visible": true,
+                  "replace.inputValue": null,
+                  "enabled": true,
+                  "variantState": "default"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Password",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Password"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.text.feild",
+                    "componentKey": null,
+                    "componentName": "input.text.feild",
+                    "meta": {
+                      "placeholder": "Add Password",
+                      "replace.inputValue": null
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "Icon/Input-text"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Password"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "SSL Mode",
+                "componentKey": null,
+                "componentName": "comp.input.dropdown.base",
+                "meta": {
+                  "componentName": "comp.input.dropdown.base",
+                  "replace.labelText": "SSL Mode",
+                  "index": 3,
+                  "visible": true,
+                  "replace.inputValue": null,
+                  "enabled": true,
+                  "variantState": "default"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "SSL Mode",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "SSL Mode"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.dropdown.feild",
+                    "componentKey": null,
+                    "componentName": "input.dropdown.feild",
+                    "meta": {
+                      "placeholder": "Add SSL Mode",
+                      "replace.inputValue": null
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "icon/builder-mode"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add SSL Mode"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "SSH Tunnel",
+                "componentKey": null,
+                "componentName": "comp.input.dropdown.base",
+                "meta": {
+                  "componentName": "comp.input.dropdown.base",
+                  "replace.labelText": "SSH Tunnel",
+                  "index": 4,
+                  "visible": true,
+                  "replace.inputValue": null,
+                  "enabled": true,
+                  "variantState": "default"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "SSH Tunnel",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "SSH Tunnel"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.dropdown.feild",
+                    "componentKey": null,
+                    "componentName": "input.dropdown.feild",
+                    "meta": {
+                      "placeholder": "Add SSH Tunnel",
+                      "replace.inputValue": null
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "icon/tunnel"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add SSH Tunnel"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "meta": {
+          "formTitle": "Connect Data Source",
+          "ctaText": "Add Wizard",
+          "hintText": "enter the details to connect to your data source successfully"
+        },
+        "childOverrides": [
+          {
+            "childName": "comp.huegrey.button",
+            "property": "visible",
+            "value": true
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "name": "wizard.header",
+        "componentKey": null,
+        "componentName": "wizard.header",
+        "meta": {
+          "variantState": "type2",
+          "wizardTitle": "Connect Data Source",
+          "wizardSubText": "Amazon S3"
+        }
+      },
+      {
+        "type": "INSTANCE",
+        "name": "slot.wizard.nav",
+        "componentKey": null,
+        "componentName": "slot.wizard.nav",
+        "children": [
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Source Type",
+            "stepState": "completed",
+            "label": "Source Type",
+            "meta": {
+              "index": 0
+            }
+          },
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Connection",
+            "stepState": "completed",
+            "label": "Connection",
+            "meta": {
+              "index": 1
+            }
+          },
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Authentication",
+            "stepState": "active",
+            "label": "Authentication",
+            "meta": {
+              "index": 2
+            }
+          },
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Review",
+            "stepState": "default",
+            "label": "Review",
+            "meta": {
+              "index": 3
+            }
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "name": "slot.wizard.hint",
+        "componentKey": null,
+        "componentName": "slot.wizard.hint",
+        "meta": {
+          "hintText": "enter the details to connect to your data source successfully"
+        }
+      }
+    ],
+    "base": "page.full-wizard"
+  },
+  {
+    "type": "FRAME",
+    "name": "06 Authentication Filled",
+    "width": 1440,
+    "height": 900,
+    "children": [
+      {
+        "type": "INSTANCE",
+        "name": "slot.module.wizardform",
+        "componentKey": null,
+        "componentName": "slot.module.wizardform",
+        "children": [
+          {
+            "type": "INSTANCE",
+            "name": "slot.content.form",
+            "componentKey": null,
+            "componentName": "slot.content.form",
+            "children": [
+              {
+                "type": "INSTANCE",
+                "name": "Auth Method",
+                "componentKey": null,
+                "componentName": "comp.input.dropdown.base",
+                "meta": {
+                  "componentName": "comp.input.dropdown.base",
+                  "replace.labelText": "Auth Method",
+                  "index": 0,
+                  "visible": true,
+                  "replace.inputValue": "Option 1",
+                  "enabled": true,
+                  "variantState": "filled"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Auth Method",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Auth Method"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.dropdown.feild",
+                    "componentKey": null,
+                    "componentName": "input.dropdown.feild",
+                    "meta": {
+                      "placeholder": "Add Auth Method",
+                      "replace.inputValue": "Option 1"
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "Icon/Dropdown"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Auth Method"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "Username",
+                "componentKey": null,
+                "componentName": "comp.input.text.base",
+                "meta": {
+                  "componentName": "comp.input.text.base",
+                  "replace.labelText": "Username",
+                  "index": 1,
+                  "visible": true,
+                  "replace.inputValue": "Username Value",
+                  "enabled": true,
+                  "variantState": "filled"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Username",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Username"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.text.feild",
+                    "componentKey": null,
+                    "componentName": "input.text.feild",
+                    "meta": {
+                      "placeholder": "Add Username",
+                      "replace.inputValue": "Username Value"
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "Icon/Input-text"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Username"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "Password",
+                "componentKey": null,
+                "componentName": "comp.input.text.base",
+                "meta": {
+                  "componentName": "comp.input.text.base",
+                  "replace.labelText": "Password",
+                  "index": 2,
+                  "visible": true,
+                  "replace.inputValue": "Password Value",
+                  "enabled": true,
+                  "variantState": "filled"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Password",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Password"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.text.feild",
+                    "componentKey": null,
+                    "componentName": "input.text.feild",
+                    "meta": {
+                      "placeholder": "Add Password",
+                      "replace.inputValue": "Password Value"
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "Icon/Input-text"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Password"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "SSL Mode",
+                "componentKey": null,
+                "componentName": "comp.input.dropdown.base",
+                "meta": {
+                  "componentName": "comp.input.dropdown.base",
+                  "replace.labelText": "SSL Mode",
+                  "index": 3,
+                  "visible": true,
+                  "replace.inputValue": "Option 1",
+                  "enabled": true,
+                  "variantState": "filled"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "SSL Mode",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "SSL Mode"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.dropdown.feild",
+                    "componentKey": null,
+                    "componentName": "input.dropdown.feild",
+                    "meta": {
+                      "placeholder": "Add SSL Mode",
+                      "replace.inputValue": "Option 1"
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "icon/builder-mode"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add SSL Mode"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "SSH Tunnel",
+                "componentKey": null,
+                "componentName": "comp.input.dropdown.base",
+                "meta": {
+                  "componentName": "comp.input.dropdown.base",
+                  "replace.labelText": "SSH Tunnel",
+                  "index": 4,
+                  "visible": true,
+                  "replace.inputValue": "Option 1",
+                  "enabled": true,
+                  "variantState": "filled"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "SSH Tunnel",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "SSH Tunnel"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.dropdown.feild",
+                    "componentKey": null,
+                    "componentName": "input.dropdown.feild",
+                    "meta": {
+                      "placeholder": "Add SSH Tunnel",
+                      "replace.inputValue": "Option 1"
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "icon/tunnel"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add SSH Tunnel"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "meta": {
+          "formTitle": "Connect Data Source",
+          "ctaText": "Add Wizard",
+          "hintText": "enter the details to connect to your data source successfully"
+        },
+        "childOverrides": [
+          {
+            "childName": "comp.huegrey.button",
+            "property": "visible",
+            "value": true
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "name": "wizard.header",
+        "componentKey": null,
+        "componentName": "wizard.header",
+        "meta": {
+          "variantState": "type2",
+          "wizardTitle": "Connect Data Source",
+          "wizardSubText": "Amazon S3"
+        }
+      },
+      {
+        "type": "INSTANCE",
+        "name": "slot.wizard.nav",
+        "componentKey": null,
+        "componentName": "slot.wizard.nav",
+        "children": [
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Source Type",
+            "stepState": "completed",
+            "label": "Source Type",
+            "meta": {
+              "index": 0
+            }
+          },
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Connection",
+            "stepState": "completed",
+            "label": "Connection",
+            "meta": {
+              "index": 1
+            }
+          },
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Authentication",
+            "stepState": "active",
+            "label": "Authentication",
+            "meta": {
+              "index": 2
+            }
+          },
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Review",
+            "stepState": "default",
+            "label": "Review",
+            "meta": {
+              "index": 3
+            }
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "name": "slot.wizard.hint",
+        "componentKey": null,
+        "componentName": "slot.wizard.hint",
+        "meta": {
+          "hintText": "enter the details to connect to your data source successfully"
+        }
+      }
+    ],
+    "base": "page.full-wizard"
+  },
+  {
+    "type": "FRAME",
+    "name": "07 Test and Save",
+    "width": 1440,
+    "height": 900,
+    "children": [
+      {
+        "type": "INSTANCE",
+        "name": "slot.module.wizardform",
+        "componentKey": null,
+        "componentName": "slot.module.wizardform",
+        "children": [
+          {
+            "type": "INSTANCE",
+            "name": "slot.content.form",
+            "componentKey": null,
+            "componentName": "slot.content.form",
+            "children": [
+              {
+                "type": "INSTANCE",
+                "name": "Source Name",
+                "componentKey": null,
+                "componentName": "comp.input.text.base",
+                "meta": {
+                  "componentName": "comp.input.text.base",
+                  "replace.labelText": "Source Name",
+                  "index": 0,
+                  "visible": true,
+                  "replace.inputValue": null,
+                  "enabled": true,
+                  "variantState": "default"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Source Name",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Source Name"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.text.feild",
+                    "componentKey": null,
+                    "componentName": "input.text.feild",
+                    "meta": {
+                      "placeholder": "Add Source Name",
+                      "replace.inputValue": null
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "icon/data-source"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Source Name"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "Source Type",
+                "componentKey": null,
+                "componentName": "comp.input.dropdown.base",
+                "meta": {
+                  "componentName": "comp.input.dropdown.base",
+                  "replace.labelText": "Source Type",
+                  "index": 1,
+                  "visible": true,
+                  "replace.inputValue": null,
+                  "enabled": true,
+                  "variantState": "default"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Source Type",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Source Type"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.dropdown.feild",
+                    "componentKey": null,
+                    "componentName": "input.dropdown.feild",
+                    "meta": {
+                      "placeholder": "Add Source Type",
+                      "replace.inputValue": null
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "icon/data-source"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Source Type"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "Host",
+                "componentKey": null,
+                "componentName": "comp.input.text.base",
+                "meta": {
+                  "componentName": "comp.input.text.base",
+                  "replace.labelText": "Host",
+                  "index": 2,
+                  "visible": true,
+                  "replace.inputValue": null,
+                  "enabled": true,
+                  "variantState": "default"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Host",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Host"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.text.feild",
+                    "componentKey": null,
+                    "componentName": "input.text.feild",
+                    "meta": {
+                      "placeholder": "Add Host",
+                      "replace.inputValue": null
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "Icon/Input-text"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Host"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "INSTANCE",
+                "name": "Status",
+                "componentKey": null,
+                "componentName": "comp.input.dropdown.base",
+                "meta": {
+                  "componentName": "comp.input.dropdown.base",
+                  "replace.labelText": "Status",
+                  "index": 3,
+                  "visible": true,
+                  "replace.inputValue": null,
+                  "enabled": true,
+                  "variantState": "default"
+                },
+                "enabled": true,
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "name": "Status",
+                    "componentKey": null,
+                    "componentName": "input.common.label",
+                    "meta": {
+                      "replace.labelText": "Status"
+                    }
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.dropdown.feild",
+                    "componentKey": null,
+                    "componentName": "input.dropdown.feild",
+                    "meta": {
+                      "placeholder": "Add Status",
+                      "replace.inputValue": null
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "name": "Icon/Placeholder",
+                        "componentKey": "7fbd9893e41eb6d0608efe9cf9220fb14a537619",
+                        "componentName": "Icon/Placeholder",
+                        "meta": {
+                          "icon": "icon/status-marker"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "name": "input.common.hint",
+                    "componentKey": null,
+                    "componentName": "input.common.hint",
+                    "meta": {
+                      "placeholder": "Add Status"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "meta": {
+          "formTitle": "Connect Data Source",
+          "ctaText": "Add Wizard",
+          "hintText": "enter the details to connect to your data source successfully"
+        },
+        "childOverrides": [
+          {
+            "childName": "comp.huegrey.button",
+            "property": "visible",
+            "value": true
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "name": "wizard.header",
+        "componentKey": null,
+        "componentName": "wizard.header",
+        "meta": {
+          "variantState": "type2",
+          "wizardTitle": "Connect Data Source",
+          "wizardSubText": "Amazon S3"
+        }
+      },
+      {
+        "type": "INSTANCE",
+        "name": "slot.wizard.nav",
+        "componentKey": null,
+        "componentName": "slot.wizard.nav",
+        "children": [
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Source Type",
+            "stepState": "completed",
+            "label": "Source Type",
+            "meta": {
+              "index": 0
+            }
+          },
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Connection",
+            "stepState": "completed",
+            "label": "Connection",
+            "meta": {
+              "index": 1
+            }
+          },
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Authentication",
+            "stepState": "completed",
+            "label": "Authentication",
+            "meta": {
+              "index": 2
+            }
+          },
+          {
+            "type": "SLOT_INSTRUCTION",
+            "role": "stepper",
+            "name": "Review",
+            "stepState": "active",
+            "label": "Review",
+            "meta": {
+              "index": 3
+            }
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "name": "slot.wizard.hint",
+        "componentKey": null,
+        "componentName": "slot.wizard.hint",
+        "meta": {
+          "hintText": "enter the details to connect to your data source successfully"
+        }
+      }
+    ],
+    "base": "page.full-wizard"
+  },
+  {
+    "type": "FRAME",
+    "name": "08 Data Source Connected",
+    "width": 1440,
+    "height": 900,
+    "children": [
+      {
+        "type": "INSTANCE",
+        "name": "slot.module.dashboard",
+        "componentKey": null,
+        "componentName": "slot.module.dashboard",
+        "children": [
+          {
+            "type": "INSTANCE",
+            "name": "slot.content.card-dashboard",
+            "componentKey": null,
+            "componentName": "slot.content.card-dashboard",
+            "children": [
+              {
+                "type": "SLOT_INSTRUCTION",
+                "role": "card",
+                "name": "Amazon S3",
+                "cardState": null,
+                "appName": "Amazon S3",
+                "appIcon": "AS",
+                "textLength": "Default",
+                "createdOn": "Oct 31, 2025",
+                "avatarConfig": {
+                  "type": "Solid",
+                  "borderRadius": "Default",
+                  "statusHint": false,
+                  "color": "Cardinal",
+                  "userVariant": null
+                }
+              },
+              {
+                "type": "SLOT_INSTRUCTION",
+                "role": "card",
+                "name": "Google Drive",
+                "cardState": null,
+                "appName": "Google Drive",
+                "appIcon": "GD",
+                "textLength": "Default",
+                "createdOn": "Nov 16, 2025",
+                "avatarConfig": {
+                  "type": "Solid",
+                  "borderRadius": "Default",
+                  "statusHint": false,
+                  "color": "Tekhelete",
+                  "userVariant": null
+                }
+              },
+              {
+                "type": "SLOT_INSTRUCTION",
+                "role": "card",
+                "name": "Microsoft SQL",
+                "cardState": null,
+                "appName": "Microsoft SQL",
+                "appIcon": "MS",
+                "textLength": "Default",
+                "createdOn": "Oct 16, 2025",
+                "avatarConfig": {
+                  "type": "Solid",
+                  "borderRadius": "Default",
+                  "statusHint": false,
+                  "color": "Caribbean",
+                  "userVariant": null
+                }
+              },
+              {
+                "type": "SLOT_INSTRUCTION",
+                "role": "card",
+                "name": "Salesforce CRM",
+                "cardState": null,
+                "appName": "Salesforce CRM",
+                "appIcon": "SC",
+                "textLength": "Default",
+                "createdOn": "Mar 18, 2026",
+                "avatarConfig": {
+                  "type": "Solid",
+                  "borderRadius": "Default",
+                  "statusHint": false,
+                  "color": "Avocado",
+                  "userVariant": null
+                }
+              },
+              {
+                "type": "SLOT_INSTRUCTION",
+                "role": "card",
+                "name": "Dropbox Business",
+                "cardState": null,
+                "appName": "Dropbox Business",
+                "appIcon": "DB",
+                "textLength": "Default",
+                "createdOn": "Nov 02, 2025",
+                "avatarConfig": {
+                  "type": "Solid",
+                  "borderRadius": "Default",
+                  "statusHint": false,
+                  "color": "Russet",
+                  "userVariant": null
+                }
+              },
+              {
+                "type": "SLOT_INSTRUCTION",
+                "role": "card",
+                "name": "HubSpot Marketing",
+                "cardState": null,
+                "appName": "HubSpot Marketing",
+                "appIcon": "HM",
+                "textLength": "Default",
+                "createdOn": "Mar 09, 2026",
+                "avatarConfig": {
+                  "type": "Solid",
+                  "borderRadius": "Default",
+                  "statusHint": false,
+                  "color": "Penred",
+                  "userVariant": null
+                }
+              },
+              {
+                "type": "SLOT_INSTRUCTION",
+                "role": "card",
+                "name": "Mailchimp Email",
+                "cardState": null,
+                "appName": "Mailchimp Email",
+                "appIcon": "ME",
+                "textLength": "Default",
+                "createdOn": "Feb 18, 2026",
+                "avatarConfig": {
+                  "type": "Solid",
+                  "borderRadius": "Default",
+                  "statusHint": false,
+                  "color": "Mardigrass",
+                  "userVariant": null
+                }
+              },
+              {
+                "type": "SLOT_INSTRUCTION",
+                "role": "card",
+                "name": "Zendesk Support",
+                "cardState": null,
+                "appName": "Zendesk Support",
+                "appIcon": "ZS",
+                "textLength": "Default",
+                "createdOn": "Jun 19, 2025",
+                "avatarConfig": {
+                  "type": "Solid",
+                  "borderRadius": "Default",
+                  "statusHint": false,
+                  "color": "Biceblue",
+                  "userVariant": null
+                }
+              },
+              {
+                "type": "SLOT_INSTRUCTION",
+                "role": "card",
+                "name": "Freshdesk Helpdesk",
+                "cardState": null,
+                "appName": "Freshdesk Helpdesk",
+                "appIcon": "FH",
+                "textLength": "Default",
+                "createdOn": "Feb 07, 2026",
+                "avatarConfig": {
+                  "type": "Solid",
+                  "borderRadius": "Default",
+                  "statusHint": false,
+                  "color": "Seagreen",
+                  "userVariant": null
+                }
+              },
+              {
+                "type": "SLOT_INSTRUCTION",
+                "role": "card",
+                "name": "Jira Software",
+                "cardState": null,
+                "appName": "Jira Software",
+                "appIcon": "JS",
+                "textLength": "Default",
+                "createdOn": "Apr 21, 2025",
+                "avatarConfig": {
+                  "type": "Solid",
+                  "borderRadius": "Default",
+                  "statusHint": false,
+                  "color": "Gold",
+                  "userVariant": null
+                }
+              },
+              {
+                "type": "SLOT_INSTRUCTION",
+                "role": "card",
+                "name": "Trello Boards",
+                "cardState": null,
+                "appName": "Trello Boards",
+                "appIcon": "TB",
+                "textLength": "Default",
+                "createdOn": "Jun 30, 2025",
+                "avatarConfig": {
+                  "type": "Solid",
+                  "borderRadius": "Default",
+                  "statusHint": false,
+                  "color": "Brown",
+                  "userVariant": null
+                }
+              },
+              {
+                "type": "SLOT_INSTRUCTION",
+                "role": "card",
+                "name": "Asana Tasks",
+                "cardState": null,
+                "appName": "Asana Tasks",
+                "appIcon": "AT",
+                "textLength": "Default",
+                "createdOn": "Oct 29, 2025",
+                "avatarConfig": {
+                  "type": "Solid",
+                  "borderRadius": "Default",
+                  "statusHint": false,
+                  "color": "Black",
+                  "userVariant": null
+                }
+              },
+              {
+                "type": "SLOT_INSTRUCTION",
+                "role": "card",
+                "name": "Mixpanel Insights",
+                "cardState": null,
+                "appName": "Mixpanel Insights",
+                "appIcon": "MI",
+                "textLength": "Default",
+                "createdOn": "Apr 08, 2025",
+                "avatarConfig": {
+                  "type": "Solid",
+                  "borderRadius": "Default",
+                  "statusHint": false,
+                  "color": "Cardinal",
+                  "userVariant": null
+                }
+              },
+              {
+                "type": "SLOT_INSTRUCTION",
+                "role": "card",
+                "name": "Tableau Server",
+                "cardState": null,
+                "appName": "Tableau Server",
+                "appIcon": "TS",
+                "textLength": "Default",
+                "createdOn": "Dec 16, 2025",
+                "avatarConfig": {
+                  "type": "Solid",
+                  "borderRadius": "Default",
+                  "statusHint": false,
+                  "color": "Tekhelete",
+                  "userVariant": null
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "INSTANCE",
+        "name": "comp.toast.message",
+        "componentKey": "8f226ebdb454532cc1fe98168f4800e0d6297eab",
+        "componentName": "comp.toast.message"
+      }
+    ],
+    "base": "page.base"
+  }
+]

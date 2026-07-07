@@ -1,0 +1,142 @@
+{
+  "default": {},
+  "success": {
+    "toast": true
+  },
+  "card hover": {
+    "cardState": "card-hover"
+  },
+  "card ellipsis hover": {
+    "cardState": "card-ellipsis-hover"
+  },
+  "card ellipsis click": {
+    "cardState": "card-ellipsis-click"
+  },
+  "card ellipsis click hover access": {
+    "cardState": "card-ellipsis-click",
+    "menuItemHover": "Access"
+  },
+  "card ellipsis click hover edit": {
+    "cardState": "card-ellipsis-click",
+    "menuItemHover": "Edit"
+  },
+  "card ellipsis click hover delete": {
+    "cardState": "card-ellipsis-click",
+    "menuItemHover": "Delete"
+  },
+  "row hover": {
+    "rowState": "Row Hover"
+  },
+  "row ellipsis hover": {
+    "rowState": "Row Ellipsis Hover"
+  },
+  "row ellipsis click": {
+    "rowState": "Row Ellipsis Click"
+  },
+  "row ellipsis click hover access": {
+    "rowState": "Row Ellipsis Click",
+    "menuItemHover": "Access"
+  },
+  "row ellipsis click hover edit": {
+    "rowState": "Row Ellipsis Click",
+    "menuItemHover": "Edit"
+  },
+  "row ellipsis click hover delete": {
+    "rowState": "Row Ellipsis Click",
+    "menuItemHover": "Delete"
+  },
+  "overlay delete": {
+    "overlaySlot": "slot.overlay.delete",
+    "overlayCompose": true
+  },
+  "card ellipsis click overlay delete": {
+    "cardState": "card-ellipsis-click",
+    "overlaySlot": "slot.overlay.delete",
+    "overlayCompose": true
+  },
+  "form default": {
+    "inputState": "hover",
+    "step": "form"
+  },
+  "form filled": {
+    "inputState": "filled",
+    "step": "filledForm"
+  },
+  "hover on success close icon": {
+    "toast": true,
+    "toastOverrides": [
+      {
+        "childName": "action.modal.close",
+        "property": "State",
+        "value": "Hover-on-default"
+      }
+    ],
+    "_source": "ai-learned"
+  },
+  "change input.check state to checked only the first table.item": {
+    "rowChildOverrides": [
+      {
+        "childName": "input.check",
+        "property": "State",
+        "value": "checked"
+      }
+    ],
+    "_source": "ai-learned"
+  },
+  "hover on table.more.ellipsis": {
+    "menuItemHover": "table.more.ellipsis",
+    "_source": "ai-learned"
+  },
+  "overlay delete and hover on comp.error.button": {
+    "overlaySlot": "slot.overlay.delete",
+    "overlayCompose": true,
+    "overlayChildOverrides": [
+      {
+        "childName": "comp.error.button",
+        "property": "$hover",
+        "value": true
+      }
+    ],
+    "_source": "ai-learned"
+  },
+  "overlay form": {
+    "overlaySlot": "slot.overlay.popup",
+    "overlayCompose": true
+  },
+  "overlay form filled": {
+    "overlaySlot": "slot.overlay.popup",
+    "overlayCompose": true,
+    "inputState": "filled"
+  },
+  "overlay form hover on comp.primary.button": {
+    "overlaySlot": "slot.overlay.popup",
+    "overlayCompose": true,
+    "overlayChildOverrides": [
+      {
+        "childName": "comp.primary.button",
+        "property": "$hover",
+        "value": true
+      }
+    ]
+  },
+  "form filled and first input feild state dissabled": {
+    "inputState": "filled",
+    "step": "filledForm",
+    "childOverrides": [
+      {
+        "childName": "comp.input.text",
+        "index": 0,
+        "property": "state",
+        "value": "disabled"
+      }
+    ],
+    "_source": "ai-learned"
+  },
+  "overlay popup": {
+    "overlaySlot": "slot.overlay.popup"
+  },
+  "overlay image": {
+    "overlaySlot": "slot.overlay.image",
+    "overlayCompose": true
+  }
+}

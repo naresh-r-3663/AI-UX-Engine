@@ -1,0 +1,27 @@
+{
+  "schema": "knowledge/ai-decisions/icon-selection/v1",
+  "updatedAt": "2026-03-09T00:00:00.000Z",
+  "intentLexicon": {
+    "name": ["user", "person", "profile", "users", "identity", "account"],
+    "email": ["mail", "contact", "info", "message"],
+    "phone": ["mobile", "call", "contact", "connection"],
+    "message": ["comment", "note", "edit", "text", "feedback"],
+    "comments": ["comment", "message", "note", "edit"],
+    "description": ["message", "note", "text", "edit", "info"],
+    "feedback": ["message", "comment", "note", "edit"],
+    "organization": ["company", "workspace", "org", "team"],
+    "submit": ["success", "tick", "check", "done", "arrow"],
+    "cancel": ["close", "error", "minus"],
+    "save": ["success", "tick", "check", "done"]
+  },
+  "slotBoost": {
+    "input_left": {
+      "preferred": ["users", "info", "connection", "organization", "clock", "edit"],
+      "blocked": ["delete", "error", "close"]
+    },
+    "button_left": {
+      "preferred": ["tick", "success", "check", "arrow", "plus", "close"],
+      "blocked": []
+    }
+  }
+}
