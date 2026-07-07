@@ -7,10 +7,17 @@ const applyPatch = require("../engine/patchResolver")
 const resolveDomain = require("../engine/domainResolver")
 const { shouldUseAI } = require("../engine/runModeResolver")
 
-// Cloud hosts (Render/Railway/Fly) inject PORT and require binding to 0.0.0.0.
+// Cloud hosts inject the port and require binding to 0.0.0.0:
+//   Zoho Catalyst AppSail -> X_ZOHO_CATALYST_LISTEN_PORT (default 9000)
+//   Render/Railway/Fly    -> PORT
 // Locally, http://127.0.0.1:<PORT> still resolves to a 0.0.0.0 listener.
 const HOST = process.env.HOST || process.env.UI_HOST || "0.0.0.0"
-const PORT = Number(process.env.PORT || process.env.UI_PORT || 3210)
+const PORT = Number(
+  process.env.X_ZOHO_CATALYST_LISTEN_PORT ||
+  process.env.PORT ||
+  process.env.UI_PORT ||
+  3210
+)
 const UI_FILE = path.join(__dirname, "..", "prompt-ui.html")
 const README_FILE = path.join(__dirname, "..", "engine-readme.html")
 const DOMAIN_MODELS_PATH = path.join(__dirname, "..", "config", "domainModels.json")
