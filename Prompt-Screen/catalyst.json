@@ -4,5 +4,11 @@
       "source": ".",
       "name": "AppSail"
     }
+  ],
+  "slate": [
+    {
+      "name": "ai-ux-engine",
+      "source": "."
+    }
   ]
 }

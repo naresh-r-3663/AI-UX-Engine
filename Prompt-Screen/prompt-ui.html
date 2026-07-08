@@ -1511,13 +1511,13 @@
       const host = window.location.hostname
       const isLocal = host === "localhost" || host === "127.0.0.1" || host === "0.0.0.0"
       const isAppSail = host.endsWith(".catalystappsail.in")
-      const isStaticDeploy = host === "ai-ux-engine.onslate.in"
+      const isStaticDeploy = host.endsWith(".onslate.in")
       const apiOrigin = isStaticDeploy && !isLocal && !isAppSail ? DEPLOYED_API_ORIGIN : ""
       return apiOrigin + cleanPath
     }
 
     function getApiHeaders() {
-      const isStaticDeploy = window.location.hostname === "ai-ux-engine.onslate.in"
+      const isStaticDeploy = window.location.hostname.endsWith(".onslate.in")
       return {
         "Content-Type": isStaticDeploy ? "text/plain;charset=UTF-8" : "application/json"
       }

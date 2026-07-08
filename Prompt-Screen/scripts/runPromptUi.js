@@ -29,7 +29,11 @@ const ALLOWED_ORIGINS = new Set([
 function getAllowedOrigin(req) {
   const origin = req.headers.origin
   if (!origin) return "*"
-  if (ALLOWED_ORIGINS.has(origin) || /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) {
+  if (
+    ALLOWED_ORIGINS.has(origin) ||
+    /^https:\/\/[^/]+\.onslate\.in$/.test(origin) ||
+    /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)
+  ) {
     return origin
   }
   return ""
