@@ -1516,12 +1516,19 @@
       return apiOrigin + cleanPath
     }
 
+    function getApiHeaders() {
+      const isStaticDeploy = window.location.hostname === "ai-ux-engine.onslate.in"
+      return {
+        "Content-Type": isStaticDeploy ? "text/plain;charset=UTF-8" : "application/json"
+      }
+    }
+
     async function fetchJson(url, payload, signal) {
       let res
       try {
         res = await fetch(getApiUrl(url), {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: getApiHeaders(),
           body: JSON.stringify(payload),
           signal
         })
@@ -1924,7 +1931,7 @@
       try {
         const res = await fetch(getApiUrl("/api/save-domain"), {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: getApiHeaders(),
           body: JSON.stringify({
             key,
             entity: entity || key,
