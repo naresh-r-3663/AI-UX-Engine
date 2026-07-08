@@ -1504,10 +1504,22 @@
         : "Known domain prompts use knowledge. New prompts call UX AI."
     }
 
+    const DEPLOYED_API_ORIGIN = "https://appsail-50043248597.development.catalystappsail.in"
+
+    function getApiUrl(path) {
+      const cleanPath = path.startsWith("/") ? path : "/" + path
+      const host = window.location.hostname
+      const isLocal = host === "localhost" || host === "127.0.0.1" || host === "0.0.0.0"
+      const isAppSail = host.endsWith(".catalystappsail.in")
+      const isStaticDeploy = host === "ai-ux-engine.onslate.in"
+      const apiOrigin = isStaticDeploy && !isLocal && !isAppSail ? DEPLOYED_API_ORIGIN : ""
+      return apiOrigin + cleanPath
+    }
+
     async function fetchJson(url, payload, signal) {
       let res
       try {
-        res = await fetch(url, {
+        res = await fetch(getApiUrl(url), {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -1517,7 +1529,7 @@
         // Keep abort behaving as "stopped by user" for the caller
         if (err.name === "AbortError") throw err
         // Network-level failure: server down, offline, DNS, CORS
-        throw new Error("Cannot reach the backend server. This page needs its Node server running — screen generation works on http://127.0.0.1:3210 or a deployed host (Catalyst AppSail).")
+        throw new Error("Cannot reach the backend server. This page needs its Node server running — screen generation works on http://127.0.0.1:3210 or the deployed Catalyst AppSail backend.")
       }
 
       const raw = await res.text()
@@ -1528,7 +1540,7 @@
         if (data && data.error) throw new Error(data.error)
         // 404/405 from a static host = there is no API backend at this URL
         if (res.status === 404 || res.status === 405) {
-          throw new Error("No API backend at this URL (HTTP " + res.status + "). This site is served by static hosting with no Node server. Deploy the app (Catalyst AppSail) or open http://127.0.0.1:3210.")
+          throw new Error("No API backend at this URL (HTTP " + res.status + "). Open http://127.0.0.1:3210 locally or use the deployed Catalyst AppSail backend.")
         }
         throw new Error("Request failed (HTTP " + res.status + ")")
       }
@@ -1828,7 +1840,7 @@
 
     async function checkConflicts(key) {
       try {
-        const res = await fetch("/api/list-domains")
+        const res = await fetch(getApiUrl("/api/list-domains"))
         const data = await res.json()
         const match = (data.domains || []).find(d => d.key === key)
         if (match) {
@@ -1910,7 +1922,7 @@
       modalSave.textContent = "Saving..."
 
       try {
-        const res = await fetch("/api/save-domain", {
+        const res = await fetch(getApiUrl("/api/save-domain"), {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

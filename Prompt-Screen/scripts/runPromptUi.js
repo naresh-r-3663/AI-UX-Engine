@@ -21,6 +21,27 @@ const PORT = Number(
 const UI_FILE = path.join(__dirname, "..", "prompt-ui.html")
 const README_FILE = path.join(__dirname, "..", "engine-readme.html")
 const DOMAIN_MODELS_PATH = path.join(__dirname, "..", "config", "domainModels.json")
+const ALLOWED_ORIGINS = new Set([
+  "https://ai-ux-engine.onslate.in",
+  "https://appsail-50043248597.development.catalystappsail.in"
+])
+
+function getAllowedOrigin(req) {
+  const origin = req.headers.origin
+  if (!origin) return "*"
+  if (ALLOWED_ORIGINS.has(origin) || /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) {
+    return origin
+  }
+  return ""
+}
+
+function applyCors(req, res) {
+  const origin = getAllowedOrigin(req)
+  if (origin) res.setHeader("Access-Control-Allow-Origin", origin)
+  res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS")
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type")
+  res.setHeader("Vary", "Origin")
+}
 
 function sendJson(res, statusCode, payload) {
   const body = JSON.stringify(payload)
@@ -301,6 +322,15 @@ async function handleListDomains(req, res) {
 const server = http.createServer(async (req, res) => {
   try {
     const url = new URL(req.url || "/", `http://${req.headers.host || `${HOST}:${PORT}`}`)
+
+    if (url.pathname.startsWith("/api/")) {
+      applyCors(req, res)
+    }
+
+    if (req.method === "OPTIONS" && url.pathname.startsWith("/api/")) {
+      res.writeHead(204)
+      return res.end()
+    }
 
     if (req.method === "GET" && url.pathname === "/") {
       const html = fs.readFileSync(UI_FILE, "utf8")
