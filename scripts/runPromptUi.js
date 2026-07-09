@@ -18,7 +18,8 @@ const PORT = Number(
   process.env.UI_PORT ||
   3210
 )
-const UI_FILE = path.join(__dirname, "..", "prompt-ui.html")
+const ROOT_UI_FILE = path.join(__dirname, "..", "Index.html")
+const UI_FILE = fs.existsSync(ROOT_UI_FILE) ? ROOT_UI_FILE : path.join(__dirname, "..", "index.html")
 const README_FILE = path.join(__dirname, "..", "engine-readme.html")
 const DOMAIN_MODELS_PATH = path.join(__dirname, "..", "config", "domainModels.json")
 const ALLOWED_ORIGINS = new Set([
