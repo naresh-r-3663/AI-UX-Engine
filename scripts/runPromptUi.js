@@ -21,6 +21,7 @@ const PORT = Number(
 const ROOT_UI_FILE = path.join(__dirname, "..", "Index.html")
 const UI_FILE = fs.existsSync(ROOT_UI_FILE) ? ROOT_UI_FILE : path.join(__dirname, "..", "index.html")
 const README_FILE = path.join(__dirname, "..", "engine-readme.html")
+const PLUGIN_ZIP_FILE = path.join(__dirname, "..", "ai-ux-json-renderer-plugin.zip")
 const DOMAIN_MODELS_PATH = path.join(__dirname, "..", "config", "domainModels.json")
 const ALLOWED_ORIGINS = new Set([
   "https://ai-ux-engine.onslate.in",
@@ -65,6 +66,17 @@ function sendHtml(res, statusCode, html) {
     "Cache-Control": "no-store"
   })
   res.end(html)
+}
+
+function sendZip(res, filePath) {
+  const body = fs.readFileSync(filePath)
+  res.writeHead(200, {
+    "Content-Type": "application/zip",
+    "Content-Length": body.length,
+    "Content-Disposition": "attachment; filename=\"ai-ux-json-renderer-plugin.zip\"",
+    "Cache-Control": "no-store"
+  })
+  res.end(body)
 }
 
 function readJsonBody(req) {
@@ -345,6 +357,10 @@ const server = http.createServer(async (req, res) => {
     if (req.method === "GET" && url.pathname === "/engine-readme.html") {
       const html = fs.readFileSync(README_FILE, "utf8")
       return sendHtml(res, 200, html)
+    }
+
+    if (req.method === "GET" && url.pathname === "/ai-ux-json-renderer-plugin.zip") {
+      return sendZip(res, PLUGIN_ZIP_FILE)
     }
 
     if (req.method === "POST" && url.pathname === "/api/mode") {
