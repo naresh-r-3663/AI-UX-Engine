@@ -2,7 +2,7 @@
   "appsail": [
     {
       "source": ".",
-      "name": "ai-ux-engine-apiai-ux-engine-api-20260709"
+      "name": "PromtCanvas"
     }
   ],
   "slate": [

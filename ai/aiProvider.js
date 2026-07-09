@@ -34,6 +34,7 @@ function apiKeyFromEnv(provider) {
 
 // Per-request config (from the Settings modal) overrides env defaults.
 function resolveConfig(config = {}) {
+  config = config || {}
   const provider = String(config.provider || process.env.AI_PROVIDER || "ollama").toLowerCase()
   return {
     provider,
