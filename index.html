@@ -714,6 +714,31 @@
       margin-bottom: 14px;
     }
 
+    .plugin-steps {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--ink);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .plugin-steps li {
+      margin-bottom: 8px;
+    }
+
+    .plugin-code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      background: #f5f5f5;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 2px 6px;
+    }
+
+    .modal-actions .btn {
+      text-decoration: none;
+    }
+
     .radio-group {
       display: flex;
       flex-wrap: wrap;
@@ -939,6 +964,10 @@
           <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M12 6.25a.75.75 0 01.75.75v4.25H17a.75.75 0 010 1.5h-4.25V17a.75.75 0 01-1.5 0v-4.25H7a.75.75 0 010-1.5h4.25V7a.75.75 0 01.75-.75z" fill="currentColor"/><path d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12z" stroke="currentColor" stroke-width="1.5"/></svg>
           Architecture & Flow
         </a>
+        <button type="button" class="readme-btn" id="pluginGuideBtn">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M7 8h10M7 12h10M7 16h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M5 3.75h14A1.25 1.25 0 0120.25 5v14A1.25 1.25 0 0119 20.25H5A1.25 1.25 0 013.75 19V5A1.25 1.25 0 015 3.75z" stroke="currentColor" stroke-width="1.5"/></svg>
+          Figma Plugin
+        </button>
       </div>
     </aside>
 
@@ -1057,6 +1086,36 @@
     </div>
   </div>
 
+  <!-- Figma Plugin Modal -->
+  <div class="modal-overlay hidden" id="pluginModal">
+    <div class="modal">
+      <h3 class="modal-title">AI UX JSON Renderer Plugin</h3>
+      <p class="modal-sub">Download the Figma development plugin and install it to render generated AI UX Engine JSON as editable Figma screens.</p>
+
+      <div class="modal-summary-box">
+        Plugin manifest: <span class="plugin-code">plugin/manifest.json</span><br />
+        Plugin name in Figma: <span class="plugin-code">AI UX JSON Renderer</span>
+      </div>
+
+      <div class="modal-field">
+        <span class="modal-label">Install in Figma</span>
+        <ol class="plugin-steps">
+          <li>Download the plugin source ZIP and unzip it on your machine.</li>
+          <li>Open Figma Desktop.</li>
+          <li>Go to <span class="plugin-code">Plugins</span> &gt; <span class="plugin-code">Development</span> &gt; <span class="plugin-code">Import plugin from manifest...</span>.</li>
+          <li>Select <span class="plugin-code">plugin/manifest.json</span> from the unzipped folder.</li>
+          <li>Run <span class="plugin-code">AI UX JSON Renderer</span> from <span class="plugin-code">Plugins</span> &gt; <span class="plugin-code">Development</span>.</li>
+          <li>Generate screens here, copy the JSON output, paste it into the plugin, then render the screens in Figma.</li>
+        </ol>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn secondary" id="pluginClose">Close</button>
+        <a class="btn" href="https://github.com/naresh-r-3663/AI-UX-Engine/archive/refs/heads/main.zip" target="_blank" rel="noopener">Download Plugin ZIP</a>
+      </div>
+    </div>
+  </div>
+
   <!-- AI Settings Modal -->
   <div class="modal-overlay hidden" id="settingsModal">
     <div class="modal">
@@ -1118,6 +1177,9 @@
     const bottomComposer = document.getElementById("bottomComposer")
     const landingInput = document.getElementById("landingInput")
     const landingStartBtn = document.getElementById("landingStartBtn")
+    const pluginModal = document.getElementById("pluginModal")
+    const pluginGuideBtn = document.getElementById("pluginGuideBtn")
+    const pluginClose = document.getElementById("pluginClose")
 
     function nowLabel() {
       return new Date().toLocaleString([], { month: "short", day: "2-digit", hour: "2-digit", minute: "2-digit" })
@@ -2022,6 +2084,9 @@
     settingsBtn.addEventListener("click", openSettingsModal)
     settingsCancel.addEventListener("click", closeSettingsModal)
     settingsModal.addEventListener("click", (e) => { if (e.target === settingsModal) closeSettingsModal() })
+    pluginGuideBtn.addEventListener("click", () => pluginModal.classList.remove("hidden"))
+    pluginClose.addEventListener("click", () => pluginModal.classList.add("hidden"))
+    pluginModal.addEventListener("click", (e) => { if (e.target === pluginModal) pluginModal.classList.add("hidden") })
     document.querySelectorAll('input[name="provider"]').forEach(el => {
       el.addEventListener("change", () => syncSettingsForProvider(getSelectedProvider()))
     })
