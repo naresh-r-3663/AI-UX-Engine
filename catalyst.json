@@ -2,12 +2,12 @@
   "appsail": [
     {
       "source": ".",
-      "name": "AppSail"
+      "name": "ai-ux-engine-apiai-ux-engine-api-20260709"
     }
   ],
   "slate": [
     {
-      "name": "ai-ux-engine",
+      "name": "ai-ux-engine-ui",
       "source": "."
     }
   ]
